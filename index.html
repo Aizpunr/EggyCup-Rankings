@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Eggy Cup ELO Rankings</title>
+<style>
+  :root {
+    --bg: #0f1117;
+    --panel: #181b24;
+    --panel2: #20232e;
+    --border: #2a2f3d;
+    --text: #e7e9ef;
+    --muted: #8a93a6;
+    --accent: #f59e0b;
+    --gold: #facc15;
+    --silver: #cbd5e1;
+    --bronze: #d08770;
+    --up: #10b981;
+    --down: #ef4444;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: ui-sans-serif, system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 14px;
+    line-height: 1.4;
+  }
+  header {
+    padding: 18px 24px 12px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  header h1 {
+    margin: 0;
+    font-size: 22px;
+    letter-spacing: 0.5px;
+  }
+  header .sub {
+    color: var(--muted);
+    font-size: 13px;
+  }
+  nav {
+    display: flex;
+    gap: 0;
+    padding: 0 24px;
+    border-bottom: 1px solid var(--border);
+    background: var(--panel);
+  }
+  nav button {
+    background: none;
+    border: none;
+    color: var(--muted);
+    padding: 12px 18px;
+    cursor: pointer;
+    font-size: 14px;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+  }
+  nav button.active {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+  }
+  nav button:hover {
+    color: var(--text);
+  }
+  main {
+    padding: 16px 24px;
+    max-width: 1280px;
+  }
+  .panel {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 16px;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+  th, td {
+    padding: 7px 10px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+  }
+  th {
+    color: var(--muted);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 11px;
+    cursor: pointer;
+    user-select: none;
+    white-space: nowrap;
+  }
+  th.sorted::after {
+    content: ' \25BE';
+    color: var(--accent);
+  }
+  th.sorted.asc::after {
+    content: ' \25B4';
+  }
+  tbody tr:hover {
+    background: var(--panel2);
+    cursor: pointer;
+  }
+  tbody tr.chart-row:hover { background: var(--panel2); cursor: default; }
+  td.num {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+  }
+  td.rank {
+    text-align: left;
+    color: var(--muted);
+    width: 70px;
+    white-space: nowrap;
+  }
+  .gold { color: var(--gold); }
+  .silver { color: var(--silver); }
+  .bronze { color: var(--bronze); }
+  .arrow-up { color: var(--up); font-size: 9px; font-weight: 700; margin-left: 4px; }
+  .arrow-down { color: var(--down); font-size: 9px; font-weight: 700; margin-left: 4px; }
+  .arrow-new { color: var(--accent); font-size: 9px; font-weight: 700; margin-left: 4px; }
+  .elo-delta-up { color: var(--up); font-size: 8px; font-weight: 600; margin-left: 4px; }
+  .elo-delta-down { color: var(--down); font-size: 8px; font-weight: 600; margin-left: 4px; }
+
+  tr.selected { background: rgba(245,158,11,0.08) !important; }
+  td.chart-cell { padding: 0; background: var(--panel2); border-bottom: 1px solid var(--border); }
+  .chart-panel {
+    background: var(--panel2); padding: 14px 16px;
+    animation: slideDown 0.2s ease-out;
+  }
+  @keyframes slideDown { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: translateY(0); } }
+  .chart-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; gap: 12px; }
+  .chart-header .name { font-size: 17px; font-weight: 700; }
+  .chart-header .tier {
+    margin-left: 8px; font-size: 10px; font-family: ui-monospace, monospace; opacity: 0.8;
+    padding: 2px 6px; border-radius: 4px;
+  }
+  .chart-header .stats { font-size: 12px; color: var(--muted); font-family: ui-monospace, monospace; }
+  .close-btn {
+    background: none; border: 1px solid var(--border); color: var(--muted);
+    border-radius: 6px; padding: 3px 8px; cursor: pointer; font-size: 11px; flex-shrink: 0;
+  }
+  .close-btn:hover { border-color: var(--muted); color: var(--text); }
+  .chart-canvas { width: 100%; height: 180px; position: relative; overflow-x: auto; overflow-y: hidden; }
+  .chart-tooltip {
+    background: var(--panel); border: 1px solid var(--border);
+    border-radius: 8px; padding: 8px 12px; font-family: ui-monospace, monospace; font-size: 12px;
+    pointer-events: none; position: absolute; z-index: 10; display: none;
+  }
+  .chart-tooltip .t-cup { color: var(--text); font-weight: 700; }
+  .chart-tooltip .t-pos { color: var(--muted); }
+  .chart-tooltip .t-pos span { color: var(--accent); }
+  .chart-tooltip .t-elo { color: var(--muted); }
+  .chart-tooltip .t-elo span { color: var(--text); }
+  .pod {
+    display: inline-block;
+    min-width: 18px;
+    text-align: center;
+    font-size: 11px;
+    padding: 1px 5px;
+    border-radius: 3px;
+    margin-right: 2px;
+  }
+  .cup-block {
+    background: var(--panel2);
+    border-radius: 6px;
+    padding: 14px 16px;
+    margin-bottom: 14px;
+  }
+  .cup-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+  .cup-head h3 {
+    margin: 0;
+    color: var(--accent);
+    font-size: 16px;
+  }
+  .cup-meta {
+    color: var(--muted);
+    font-size: 12px;
+  }
+  details {
+    margin-top: 8px;
+  }
+  details summary {
+    cursor: pointer;
+    color: var(--muted);
+    font-size: 12px;
+    padding: 4px 0;
+  }
+  .pod-row {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin: 6px 0;
+  }
+  .pod-cell {
+    background: var(--panel);
+    border-radius: 4px;
+    padding: 6px 10px;
+    font-size: 13px;
+  }
+  .pod-cell .pos {
+    font-weight: bold;
+    margin-right: 6px;
+  }
+  .player-hist {
+    margin-top: 10px;
+    font-size: 12px;
+    color: var(--muted);
+  }
+  .player-hist span {
+    display: inline-block;
+    padding: 2px 7px;
+    border-radius: 3px;
+    margin-right: 4px;
+    background: var(--panel2);
+    color: var(--text);
+  }
+  .modal-bg {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+  }
+  .modal-bg.show { display: flex; }
+  .modal {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 20px 24px;
+    max-width: 600px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+  }
+  .modal h2 {
+    margin: 0 0 10px;
+    color: var(--accent);
+  }
+  .modal .close {
+    float: right;
+    cursor: pointer;
+    color: var(--muted);
+    font-size: 20px;
+  }
+  footer {
+    padding: 20px 24px;
+    color: var(--muted);
+    font-size: 12px;
+    text-align: center;
+    border-top: 1px solid var(--border);
+    margin-top: 24px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Eggy Cup ELO Rankings</h1>
+  <span class="sub" id="subtitle">loading…</span>
+</header>
+
+<nav>
+  <button class="active" data-tab="rankings">Rankings</button>
+  <button data-tab="cups">Cups</button>
+  <button data-tab="fastest">Fastest</button>
+</nav>
+
+<main>
+
+<div id="tab-rankings" class="tab">
+  <div class="panel">
+    <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px;">
+      <div>
+        <strong id="variant-label">ELO</strong>
+        <span class="cup-meta" id="variant-desc"></span>
+      </div>
+      <div>
+        <label style="font-size:12px;color:var(--muted);">
+          Variant
+          <select id="variant-select" style="background:var(--panel2);color:var(--text);border:1px solid var(--border);padding:4px 8px;border-radius:4px;margin-left:6px;">
+            <option value="weighted">ELO</option>
+            <option value="glicko">Glicko-2</option>
+          </select>
+        </label>
+      </div>
+    </div>
+    <table id="rank-table">
+      <thead id="rank-head"></thead>
+      <tbody id="rank-body"></tbody>
+    </table>
+    <div style="margin-top:14px;font-family:ui-monospace,monospace;font-size:11px;color:var(--muted);text-align:center;line-height:1.7">
+      Click player for history ·
+      <span style="color:#dc2626">Legend 2000+</span> ·
+      <span style="color:#a855f7">Pro 1800+</span> ·
+      <span style="color:#3b82f6">Master 1700+</span> ·
+      <span style="color:#10b981">Gold 1600+</span> ·
+      <span style="color:#6b7280">Silver 1500+</span> ·
+      <span style="color:#78716c">Bronze</span>
+    </div>
+  </div>
+</div>
+
+<div id="tab-cups" class="tab" style="display:none;">
+  <div id="cups-list"></div>
+</div>
+
+<div id="tab-fastest" class="tab" style="display:none;">
+  <div class="panel">
+    <table>
+      <thead>
+        <tr>
+          <th class="rank">#</th>
+          <th>Cup</th>
+          <th>Player</th>
+          <th class="num">Time</th>
+          <th>Round</th>
+        </tr>
+      </thead>
+      <tbody id="fastest-body"></tbody>
+    </table>
+  </div>
+</div>
+
+</main>
+
+<footer>
+  Local-only • Hosted by <strong>Wheelie</strong> • Tracked from Eggy 87 onward (cups 1–86 unlogged)
+</footer>
+
+<script>
+let alldata = null;
+let snapshot = null;
+let cups = null;
+let fastest = null;
+let currentVariant = 'weighted';
+let currentSort = { key: 'a', asc: false };
+let selectedPlayer = null;
+
+function rColor(r) {
+  if (r >= 2000) return '#dc2626';
+  if (r >= 1800) return '#a855f7';
+  if (r >= 1700) return '#3b82f6';
+  if (r >= 1600) return '#10b981';
+  if (r >= 1500) return '#6b7280';
+  return '#78716c';
+}
+function tier(r) {
+  if (r >= 2000) return 'LEGEND';
+  if (r >= 1800) return 'PRO';
+  if (r >= 1700) return 'MASTER';
+  if (r >= 1600) return 'GOLD';
+  if (r >= 1500) return 'SILVER';
+  return 'BRONZE';
+}
+function cssVar(name) {
+  return getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+}
+
+async function loadAll() {
+  const bust = '?t=' + Date.now();
+  const [a, s, c, f] = await Promise.all([
+    fetch('alldata.json' + bust).then(r => r.json()),
+    fetch('snapshot.json' + bust).then(r => r.json()).catch(() => null),
+    fetch('cups.json' + bust).then(r => r.json()).catch(() => []),
+    fetch('fastest.json' + bust).then(r => r.json()).catch(() => []),
+  ]);
+  alldata = a;
+  snapshot = s;
+  cups = c;
+  fastest = f;
+  document.getElementById('subtitle').textContent =
+    `${alldata.weighted.length} players, ${cups.length} cup${cups.length === 1 ? '' : 's'}`;
+  renderRank();
+  renderCups();
+  renderFastest();
+}
+
+function renderRank() {
+  const tbody = document.getElementById('rank-body');
+  const thead = document.getElementById('rank-head');
+  const isGlicko = currentVariant === 'glicko';
+  const ratingLabel = isGlicko ? 'Rating' : 'ELO';
+  thead.innerHTML = `
+    <tr>
+      <th class="rank">#</th>
+      <th data-key="n">Player</th>
+      <th data-key="a" class="num sorted">${ratingLabel}</th>
+      ${isGlicko ? '<th data-key="rd" class="num">RD</th>' : ''}
+      <th data-key="c" class="num">Cups</th>
+      <th data-key="w" class="num">W</th>
+      <th class="num">Pod</th>
+      <th data-key="b" class="num">Best</th>
+      <th data-key="v" class="num">Avg</th>
+      <th data-key="p" class="num">Peak</th>
+    </tr>`;
+  const list = [...alldata[currentVariant]];
+  list.sort((x, y) => {
+    const k = currentSort.key;
+    const av = x[k], bv = y[k];
+    if (typeof av === 'string') return currentSort.asc ? av.localeCompare(bv) : bv.localeCompare(av);
+    return currentSort.asc ? av - bv : bv - av;
+  });
+  const snapKey = currentVariant === 'weighted' ? 'w' : 'g';
+  const snap = snapshot ? snapshot[snapKey] || {} : {};
+  tbody.innerHTML = '';
+  list.forEach((p, i) => {
+    const tr = document.createElement('tr');
+    const prev = snap[p.n] || null;
+    const oldRank = prev ? prev[0] : null;
+    const oldElo = prev ? prev[1] : null;
+    const oldWins = prev ? prev[2] : null;
+    let rankArrow = '';
+    if (oldRank == null) rankArrow = '<span class="arrow-new">NEW</span>';
+    else if (oldRank > i + 1) rankArrow = `<span class="arrow-up">▲${oldRank - (i + 1)}</span>`;
+    else if (oldRank < i + 1) rankArrow = `<span class="arrow-down">▼${(i + 1) - oldRank}</span>`;
+
+    let eloArrow = '';
+    if (oldElo != null) {
+      const d = Math.round(p.a - oldElo);
+      if (d > 0) eloArrow = `<span class="elo-delta-up">+${d}</span>`;
+      else if (d < 0) eloArrow = `<span class="elo-delta-down">${d}</span>`;
+    }
+
+    let winArrow = '';
+    if (oldWins != null) {
+      const dw = (p.w || 0) - oldWins;
+      if (dw > 0) winArrow = `<span class="elo-delta-up">+${dw}</span>`;
+    }
+
+    const tcolor = rColor(p.a);
+    const rdCell = isGlicko ? `<td class="num" style="color:var(--muted);font-size:12px">±${Math.round(p.rd)}</td>` : '';
+    tr.innerHTML = `
+      <td class="rank">${i + 1}${rankArrow}</td>
+      <td><span style="display:inline-block;width:7px;height:7px;border-radius:50%;background:${tcolor};margin-right:6px;vertical-align:middle"></span>${escapeHtml(p.n)}</td>
+      <td class="num" style="color:${tcolor}"><strong>${p.a.toFixed(1)}</strong>${eloArrow}</td>
+      ${rdCell}
+      <td class="num">${p.c}</td>
+      <td class="num">${p.w || '·'}${winArrow}</td>
+      <td class="num">${podBadges(p)}</td>
+      <td class="num">${p.b || '·'}</td>
+      <td class="num">${p.v ? p.v.toFixed(1) : '·'}</td>
+      <td class="num" style="color:var(--muted)">${p.p.toFixed(1)}</td>
+    `;
+    tr.dataset.name = p.n;
+    tr.addEventListener('click', () => togglePlayer(p));
+    if (selectedPlayer === p.n) tr.classList.add('selected');
+    tbody.appendChild(tr);
+    if (selectedPlayer === p.n) {
+      const chartTr = document.createElement('tr');
+      chartTr.className = 'chart-row';
+      chartTr.innerHTML = `<td colspan="${isGlicko ? 10 : 9}" class="chart-cell"><div class="chart-panel" id="chart-panel"></div></td>`;
+      tbody.appendChild(chartTr);
+      drawChart(p, chartTr.querySelector('#chart-panel'));
+    }
+  });
+  document.querySelectorAll('#rank-table th[data-key]').forEach(th => {
+    th.classList.toggle('sorted', th.dataset.key === currentSort.key);
+    th.classList.toggle('asc', currentSort.asc);
+    th.addEventListener('click', () => {
+      const k = th.dataset.key;
+      if (currentSort.key === k) currentSort.asc = !currentSort.asc;
+      else { currentSort.key = k; currentSort.asc = (k === 'n'); }
+      renderRank();
+    });
+  });
+}
+
+function podBadges(p) {
+  let out = '';
+  if (p.g) out += `<span class="pod gold">${p.g}</span>`;
+  if (p.s) out += `<span class="pod silver">${p.s}</span>`;
+  if (p.z) out += `<span class="pod bronze">${p.z}</span>`;
+  return out || '·';
+}
+
+function renderCups() {
+  const wrap = document.getElementById('cups-list');
+  wrap.innerHTML = '';
+  // newest first
+  [...cups].reverse().forEach(cup => {
+    const block = document.createElement('div');
+    block.className = 'cup-block';
+    const podium = cup.players.slice(0, 3);
+    const podHtml = podium.map(p => {
+      const cls = p.pos === 1 ? 'gold' : p.pos === 2 ? 'silver' : 'bronze';
+      return `<div class="pod-cell"><span class="pos ${cls}">${p.pos}.</span>${escapeHtml(p.name)} <span style="color:var(--muted)">${p.rating_after.toFixed(0)}</span></div>`;
+    }).join('');
+    const mapStr = cup.map || 'TBD';
+    const mapperStr = cup.mapper || 'TBD';
+    const dateStr = cup.date || '';
+    block.innerHTML = `
+      <div class="cup-head">
+        <h3>${escapeHtml(cup.id)}</h3>
+        <div class="cup-meta">
+          ${escapeHtml(mapStr)} by ${escapeHtml(mapperStr)} · ${escapeHtml(dateStr)}
+          · ${cup.lobby_size} players · SOF ${cup.strength}
+        </div>
+      </div>
+      <div class="pod-row">${podHtml}</div>
+      <details><summary>Full results (${cup.players.length})</summary>
+        <table style="margin-top:8px">
+          <thead>
+            <tr><th class="rank">#</th><th>Player</th><th class="num">ELO after</th></tr>
+          </thead>
+          <tbody>
+            ${cup.players.map(p => `
+              <tr><td class="rank">${p.pos}</td><td>${escapeHtml(p.name)}</td><td class="num">${p.rating_after.toFixed(1)}</td></tr>
+            `).join('')}
+          </tbody>
+        </table>
+      </details>
+    `;
+    wrap.appendChild(block);
+  });
+}
+
+function renderFastest() {
+  const tbody = document.getElementById('fastest-body');
+  tbody.innerHTML = '';
+  fastest.forEach((e, i) => {
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td class="rank">${i + 1}</td>
+      <td>${escapeHtml(e.cup)}</td>
+      <td>${escapeHtml(e.player)}</td>
+      <td class="num"><strong>${e.time.toFixed(3)}</strong>s</td>
+      <td>${escapeHtml(e.round || '·')}</td>
+    `;
+    tbody.appendChild(tr);
+  });
+}
+
+function togglePlayer(p) {
+  selectedPlayer = (selectedPlayer === p.n) ? null : p.n;
+  renderRank();
+  if (selectedPlayer) {
+    const panel = document.getElementById('chart-panel');
+    if (panel) panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+}
+
+function drawChart(player, panel) {
+  if (!player || !player.h || player.h.length === 0) {
+    panel.innerHTML = `<div style="color:var(--muted);font-size:12px;padding:6px">No history</div>`;
+    return;
+  }
+  const c = rColor(player.a);
+  const t = tier(player.a);
+  const podG = player.g || 0, podS = player.s || 0, podZ = player.z || 0;
+
+  panel.innerHTML = `
+    <div class="chart-header">
+      <div style="min-width:0;overflow:hidden">
+        <span class="name" style="color:${c}">${escapeHtml(player.n)}</span>
+        <span class="tier" style="color:${c};background:${c}22">${t}</span><br>
+        <span class="stats">Active ${Math.round(player.a)} · ${player.c} cup${player.c === 1 ? '' : 's'} · Podium ${podG}/${podS}/${podZ} · avg ${player.v ? player.v.toFixed(1) : '·'} · peak ${Math.round(player.p)}</span>
+      </div>
+      <button class="close-btn" id="closeChart">✕</button>
+    </div>
+    <div class="chart-canvas"><canvas id="eloCanvas"></canvas><div class="chart-tooltip" id="chartTip"></div></div>
+  `;
+  panel.querySelector('#closeChart').onclick = (e) => { e.stopPropagation(); selectedPlayer = null; renderRank(); };
+
+  const canvas = panel.querySelector('#eloCanvas');
+  const tip = panel.querySelector('#chartTip');
+  const ctx = canvas.getContext('2d');
+  const dpr = window.devicePixelRatio || 1;
+  const container = canvas.parentElement;
+  const containerW = container.getBoundingClientRect().width;
+
+  const allCupNums = [];
+  alldata[currentVariant].forEach(pl => pl.h.forEach(h => allCupNums.push(h.c)));
+  const globalCupMin = Math.min(...allCupNums);
+  const globalCupMax = Math.max(...allCupNums);
+
+  const minPxPerCup = 20;
+  const cupRange = globalCupMax - globalCupMin || 1;
+  const desiredW = Math.max(containerW, cupRange * minPxPerCup + 58);
+  canvas.width = desiredW * dpr;
+  canvas.height = 180 * dpr;
+  canvas.style.width = desiredW + 'px';
+  canvas.style.height = '180px';
+  ctx.scale(dpr, dpr);
+  container.scrollLeft = container.scrollWidth;
+
+  const W = desiredW, H = 180;
+  const pad = { l: 46, r: 12, t: 12, b: 28 };
+  const hist = player.h;
+  const cMin = globalCupMin, cMax = globalCupMax;
+  function x(cn) { return pad.l + (cn - cMin) / (cMax - cMin || 1) * (W - pad.l - pad.r); }
+
+  const ratings = hist.map(h => h.r);
+  const vMin = Math.min(...ratings) - 30;
+  const vMax = Math.max(...ratings) + 20;
+  const yFn = (r) => pad.t + (1 - (r - vMin) / (vMax - vMin || 1)) * (H - pad.t - pad.b);
+  const points = hist.map(h => ({ c: h.c, v: h.r, p: h.p, r: h.r }));
+
+  drawChartContent(ctx, W, H, pad, points, vMin, vMax, cMin, cMax, c, x, yFn, null);
+
+  canvas.onmousemove = (e) => {
+    const br = canvas.getBoundingClientRect();
+    const mx = e.clientX - br.left;
+    let closest = null, minDist = Infinity;
+    points.forEach(pt => {
+      const d = Math.abs(x(pt.c) - mx);
+      if (d < minDist) { minDist = d; closest = pt; }
+    });
+    if (closest && minDist < 30) {
+      canvas.style.cursor = 'pointer';
+      tip.style.display = 'block';
+      tip.innerHTML = `<div class="t-cup">Eggy #${closest.c}</div><div class="t-pos">Pos: <span>#${closest.p}</span></div><div class="t-elo">Elo: <span>${closest.r.toFixed(1)}</span></div>`;
+      const px = x(closest.c), py = yFn(closest.v);
+      let tx = px - 60;
+      if (tx < 0) tx = 0;
+      if (tx + 120 > W) tx = W - 120;
+      tip.style.left = tx + 'px';
+      tip.style.top = (py > H / 2 ? py - 82 : py + 12) + 'px';
+      ctx.clearRect(0, 0, W, H);
+      drawChartContent(ctx, W, H, pad, points, vMin, vMax, cMin, cMax, c, x, yFn, closest);
+    } else {
+      canvas.style.cursor = '';
+      tip.style.display = 'none';
+      ctx.clearRect(0, 0, W, H);
+      drawChartContent(ctx, W, H, pad, points, vMin, vMax, cMin, cMax, c, x, yFn, null);
+    }
+  };
+  canvas.onmouseleave = () => {
+    tip.style.display = 'none';
+    canvas.style.cursor = '';
+    ctx.clearRect(0, 0, W, H);
+    drawChartContent(ctx, W, H, pad, points, vMin, vMax, cMin, cMax, c, x, yFn, null);
+  };
+}
+
+function drawStar(ctx, cx, cy, r, pts, inner) {
+  ctx.beginPath();
+  for (let i = 0; i < pts * 2; i++) {
+    const ang = -Math.PI / 2 + i * Math.PI / pts;
+    const rad = i % 2 === 0 ? r : inner;
+    const method = i === 0 ? 'moveTo' : 'lineTo';
+    ctx[method](cx + Math.cos(ang) * rad, cy + Math.sin(ang) * rad);
+  }
+  ctx.closePath();
+}
+
+function drawChartContent(ctx, W, H, pad, points, vMin, vMax, cMin, cMax, c, x, y, highlight) {
+  ctx.strokeStyle = 'rgba(255,255,255,0.06)'; ctx.lineWidth = 1;
+  const steps = 5;
+  for (let i = 0; i <= steps; i++) {
+    const rv = vMin + (vMax - vMin) * i / steps;
+    const yv = y(rv);
+    ctx.beginPath(); ctx.moveTo(pad.l, yv); ctx.lineTo(W - pad.r, yv); ctx.stroke();
+    ctx.fillStyle = cssVar('--muted'); ctx.font = "9px ui-monospace,monospace"; ctx.textAlign = 'right';
+    ctx.fillText(Math.round(rv).toString(), pad.l - 6, yv + 3);
+  }
+  if (vMin < 1500 && vMax > 1500) {
+    ctx.strokeStyle = 'rgba(255,255,255,0.12)'; ctx.setLineDash([4, 4]);
+    ctx.beginPath(); ctx.moveTo(pad.l, y(1500)); ctx.lineTo(W - pad.r, y(1500)); ctx.stroke();
+    ctx.setLineDash([]);
+  }
+  ctx.fillStyle = cssVar('--muted'); ctx.font = "9px ui-monospace,monospace"; ctx.textAlign = 'center';
+  for (let t = cMin; t <= cMax; t++) ctx.fillText('#' + t, x(t), H - 6);
+
+  if (points.length > 1) {
+    ctx.strokeStyle = c; ctx.lineWidth = 2; ctx.lineJoin = 'round';
+    ctx.beginPath();
+    points.forEach((pt, i) => { i === 0 ? ctx.moveTo(x(pt.c), y(pt.v)) : ctx.lineTo(x(pt.c), y(pt.v)); });
+    ctx.stroke();
+    ctx.save(); ctx.globalAlpha = 0.15; ctx.strokeStyle = c; ctx.lineWidth = 6;
+    ctx.beginPath();
+    points.forEach((pt, i) => { i === 0 ? ctx.moveTo(x(pt.c), y(pt.v)) : ctx.lineTo(x(pt.c), y(pt.v)); });
+    ctx.stroke(); ctx.restore();
+  }
+  points.forEach(pt => {
+    const isHl = highlight && pt.c === highlight.c;
+    const isWin = pt.p === 1;
+    if (isWin) {
+      const r = isHl ? 7 : 4.5;
+      drawStar(ctx, x(pt.c), y(pt.v), r, 5, r * 0.45);
+      ctx.fillStyle = '#ffd700'; ctx.fill();
+      ctx.strokeStyle = '#b8960c'; ctx.lineWidth = isHl ? 1.5 : 1; ctx.stroke();
+    } else {
+      ctx.beginPath(); ctx.arc(x(pt.c), y(pt.v), isHl ? 5 : 2.5, 0, Math.PI * 2);
+      if (isHl) { ctx.fillStyle = '#fff'; ctx.fill(); ctx.strokeStyle = c; ctx.lineWidth = 2; ctx.stroke(); }
+      else { ctx.fillStyle = c; ctx.fill(); }
+    }
+  });
+}
+
+function escapeHtml(s) {
+  return String(s).replace(/[&<>"']/g, c => ({
+    '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+  })[c]);
+}
+
+document.querySelectorAll('nav button').forEach(b => {
+  b.addEventListener('click', () => {
+    document.querySelectorAll('nav button').forEach(x => x.classList.remove('active'));
+    b.classList.add('active');
+    document.querySelectorAll('.tab').forEach(t => t.style.display = 'none');
+    document.getElementById('tab-' + b.dataset.tab).style.display = '';
+  });
+});
+
+document.getElementById('variant-select').addEventListener('change', e => {
+  currentVariant = e.target.value;
+  document.getElementById('variant-label').textContent =
+    currentVariant === 'weighted' ? 'ELO' : 'Glicko-2';
+  selectedPlayer = null;
+  currentSort = { key: 'a', asc: false };
+  renderRank();
+});
+
+loadAll();
+</script>
+</body>
+</html>

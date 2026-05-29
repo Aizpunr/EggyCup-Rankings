@@ -1,0 +1,145 @@
+{
+  "cup": "Eggy 87",
+  "cup_num": 87,
+  "mapper": "TBD",
+  "players": [
+    {
+      "pos": 1,
+      "name": "Minkus",
+      "time": "35,32088",
+      "round": null
+    },
+    {
+      "pos": 2,
+      "name": "[ZET]Stick",
+      "time": "35,13562",
+      "round": 11
+    },
+    {
+      "pos": 3,
+      "name": "MackCheesy",
+      "time": "DNF",
+      "round": 10
+    },
+    {
+      "pos": 4,
+      "name": "Void",
+      "time": "35,18389",
+      "round": 9
+    },
+    {
+      "pos": 5,
+      "name": "zodiak",
+      "time": "35,33868",
+      "round": 8
+    },
+    {
+      "pos": 6,
+      "name": "[CTR]agix",
+      "time": "35,20733",
+      "round": 7
+    },
+    {
+      "pos": 7,
+      "name": "[Quac] microways",
+      "time": "DNF",
+      "round": 6
+    },
+    {
+      "pos": 8,
+      "name": "brrryy",
+      "time": "DNF",
+      "round": 6
+    },
+    {
+      "pos": 9,
+      "name": "[MMM]Victor",
+      "time": "35,34035",
+      "round": 5
+    },
+    {
+      "pos": 10,
+      "name": "LKat",
+      "time": "35,36934",
+      "round": 5
+    },
+    {
+      "pos": 11,
+      "name": "[ZET]maskeddog",
+      "time": "35,88153",
+      "round": 4
+    },
+    {
+      "pos": 12,
+      "name": "[ZET]Sword125",
+      "time": "36,04739",
+      "round": 4
+    },
+    {
+      "pos": 13,
+      "name": "Sterben",
+      "time": "36,23400",
+      "round": 3
+    },
+    {
+      "pos": 14,
+      "name": "Savage Package",
+      "time": "36,38734",
+      "round": 3
+    },
+    {
+      "pos": 15,
+      "name": "aizpun",
+      "time": "36,86083",
+      "round": 3
+    },
+    {
+      "pos": 16,
+      "name": "BrandonMP4",
+      "time": "36,67035",
+      "round": 2
+    },
+    {
+      "pos": 17,
+      "name": "[DNFF]lucanakin",
+      "time": "36,79851",
+      "round": 2
+    },
+    {
+      "pos": 18,
+      "name": "[MMM]Milk Man",
+      "time": "37,04981",
+      "round": 2
+    },
+    {
+      "pos": 19,
+      "name": "[ZET]vectortrajector",
+      "time": "38,82744",
+      "round": 2
+    },
+    {
+      "pos": 20,
+      "name": "AndyRoo404",
+      "time": "38,68274",
+      "round": 1
+    },
+    {
+      "pos": 21,
+      "name": "[ZET] Wheelie",
+      "time": "DNF",
+      "round": 1
+    },
+    {
+      "pos": 22,
+      "name": "[gaz]qweetzw",
+      "time": "DNF",
+      "round": 1
+    },
+    {
+      "pos": 23,
+      "name": "wertal4848",
+      "time": "DNF",
+      "round": 1
+    }
+  ]
+}

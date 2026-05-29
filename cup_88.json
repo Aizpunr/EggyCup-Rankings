@@ -1,0 +1,109 @@
+{
+  "cup": "Eggy 88",
+  "cup_num": 88,
+  "mapper": "TBD",
+  "players": [
+    {
+      "pos": 1,
+      "name": "[ZET]Stick",
+      "time": "51.08877",
+      "round": null
+    },
+    {
+      "pos": 2,
+      "name": "[Quac] microways",
+      "time": "51.34001",
+      "round": 8
+    },
+    {
+      "pos": 3,
+      "name": "JakeAdjacent",
+      "time": "52.53602",
+      "round": 7
+    },
+    {
+      "pos": 4,
+      "name": "Minkus",
+      "time": "52.91511",
+      "round": 6
+    },
+    {
+      "pos": 5,
+      "name": "[ZET]maskeddog",
+      "time": "54.52531",
+      "round": 5
+    },
+    {
+      "pos": 6,
+      "name": "Gimpel",
+      "time": "DNF",
+      "round": 4
+    },
+    {
+      "pos": 6,
+      "name": "Savage Package",
+      "time": "DNF",
+      "round": 4
+    },
+    {
+      "pos": 6,
+      "name": "[ZET] Wheelie",
+      "time": "DNF",
+      "round": 4
+    },
+    {
+      "pos": 9,
+      "name": "graysonvitek88",
+      "time": "DNF",
+      "round": 3
+    },
+    {
+      "pos": 9,
+      "name": "[CCC]Shinikage221",
+      "time": "DNF",
+      "round": 3
+    },
+    {
+      "pos": 11,
+      "name": "MackCheesy",
+      "time": "DNF",
+      "round": 2
+    },
+    {
+      "pos": 11,
+      "name": "[AUz] bjenk4",
+      "time": "DNF",
+      "round": 2
+    },
+    {
+      "pos": 13,
+      "name": "Noxitu",
+      "time": "DNF",
+      "round": 1
+    },
+    {
+      "pos": 13,
+      "name": "[ZET]vectortrajector",
+      "time": "DNF",
+      "round": 1
+    },
+    {
+      "pos": 13,
+      "name": "Azrael",
+      "time": "DNF",
+      "round": 1
+    },
+    {
+      "pos": 13,
+      "name": "𝒱V𝑜o𝒾i𝒹d𝒱",
+      "time": "DNF",
+      "round": 1
+    },
+    {
+      "pos": 13,
+      "name": "GoateeGuy",
+      "time": "DNF",
+      "round": 1
+    }
+  ]
+}

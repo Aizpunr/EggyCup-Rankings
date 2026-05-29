@@ -1,0 +1,169 @@
+{
+  "cup": "Eggy 89",
+  "cup_num": 89,
+  "mapper": "TBD",
+  "players": [
+    {
+      "pos": 1,
+      "name": "Lexer",
+      "time": "31,65087",
+      "round": null
+    },
+    {
+      "pos": 2,
+      "name": "Shattersmith",
+      "time": "31,91300",
+      "round": 12
+    },
+    {
+      "pos": 3,
+      "name": "[MMM]Victor",
+      "time": "31,95744",
+      "round": 11
+    },
+    {
+      "pos": 4,
+      "name": "[Quac] microways",
+      "time": "31,94689",
+      "round": 10
+    },
+    {
+      "pos": 5,
+      "name": "zodiak",
+      "time": "32,09352",
+      "round": 9
+    },
+    {
+      "pos": 6,
+      "name": "[ZET]Stick",
+      "time": "DNF",
+      "round": 8
+    },
+    {
+      "pos": 7,
+      "name": "[ZET]maskeddog",
+      "time": "33,03333",
+      "round": 7
+    },
+    {
+      "pos": 8,
+      "name": "[ZET]Sword125",
+      "time": "33,34342",
+      "round": 7
+    },
+    {
+      "pos": 9,
+      "name": "aizpun",
+      "time": "35,6072",
+      "round": 6
+    },
+    {
+      "pos": 10,
+      "name": "Tudge Boat",
+      "time": "DNF",
+      "round": 6
+    },
+    {
+      "pos": 11,
+      "name": "Kilandor",
+      "time": "34,1003",
+      "round": 5
+    },
+    {
+      "pos": 12,
+      "name": "wunderBarr",
+      "time": "DNF",
+      "round": 5
+    },
+    {
+      "pos": 13,
+      "name": "Noxitu",
+      "time": "DNF",
+      "round": 4
+    },
+    {
+      "pos": 14,
+      "name": "𝒱V𝑜o𝒾i𝒹d𝒱",
+      "time": "DNF",
+      "round": 4
+    },
+    {
+      "pos": 15,
+      "name": "[ZET] zeriv",
+      "time": "37,6404",
+      "round": 3
+    },
+    {
+      "pos": 16,
+      "name": "M4rv",
+      "time": "DNF",
+      "round": 3
+    },
+    {
+      "pos": 17,
+      "name": "titobudd",
+      "time": "DNF",
+      "round": 3
+    },
+    {
+      "pos": 18,
+      "name": "Orb Bee Bob",
+      "time": "DNF",
+      "round": 3
+    },
+    {
+      "pos": 19,
+      "name": "JakeAdjacent",
+      "time": "39,88061",
+      "round": 2
+    },
+    {
+      "pos": 20,
+      "name": "Legend",
+      "time": "DNF",
+      "round": 2
+    },
+    {
+      "pos": 21,
+      "name": "[MMM]Milk Man",
+      "time": "DNF",
+      "round": 2
+    },
+    {
+      "pos": 22,
+      "name": "Wyrlpool",
+      "time": "DNF",
+      "round": 2
+    },
+    {
+      "pos": 23,
+      "name": "[ZET] Wheelie",
+      "time": "DNF",
+      "round": 1
+    },
+    {
+      "pos": 24,
+      "name": "riverman",
+      "time": "DNF",
+      "round": 1
+    },
+    {
+      "pos": 25,
+      "name": "[ZET]vectortrajector",
+      "time": "DNF",
+      "round": 1
+    },
+    {
+      "pos": 26,
+      "name": "cucumis conditus solacii animi",
+      "time": "DNF",
+      "round": 1
+    },
+    {
+      "pos": 27,
+      "name": "[CSC]IronDragon111000",
+      "time": "DNF",
+      "round": 1
+    }
+  ]
+}

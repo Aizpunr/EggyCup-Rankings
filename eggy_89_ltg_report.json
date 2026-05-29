@@ -1,0 +1,931 @@
+{
+  "cup": "Eggy 89",
+  "cup_num": 89,
+  "dry_run": false,
+  "cup_tracker_rounds": 12,
+  "livelog_rounds": 13,
+  "matched_rounds": 11,
+  "match_log": [
+    {
+      "cup_round": 1,
+      "livelog_round_idx": 2,
+      "status": "matched (score=0.0007, ll_idx=2)"
+    },
+    {
+      "cup_round": 2,
+      "livelog_round_idx": 3,
+      "status": "matched (score=0.0004, ll_idx=3)"
+    },
+    {
+      "cup_round": 3,
+      "livelog_round_idx": 4,
+      "status": "matched (score=0.0006, ll_idx=4)"
+    },
+    {
+      "cup_round": 4,
+      "livelog_round_idx": 5,
+      "status": "matched (score=0.0009, ll_idx=5)"
+    },
+    {
+      "cup_round": 5,
+      "livelog_round_idx": 6,
+      "status": "matched (score=0.0007, ll_idx=6)"
+    },
+    {
+      "cup_round": 6,
+      "livelog_round_idx": null,
+      "status": "no_match (best_score=0.10529999999999973)"
+    },
+    {
+      "cup_round": 7,
+      "livelog_round_idx": 8,
+      "status": "matched (score=0.0008, ll_idx=8)"
+    },
+    {
+      "cup_round": 8,
+      "livelog_round_idx": 9,
+      "status": "matched (score=0.0007, ll_idx=9)"
+    },
+    {
+      "cup_round": 9,
+      "livelog_round_idx": 10,
+      "status": "matched (score=0.0006, ll_idx=10)"
+    },
+    {
+      "cup_round": 10,
+      "livelog_round_idx": 11,
+      "status": "matched (score=0.0005, ll_idx=11)"
+    },
+    {
+      "cup_round": 11,
+      "livelog_round_idx": 12,
+      "status": "matched (score=0.0010, ll_idx=12)"
+    },
+    {
+      "cup_round": 12,
+      "livelog_round_idx": 13,
+      "status": "matched (score=0.0001, ll_idx=13)"
+    }
+  ],
+  "findings": [
+    {
+      "round": 1,
+      "name": "[ZET] Wheelie",
+      "sid": "76561199218214543",
+      "verdict": "true_DNF",
+      "ltg_time": null
+    },
+    {
+      "round": 1,
+      "name": "riverman",
+      "sid": "76561198770488606",
+      "verdict": "true_DNF",
+      "ltg_time": null
+    },
+    {
+      "round": 1,
+      "name": "[ZET]vectortrajector",
+      "sid": "76561199552333329",
+      "verdict": "true_DNF",
+      "ltg_time": null
+    },
+    {
+      "round": 1,
+      "name": "cucumis conditus solacii animi",
+      "sid": "76561198383339808",
+      "verdict": "true_DNF",
+      "ltg_time": null
+    },
+    {
+      "round": 1,
+      "name": "[CSC]IronDragon111000",
+      "sid": "76561198103955123",
+      "verdict": "true_DNF",
+      "ltg_time": null
+    },
+    {
+      "round": 2,
+      "name": "Legend",
+      "sid": "76561198123987258",
+      "verdict": "true_DNF",
+      "ltg_time": null
+    },
+    {
+      "round": 2,
+      "name": "[MMM]Milk Man",
+      "sid": "76561199153054076",
+      "verdict": "true_DNF",
+      "ltg_time": null
+    },
+    {
+      "round": 2,
+      "name": "Wyrlpool",
+      "sid": "76561199006384140",
+      "verdict": "true_DNF",
+      "ltg_time": null
+    },
+    {
+      "round": 3,
+      "name": "M4rv",
+      "sid": "76561198082490487",
+      "verdict": "true_DNF",
+      "ltg_time": null
+    },
+    {
+      "round": 3,
+      "name": "titobudd",
+      "sid": "76561198042078261",
+      "verdict": "true_DNF",
+      "ltg_time": null
+    },
+    {
+      "round": 3,
+      "name": "Orb Bee Bob",
+      "sid": "76561198388963758",
+      "verdict": "true_DNF",
+      "ltg_time": null
+    },
+    {
+      "round": 4,
+      "name": "Noxitu",
+      "sid": "76561198126038296",
+      "verdict": "true_DNF",
+      "ltg_time": null
+    },
+    {
+      "round": 4,
+      "name": "𝒱V𝑜o𝒾i𝒹d𝒱",
+      "sid": "76561199321598731",
+      "verdict": "true_DNF",
+      "ltg_time": null
+    },
+    {
+      "round": 5,
+      "name": "wunderBarr",
+      "sid": "76561198040861578",
+      "verdict": "true_DNF",
+      "ltg_time": null
+    },
+    {
+      "round": 6,
+      "name": "Tudge Boat",
+      "sid": null,
+      "verdict": "unmatched_round",
+      "ltg_time": null
+    },
+    {
+      "round": 8,
+      "name": "[ZET]Stick",
+      "sid": "76561199590715014",
+      "verdict": "true_DNF",
+      "ltg_time": null
+    },
+    {
+      "round": 12,
+      "name": "Shattersmith",
+      "sid": "76561198104372256",
+      "verdict": "LTG",
+      "ltg_time": 31.913
+    }
+  ],
+  "cup_json_patch": {
+    "patched": true,
+    "changes": [
+      {
+        "round": 12,
+        "name": "Shattersmith",
+        "old_pos": 2,
+        "new_time": "31,91300"
+      }
+    ]
+  },
+  "steam_ids_merge": {
+    "added": [
+      {
+        "canonical": "Noxitu",
+        "sid": "76561198126038296",
+        "observed_as": "Noxitu"
+      },
+      {
+        "canonical": "riverman",
+        "sid": "76561198770488606",
+        "observed_as": "riverman"
+      },
+      {
+        "canonical": "Orb Bee Bob",
+        "sid": "76561198388963758",
+        "observed_as": "Orb Bee Bob"
+      },
+      {
+        "canonical": "Tudge Boat",
+        "sid": "76561198136572067",
+        "observed_as": "Tudge Boat"
+      },
+      {
+        "canonical": "𝒱V𝑜o𝒾i𝒹d𝒱",
+        "sid": "76561199321598731",
+        "observed_as": "𝒱V𝑜o𝒾i𝒹d𝒱"
+      },
+      {
+        "canonical": "M4rv",
+        "sid": "76561198082490487",
+        "observed_as": "M4rv"
+      },
+      {
+        "canonical": "wunderBarr",
+        "sid": "76561198040861578",
+        "observed_as": "wunderBarr"
+      },
+      {
+        "canonical": "Weak_Knees",
+        "sid": "76561199583884117",
+        "observed_as": "Weak_Knees"
+      },
+      {
+        "canonical": "Lazy_Echidna",
+        "sid": "76561198008859132",
+        "observed_as": "Lazy_Echidna"
+      },
+      {
+        "canonical": "Shattersmith",
+        "sid": "76561198104372256",
+        "observed_as": "Shattersmith"
+      },
+      {
+        "canonical": "IronDragon111000",
+        "sid": "76561198103955123",
+        "observed_as": "IronDragon111000"
+      },
+      {
+        "canonical": "frenchteost",
+        "sid": "76561199807320700",
+        "observed_as": "frenchteost"
+      },
+      {
+        "canonical": "graysonvitek88",
+        "sid": "76561199852486528",
+        "observed_as": "graysonvitek88"
+      },
+      {
+        "canonical": "LILWOOLEY",
+        "sid": "76561198123464287",
+        "observed_as": "LILWOOLEY"
+      },
+      {
+        "canonical": "variableferret",
+        "sid": "76561198157436732",
+        "observed_as": "variableferret"
+      },
+      {
+        "canonical": "Lilly Fenn",
+        "sid": "76561198040976717",
+        "observed_as": "Lilly Fenn"
+      },
+      {
+        "canonical": "stindt",
+        "sid": "76561198213715297",
+        "observed_as": "stindt"
+      },
+      {
+        "canonical": "[ZET] zeriv",
+        "sid": "76561199494381509",
+        "observed_as": "zeriv"
+      },
+      {
+        "canonical": "Shinikage221",
+        "sid": "76561199093841299",
+        "observed_as": "Shinikage221"
+      },
+      {
+        "canonical": "Redstony",
+        "sid": "76561198430273427",
+        "observed_as": "Redstony"
+      },
+      {
+        "canonical": "Kilandor",
+        "sid": "76561197993793009",
+        "observed_as": "Kilandor"
+      },
+      {
+        "canonical": "cucumis conditus solacii animi",
+        "sid": "76561198383339808",
+        "observed_as": "cucumis conditus solacii animi"
+      },
+      {
+        "canonical": "titobudd",
+        "sid": "76561198042078261",
+        "observed_as": "titobudd"
+      },
+      {
+        "canonical": "Wyrlpool",
+        "sid": "76561199006384140",
+        "observed_as": "Wyrlpool"
+      },
+      {
+        "canonical": "Legend",
+        "sid": "76561198123987258",
+        "observed_as": "Legend"
+      }
+    ],
+    "confirmed_count": 60,
+    "conflicts": [],
+    "unresolved": [
+      {
+        "sid": "76561199186342067",
+        "observed_names": [
+          "PlusMicron"
+        ]
+      },
+      {
+        "sid": "76561199084192569",
+        "observed_names": [
+          "SKULL00",
+          "[num]SKULL00"
+        ]
+      },
+      {
+        "sid": "76561198758353504",
+        "observed_names": [
+          "M4DSCOTSM4N"
+        ]
+      },
+      {
+        "sid": "76561198305054806",
+        "observed_names": [
+          "wokonbike"
+        ]
+      },
+      {
+        "sid": "76561198131756122",
+        "observed_names": [
+          "FINSTER83"
+        ]
+      },
+      {
+        "sid": "76561198010296962",
+        "observed_names": [
+          "timesprout"
+        ]
+      },
+      {
+        "sid": "76561198846673916",
+        "observed_names": [
+          "Matic_D"
+        ]
+      },
+      {
+        "sid": "76561198125435428",
+        "observed_names": [
+          "JobW"
+        ]
+      },
+      {
+        "sid": "76561199006040868",
+        "observed_names": [
+          "Eclipse135"
+        ]
+      },
+      {
+        "sid": "76561198896246339",
+        "observed_names": [
+          "RoundNzt"
+        ]
+      },
+      {
+        "sid": "76561199225171855",
+        "observed_names": [
+          "tacklesskoala8"
+        ]
+      },
+      {
+        "sid": "76561197989028539",
+        "observed_names": [
+          "Diabler"
+        ]
+      },
+      {
+        "sid": "76561198017223402",
+        "observed_names": [
+          "Knorrepot"
+        ]
+      },
+      {
+        "sid": "76561198428660617",
+        "observed_names": [
+          "BB_Benji"
+        ]
+      },
+      {
+        "sid": "76561197986239475",
+        "observed_names": [
+          "Garfath"
+        ]
+      },
+      {
+        "sid": "76561198201628170",
+        "observed_names": [
+          "imagineaclevernamehere"
+        ]
+      },
+      {
+        "sid": "76561198357858848",
+        "observed_names": [
+          "MALIYO"
+        ]
+      },
+      {
+        "sid": "76561199806240100",
+        "observed_names": [
+          "lncln"
+        ]
+      },
+      {
+        "sid": "76561198454611931",
+        "observed_names": [
+          "376"
+        ]
+      },
+      {
+        "sid": "76561198096236961",
+        "observed_names": [
+          "koz"
+        ]
+      },
+      {
+        "sid": "76561198025226685",
+        "observed_names": [
+          "Games_BS"
+        ]
+      },
+      {
+        "sid": "76561199013714548",
+        "observed_names": [
+          "Chapin"
+        ]
+      },
+      {
+        "sid": "76561199842604096",
+        "observed_names": [
+          "Dartho Mas"
+        ]
+      },
+      {
+        "sid": "76561199046303656",
+        "observed_names": [
+          "KingXfex"
+        ]
+      },
+      {
+        "sid": "76561199731808063",
+        "observed_names": [
+          "Yksdjcj",
+          "[RABI]Yksdjcj"
+        ]
+      },
+      {
+        "sid": "76561198830315524",
+        "observed_names": [
+          "NewProdigy"
+        ]
+      },
+      {
+        "sid": "76561199064205221",
+        "observed_names": [
+          "meboy"
+        ]
+      },
+      {
+        "sid": "76561198085317266",
+        "observed_names": [
+          "Hang Chang-Pang",
+          "[EEN] Hang Chang-Pang"
+        ]
+      },
+      {
+        "sid": "76561198314583077",
+        "observed_names": [
+          "ShyGirlyRaccoon",
+          "[CSC]ShyGirlyRaccoon"
+        ]
+      },
+      {
+        "sid": "76561198122894680",
+        "observed_names": [
+          "Waaksaam"
+        ]
+      },
+      {
+        "sid": "76561198080619022",
+        "observed_names": [
+          "Andrew8Kavanagh"
+        ]
+      },
+      {
+        "sid": "76561198019079245",
+        "observed_names": [
+          "MOW BIG T",
+          "[MBT] MOW BIG T"
+        ]
+      },
+      {
+        "sid": "76561198047054140",
+        "observed_names": [
+          "Arepuz"
+        ]
+      },
+      {
+        "sid": "76561198258069505",
+        "observed_names": [
+          "daytime"
+        ]
+      },
+      {
+        "sid": "76561198140981823",
+        "observed_names": [
+          "Minixerces2116"
+        ]
+      },
+      {
+        "sid": "76561198064750127",
+        "observed_names": [
+          "nilswa",
+          "[MIT] nilswa"
+        ]
+      },
+      {
+        "sid": "76561198122154036",
+        "observed_names": [
+          "DragonBlood91D"
+        ]
+      },
+      {
+        "sid": "76561197975920245",
+        "observed_names": [
+          "Es3en"
+        ]
+      },
+      {
+        "sid": "76561198436518745",
+        "observed_names": [
+          "Gruselda1"
+        ]
+      },
+      {
+        "sid": "76561198156460805",
+        "observed_names": [
+          "Kiprosa"
+        ]
+      },
+      {
+        "sid": "76561198414815154",
+        "observed_names": [
+          "Ooohbilly"
+        ]
+      },
+      {
+        "sid": "76561198208927760",
+        "observed_names": [
+          "Miner_vdv"
+        ]
+      },
+      {
+        "sid": "76561198748988602",
+        "observed_names": [
+          "BrickEdwards"
+        ]
+      },
+      {
+        "sid": "76561197961191126",
+        "observed_names": [
+          "alpa"
+        ]
+      },
+      {
+        "sid": "76561199002720572",
+        "observed_names": [
+          "[VK] Vortex"
+        ]
+      },
+      {
+        "sid": "76561198177623035",
+        "observed_names": [
+          "Noot Noot 42.0"
+        ]
+      },
+      {
+        "sid": "76561198176178279",
+        "observed_names": [
+          "Veneficus",
+          "[Err] Veneficus"
+        ]
+      },
+      {
+        "sid": "76561199049765226",
+        "observed_names": [
+          "Elaric"
+        ]
+      },
+      {
+        "sid": "76561198009983303",
+        "observed_names": [
+          "Sekter"
+        ]
+      },
+      {
+        "sid": "76561198002537059",
+        "observed_names": [
+          "DarthJohansen"
+        ]
+      },
+      {
+        "sid": "76561197960574823",
+        "observed_names": [
+          "racemaniac"
+        ]
+      },
+      {
+        "sid": "76561198949857403",
+        "observed_names": [
+          "Timmer933"
+        ]
+      },
+      {
+        "sid": "76561198032386542",
+        "observed_names": [
+          "penqwin"
+        ]
+      },
+      {
+        "sid": "76561198272722888",
+        "observed_names": [
+          "huhconduct"
+        ]
+      },
+      {
+        "sid": "76561197996506229",
+        "observed_names": [
+          "felix"
+        ]
+      },
+      {
+        "sid": "76561199630902908",
+        "observed_names": [
+          "grop44"
+        ]
+      },
+      {
+        "sid": "76561197975007714",
+        "observed_names": [
+          "ArrrT"
+        ]
+      },
+      {
+        "sid": "76561197963788732",
+        "observed_names": [
+          "FedtStensDyr"
+        ]
+      },
+      {
+        "sid": "76561198859311447",
+        "observed_names": [
+          "Joe-bgaming"
+        ]
+      },
+      {
+        "sid": "76561198109773525",
+        "observed_names": [
+          "Valco"
+        ]
+      },
+      {
+        "sid": "76561198027169155",
+        "observed_names": [
+          "DeiRex"
+        ]
+      },
+      {
+        "sid": "76561198790371962",
+        "observed_names": [
+          "Cripsy"
+        ]
+      },
+      {
+        "sid": "76561198441746897",
+        "observed_names": [
+          "CaptainD54321 (they/she)"
+        ]
+      },
+      {
+        "sid": "76561198114267944",
+        "observed_names": [
+          "Reamerad"
+        ]
+      },
+      {
+        "sid": "76561198229025828",
+        "observed_names": [
+          "kleinkriel"
+        ]
+      },
+      {
+        "sid": "76561198026298039",
+        "observed_names": [
+          "een"
+        ]
+      },
+      {
+        "sid": "76561198051058993",
+        "observed_names": [
+          "MAGS3"
+        ]
+      },
+      {
+        "sid": "76561198022845629",
+        "observed_names": [
+          "just_cody"
+        ]
+      },
+      {
+        "sid": "76561199483455072",
+        "observed_names": [
+          "nova_lead"
+        ]
+      },
+      {
+        "sid": "76561198873080113",
+        "observed_names": [
+          "K1ngON3"
+        ]
+      },
+      {
+        "sid": "76561199589394762",
+        "observed_names": [
+          "jofk2415"
+        ]
+      },
+      {
+        "sid": "76561197960619506",
+        "observed_names": [
+          "Zvenne"
+        ]
+      },
+      {
+        "sid": "76561198871544569",
+        "observed_names": [
+          "Dimmis00"
+        ]
+      },
+      {
+        "sid": "76561199771226157",
+        "observed_names": [
+          "herremansrikke"
+        ]
+      },
+      {
+        "sid": "76561198165425878",
+        "observed_names": [
+          "ChernoBilly"
+        ]
+      },
+      {
+        "sid": "76561197973063523",
+        "observed_names": [
+          "A Bad Gamer",
+          "[ABG] A Bad Gamer"
+        ]
+      },
+      {
+        "sid": "76561198807977257",
+        "observed_names": [
+          "hostile",
+          "[NEWB]hostile"
+        ]
+      },
+      {
+        "sid": "76561198125000151",
+        "observed_names": [
+          "Irisdice"
+        ]
+      },
+      {
+        "sid": "76561199141683708",
+        "observed_names": [
+          "TheCatMan"
+        ]
+      },
+      {
+        "sid": "76561199093121008",
+        "observed_names": [
+          "everclear51"
+        ]
+      },
+      {
+        "sid": "76561198325331655",
+        "observed_names": [
+          "Jorts"
+        ]
+      },
+      {
+        "sid": "76561198092171222",
+        "observed_names": [
+          "Towelie"
+        ]
+      },
+      {
+        "sid": "76561199002621651",
+        "observed_names": [
+          "Lunarbunny",
+          "[Buny]Lunarbunny"
+        ]
+      },
+      {
+        "sid": "76561199814934076",
+        "observed_names": [
+          "Milkaholic",
+          "[ZLOW] Milkaholic"
+        ]
+      },
+      {
+        "sid": "76561198170349089",
+        "observed_names": [
+          "ʇɐɔԀ"
+        ]
+      },
+      {
+        "sid": "76561198090520987",
+        "observed_names": [
+          "Adam"
+        ]
+      },
+      {
+        "sid": "76561198015595906",
+        "observed_names": [
+          "Fatboy"
+        ]
+      },
+      {
+        "sid": "76561198315900248",
+        "observed_names": [
+          "Ruckooe",
+          "[FOOL] Ruckooe"
+        ]
+      },
+      {
+        "sid": "76561198014408059",
+        "observed_names": [
+          "Hefan666"
+        ]
+      },
+      {
+        "sid": "76561198052278546",
+        "observed_names": [
+          "Kolero"
+        ]
+      },
+      {
+        "sid": "76561199006679649",
+        "observed_names": [
+          "mofn"
+        ]
+      },
+      {
+        "sid": "76561199807074878",
+        "observed_names": [
+          "calebmcr"
+        ]
+      },
+      {
+        "sid": "76561199079330706",
+        "observed_names": [
+          "MrSplatoon07",
+          "[BRED] MrSplatoon07"
+        ]
+      },
+      {
+        "sid": "76561198451895679",
+        "observed_names": [
+          "L3mmy",
+          "[Goob] L3mmy"
+        ]
+      },
+      {
+        "sid": "76561198988960546",
+        "observed_names": [
+          "F1Y1NGDUTCHM8N"
+        ]
+      },
+      {
+        "sid": "76561198091994639",
+        "observed_names": [
+          "cookie"
+        ]
+      },
+      {
+        "sid": "76561198071556725",
+        "observed_names": [
+          "gameface"
+        ]
+      }
+    ]
+  }
+}

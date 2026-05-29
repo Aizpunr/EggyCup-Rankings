@@ -1,0 +1,15 @@
+# Python
+__pycache__/
+*.pyc
+
+# Local backups (snapshot.py creates these — regenerable from xlsx history)
+old snapshots/
+
+# Editor / OS
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Temp files
+*.tmp
+*.bak
