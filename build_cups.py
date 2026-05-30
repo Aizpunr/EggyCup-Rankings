@@ -110,10 +110,31 @@ def load_crosscomp_sof():
 sof_data = load_crosscomp_sof()
 if sof_data is not None:
     sid_to_r, name_to_sid, SOF_FLOOR, SOF_PEAK = sof_data
-    print(f"[SOF] using cross-comp pool: FLOOR={SOF_FLOOR} PEAK={SOF_PEAK} "
-          f"({len(sid_to_r)} rated players, {len(name_to_sid)} Eggy steam_id mappings)")
+
+    # If allcompdata.json has a pre-computed SOF for this Eggy cup (rating-as-of-event-time),
+    # use it directly so Eggy page and cross-comp page stay identical. Otherwise fall back
+    # to current-pool computation (covers brand-new cups not yet in cross-comp).
+    crosscomp_sof_by_id = {}
+    try:
+        with open(ALLCOMP_PATH, encoding='utf-8') as f:
+            allcomp = json.load(f)
+        for ev in allcomp.get('events', []):
+            if ev.get('comp') == 'eggy':
+                crosscomp_sof_by_id[ev.get('id')] = (ev.get('sof'), ev.get('avg_top10'))
+    except Exception:
+        pass
+
+    print(f"[SOF] cross-comp pool: FLOOR={SOF_FLOOR} PEAK={SOF_PEAK}, "
+          f"{len(crosscomp_sof_by_id)} Eggy events pre-computed in allcompdata")
 
     for cup in result:
+        if cup['id'] in crosscomp_sof_by_id:
+            sof, avg = crosscomp_sof_by_id[cup['id']]
+            cup['strength'] = round(sof, 1) if sof is not None else 0.0
+            cup['sof_avg_top10'] = round(avg, 1) if avg is not None else None
+            cup['sof_source'] = 'crosscomp'
+            continue
+        # Fallback: compute from current pool (rating-now, not rating-then)
         ratings = []
         unknown = []
         for p in cup['players']:
@@ -125,7 +146,6 @@ if sof_data is not None:
                 unknown.append(p['name'])
         ratings.sort(reverse=True)
         top10 = ratings[:10]
-        # Pad with SOF_FLOOR if lobby has fewer than 10 rated players (mirrors cross-comp)
         while len(top10) < 10:
             top10.append(SOF_FLOOR)
         avg = sum(top10) / 10.0
@@ -135,6 +155,7 @@ if sof_data is not None:
             cup['strength'] = 0.0
         cup['sof_avg_top10'] = round(avg, 1)
         cup['sof_unrated_count'] = len(unknown)
+        cup['sof_source'] = 'eggy_current_pool'
 
 else:
     # ── Fallback: original Eggy-local SOF (kept so the script still works if
