@@ -175,7 +175,7 @@ CANONICAL = {
     'Mμ': ['[CTR]Mμ', 'Mu'],
     'Kaiser64': ['[TEA]Kaiser64'],
     'LKat': ['[GGG]Lkat', '[GGG]LKat', '[MMM]LKat'],
-    'void': ['[ZET]void', '[poop]void', '[bob]void', '[popo]void', 'Void', '//////void', '[VOID[//////void', '[gorp]//////void', '[SWDN]//////void', 'timeless void'],
+    'void': ['[ZET]void', '[poop]void', '[bob]void', '[popo]void', 'Void', '//////void', '[VOID[//////void', '[gorp]//////void', '[SWDN]//////void', 'timeless void', '𝒱V𝑜o𝒾i𝒹d𝒱'],
     'Achmetha0626': ['[ERR]Achmetha0626'],
     'Ax1ss': ['[FaS] Ax1ss', '[TOG] Ax1ss'],
     'BootyMcShooty88': ['[SBOI] BootyMcShooty88'],

@@ -3,8 +3,12 @@ build_cups.py — invert elo_results.json into cup-centric cups.json.
 
 Pulls cup dates from cup log mtimes (under `cup logs/`). Map names + mappers
 are stored in the local `map_index` dict — fill them in once you know them.
-Strength of Field is computed within the Eggy pool (top 10 ELOs in the lobby,
-normalized against the running ELO pool).
+
+Strength of Field uses **cross-comp ELO** (not Eggy-local ratings) so SOF
+values are comparable to the cross-comp page and the SOF mod. Reads
+`../zeepkist holistic/elo_pool.json` for ratings and the dynamic FLOOR/PEAK
+anchors from `../zeepkist holistic/allcompdata.json`. Falls back to the old
+Eggy-local SOF if those files aren't available.
 """
 import json, re, sys, os, datetime
 sys.stdout.reconfigure(encoding='utf-8')
@@ -73,46 +77,107 @@ for cid in sorted(cups.keys(), key=cup_sort_key):
         'players': cups[cid]['players'],
     })
 
-# ── Strength of Field (within Eggy pool) ──
-POOL_CAP = 100
-running = {}    # name -> latest known rating
-pre_norm = []   # pre_norm[i] = normalized pool BEFORE cup i
+# ── Strength of Field (cross-comp rating pool) ──
+CROSSCOMP_DIR = os.path.normpath(os.path.join(base, '..', 'zeepkist holistic'))
+ELO_POOL_PATH = os.path.join(CROSSCOMP_DIR, 'elo_pool.json')
+ALLCOMP_PATH  = os.path.join(CROSSCOMP_DIR, 'allcompdata.json')
+EGGY_SIDS_PATH = _p('steam_ids.json')
 
-for cup in result:
-    entries = sorted(running.items(), key=lambda x: x[1], reverse=True)
-    pool = entries[:POOL_CAP]
-    norm = {}
-    if pool:
-        max_r = pool[0][1]
-        scale = 2000 / max_r if max_r > 0 else 1
-        for name, rating in pool:
-            norm[name] = rating * scale
-    pre_norm.append(norm)
-    for p in cup['players']:
-        running[p['name']] = p['rating_after']
 
-# Early cups have no prior data — use the most-developed pool we've got
-seed_idx = next((i for i, n in enumerate(pre_norm) if len(n) >= 10), len(pre_norm) - 1)
-seed_norm = pre_norm[seed_idx] if pre_norm else {}
-rank_maps = [seed_norm if i < seed_idx else pre_norm[i] for i in range(len(result))]
+def load_crosscomp_sof():
+    """Returns (sid_to_rating, name_to_sid, SOF_FLOOR, SOF_PEAK) or None if
+    cross-comp data is unavailable."""
+    if not (os.path.exists(ELO_POOL_PATH) and os.path.exists(ALLCOMP_PATH)
+            and os.path.exists(EGGY_SIDS_PATH)):
+        return None
+    try:
+        with open(ELO_POOL_PATH, encoding='utf-8') as f:
+            pool = json.load(f)
+        with open(ALLCOMP_PATH, encoding='utf-8') as f:
+            allcomp = json.load(f)
+        with open(EGGY_SIDS_PATH, encoding='utf-8') as f:
+            eggy_sids = json.load(f)
+    except Exception as e:
+        print(f"[SOF] cross-comp load failed ({e}); falling back to Eggy-local SOF")
+        return None
+    sid_to_r = {p['steam_id']: p['elo'] for p in pool.get('players', [])}
+    cfg = allcomp.get('config', {})
+    floor = cfg.get('SOF_FLOOR', 1287.0)
+    peak  = cfg.get('SOF_PEAK', 1968.11)
+    return sid_to_r, eggy_sids, floor, peak
 
-for i, cup in enumerate(result):
-    norm_map = rank_maps[i]
-    if len(norm_map) < 2:
-        cup['strength'] = 0
-        continue
-    elos = sorted(
-        [norm_map[p['name']] for p in cup['players'] if p['name'] in norm_map],
-        reverse=True,
-    )[:10]
-    if not elos:
-        cup['strength'] = 0
-        continue
-    min_pool = min(norm_map.values())
-    while len(elos) < 10:
-        elos.append(min_pool)
-    avg = sum(elos) / len(elos)
-    cup['strength'] = round(avg / 1850 * 100, 1)
+
+sof_data = load_crosscomp_sof()
+if sof_data is not None:
+    sid_to_r, name_to_sid, SOF_FLOOR, SOF_PEAK = sof_data
+    print(f"[SOF] using cross-comp pool: FLOOR={SOF_FLOOR} PEAK={SOF_PEAK} "
+          f"({len(sid_to_r)} rated players, {len(name_to_sid)} Eggy steam_id mappings)")
+
+    for cup in result:
+        ratings = []
+        unknown = []
+        for p in cup['players']:
+            sid = name_to_sid.get(p['name'])
+            r = sid_to_r.get(sid) if sid else None
+            if r is not None:
+                ratings.append(r)
+            else:
+                unknown.append(p['name'])
+        ratings.sort(reverse=True)
+        top10 = ratings[:10]
+        # Pad with SOF_FLOOR if lobby has fewer than 10 rated players (mirrors cross-comp)
+        while len(top10) < 10:
+            top10.append(SOF_FLOOR)
+        avg = sum(top10) / 10.0
+        if SOF_PEAK > SOF_FLOOR:
+            cup['strength'] = round((avg - SOF_FLOOR) / (SOF_PEAK - SOF_FLOOR) * 100, 1)
+        else:
+            cup['strength'] = 0.0
+        cup['sof_avg_top10'] = round(avg, 1)
+        cup['sof_unrated_count'] = len(unknown)
+
+else:
+    # ── Fallback: original Eggy-local SOF (kept so the script still works if
+    # cross-comp data is missing) ──
+    print("[SOF] cross-comp data unavailable; using Eggy-local SOF")
+    POOL_CAP = 100
+    running = {}
+    pre_norm = []
+
+    for cup in result:
+        entries = sorted(running.items(), key=lambda x: x[1], reverse=True)
+        pool = entries[:POOL_CAP]
+        norm = {}
+        if pool:
+            max_r = pool[0][1]
+            scale = 2000 / max_r if max_r > 0 else 1
+            for name, rating in pool:
+                norm[name] = rating * scale
+        pre_norm.append(norm)
+        for p in cup['players']:
+            running[p['name']] = p['rating_after']
+
+    seed_idx = next((i for i, n in enumerate(pre_norm) if len(n) >= 10), len(pre_norm) - 1)
+    seed_norm = pre_norm[seed_idx] if pre_norm else {}
+    rank_maps = [seed_norm if i < seed_idx else pre_norm[i] for i in range(len(result))]
+
+    for i, cup in enumerate(result):
+        norm_map = rank_maps[i]
+        if len(norm_map) < 2:
+            cup['strength'] = 0
+            continue
+        elos = sorted(
+            [norm_map[p['name']] for p in cup['players'] if p['name'] in norm_map],
+            reverse=True,
+        )[:10]
+        if not elos:
+            cup['strength'] = 0
+            continue
+        min_pool = min(norm_map.values())
+        while len(elos) < 10:
+            elos.append(min_pool)
+        avg = sum(elos) / len(elos)
+        cup['strength'] = round(avg / 1850 * 100, 1)
 
 with open(_p('cups.json'), 'w', encoding='utf-8') as f:
     json.dump(result, f, ensure_ascii=False, separators=(',', ':'))
