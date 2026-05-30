@@ -1,0 +1,139 @@
+{
+  "cup": "Eggy 90",
+  "cup_num": 90,
+  "mapper": "heyovio",
+  "players": [
+    {
+      "pos": 1,
+      "name": "Lexer",
+      "time": "31.63195",
+      "round": null
+    },
+    {
+      "pos": 2,
+      "name": "[Quac] microways",
+      "time": "31.64427",
+      "round": 11
+    },
+    {
+      "pos": 3,
+      "name": "Eclipse135",
+      "time": "31.86732",
+      "round": 10
+    },
+    {
+      "pos": 4,
+      "name": "[CTR]agix",
+      "time": "31.81304",
+      "round": 9
+    },
+    {
+      "pos": 5,
+      "name": "PlusMicron",
+      "time": "31.86162",
+      "round": 8
+    },
+    {
+      "pos": 6,
+      "name": "Minkus",
+      "time": "31.95115",
+      "round": 7
+    },
+    {
+      "pos": 7,
+      "name": "Noxitu",
+      "time": "31.83418",
+      "round": 6
+    },
+    {
+      "pos": 8,
+      "name": "wunderBarr",
+      "time": "32.02272",
+      "round": 6
+    },
+    {
+      "pos": 9,
+      "name": "[ZET] Wheelie",
+      "time": "31.87061",
+      "round": 5
+    },
+    {
+      "pos": 10,
+      "name": "𝒱V𝑜o𝒾i𝒹d𝒱",
+      "time": "DNF",
+      "round": 5
+    },
+    {
+      "pos": 11,
+      "name": "[DNFF]lucanakin",
+      "time": "32.11924",
+      "round": 4
+    },
+    {
+      "pos": 12,
+      "name": "[ZET]Sword125",
+      "time": "32.14261",
+      "round": 4
+    },
+    {
+      "pos": 13,
+      "name": "SuperHeavy",
+      "time": "32.20801",
+      "round": 3
+    },
+    {
+      "pos": 14,
+      "name": "[ZET]maskeddog",
+      "time": "32.21931",
+      "round": 3
+    },
+    {
+      "pos": 15,
+      "name": "M4DSCOTSM4N",
+      "time": "32.21588",
+      "round": 2
+    },
+    {
+      "pos": 16,
+      "name": "huhconduct",
+      "time": "32.27899",
+      "round": 2
+    },
+    {
+      "pos": 17,
+      "name": "Dartho Mas",
+      "time": "32.29118",
+      "round": 2
+    },
+    {
+      "pos": 18,
+      "name": "[ZET]vectortrajector",
+      "time": "32.47847",
+      "round": 2
+    },
+    {
+      "pos": 19,
+      "name": "[CLWN]DryDoc",
+      "time": "33.0386",
+      "round": 1
+    },
+    {
+      "pos": 20,
+      "name": "B1gManM1ke",
+      "time": "33.47812",
+      "round": 1
+    },
+    {
+      "pos": 21,
+      "name": "[AUz] bjenk4",
+      "time": "34.99801",
+      "round": 1
+    },
+    {
+      "pos": 22,
+      "name": "[ZET] zeriv",
+      "time": "DNF",
+      "round": 1
+    }
+  ]
+}

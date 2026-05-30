@@ -29,8 +29,13 @@
     line-height: 1.4;
   }
   header {
-    padding: 18px 24px 12px;
+    padding: 18px 0 12px;
     border-bottom: 1px solid var(--border);
+  }
+  header .container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 24px;
     display: flex;
     align-items: baseline;
     gap: 16px;
@@ -46,11 +51,15 @@
     font-size: 13px;
   }
   nav {
-    display: flex;
-    gap: 0;
-    padding: 0 24px;
     border-bottom: 1px solid var(--border);
     background: var(--panel);
+  }
+  nav .container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    gap: 0;
   }
   nav button {
     background: none;
@@ -72,6 +81,7 @@
   main {
     padding: 16px 24px;
     max-width: 1280px;
+    margin: 0 auto;
   }
   .panel {
     background: var(--panel);
@@ -112,7 +122,17 @@
     cursor: pointer;
   }
   tbody tr.chart-row:hover { background: var(--panel2); cursor: default; }
-  td.num {
+
+  @media (max-width: 640px) {
+    .mobile-hide { display: none !important; }
+    main { padding: 8px 8px; }
+    .panel { padding: 10px 8px; }
+    header .container, nav .container { padding: 0 12px; }
+    header h1 { font-size: 18px; }
+    th, td { padding: 6px 6px; }
+    td.rank { width: 50px; }
+  }
+  .num {
     text-align: right;
     font-variant-numeric: tabular-nums;
   }
@@ -274,14 +294,18 @@
 <body>
 
 <header>
-  <h1>Eggy Cup ELO Rankings</h1>
-  <span class="sub" id="subtitle">loading…</span>
+  <div class="container">
+    <h1>Eggy Cup ELO Rankings</h1>
+    <span class="sub" id="subtitle">loading…</span>
+  </div>
 </header>
 
 <nav>
-  <button class="active" data-tab="rankings">Rankings</button>
-  <button data-tab="cups">Cups</button>
-  <button data-tab="fastest">Fastest</button>
+  <div class="container">
+    <button class="active" data-tab="rankings">Rankings</button>
+    <button data-tab="cups">Cups</button>
+    <button data-tab="fastest">Fastest</button>
+  </div>
 </nav>
 
 <main>
@@ -404,13 +428,13 @@ function renderRank() {
       <th class="rank">#</th>
       <th data-key="n">Player</th>
       <th data-key="a" class="num sorted">${ratingLabel}</th>
-      ${isGlicko ? '<th data-key="rd" class="num">RD</th>' : ''}
-      <th data-key="c" class="num">Cups</th>
-      <th data-key="w" class="num">W</th>
-      <th class="num">Pod</th>
-      <th data-key="b" class="num">Best</th>
-      <th data-key="v" class="num">Avg</th>
-      <th data-key="p" class="num">Peak</th>
+      ${isGlicko ? '<th data-key="rd" class="num mobile-hide">RD</th>' : ''}
+      <th data-key="c" class="num mobile-hide">Cups</th>
+      <th data-key="w" class="num mobile-hide">Wins</th>
+      <th class="num mobile-hide">Podiums</th>
+      <th data-key="b" class="num mobile-hide">Best</th>
+      <th data-key="v" class="num mobile-hide">Avg</th>
+      <th data-key="p" class="num mobile-hide">Peak</th>
     </tr>`;
   const list = [...alldata[currentVariant]];
   list.sort((x, y) => {
@@ -447,18 +471,18 @@ function renderRank() {
     }
 
     const tcolor = rColor(p.a);
-    const rdCell = isGlicko ? `<td class="num" style="color:var(--muted);font-size:12px">±${Math.round(p.rd)}</td>` : '';
+    const rdCell = isGlicko ? `<td class="num mobile-hide" style="color:var(--muted);font-size:12px">±${Math.round(p.rd)}</td>` : '';
     tr.innerHTML = `
       <td class="rank">${i + 1}${rankArrow}</td>
       <td><span style="display:inline-block;width:7px;height:7px;border-radius:50%;background:${tcolor};margin-right:6px;vertical-align:middle"></span>${escapeHtml(p.n)}</td>
       <td class="num" style="color:${tcolor}"><strong>${p.a.toFixed(1)}</strong>${eloArrow}</td>
       ${rdCell}
-      <td class="num">${p.c}</td>
-      <td class="num">${p.w || '·'}${winArrow}</td>
-      <td class="num">${podBadges(p)}</td>
-      <td class="num">${p.b || '·'}</td>
-      <td class="num">${p.v ? p.v.toFixed(1) : '·'}</td>
-      <td class="num" style="color:var(--muted)">${p.p.toFixed(1)}</td>
+      <td class="num mobile-hide">${p.c}</td>
+      <td class="num mobile-hide">${p.w || '·'}${winArrow}</td>
+      <td class="num mobile-hide">${podBadges(p)}</td>
+      <td class="num mobile-hide">${p.b || '·'}</td>
+      <td class="num mobile-hide">${p.v ? p.v.toFixed(1) : '·'}</td>
+      <td class="num mobile-hide" style="color:var(--muted)">${p.p.toFixed(1)}</td>
     `;
     tr.dataset.name = p.n;
     tr.addEventListener('click', () => togglePlayer(p));
@@ -485,11 +509,15 @@ function renderRank() {
 }
 
 function podBadges(p) {
-  let out = '';
-  if (p.g) out += `<span class="pod gold">${p.g}</span>`;
-  if (p.s) out += `<span class="pod silver">${p.s}</span>`;
-  if (p.z) out += `<span class="pod bronze">${p.z}</span>`;
-  return out || '·';
+  const g = p.g || 0, s = p.s || 0, z = p.z || 0;
+  const total = g + s + z;
+  if (!total) return '<span style="color:var(--muted)">0</span>';
+  return `<span style="color:var(--gold)">${g}</span>`
+       + `<span style="color:var(--muted)">/</span>`
+       + `<span style="color:var(--silver)">${s}</span>`
+       + `<span style="color:var(--muted)">/</span>`
+       + `<span style="color:var(--bronze)">${z}</span>`
+       + ` <span style="color:var(--muted);font-size:11px">(${total})</span>`;
 }
 
 function renderCups() {

@@ -19,32 +19,35 @@ python -m http.server 9004
 
 ## Per-cup workflow
 
-Run in this order **after** each cup is played:
+Four steps, in order. All run from `C:\Users\rafa\Desktop\Claude\eggy cup\`:
 
-1. **Before relaunching Zeepkist**, archive the cup-tracker log (BepInEx overwrites it on launch):
-   ```
-   python C:\Users\rafa\Desktop\Claude\save_log.py eggy <N>
-   ```
-   Or copy `BepInEx\LogOutput.log` → `cup logs\eggy_<N>.log` manually.
+### 1. Snapshot pre-cup state
+Capture the current leaderboard so the next render shows week-over-week delta arrows on rank, rating, and wins.
+```
+python snapshot.py
+```
 
-2. **If LiveLeaderboardLogger was active** (`/livelog start` before cup): also copy `BepInEx\LiveLeaderboardLogger.log` → `cup logs\eggy_<N>_liveleaderboard.log` manually. `save_log.py` does not grab this one.
+### 2. Save logs (before relaunching Zeepkist)
+BepInEx overwrites both `LogOutput.log` and `LiveLeaderboardLogger.log` on the next launch, so do this BEFORE you restart the game.
+```
+python C:\Users\rafa\Desktop\Claude\save_log.py eggy <N>
+```
+This grabs **both**:
+- `cup logs\eggy_<N>.log` — cup tracker log (always)
+- `cup logs\eggy_<N>_liveleaderboard.log` — livelog (only if `/livelog start` was active during the cup)
 
-3. **Snapshot pre-cup state** so the next render shows week-over-week delta arrows:
-   ```
-   python snapshot.py
-   ```
+### 3. Run the update pipeline
+```
+python new_cup.py <N> [mapper] [--exclude name1,name2]
+```
+- Parses `cup logs\eggy_<N>.log` → appends to `Eggy Cup 87-NN.xlsx`
+- Writes `cup_<N>.json` backup
+- Runs `elo_engine.py`, `build_cups.py`, `build_fastest.py`
+- Runs `analyze_cup_livelog.py` if a livelog is present (LTG inference + `steam_ids.json` merge)
+- Mapper defaults to `TBD` if omitted; pass `--exclude wheelie` when he's hosting and not competing.
 
-4. **Run the pipeline**:
-   ```
-   python new_cup.py <N> [mapper] [--exclude name1,name2]
-   ```
-   - Parses `cup logs\eggy_<N>.log` → appends to `Eggy Cup 87-NN.xlsx`
-   - Writes `cup_<N>.json` backup
-   - Runs `elo_engine.py`, `build_cups.py`, `build_fastest.py`
-   - Runs `analyze_cup_livelog.py` if a livelog is present (LTG inference + `steam_ids.json` merge)
-   - Mapper defaults to `TBD` if omitted
-
-5. **Fill in map name + mapper** in `build_cups.py` → `map_index` dict, then rerun `python build_cups.py`.
+### 4. Fill in map name + mapper
+Once you know the map name, edit `map_index` in `build_cups.py`, then rerun `python build_cups.py`.
 
 ### Wheelie exclusion
 
