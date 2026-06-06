@@ -173,14 +173,20 @@ for e in all_entries:
         elif e.get('round') and existing.get('round') and e['time'] < existing['time']:
             by_cup[cup] = e
 
-fastest = sorted(by_cup.values(), key=lambda x: x['time'])
+def _cup_num(e):
+    m = re.search(r'(\d+)', e['cup'])
+    return int(m.group(1)) if m else -1
+
+
+# Fastest lap is map-dependent, so don't rank across cups — list per event, newest first.
+fastest = sorted(by_cup.values(), key=_cup_num, reverse=True)
 print(f"After dedup: {len(fastest)} cups with fastest times")
 
 with open(_p('fastest.json'), 'w', encoding='utf-8') as f:
     json.dump(fastest, f, separators=(',', ':'), ensure_ascii=False)
 
 print(f"Wrote fastest.json ({len(fastest)} entries)")
-print("\nTop 10 fastest:")
-for i, e in enumerate(fastest[:10], 1):
+print("\nFastest lap per cup (newest first):")
+for e in fastest:
     rd = e['round'] or '?'
-    print(f"  {i}. {e['time']:.3f}s  {e['player']:<25} {rd:<15} {e['cup']}")
+    print(f"  {e['cup']:<10} {e['time']:.3f}s  {e['player']:<25} {rd}")

@@ -22,6 +22,7 @@ map_index = {
     'Eggy 88': {'map': '',            'mapper': 'void & zodiak'},
     'Eggy 89': {'map': '',            'mapper': 'vectortrajector'},
     'Eggy 90': {'map': '',            'mapper': 'heyovio'},
+    'Eggy 91': {'map': 'Where grass grows!', 'mapper': 'Wheelie'},
 }
 
 # Cup dates — fall back to log mtime if not explicit.

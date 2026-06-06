@@ -61,7 +61,7 @@ def parse_file(filepath):
     return cups
 
 
-all_cups = parse_file(_p('Eggy Cup 87-90.xlsx'))
+all_cups = parse_file(_p('Eggy Cup 87-91.xlsx'))
 
 
 def cup_num(name):

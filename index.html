@@ -352,7 +352,6 @@
     <table>
       <thead>
         <tr>
-          <th class="rank">#</th>
           <th>Cup</th>
           <th>Player</th>
           <th class="num">Time</th>
@@ -564,10 +563,9 @@ function renderCups() {
 function renderFastest() {
   const tbody = document.getElementById('fastest-body');
   tbody.innerHTML = '';
-  fastest.forEach((e, i) => {
+  fastest.forEach((e) => {
     const tr = document.createElement('tr');
     tr.innerHTML = `
-      <td class="rank">${i + 1}</td>
       <td>${escapeHtml(e.cup)}</td>
       <td>${escapeHtml(e.player)}</td>
       <td class="num"><strong>${e.time.toFixed(3)}</strong>s</td>
