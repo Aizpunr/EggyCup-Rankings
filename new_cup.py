@@ -16,6 +16,8 @@ build_fastest + analyze_cup_livelog (when livelog is present).
 import re, os, sys, json, subprocess, shutil
 import openpyxl
 
+sys.stdout.reconfigure(encoding='utf-8')  # players use exotic unicode names
+
 _dir = os.path.dirname(os.path.abspath(__file__))
 _p = lambda f: os.path.join(_dir, f)
 
