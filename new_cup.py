@@ -149,11 +149,26 @@ else:
         sys.exit(1)
     winner = winners[0]
 
+# Winner's displayed time = their time in the last COMPETITIVE round.
+# The Eggy cup-end "winner-marker" round (only the winner left, then
+# "eliminated" by the mod as an end signal) logs a meaningless time — often
+# DNF, since the winner doesn't bother finishing a solo lap. Skip it and use
+# the last round where the winner actually raced someone.
 winner_time = None
-for line in reversed(lines):
-    m = re.search(r'Player ' + re.escape(winner) + r': Time: (.+)', line)
-    if m:
-        winner_time = m.group(1).strip()
+for rnd in reversed(rounds):
+    pt, elim = {}, []
+    for line in rnd:
+        m = re.search(r'Player (.+?): Time: (.+)', line)
+        if m:
+            pt[m.group(1).strip()] = m.group(2).strip()
+        m2 = re.search(r'Eliminating (?:DNF|on time): (.+)', line)
+        if m2:
+            elim.append(m2.group(1).strip())
+    is_marker = (len(pt) == 1 and len(elim) == 1 and next(iter(pt)) == elim[0])
+    if is_marker:
+        continue
+    if winner in pt:
+        winner_time = pt[winner]
         break
 
 # Build leaderboard: per-round finishers ordered by time, DNFs tie at bottom of round
