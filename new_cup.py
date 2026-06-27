@@ -31,9 +31,19 @@ if len(sys.argv) < 2:
     sys.exit(1)
 
 cup_num = int(sys.argv[1])
+
+# positional mapper = first non-flag arg, skipping flag VALUES (--exclude X, --winner Y)
 mapper = "TBD"
+_flag_with_value = {'--exclude', '--winner'}
+_skip = False
 for arg in sys.argv[2:]:
-    if not arg.startswith('--') and mapper == "TBD":
+    if _skip:
+        _skip = False
+        continue
+    if arg in _flag_with_value:
+        _skip = True
+        continue
+    if not arg.startswith('--'):
         mapper = arg
         break
 
@@ -44,6 +54,16 @@ if '--exclude' in sys.argv:
     idx = sys.argv.index('--exclude')
     if idx + 1 < len(sys.argv):
         extra_excluded = [n.strip() for n in sys.argv[idx + 1].split(',') if n.strip()]
+
+# Manual winner override for abnormal cups the auto-detector can't resolve
+# (e.g. both finalists DNF the last round → a side rule awards it to 3rd).
+# Pass the winner's RAW log name; they're pulled out of the elimination order
+# and placed at position 1.
+manual_winner = None
+if '--winner' in sys.argv:
+    _wi = sys.argv.index('--winner')
+    if _wi + 1 < len(sys.argv):
+        manual_winner = sys.argv[_wi + 1].strip()
 
 use_live = '--live' in sys.argv
 
@@ -140,7 +160,10 @@ for rnd in rounds:
         if m:
             all_named.add(m.group(1).strip())
 elim_set = {e[0] for e in elim_order}
-if winner_marker and winner_marker not in excluded:
+if manual_winner:
+    winner = manual_winner
+    elim_order = [e for e in elim_order if e[0] != winner]
+elif winner_marker and winner_marker not in excluded:
     winner = winner_marker
 else:
     winners = [n for n in all_named if n not in elim_set and n not in excluded]

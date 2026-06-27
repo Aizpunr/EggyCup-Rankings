@@ -25,6 +25,7 @@ map_index = {
     'Eggy 91': {'map': 'Where grass grows!', 'mapper': 'Wheelie'},
     'Eggy 92': {'map': '', 'mapper': 'Sword125 & void'},
     'Eggy 93': {'map': '', 'mapper': 'Micah & vectortrajector'},
+    'Eggy 94': {'map': '', 'mapper': 'vectortrajector'},
 }
 
 # Cup dates — fall back to log mtime if not explicit.
