@@ -1,0 +1,97 @@
+{
+  "cup": "Eggy 95",
+  "cup_num": 95,
+  "mapper": "void & Wheelie",
+  "players": [
+    {
+      "pos": 1,
+      "name": "[DNF] Jake",
+      "time": "39,94169",
+      "round": null
+    },
+    {
+      "pos": 2,
+      "name": "[CTR]agix",
+      "time": "40,2516",
+      "round": 9
+    },
+    {
+      "pos": 3,
+      "name": "justMaki",
+      "time": "40,30699",
+      "round": 8
+    },
+    {
+      "pos": 4,
+      "name": "Sterben",
+      "time": "40,23637",
+      "round": 7
+    },
+    {
+      "pos": 5,
+      "name": "Noxitu",
+      "time": "41,19175",
+      "round": 6
+    },
+    {
+      "pos": 6,
+      "name": "Dartho Mas",
+      "time": "41,52374",
+      "round": 5
+    },
+    {
+      "pos": 7,
+      "name": "aizpun",
+      "time": "41,52398",
+      "round": 5
+    },
+    {
+      "pos": 8,
+      "name": "Kilandor",
+      "time": "42,27232",
+      "round": 4
+    },
+    {
+      "pos": 9,
+      "name": "SuperHeavy",
+      "time": "42,38717",
+      "round": 4
+    },
+    {
+      "pos": 10,
+      "name": "[Auz] Bjenk4",
+      "time": "43,26884",
+      "round": 3
+    },
+    {
+      "pos": 11,
+      "name": "Maki",
+      "time": "43,52267",
+      "round": 3
+    },
+    {
+      "pos": 12,
+      "name": "[ZET]MicahNike",
+      "time": "43,53985",
+      "round": 2
+    },
+    {
+      "pos": 13,
+      "name": "[ZET]vectortrajector",
+      "time": "DNF",
+      "round": 2
+    },
+    {
+      "pos": 14,
+      "name": "[ZET]maskeddog",
+      "time": "48,34328",
+      "round": 1
+    },
+    {
+      "pos": 15,
+      "name": "[ZET]Sword125",
+      "time": "DNF",
+      "round": 1
+    }
+  ]
+}
