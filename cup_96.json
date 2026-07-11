@@ -1,0 +1,151 @@
+{
+  "cup": "Eggy 96",
+  "cup_num": 96,
+  "mapper": "void",
+  "players": [
+    {
+      "pos": 1,
+      "name": "Pants",
+      "time": "44,27728",
+      "round": null
+    },
+    {
+      "pos": 2,
+      "name": "[KURK] Quickracer10",
+      "time": "44,644",
+      "round": null
+    },
+    {
+      "pos": 3,
+      "name": "justMaki",
+      "time": "44,69681",
+      "round": null
+    },
+    {
+      "pos": 4,
+      "name": "Jake",
+      "time": "DNF",
+      "round": 4
+    },
+    {
+      "pos": 4,
+      "name": "[ZET]Stick",
+      "time": "DNF",
+      "round": 4
+    },
+    {
+      "pos": 6,
+      "name": "ZOMAN",
+      "time": "DNF",
+      "round": 3
+    },
+    {
+      "pos": 7,
+      "name": "[MMM]Victor",
+      "time": "49,80994",
+      "round": 2
+    },
+    {
+      "pos": 8,
+      "name": "[CSC]AndMe18",
+      "time": "57,54696",
+      "round": 2
+    },
+    {
+      "pos": 9,
+      "name": "Sterben",
+      "time": "DNF",
+      "round": 1
+    },
+    {
+      "pos": 9,
+      "name": "[ZET] Wheelie",
+      "time": "DNF",
+      "round": 1
+    },
+    {
+      "pos": 9,
+      "name": "koz",
+      "time": "DNF",
+      "round": 1
+    },
+    {
+      "pos": 9,
+      "name": "brrryy",
+      "time": "DNF",
+      "round": 1
+    },
+    {
+      "pos": 9,
+      "name": "Lexer",
+      "time": "DNF",
+      "round": 1
+    },
+    {
+      "pos": 9,
+      "name": "aizpun",
+      "time": "DNF",
+      "round": 1
+    },
+    {
+      "pos": 9,
+      "name": "BrickEdwards",
+      "time": "DNF",
+      "round": 1
+    },
+    {
+      "pos": 9,
+      "name": "Minkus",
+      "time": "DNF",
+      "round": 1
+    },
+    {
+      "pos": 9,
+      "name": "Werewolf_Gaming",
+      "time": "DNF",
+      "round": 1
+    },
+    {
+      "pos": 9,
+      "name": "Hellmet",
+      "time": "DNF",
+      "round": 1
+    },
+    {
+      "pos": 9,
+      "name": "[ZET]vectortrajector",
+      "time": "DNF",
+      "round": 1
+    },
+    {
+      "pos": 9,
+      "name": "[CCC]Shinikage221",
+      "time": "DNF",
+      "round": 1
+    },
+    {
+      "pos": 9,
+      "name": "BB_Benji",
+      "time": "DNF",
+      "round": 1
+    },
+    {
+      "pos": 9,
+      "name": "[Auz] Bjenk4",
+      "time": "DNF",
+      "round": 1
+    },
+    {
+      "pos": 9,
+      "name": "cucumis conditus solacii animi",
+      "time": "DNF",
+      "round": 1
+    },
+    {
+      "pos": 9,
+      "name": "[ZET]Sword125",
+      "time": "DNF",
+      "round": 1
+    }
+  ]
+}

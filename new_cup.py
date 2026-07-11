@@ -65,6 +65,11 @@ if '--winner' in sys.argv:
     if _wi + 1 < len(sys.argv):
         manual_winner = sys.argv[_wi + 1].strip()
 
+# For cups that never reached a final (e.g. host DC killed the lobby, log
+# truncated to the last valid round): rank the remaining survivors by their
+# times in the last competitive round instead of erroring/picking arbitrarily.
+finish_by_times = '--finish-by-times' in sys.argv
+
 use_live = '--live' in sys.argv
 
 excluded = ({mapper} if mapper and mapper != "TBD" else set()) | set(extra_excluded)
@@ -123,6 +128,7 @@ if not rounds:
 elim_order = []
 actual_round = 0
 winner_marker = None  # name extracted from a final single-player "elimination" round
+last_elim_times = {}  # leaderboard times of the last competitive round
 for rnd in rounds:
     player_times = {}
     eliminated_names = []
@@ -146,6 +152,7 @@ for rnd in rounds:
         winner_marker = eliminated_names[0]
         continue
     actual_round += 1
+    last_elim_times = player_times
     for name in eliminated_names:
         if name not in excluded:
             elim_round_time = player_times.get(name, 'DNF')
@@ -160,6 +167,7 @@ for rnd in rounds:
         if m:
             all_named.add(m.group(1).strip())
 elim_set = {e[0] for e in elim_order}
+survivor_ranks = []  # extra survivors placed 2..k when --finish-by-times resolves a cut-short cup
 if manual_winner:
     winner = manual_winner
     elim_order = [e for e in elim_order if e[0] != winner]
@@ -170,7 +178,25 @@ else:
     if not winners:
         print("ERROR: Could not determine winner.")
         sys.exit(1)
-    winner = winners[0]
+    if len(winners) > 1:
+        if not finish_by_times:
+            print(f"ERROR: {len(winners)} survivors ({', '.join(winners)}) — cup never "
+                  f"reached a final. Pass --finish-by-times to rank them by their "
+                  f"last-round times, or --winner to pick one.")
+            sys.exit(1)
+        def _lt_key(nm):
+            t = last_elim_times.get(nm, 'DNF')
+            try:
+                return (0, float(t.replace(',', '.')))
+            except (ValueError, AttributeError):
+                return (1, 0.0)
+        winners.sort(key=_lt_key)
+        winner = winners[0]
+        survivor_ranks = winners[1:]
+        print(f"Cut-short cup: ranking {len(winners)} survivors by last-round times "
+              f"-> {', '.join(winners)}")
+    else:
+        winner = winners[0]
 
 # Winner's displayed time = their time in the last COMPETITIVE round.
 # The Eggy cup-end "winner-marker" round (only the winner left, then
@@ -198,6 +224,9 @@ for rnd in reversed(rounds):
 elim_order.reverse()
 leaderboard = [(winner, winner_time, None, 1)]
 pos = 2
+for nm in survivor_ranks:
+    leaderboard.append((nm, last_elim_times.get(nm, 'DNF'), None, pos))
+    pos += 1
 i = 0
 while i < len(elim_order):
     rnd = elim_order[i][2]
