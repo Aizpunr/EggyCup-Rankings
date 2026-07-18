@@ -61,7 +61,7 @@ def parse_file(filepath):
     return cups
 
 
-all_cups = parse_file(_p('Eggy Cup 87-96.xlsx'))
+all_cups = parse_file(_p('Eggy Cup 87-97.xlsx'))
 
 
 def cup_num(name):
@@ -200,7 +200,7 @@ CANONICAL = {
     'Lilly Fenn': ['[Fenn]Lilly Fenn', 'ttv/Lilly the Bun', '[bnuy]ttv/Lilly the Bun', 'Lilly the Bun'],
     'Ulv_RaVn': ['[XTR] [VK] Ulv_RaVn', '[XTR] [VK] Ulv_Ravn'],
     'vectortrajector': ['[ZET]vectortrajector', '[ZET] vectortrajector'],
-    'Victor': ['[GGG]Victor', '[MMM]Victor', '[FPV]Victor', '[RFV]Victor'],
+    'Victor': ['[GGG]Victor', '[MMM]Victor', '[FPV]Victor', '[RFV]Victor', '[EG]Victor'],
     "Zeke Ryu'kai": ["[BoF3] Zeke Ryu'kai"],
     '=XDC=WOLF': ['=XDC=Wolf'],
     'tws20so': ['[DRFT] tws20so', '[IRS] tws20so'],
@@ -275,7 +275,7 @@ CANONICAL = {
     # ── Eggy-only seeds (from Eggy logs) ──
     'maskeddog': ['[ZET]maskeddog', '[ZET] maskeddog'],
     'Shinikage221': ['[CCC]Shinikage221', '[CCC] Shinikage221'],
-    'bjenk4': ['[AUz] bjenk4', '[AUz]bjenk4'],
+    'bjenk4': ['[AUz] bjenk4', '[AUz]bjenk4', '[Auz] Bjenk4', '[Auz]Bjenk4'],
 }
 
 NAME_MAP = {}

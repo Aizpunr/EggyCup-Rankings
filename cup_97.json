@@ -1,0 +1,91 @@
+{
+  "cup": "Eggy 97",
+  "cup_num": 97,
+  "mapper": "vectortrajector & Wheelie",
+  "players": [
+    {
+      "pos": 1,
+      "name": "[EG]justMaki",
+      "time": "49.73222",
+      "round": null
+    },
+    {
+      "pos": 2,
+      "name": "[EG]Victor",
+      "time": "51.3265",
+      "round": 7
+    },
+    {
+      "pos": 3,
+      "name": "Minkus",
+      "time": "54.72972",
+      "round": 6
+    },
+    {
+      "pos": 4,
+      "name": "Savage Package",
+      "time": "DNF",
+      "round": 4
+    },
+    {
+      "pos": 5,
+      "name": "[KBW]Kernkob",
+      "time": "DNF",
+      "round": 3
+    },
+    {
+      "pos": 6,
+      "name": "MackCheesy",
+      "time": "DNF",
+      "round": 2
+    },
+    {
+      "pos": 6,
+      "name": "[Auz] Bjenk4",
+      "time": "DNF",
+      "round": 2
+    },
+    {
+      "pos": 8,
+      "name": "[CCC]Shinikage221",
+      "time": "DNF",
+      "round": 1
+    },
+    {
+      "pos": 8,
+      "name": "𝒱V𝑜o𝒾i𝒹d𝒱",
+      "time": "DNF",
+      "round": 1
+    },
+    {
+      "pos": 8,
+      "name": "[ZET]maskeddog",
+      "time": "DNF",
+      "round": 1
+    },
+    {
+      "pos": 8,
+      "name": "[RABI]Yksdjcj",
+      "time": "DNF",
+      "round": 1
+    },
+    {
+      "pos": 8,
+      "name": "[ZET]Sword125",
+      "time": "DNF",
+      "round": 1
+    },
+    {
+      "pos": 8,
+      "name": "pannekoekbijter",
+      "time": "DNF",
+      "round": 1
+    },
+    {
+      "pos": 8,
+      "name": "zodiak",
+      "time": "DNF",
+      "round": 1
+    }
+  ]
+}
