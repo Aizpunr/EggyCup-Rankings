@@ -1,0 +1,85 @@
+{
+  "cup": "Eggy 98",
+  "cup_num": 98,
+  "mapper": "Wheelie",
+  "players": [
+    {
+      "pos": 1,
+      "name": "[ZET]Stick",
+      "time": "31.83388",
+      "round": null
+    },
+    {
+      "pos": 2,
+      "name": "Minkus",
+      "time": "31.88728",
+      "round": 8
+    },
+    {
+      "pos": 3,
+      "name": "[FORK] A Broken Forklift",
+      "time": "32.18822",
+      "round": 7
+    },
+    {
+      "pos": 4,
+      "name": "[ZET]Sword125",
+      "time": "32.92604",
+      "round": 6
+    },
+    {
+      "pos": 5,
+      "name": "[CCC]Shinikage221",
+      "time": "DNF",
+      "round": 5
+    },
+    {
+      "pos": 6,
+      "name": "[ZET]maskeddog",
+      "time": "33.36911",
+      "round": 4
+    },
+    {
+      "pos": 7,
+      "name": "Noxitu",
+      "time": "DNF",
+      "round": 4
+    },
+    {
+      "pos": 8,
+      "name": "jjwoznia",
+      "time": "34.20174",
+      "round": 3
+    },
+    {
+      "pos": 9,
+      "name": "[Auz] Bjenk4",
+      "time": "DNF",
+      "round": 3
+    },
+    {
+      "pos": 10,
+      "name": "Dartho Mas",
+      "time": "DNF",
+      "round": 2
+    },
+    {
+      "pos": 10,
+      "name": "SuperHeavy",
+      "time": "DNF",
+      "round": 2
+    },
+    {
+      "pos": 12,
+      "name": "[ZET] CopperFeather",
+      "time": "DNF",
+      "round": 1
+    },
+    {
+      "pos": 12,
+      "name": "[ZET]vectortrajector",
+      "time": "DNF",
+      "round": 1
+    }
+  ]
+}
