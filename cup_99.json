@@ -1,0 +1,91 @@
+{
+  "cup": "Eggy 99",
+  "cup_num": 99,
+  "mapper": "vectortrajector",
+  "players": [
+    {
+      "pos": 1,
+      "name": "[KBW] microways",
+      "time": "39,47034",
+      "round": null
+    },
+    {
+      "pos": 2,
+      "name": "[EG]Victor",
+      "time": "40,00043",
+      "round": 9
+    },
+    {
+      "pos": 3,
+      "name": "[CSC] PlusMicron",
+      "time": "40,06802",
+      "round": 8
+    },
+    {
+      "pos": 4,
+      "name": "Baul Plart",
+      "time": "41,15323",
+      "round": 7
+    },
+    {
+      "pos": 5,
+      "name": "[ZET]maskeddog",
+      "time": "41,67263",
+      "round": 6
+    },
+    {
+      "pos": 6,
+      "name": "Seanbrob",
+      "time": "44,61448",
+      "round": 5
+    },
+    {
+      "pos": 7,
+      "name": "M4DSCOTSM4N",
+      "time": "41,67972",
+      "round": 4
+    },
+    {
+      "pos": 8,
+      "name": "Noxitu",
+      "time": "DNF",
+      "round": 4
+    },
+    {
+      "pos": 9,
+      "name": "aizpun",
+      "time": "42,85052",
+      "round": 3
+    },
+    {
+      "pos": 10,
+      "name": "[Auz] Bjenk4",
+      "time": "46,92679",
+      "round": 3
+    },
+    {
+      "pos": 11,
+      "name": "[ZET] Wheelie",
+      "time": "47,58456",
+      "round": 2
+    },
+    {
+      "pos": 12,
+      "name": "[ZET]Sword125",
+      "time": "DNF",
+      "round": 2
+    },
+    {
+      "pos": 13,
+      "name": "Coyote Bait",
+      "time": "46,01091",
+      "round": 1
+    },
+    {
+      "pos": 14,
+      "name": "[CSC] variableferret",
+      "time": "DNF",
+      "round": 1
+    }
+  ]
+}
