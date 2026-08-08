@@ -4,23 +4,23 @@
     "k_base": 32,
     "provisional_cups": 12,
     "provisional_multiplier": 1.5,
-    "cups_processed": 13
+    "cups_processed": 14
   },
   "leaderboard": [
     {
       "rank": 1,
       "name": "Stick",
-      "rating": 1715.8,
-      "cups": 9,
+      "rating": 1718.7,
+      "cups": 10,
       "wins": 2,
       "podiums": {
         "gold": 2,
         "silver": 2,
-        "bronze": 1
+        "bronze": 2
       },
       "avg_position": 3.3,
       "best_finish": 1,
-      "peak_rating": 1715.8,
+      "peak_rating": 1718.7,
       "history": [
         {
           "cup": "Eggy 87",
@@ -75,11 +75,64 @@
           "position": 1,
           "rating": 1715.8,
           "lobby_size": 13
+        },
+        {
+          "cup": "Eggy 100",
+          "position": 3,
+          "rating": 1718.7,
+          "lobby_size": 19
         }
       ]
     },
     {
       "rank": 2,
+      "name": "justMaki",
+      "rating": 1686.6,
+      "cups": 5,
+      "wins": 2,
+      "podiums": {
+        "gold": 2,
+        "silver": 1,
+        "bronze": 2
+      },
+      "avg_position": 2.0,
+      "best_finish": 1,
+      "peak_rating": 1686.6,
+      "history": [
+        {
+          "cup": "Eggy 93",
+          "position": 1,
+          "rating": 1573.4,
+          "lobby_size": 27
+        },
+        {
+          "cup": "Eggy 95",
+          "position": 3,
+          "rating": 1583.8,
+          "lobby_size": 15
+        },
+        {
+          "cup": "Eggy 96",
+          "position": 3,
+          "rating": 1613.6,
+          "lobby_size": 24
+        },
+        {
+          "cup": "Eggy 97",
+          "position": 1,
+          "rating": 1665.2,
+          "lobby_size": 14
+        },
+        {
+          "cup": "Eggy 100",
+          "position": 2,
+          "rating": 1686.6,
+          "lobby_size": 19
+        }
+      ]
+    },
+    {
+      "rank": 3,
       "name": "microways",
       "rating": 1669.8,
       "cups": 7,
@@ -133,47 +186,6 @@
           "cup": "Eggy 99",
           "position": 1,
           "rating": 1669.8,
-          "lobby_size": 14
-        }
-      ]
-    },
-    {
-      "rank": 3,
-      "name": "justMaki",
-      "rating": 1665.2,
-      "cups": 4,
-      "wins": 2,
-      "podiums": {
-        "gold": 2,
-        "silver": 0,
-        "bronze": 2
-      },
-      "avg_position": 2.0,
-      "best_finish": 1,
-      "peak_rating": 1665.2,
-      "history": [
-        {
-          "cup": "Eggy 93",
-          "position": 1,
-          "rating": 1573.4,
-          "lobby_size": 27
-        },
-        {
-          "cup": "Eggy 95",
-          "position": 3,
-          "rating": 1583.8,
-          "lobby_size": 15
-        },
-        {
-          "cup": "Eggy 96",
-          "position": 3,
-          "rating": 1613.6,
-          "lobby_size": 24
-        },
-        {
-          "cup": "Eggy 97",
-          "position": 1,
-          "rating": 1665.2,
           "lobby_size": 14
         }
       ]
@@ -251,6 +263,41 @@
     },
     {
       "rank": 5,
+      "name": "Kernkob",
+      "rating": 1623.4,
+      "cups": 3,
+      "wins": 1,
+      "podiums": {
+        "gold": 1,
+        "silver": 1,
+        "bronze": 0
+      },
+      "avg_position": 2.7,
+      "best_finish": 1,
+      "peak_rating": 1623.4,
+      "history": [
+        {
+          "cup": "Eggy 94",
+          "position": 2,
+          "rating": 1563.8,
+          "lobby_size": 29
+        },
+        {
+          "cup": "Eggy 97",
+          "position": 5,
+          "rating": 1560.9,
+          "lobby_size": 14
+        },
+        {
+          "cup": "Eggy 100",
+          "position": 1,
+          "rating": 1623.4,
+          "lobby_size": 19
+        }
+      ]
+    },
+    {
+      "rank": 6,
       "name": "Shattersmith",
       "rating": 1610.2,
       "cups": 3,
@@ -285,7 +332,7 @@
       ]
     },
     {
-      "rank": 6,
+      "rank": 7,
       "name": "Lexer",
       "rating": 1609.3,
       "cups": 3,
@@ -320,7 +367,7 @@
       ]
     },
     {
-      "rank": 7,
+      "rank": 8,
       "name": "Victor",
       "rating": 1601.7,
       "cups": 5,
@@ -367,7 +414,7 @@
       ]
     },
     {
-      "rank": 8,
+      "rank": 9,
       "name": "Sterben",
       "rating": 1599.1,
       "cups": 5,
@@ -414,7 +461,7 @@
       ]
     },
     {
-      "rank": 9,
+      "rank": 10,
       "name": "JakeAdjacent",
       "rating": 1587.3,
       "cups": 4,
@@ -455,71 +502,7 @@
       ]
     },
     {
-      "rank": 10,
-      "name": "Pants",
-      "rating": 1575.1,
-      "cups": 1,
-      "wins": 1,
-      "podiums": {
-        "gold": 1,
-        "silver": 0,
-        "bronze": 0
-      },
-      "avg_position": 1.0,
-      "best_finish": 1,
-      "peak_rating": 1575.1,
-      "history": [
-        {
-          "cup": "Eggy 96",
-          "position": 1,
-          "rating": 1575.1,
-          "lobby_size": 24
-        }
-      ]
-    },
-    {
       "rank": 11,
-      "name": "agix",
-      "rating": 1570.8,
-      "cups": 4,
-      "wins": 0,
-      "podiums": {
-        "gold": 0,
-        "silver": 1,
-        "bronze": 0
-      },
-      "avg_position": 4.5,
-      "best_finish": 2,
-      "peak_rating": 1570.8,
-      "history": [
-        {
-          "cup": "Eggy 87",
-          "position": 6,
-          "rating": 1504.4,
-          "lobby_size": 23
-        },
-        {
-          "cup": "Eggy 90",
-          "position": 4,
-          "rating": 1523.3,
-          "lobby_size": 22
-        },
-        {
-          "cup": "Eggy 91",
-          "position": 6,
-          "rating": 1537.1,
-          "lobby_size": 27
-        },
-        {
-          "cup": "Eggy 95",
-          "position": 2,
-          "rating": 1570.8,
-          "lobby_size": 15
-        }
-      ]
-    },
-    {
-      "rank": 12,
       "name": "GuAlexItar",
       "rating": 1563.8,
       "cups": 1,
@@ -542,7 +525,7 @@
       ]
     },
     {
-      "rank": 13,
+      "rank": 12,
       "name": "MALIYO",
       "rating": 1561.0,
       "cups": 2,
@@ -571,31 +554,78 @@
       ]
     },
     {
-      "rank": 14,
-      "name": "Kernkob",
-      "rating": 1560.9,
-      "cups": 2,
+      "rank": 13,
+      "name": "agix",
+      "rating": 1558.6,
+      "cups": 5,
       "wins": 0,
       "podiums": {
         "gold": 0,
         "silver": 1,
         "bronze": 0
       },
-      "avg_position": 3.5,
+      "avg_position": 5.6,
       "best_finish": 2,
-      "peak_rating": 1563.8,
+      "peak_rating": 1570.8,
       "history": [
         {
-          "cup": "Eggy 94",
-          "position": 2,
-          "rating": 1563.8,
-          "lobby_size": 29
+          "cup": "Eggy 87",
+          "position": 6,
+          "rating": 1504.4,
+          "lobby_size": 23
         },
         {
-          "cup": "Eggy 97",
-          "position": 5,
-          "rating": 1560.9,
-          "lobby_size": 14
+          "cup": "Eggy 90",
+          "position": 4,
+          "rating": 1523.3,
+          "lobby_size": 22
+        },
+        {
+          "cup": "Eggy 91",
+          "position": 6,
+          "rating": 1537.1,
+          "lobby_size": 27
+        },
+        {
+          "cup": "Eggy 95",
+          "position": 2,
+          "rating": 1570.8,
+          "lobby_size": 15
+        },
+        {
+          "cup": "Eggy 100",
+          "position": 10,
+          "rating": 1558.6,
+          "lobby_size": 19
+        }
+      ]
+    },
+    {
+      "rank": 14,
+      "name": "Pants",
+      "rating": 1555.8,
+      "cups": 2,
+      "wins": 1,
+      "podiums": {
+        "gold": 1,
+        "silver": 0,
+        "bronze": 0
+      },
+      "avg_position": 6.5,
+      "best_finish": 1,
+      "peak_rating": 1575.1,
+      "history": [
+        {
+          "cup": "Eggy 96",
+          "position": 1,
+          "rating": 1575.1,
+          "lobby_size": 24
+        },
+        {
+          "cup": "Eggy 100",
+          "position": 12,
+          "rating": 1555.8,
+          "lobby_size": 19
         }
       ]
     },
@@ -968,6 +998,112 @@
     },
     {
       "rank": 26,
+      "name": "AndMe",
+      "rating": 1505.8,
+      "cups": 2,
+      "wins": 0,
+      "podiums": {
+        "gold": 0,
+        "silver": 0,
+        "bronze": 0
+      },
+      "avg_position": 7.0,
+      "best_finish": 6,
+      "peak_rating": 1505.8,
+      "history": [
+        {
+          "cup": "Eggy 96",
+          "position": 8,
+          "rating": 1502.5,
+          "lobby_size": 24
+        },
+        {
+          "cup": "Eggy 100",
+          "position": 6,
+          "rating": 1505.8,
+          "lobby_size": 19
+        }
+      ]
+    },
+    {
+      "rank": 27,
+      "name": "Noxitu",
+      "rating": 1504.4,
+      "cups": 10,
+      "wins": 0,
+      "podiums": {
+        "gold": 0,
+        "silver": 0,
+        "bronze": 0
+      },
+      "avg_position": 8.3,
+      "best_finish": 4,
+      "peak_rating": 1504.4,
+      "history": [
+        {
+          "cup": "Eggy 88",
+          "position": 13,
+          "rating": 1481.7,
+          "lobby_size": 17
+        },
+        {
+          "cup": "Eggy 89",
+          "position": 13,
+          "rating": 1477.1,
+          "lobby_size": 27
+        },
+        {
+          "cup": "Eggy 90",
+          "position": 7,
+          "rating": 1481.4,
+          "lobby_size": 22
+        },
+        {
+          "cup": "Eggy 91",
+          "position": 12,
+          "rating": 1480.1,
+          "lobby_size": 27
+        },
+        {
+          "cup": "Eggy 92",
+          "position": 5,
+          "rating": 1500.3,
+          "lobby_size": 25
+        },
+        {
+          "cup": "Eggy 93",
+          "position": 9,
+          "rating": 1501.3,
+          "lobby_size": 27
+        },
+        {
+          "cup": "Eggy 95",
+          "position": 5,
+          "rating": 1502.6,
+          "lobby_size": 15
+        },
+        {
+          "cup": "Eggy 98",
+          "position": 7,
+          "rating": 1494.5,
+          "lobby_size": 13
+        },
+        {
+          "cup": "Eggy 99",
+          "position": 8,
+          "rating": 1484.2,
+          "lobby_size": 14
+        },
+        {
+          "cup": "Eggy 100",
+          "position": 4,
+          "rating": 1504.4,
+          "lobby_size": 19
+        }
+      ]
+    },
+    {
+      "rank": 28,
       "name": "Baul Plart",
       "rating": 1504.0,
       "cups": 1,
@@ -990,30 +1126,7 @@
       ]
     },
     {
-      "rank": 27,
-      "name": "[CSC]AndMe18",
-      "rating": 1502.5,
-      "cups": 1,
-      "wins": 0,
-      "podiums": {
-        "gold": 0,
-        "silver": 0,
-        "bronze": 0
-      },
-      "avg_position": 8.0,
-      "best_finish": 8,
-      "peak_rating": 1502.5,
-      "history": [
-        {
-          "cup": "Eggy 96",
-          "position": 8,
-          "rating": 1502.5,
-          "lobby_size": 24
-        }
-      ]
-    },
-    {
-      "rank": 28,
+      "rank": 29,
       "name": "Shadynook",
       "rating": 1501.7,
       "cups": 1,
@@ -1036,7 +1149,7 @@
       ]
     },
     {
-      "rank": 29,
+      "rank": 30,
       "name": "Butter",
       "rating": 1500.0,
       "cups": 1,
@@ -1059,66 +1172,30 @@
       ]
     },
     {
-      "rank": 30,
-      "name": "SuperHeavy",
-      "rating": 1499.0,
-      "cups": 7,
-      "wins": 1,
+      "rank": 31,
+      "name": "DeeDeeNaNaNa",
+      "rating": 1498.6,
+      "cups": 1,
+      "wins": 0,
       "podiums": {
-        "gold": 1,
+        "gold": 0,
         "silver": 0,
         "bronze": 0
       },
-      "avg_position": 13.3,
-      "best_finish": 1,
-      "peak_rating": 1528.6,
+      "avg_position": 9.0,
+      "best_finish": 9,
+      "peak_rating": 1498.6,
       "history": [
         {
-          "cup": "Eggy 90",
-          "position": 13,
-          "rating": 1489.1,
-          "lobby_size": 22
-        },
-        {
-          "cup": "Eggy 91",
-          "position": 20,
-          "rating": 1475.2,
-          "lobby_size": 27
-        },
-        {
-          "cup": "Eggy 92",
-          "position": 16,
-          "rating": 1465.3,
-          "lobby_size": 25
-        },
-        {
-          "cup": "Eggy 93",
-          "position": 24,
-          "rating": 1447.5,
-          "lobby_size": 27
-        },
-        {
-          "cup": "Eggy 94",
-          "position": 1,
-          "rating": 1528.6,
-          "lobby_size": 29
-        },
-        {
-          "cup": "Eggy 95",
+          "cup": "Eggy 100",
           "position": 9,
-          "rating": 1514.9,
-          "lobby_size": 15
-        },
-        {
-          "cup": "Eggy 98",
-          "position": 10,
-          "rating": 1499.0,
-          "lobby_size": 13
+          "rating": 1498.6,
+          "lobby_size": 19
         }
       ]
     },
     {
-      "rank": 31,
+      "rank": 32,
       "name": "Seanbrob",
       "rating": 1498.1,
       "cups": 1,
@@ -1141,7 +1218,7 @@
       ]
     },
     {
-      "rank": 32,
+      "rank": 33,
       "name": "LKat",
       "rating": 1497.4,
       "cups": 1,
@@ -1164,7 +1241,7 @@
       ]
     },
     {
-      "rank": 33,
+      "rank": 34,
       "name": "FINSTER83",
       "rating": 1495.8,
       "cups": 1,
@@ -1183,41 +1260,6 @@
           "position": 13,
           "rating": 1495.8,
           "lobby_size": 27
-        }
-      ]
-    },
-    {
-      "rank": 34,
-      "name": "Gimpel",
-      "rating": 1495.3,
-      "cups": 3,
-      "wins": 0,
-      "podiums": {
-        "gold": 0,
-        "silver": 0,
-        "bronze": 0
-      },
-      "avg_position": 9.3,
-      "best_finish": 6,
-      "peak_rating": 1499.1,
-      "history": [
-        {
-          "cup": "Eggy 88",
-          "position": 6,
-          "rating": 1499.1,
-          "lobby_size": 17
-        },
-        {
-          "cup": "Eggy 91",
-          "position": 11,
-          "rating": 1497.9,
-          "lobby_size": 27
-        },
-        {
-          "cup": "Eggy 94",
-          "position": 11,
-          "rating": 1495.3,
-          "lobby_size": 29
         }
       ]
     },
@@ -1246,65 +1288,6 @@
     },
     {
       "rank": 36,
-      "name": "void",
-      "rating": 1493.6,
-      "cups": 7,
-      "wins": 0,
-      "podiums": {
-        "gold": 0,
-        "silver": 0,
-        "bronze": 0
-      },
-      "avg_position": 10.1,
-      "best_finish": 4,
-      "peak_rating": 1528.4,
-      "history": [
-        {
-          "cup": "Eggy 87",
-          "position": 4,
-          "rating": 1519.3,
-          "lobby_size": 23
-        },
-        {
-          "cup": "Eggy 88",
-          "position": 13,
-          "rating": 1499.6,
-          "lobby_size": 17
-        },
-        {
-          "cup": "Eggy 89",
-          "position": 13,
-          "rating": 1493.6,
-          "lobby_size": 27
-        },
-        {
-          "cup": "Eggy 90",
-          "position": 10,
-          "rating": 1491.3,
-          "lobby_size": 22
-        },
-        {
-          "cup": "Eggy 93",
-          "position": 4,
-          "rating": 1528.4,
-          "lobby_size": 27
-        },
-        {
-          "cup": "Eggy 94",
-          "position": 19,
-          "rating": 1509.5,
-          "lobby_size": 29
-        },
-        {
-          "cup": "Eggy 97",
-          "position": 8,
-          "rating": 1493.6,
-          "lobby_size": 14
-        }
-      ]
-    },
-    {
-      "rank": 37,
       "name": "graysonvitek88",
       "rating": 1490.0,
       "cups": 1,
@@ -1327,7 +1310,7 @@
       ]
     },
     {
-      "rank": 38,
+      "rank": 37,
       "name": "jjwoznia",
       "rating": 1490.0,
       "cups": 1,
@@ -1350,7 +1333,7 @@
       ]
     },
     {
-      "rank": 39,
+      "rank": 38,
       "name": "Tudge Boat",
       "rating": 1489.6,
       "cups": 2,
@@ -1379,7 +1362,7 @@
       ]
     },
     {
-      "rank": 40,
+      "rank": 39,
       "name": "koz",
       "rating": 1488.5,
       "cups": 1,
@@ -1402,7 +1385,7 @@
       ]
     },
     {
-      "rank": 41,
+      "rank": 40,
       "name": "Werewolf_Gaming",
       "rating": 1488.5,
       "cups": 1,
@@ -1425,7 +1408,7 @@
       ]
     },
     {
-      "rank": 42,
+      "rank": 41,
       "name": "Hellmet",
       "rating": 1488.5,
       "cups": 1,
@@ -1448,7 +1431,7 @@
       ]
     },
     {
-      "rank": 43,
+      "rank": 42,
       "name": "BB_Benji",
       "rating": 1488.5,
       "cups": 1,
@@ -1467,6 +1450,47 @@
           "position": 9,
           "rating": 1488.5,
           "lobby_size": 24
+        }
+      ]
+    },
+    {
+      "rank": 43,
+      "name": "Gimpel",
+      "rating": 1487.8,
+      "cups": 4,
+      "wins": 0,
+      "podiums": {
+        "gold": 0,
+        "silver": 0,
+        "bronze": 0
+      },
+      "avg_position": 9.5,
+      "best_finish": 6,
+      "peak_rating": 1499.1,
+      "history": [
+        {
+          "cup": "Eggy 88",
+          "position": 6,
+          "rating": 1499.1,
+          "lobby_size": 17
+        },
+        {
+          "cup": "Eggy 91",
+          "position": 11,
+          "rating": 1497.9,
+          "lobby_size": 27
+        },
+        {
+          "cup": "Eggy 94",
+          "position": 11,
+          "rating": 1495.3,
+          "lobby_size": 29
+        },
+        {
+          "cup": "Eggy 100",
+          "position": 10,
+          "rating": 1487.8,
+          "lobby_size": 19
         }
       ]
     },
@@ -1640,6 +1664,52 @@
     },
     {
       "rank": 50,
+      "name": "TeaSea",
+      "rating": 1485.7,
+      "cups": 1,
+      "wins": 0,
+      "podiums": {
+        "gold": 0,
+        "silver": 0,
+        "bronze": 0
+      },
+      "avg_position": 12.0,
+      "best_finish": 12,
+      "peak_rating": 1485.7,
+      "history": [
+        {
+          "cup": "Eggy 100",
+          "position": 12,
+          "rating": 1485.7,
+          "lobby_size": 19
+        }
+      ]
+    },
+    {
+      "rank": 51,
+      "name": "MinMag_LP",
+      "rating": 1485.7,
+      "cups": 1,
+      "wins": 0,
+      "podiums": {
+        "gold": 0,
+        "silver": 0,
+        "bronze": 0
+      },
+      "avg_position": 12.0,
+      "best_finish": 12,
+      "peak_rating": 1485.7,
+      "history": [
+        {
+          "cup": "Eggy 100",
+          "position": 12,
+          "rating": 1485.7,
+          "lobby_size": 19
+        }
+      ]
+    },
+    {
+      "rank": 52,
       "name": "[RABI]Yksdjcj",
       "rating": 1484.9,
       "cups": 1,
@@ -1662,7 +1732,7 @@
       ]
     },
     {
-      "rank": 51,
+      "rank": 53,
       "name": "Wyz1324",
       "rating": 1484.8,
       "cups": 1,
@@ -1685,78 +1755,72 @@
       ]
     },
     {
-      "rank": 52,
-      "name": "Noxitu",
-      "rating": 1484.2,
-      "cups": 9,
-      "wins": 0,
+      "rank": 54,
+      "name": "SuperHeavy",
+      "rating": 1484.7,
+      "cups": 8,
+      "wins": 1,
       "podiums": {
-        "gold": 0,
+        "gold": 1,
         "silver": 0,
         "bronze": 0
       },
-      "avg_position": 8.8,
-      "best_finish": 5,
-      "peak_rating": 1502.6,
+      "avg_position": 13.1,
+      "best_finish": 1,
+      "peak_rating": 1528.6,
       "history": [
         {
-          "cup": "Eggy 88",
-          "position": 13,
-          "rating": 1481.7,
-          "lobby_size": 17
-        },
-        {
-          "cup": "Eggy 89",
-          "position": 13,
-          "rating": 1477.1,
-          "lobby_size": 27
-        },
-        {
           "cup": "Eggy 90",
-          "position": 7,
-          "rating": 1481.4,
+          "position": 13,
+          "rating": 1489.1,
           "lobby_size": 22
         },
         {
           "cup": "Eggy 91",
-          "position": 12,
-          "rating": 1480.1,
+          "position": 20,
+          "rating": 1475.2,
           "lobby_size": 27
         },
         {
           "cup": "Eggy 92",
-          "position": 5,
-          "rating": 1500.3,
+          "position": 16,
+          "rating": 1465.3,
           "lobby_size": 25
         },
         {
           "cup": "Eggy 93",
-          "position": 9,
-          "rating": 1501.3,
+          "position": 24,
+          "rating": 1447.5,
           "lobby_size": 27
         },
         {
+          "cup": "Eggy 94",
+          "position": 1,
+          "rating": 1528.6,
+          "lobby_size": 29
+        },
+        {
           "cup": "Eggy 95",
-          "position": 5,
-          "rating": 1502.6,
+          "position": 9,
+          "rating": 1514.9,
           "lobby_size": 15
         },
         {
           "cup": "Eggy 98",
-          "position": 7,
-          "rating": 1494.5,
+          "position": 10,
+          "rating": 1499.0,
           "lobby_size": 13
         },
         {
-          "cup": "Eggy 99",
-          "position": 8,
-          "rating": 1484.2,
-          "lobby_size": 14
+          "cup": "Eggy 100",
+          "position": 12,
+          "rating": 1484.7,
+          "lobby_size": 19
         }
       ]
     },
     {
-      "rank": 53,
+      "rank": 55,
       "name": "Azrael",
       "rating": 1483.5,
       "cups": 2,
@@ -1785,7 +1849,7 @@
       ]
     },
     {
-      "rank": 54,
+      "rank": 56,
       "name": "FlyBoy",
       "rating": 1483.5,
       "cups": 1,
@@ -1808,7 +1872,7 @@
       ]
     },
     {
-      "rank": 55,
+      "rank": 57,
       "name": "huhconduct",
       "rating": 1483.3,
       "cups": 2,
@@ -1837,7 +1901,7 @@
       ]
     },
     {
-      "rank": 56,
+      "rank": 58,
       "name": "[ZET]MicahNike",
       "rating": 1483.2,
       "cups": 1,
@@ -1860,7 +1924,7 @@
       ]
     },
     {
-      "rank": 57,
+      "rank": 59,
       "name": "Player 1st",
       "rating": 1483.0,
       "cups": 1,
@@ -1883,7 +1947,7 @@
       ]
     },
     {
-      "rank": 58,
+      "rank": 60,
       "name": "N1ghtH4WkEd",
       "rating": 1483.0,
       "cups": 1,
@@ -1906,7 +1970,7 @@
       ]
     },
     {
-      "rank": 59,
+      "rank": 61,
       "name": "Legend",
       "rating": 1482.9,
       "cups": 1,
@@ -1929,7 +1993,7 @@
       ]
     },
     {
-      "rank": 60,
+      "rank": 62,
       "name": "Wyrlpool",
       "rating": 1482.9,
       "cups": 1,
@@ -1952,7 +2016,7 @@
       ]
     },
     {
-      "rank": 61,
+      "rank": 63,
       "name": "htamtac",
       "rating": 1482.6,
       "cups": 1,
@@ -1975,7 +2039,7 @@
       ]
     },
     {
-      "rank": 62,
+      "rank": 64,
       "name": "GoateeGuy",
       "rating": 1481.7,
       "cups": 1,
@@ -1998,7 +2062,7 @@
       ]
     },
     {
-      "rank": 63,
+      "rank": 65,
       "name": "AndyRoo404",
       "rating": 1481.6,
       "cups": 1,
@@ -2021,7 +2085,7 @@
       ]
     },
     {
-      "rank": 64,
+      "rank": 66,
       "name": "lucanakin",
       "rating": 1481.4,
       "cups": 2,
@@ -2050,7 +2114,7 @@
       ]
     },
     {
-      "rank": 65,
+      "rank": 67,
       "name": "B1gManM1ke",
       "rating": 1481.1,
       "cups": 1,
@@ -2073,30 +2137,7 @@
       ]
     },
     {
-      "rank": 66,
-      "name": "[ZET] CopperFeather",
-      "rating": 1481.1,
-      "cups": 1,
-      "wins": 0,
-      "podiums": {
-        "gold": 0,
-        "silver": 0,
-        "bronze": 0
-      },
-      "avg_position": 12.0,
-      "best_finish": 12,
-      "peak_rating": 1481.1,
-      "history": [
-        {
-          "cup": "Eggy 98",
-          "position": 12,
-          "rating": 1481.1,
-          "lobby_size": 13
-        }
-      ]
-    },
-    {
-      "rank": 67,
+      "rank": 68,
       "name": "Coyote Bait",
       "rating": 1480.1,
       "cups": 1,
@@ -2119,7 +2160,7 @@
       ]
     },
     {
-      "rank": 68,
+      "rank": 69,
       "name": "nicolasmudd13",
       "rating": 1479.8,
       "cups": 1,
@@ -2142,7 +2183,72 @@
       ]
     },
     {
-      "rank": 69,
+      "rank": 70,
+      "name": "void",
+      "rating": 1479.7,
+      "cups": 8,
+      "wins": 0,
+      "podiums": {
+        "gold": 0,
+        "silver": 0,
+        "bronze": 0
+      },
+      "avg_position": 10.4,
+      "best_finish": 4,
+      "peak_rating": 1528.4,
+      "history": [
+        {
+          "cup": "Eggy 87",
+          "position": 4,
+          "rating": 1519.3,
+          "lobby_size": 23
+        },
+        {
+          "cup": "Eggy 88",
+          "position": 13,
+          "rating": 1499.6,
+          "lobby_size": 17
+        },
+        {
+          "cup": "Eggy 89",
+          "position": 13,
+          "rating": 1493.6,
+          "lobby_size": 27
+        },
+        {
+          "cup": "Eggy 90",
+          "position": 10,
+          "rating": 1491.3,
+          "lobby_size": 22
+        },
+        {
+          "cup": "Eggy 93",
+          "position": 4,
+          "rating": 1528.4,
+          "lobby_size": 27
+        },
+        {
+          "cup": "Eggy 94",
+          "position": 19,
+          "rating": 1509.5,
+          "lobby_size": 29
+        },
+        {
+          "cup": "Eggy 97",
+          "position": 8,
+          "rating": 1493.6,
+          "lobby_size": 14
+        },
+        {
+          "cup": "Eggy 100",
+          "position": 12,
+          "rating": 1479.7,
+          "lobby_size": 19
+        }
+      ]
+    },
+    {
+      "rank": 71,
       "name": "[gaz]qweetzw",
       "rating": 1479.4,
       "cups": 1,
@@ -2165,7 +2271,7 @@
       ]
     },
     {
-      "rank": 70,
+      "rank": 72,
       "name": "wertal4848",
       "rating": 1479.4,
       "cups": 1,
@@ -2188,7 +2294,7 @@
       ]
     },
     {
-      "rank": 71,
+      "rank": 73,
       "name": "riverman",
       "rating": 1479.2,
       "cups": 1,
@@ -2211,7 +2317,7 @@
       ]
     },
     {
-      "rank": 72,
+      "rank": 74,
       "name": "IronDragon111000",
       "rating": 1479.2,
       "cups": 1,
@@ -2234,7 +2340,7 @@
       ]
     },
     {
-      "rank": 73,
+      "rank": 75,
       "name": "Exenis",
       "rating": 1478.9,
       "cups": 1,
@@ -2257,7 +2363,7 @@
       ]
     },
     {
-      "rank": 74,
+      "rank": 76,
       "name": "Minixerces2116",
       "rating": 1478.5,
       "cups": 1,
@@ -2280,7 +2386,7 @@
       ]
     },
     {
-      "rank": 75,
+      "rank": 77,
       "name": "Jorts",
       "rating": 1478.5,
       "cups": 1,
@@ -2303,7 +2409,7 @@
       ]
     },
     {
-      "rank": 76,
+      "rank": 78,
       "name": "Traffy",
       "rating": 1478.5,
       "cups": 1,
@@ -2326,7 +2432,7 @@
       ]
     },
     {
-      "rank": 77,
+      "rank": 79,
       "name": "Riesling",
       "rating": 1478.5,
       "cups": 1,
@@ -2349,7 +2455,7 @@
       ]
     },
     {
-      "rank": 78,
+      "rank": 80,
       "name": "variableferret",
       "rating": 1478.3,
       "cups": 1,
@@ -2372,7 +2478,60 @@
       ]
     },
     {
-      "rank": 79,
+      "rank": 81,
+      "name": "BrickEdwards",
+      "rating": 1478.0,
+      "cups": 6,
+      "wins": 0,
+      "podiums": {
+        "gold": 0,
+        "silver": 0,
+        "bronze": 0
+      },
+      "avg_position": 11.0,
+      "best_finish": 5,
+      "peak_rating": 1487.2,
+      "history": [
+        {
+          "cup": "Eggy 91",
+          "position": 18,
+          "rating": 1487.2,
+          "lobby_size": 27
+        },
+        {
+          "cup": "Eggy 92",
+          "position": 13,
+          "rating": 1479.5,
+          "lobby_size": 25
+        },
+        {
+          "cup": "Eggy 93",
+          "position": 13,
+          "rating": 1476.2,
+          "lobby_size": 27
+        },
+        {
+          "cup": "Eggy 94",
+          "position": 8,
+          "rating": 1479.4,
+          "lobby_size": 29
+        },
+        {
+          "cup": "Eggy 96",
+          "position": 9,
+          "rating": 1469.4,
+          "lobby_size": 24
+        },
+        {
+          "cup": "Eggy 100",
+          "position": 5,
+          "rating": 1478.0,
+          "lobby_size": 19
+        }
+      ]
+    },
+    {
+      "rank": 82,
       "name": "Kilandor",
       "rating": 1477.1,
       "cups": 3,
@@ -2407,7 +2566,7 @@
       ]
     },
     {
-      "rank": 80,
+      "rank": 83,
       "name": "Lamp",
       "rating": 1476.1,
       "cups": 2,
@@ -2436,7 +2595,7 @@
       ]
     },
     {
-      "rank": 81,
+      "rank": 84,
       "name": "Maki",
       "rating": 1475.0,
       "cups": 2,
@@ -2465,7 +2624,7 @@
       ]
     },
     {
-      "rank": 82,
+      "rank": 85,
       "name": "pannekoekbijter",
       "rating": 1471.6,
       "cups": 3,
@@ -2500,54 +2659,7 @@
       ]
     },
     {
-      "rank": 83,
-      "name": "BrickEdwards",
-      "rating": 1469.4,
-      "cups": 5,
-      "wins": 0,
-      "podiums": {
-        "gold": 0,
-        "silver": 0,
-        "bronze": 0
-      },
-      "avg_position": 12.2,
-      "best_finish": 8,
-      "peak_rating": 1487.2,
-      "history": [
-        {
-          "cup": "Eggy 91",
-          "position": 18,
-          "rating": 1487.2,
-          "lobby_size": 27
-        },
-        {
-          "cup": "Eggy 92",
-          "position": 13,
-          "rating": 1479.5,
-          "lobby_size": 25
-        },
-        {
-          "cup": "Eggy 93",
-          "position": 13,
-          "rating": 1476.2,
-          "lobby_size": 27
-        },
-        {
-          "cup": "Eggy 94",
-          "position": 8,
-          "rating": 1479.4,
-          "lobby_size": 29
-        },
-        {
-          "cup": "Eggy 96",
-          "position": 9,
-          "rating": 1469.4,
-          "lobby_size": 24
-        }
-      ]
-    },
-    {
-      "rank": 84,
+      "rank": 86,
       "name": "[ZET] zeriv",
       "rating": 1468.1,
       "cups": 2,
@@ -2576,7 +2688,36 @@
       ]
     },
     {
-      "rank": 85,
+      "rank": 87,
+      "name": "[ZET] CopperFeather",
+      "rating": 1467.9,
+      "cups": 2,
+      "wins": 0,
+      "podiums": {
+        "gold": 0,
+        "silver": 0,
+        "bronze": 0
+      },
+      "avg_position": 12.0,
+      "best_finish": 12,
+      "peak_rating": 1481.1,
+      "history": [
+        {
+          "cup": "Eggy 98",
+          "position": 12,
+          "rating": 1481.1,
+          "lobby_size": 13
+        },
+        {
+          "cup": "Eggy 100",
+          "position": 12,
+          "rating": 1467.9,
+          "lobby_size": 19
+        }
+      ]
+    },
+    {
+      "rank": 88,
       "name": "[MMM]Milk Man",
       "rating": 1467.8,
       "cups": 2,
@@ -2605,7 +2746,7 @@
       ]
     },
     {
-      "rank": 86,
+      "rank": 89,
       "name": "Sumo_Tsunami",
       "rating": 1467.4,
       "cups": 2,
@@ -2634,7 +2775,7 @@
       ]
     },
     {
-      "rank": 87,
+      "rank": 90,
       "name": "Orb Bee Bob",
       "rating": 1466.1,
       "cups": 2,
@@ -2663,7 +2804,7 @@
       ]
     },
     {
-      "rank": 88,
+      "rank": 91,
       "name": "[CLWN]DryDoc",
       "rating": 1465.6,
       "cups": 2,
@@ -2692,7 +2833,7 @@
       ]
     },
     {
-      "rank": 89,
+      "rank": 92,
       "name": "Jsus",
       "rating": 1461.9,
       "cups": 2,
@@ -2721,7 +2862,7 @@
       ]
     },
     {
-      "rank": 90,
+      "rank": 93,
       "name": "SkyPromp",
       "rating": 1461.7,
       "cups": 2,
@@ -2750,54 +2891,7 @@
       ]
     },
     {
-      "rank": 91,
-      "name": "Dartho Mas",
-      "rating": 1452.8,
-      "cups": 5,
-      "wins": 0,
-      "podiums": {
-        "gold": 0,
-        "silver": 0,
-        "bronze": 0
-      },
-      "avg_position": 13.2,
-      "best_finish": 6,
-      "peak_rating": 1484.5,
-      "history": [
-        {
-          "cup": "Eggy 90",
-          "position": 17,
-          "rating": 1484.5,
-          "lobby_size": 22
-        },
-        {
-          "cup": "Eggy 91",
-          "position": 19,
-          "rating": 1471.8,
-          "lobby_size": 27
-        },
-        {
-          "cup": "Eggy 93",
-          "position": 14,
-          "rating": 1464.0,
-          "lobby_size": 27
-        },
-        {
-          "cup": "Eggy 95",
-          "position": 6,
-          "rating": 1465.5,
-          "lobby_size": 15
-        },
-        {
-          "cup": "Eggy 98",
-          "position": 10,
-          "rating": 1452.8,
-          "lobby_size": 13
-        }
-      ]
-    },
-    {
-      "rank": 92,
+      "rank": 94,
       "name": "aizpun",
       "rating": 1452.3,
       "cups": 6,
@@ -2850,7 +2944,7 @@
       ]
     },
     {
-      "rank": 93,
+      "rank": 95,
       "name": "M4DSCOTSM4N",
       "rating": 1448.7,
       "cups": 5,
@@ -2897,7 +2991,7 @@
       ]
     },
     {
-      "rank": 94,
+      "rank": 96,
       "name": "Shinikage221",
       "rating": 1443.4,
       "cups": 7,
@@ -2956,7 +3050,60 @@
       ]
     },
     {
-      "rank": 95,
+      "rank": 97,
+      "name": "Dartho Mas",
+      "rating": 1441.3,
+      "cups": 6,
+      "wins": 0,
+      "podiums": {
+        "gold": 0,
+        "silver": 0,
+        "bronze": 0
+      },
+      "avg_position": 13.0,
+      "best_finish": 6,
+      "peak_rating": 1484.5,
+      "history": [
+        {
+          "cup": "Eggy 90",
+          "position": 17,
+          "rating": 1484.5,
+          "lobby_size": 22
+        },
+        {
+          "cup": "Eggy 91",
+          "position": 19,
+          "rating": 1471.8,
+          "lobby_size": 27
+        },
+        {
+          "cup": "Eggy 93",
+          "position": 14,
+          "rating": 1464.0,
+          "lobby_size": 27
+        },
+        {
+          "cup": "Eggy 95",
+          "position": 6,
+          "rating": 1465.5,
+          "lobby_size": 15
+        },
+        {
+          "cup": "Eggy 98",
+          "position": 10,
+          "rating": 1452.8,
+          "lobby_size": 13
+        },
+        {
+          "cup": "Eggy 100",
+          "position": 12,
+          "rating": 1441.3,
+          "lobby_size": 19
+        }
+      ]
+    },
+    {
+      "rank": 98,
       "name": "cucumis conditus solacii animi",
       "rating": 1440.4,
       "cups": 4,
@@ -2997,7 +3144,7 @@
       ]
     },
     {
-      "rank": 96,
+      "rank": 99,
       "name": "Wheelie",
       "rating": 1437.5,
       "cups": 8,
@@ -3062,17 +3209,17 @@
       ]
     },
     {
-      "rank": 97,
+      "rank": 100,
       "name": "maskeddog",
-      "rating": 1425.3,
-      "cups": 12,
+      "rating": 1428.7,
+      "cups": 13,
       "wins": 0,
       "podiums": {
         "gold": 0,
         "silver": 0,
         "bronze": 0
       },
-      "avg_position": 12.2,
+      "avg_position": 11.7,
       "best_finish": 5,
       "peak_rating": 1503.3,
       "history": [
@@ -3147,11 +3294,17 @@
           "position": 5,
           "rating": 1425.3,
           "lobby_size": 14
+        },
+        {
+          "cup": "Eggy 100",
+          "position": 6,
+          "rating": 1428.7,
+          "lobby_size": 19
         }
       ]
     },
     {
-      "rank": 98,
+      "rank": 101,
       "name": "[ZET]Sword125",
       "rating": 1425.0,
       "cups": 10,
@@ -3228,17 +3381,88 @@
       ]
     },
     {
-      "rank": 99,
-      "name": "bjenk4",
-      "rating": 1396.4,
-      "cups": 10,
+      "rank": 102,
+      "name": "vectortrajector",
+      "rating": 1395.9,
+      "cups": 9,
       "wins": 0,
       "podiums": {
         "gold": 0,
         "silver": 0,
         "bronze": 0
       },
-      "avg_position": 14.6,
+      "avg_position": 15.6,
+      "best_finish": 8,
+      "peak_rating": 1482.7,
+      "history": [
+        {
+          "cup": "Eggy 87",
+          "position": 19,
+          "rating": 1482.7,
+          "lobby_size": 23
+        },
+        {
+          "cup": "Eggy 88",
+          "position": 13,
+          "rating": 1465.6,
+          "lobby_size": 17
+        },
+        {
+          "cup": "Eggy 89",
+          "position": 23,
+          "rating": 1447.4,
+          "lobby_size": 27
+        },
+        {
+          "cup": "Eggy 90",
+          "position": 18,
+          "rating": 1434.3,
+          "lobby_size": 22
+        },
+        {
+          "cup": "Eggy 92",
+          "position": 25,
+          "rating": 1418.4,
+          "lobby_size": 25
+        },
+        {
+          "cup": "Eggy 95",
+          "position": 13,
+          "rating": 1405.5,
+          "lobby_size": 15
+        },
+        {
+          "cup": "Eggy 96",
+          "position": 9,
+          "rating": 1400.8,
+          "lobby_size": 24
+        },
+        {
+          "cup": "Eggy 98",
+          "position": 12,
+          "rating": 1388.1,
+          "lobby_size": 13
+        },
+        {
+          "cup": "Eggy 100",
+          "position": 8,
+          "rating": 1395.9,
+          "lobby_size": 19
+        }
+      ]
+    },
+    {
+      "rank": 103,
+      "name": "bjenk4",
+      "rating": 1388.2,
+      "cups": 11,
+      "wins": 0,
+      "podiums": {
+        "gold": 0,
+        "silver": 0,
+        "bronze": 0
+      },
+      "avg_position": 14.4,
       "best_finish": 6,
       "peak_rating": 1487.0,
       "history": [
@@ -3301,71 +3525,12 @@
           "position": 10,
           "rating": 1396.4,
           "lobby_size": 14
-        }
-      ]
-    },
-    {
-      "rank": 100,
-      "name": "vectortrajector",
-      "rating": 1388.1,
-      "cups": 8,
-      "wins": 0,
-      "podiums": {
-        "gold": 0,
-        "silver": 0,
-        "bronze": 0
-      },
-      "avg_position": 16.5,
-      "best_finish": 9,
-      "peak_rating": 1482.7,
-      "history": [
-        {
-          "cup": "Eggy 87",
-          "position": 19,
-          "rating": 1482.7,
-          "lobby_size": 23
         },
         {
-          "cup": "Eggy 88",
-          "position": 13,
-          "rating": 1465.6,
-          "lobby_size": 17
-        },
-        {
-          "cup": "Eggy 89",
-          "position": 23,
-          "rating": 1447.4,
-          "lobby_size": 27
-        },
-        {
-          "cup": "Eggy 90",
-          "position": 18,
-          "rating": 1434.3,
-          "lobby_size": 22
-        },
-        {
-          "cup": "Eggy 92",
-          "position": 25,
-          "rating": 1418.4,
-          "lobby_size": 25
-        },
-        {
-          "cup": "Eggy 95",
-          "position": 13,
-          "rating": 1405.5,
-          "lobby_size": 15
-        },
-        {
-          "cup": "Eggy 96",
-          "position": 9,
-          "rating": 1400.8,
-          "lobby_size": 24
-        },
-        {
-          "cup": "Eggy 98",
+          "cup": "Eggy 100",
           "position": 12,
-          "rating": 1388.1,
-          "lobby_size": 13
+          "rating": 1388.2,
+          "lobby_size": 19
         }
       ]
     }

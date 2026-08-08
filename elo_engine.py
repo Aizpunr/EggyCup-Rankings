@@ -61,7 +61,7 @@ def parse_file(filepath):
     return cups
 
 
-all_cups = parse_file(_p('Eggy Cup 87-99.xlsx'))
+all_cups = parse_file(_p('Eggy Cup 87-100.xlsx'))
 
 
 def cup_num(name):
@@ -102,7 +102,7 @@ def strip_tag(name):
 # already resolve correctly. Add Eggy-specific aliases here as they appear.
 CANONICAL = {
     '376': ['376.0'],
-    'AndMe': ['[ORIG]AndMe16', 'AndMe14', 'AndMe15', 'AndMe16', 'AndMe17', 'Andme17', '[COMY]AndMe17', '[CSC]AndMe17'],
+    'AndMe': ['[ORIG]AndMe16', 'AndMe14', 'AndMe15', 'AndMe16', 'AndMe17', 'Andme17', '[COMY]AndMe17', '[CSC]AndMe17', 'AndMe18', '[CSC]AndMe18'],
     'bernhard': ['[Lord] bernhard'],
     'Butter': ['[ZST] Butter'],
     'Codewalt': ['CodeWalt'],
@@ -115,8 +115,8 @@ CANONICAL = {
     'ITz_WillleeMan': ['ITz_Willleeman', 'Itz_WillleeMan'],
     'jandje': ['[BFP] jandje', '[CTR] jandje', '[CTR]jandje'],
     'Joking': ['[BGR] Joking'],
-    'justMaki': ['[test] justMaki', '[KERN]justMaki', 'JustMaki'],
-    'Kernkob': ['kernkob', '[CTR]Kernkob', 'kernbooper'],
+    'justMaki': ['[test] justMaki', '[KERN]justMaki', 'JustMaki', '[bad]justMaki'],
+    'Kernkob': ['kernkob', '[CTR]Kernkob', 'kernbooper', '[wors]Kernkob'],
     'L3it3R': ['L3it3r', '[CTR] L3it3R', '[CTR]L3it3R', '[CTR]L3it3r'],
     'Last': ['[dumb] Last'],
     'Lazy_Echidna': ['[NIL]Lazy_Echidna', '[TOG]Lazy_Echidna', '[TOG]Lazy_echidna', '[TOG]Lazy-Echidna', '[TOG[Lazy_Echidna', 'Lazy_Ecidna', 'Lazy Echidna'],
@@ -126,7 +126,7 @@ CANONICAL = {
     'Not That Guy': ['[GANS] Not That Guy', '[RTR] Not That Guy'],
     'OccasionallyAmazingGamer': ['[CSC] OccasionallyAmazingGamer', '[CSC]OccasionallyAmazingGamer'],
     'OwlPlague': ['[CTR] OwlPlague', '[CTR]OwlPlague'],
-    'Pants': ['[COLD]Pants'],
+    'Pants': ['[COLD]Pants', '[ZMPS]Pants'],
     'Phoenjx': ['[HUGS]Phoenjx'],
     'Pigbuy': ['[OREO] Pigbuy', '[OREO]Pigbuy', '[OR]Pigbuy'],
     'Principe': ['[GV] Principe'],

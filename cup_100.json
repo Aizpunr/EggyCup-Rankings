@@ -1,0 +1,121 @@
+{
+  "cup": "Eggy 100",
+  "cup_num": 100,
+  "mapper": "Wheelie & Sword125",
+  "players": [
+    {
+      "pos": 1,
+      "name": "[wors]Kernkob",
+      "time": "39.73691",
+      "round": null
+    },
+    {
+      "pos": 2,
+      "name": "[bad]justMaki",
+      "time": "39.86295",
+      "round": 8
+    },
+    {
+      "pos": 3,
+      "name": "[ZET]Stick",
+      "time": "DNF",
+      "round": 7
+    },
+    {
+      "pos": 4,
+      "name": "Noxitu",
+      "time": "40.64555",
+      "round": 6
+    },
+    {
+      "pos": 5,
+      "name": "BrickEdwards",
+      "time": "DNF",
+      "round": 5
+    },
+    {
+      "pos": 6,
+      "name": "[CSC]AndMe18",
+      "time": "DNF",
+      "round": 4
+    },
+    {
+      "pos": 6,
+      "name": "[ZET]maskeddog",
+      "time": "DNF",
+      "round": 4
+    },
+    {
+      "pos": 8,
+      "name": "[ZET]vectortrajector",
+      "time": "45.06299",
+      "round": 3
+    },
+    {
+      "pos": 9,
+      "name": "[CSC] DeeDeeNaNaNa",
+      "time": "DNF",
+      "round": 3
+    },
+    {
+      "pos": 10,
+      "name": "Gimpel",
+      "time": "DNF",
+      "round": 2
+    },
+    {
+      "pos": 10,
+      "name": "[CTR]agix",
+      "time": "DNF",
+      "round": 2
+    },
+    {
+      "pos": 12,
+      "name": "[ZMPS]Pants",
+      "time": "DNF",
+      "round": 1
+    },
+    {
+      "pos": 12,
+      "name": "𝒱V𝑜o𝒾i𝒹d𝒱",
+      "time": "DNF",
+      "round": 1
+    },
+    {
+      "pos": 12,
+      "name": "Dartho Mas",
+      "time": "DNF",
+      "round": 1
+    },
+    {
+      "pos": 12,
+      "name": "TeaSea",
+      "time": "DNF",
+      "round": 1
+    },
+    {
+      "pos": 12,
+      "name": "[Auz] Bjenk4",
+      "time": "DNF",
+      "round": 1
+    },
+    {
+      "pos": 12,
+      "name": "SuperHeavy",
+      "time": "DNF",
+      "round": 1
+    },
+    {
+      "pos": 12,
+      "name": "MinMag_LP",
+      "time": "DNF",
+      "round": 1
+    },
+    {
+      "pos": 12,
+      "name": "[ZET] CopperFeather",
+      "time": "DNF",
+      "round": 1
+    }
+  ]
+}
