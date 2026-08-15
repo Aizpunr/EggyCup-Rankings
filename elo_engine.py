@@ -61,7 +61,7 @@ def parse_file(filepath):
     return cups
 
 
-all_cups = parse_file(_p('Eggy Cup 87-100.xlsx'))
+all_cups = parse_file(_p('Eggy Cup 87-101.xlsx'))
 
 
 def cup_num(name):
@@ -186,6 +186,7 @@ CANONICAL = {
     'dudeeitsraymond': ['[iDad] dudeeitsraymond', '[iDad]dudeeitsraymond'],
     'Exterminate': ['[XTR] Exterminate', '[XTR]Exterminate'],
     'FlyBoy': ['Fly8oy', 'Flyboy', 'flyboy'],
+    'Milk Man': ['[MMM]Milk Man', '[MMM] Milk Man'],
     'Gimpel': ['Leviathan (Gimpel)'],
     'GuillaumePN': ['[Qc] GuillaumePN'],
     'incredulouspotato': ['[PINK]incredulouspotato', '[TTV]incredulouspotato'],

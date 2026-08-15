@@ -70,6 +70,11 @@ if '--winner' in sys.argv:
 # times in the last competitive round instead of erroring/picking arbitrarily.
 finish_by_times = '--finish-by-times' in sys.argv
 
+# For special formats where a single fastest lap is meaningless (e.g. roulette
+# nights — every round is a different map): skip the Fastest Time annotation so
+# the cup stays out of fastest.json / the Fastest tab.
+no_fastest = '--no-fastest' in sys.argv
+
 use_live = '--live' in sys.argv
 
 excluded = ({mapper} if mapper and mapper != "TBD" else set()) | set(extra_excluded)
@@ -327,7 +332,7 @@ print(f"New cup at column {col_start}")
 # Write cup block
 ws.cell(row=2, column=col_start, value=cup_id)
 ws.cell(row=3, column=col_start, value=f'Map: {cup_id} by {mapper}')
-if fastest_time is not None:
+if fastest_time is not None and not no_fastest:
     ws.cell(row=4, column=col_start + 2,
             value=f'Fastest Time: {fastest_time:.3f} by {fastest_name} in Round {fastest_round}')
 ws.cell(row=5, column=col_start, value='Position')
@@ -425,7 +430,9 @@ print("=" * 50)
 print(f"{cup_id} COMPLETE")
 print(f"  Players: {len(leaderboard)}")
 print(f"  Winner: {winner}")
-if fastest_time:
+if fastest_time and not no_fastest:
     print(f"  Fastest: {fastest_time:.3f} by {fastest_name}")
+elif no_fastest:
+    print("  Fastest: skipped (--no-fastest)")
 print(f"  Columns: {col_start}-{col_start+3}")
 print("=" * 50)
