@@ -1,0 +1,133 @@
+{
+  "cup": "Eggy 102",
+  "cup_num": 102,
+  "mapper": "Wheelie",
+  "players": [
+    {
+      "pos": 1,
+      "name": "Minkus",
+      "time": "36.99319",
+      "round": null
+    },
+    {
+      "pos": 2,
+      "name": "Jake",
+      "time": "37.09003",
+      "round": 10
+    },
+    {
+      "pos": 3,
+      "name": "[ZET]Stick",
+      "time": "DNF",
+      "round": 9
+    },
+    {
+      "pos": 4,
+      "name": "MALIYO",
+      "time": "37.68359",
+      "round": 8
+    },
+    {
+      "pos": 5,
+      "name": "[EG]Victor",
+      "time": "DNF",
+      "round": 7
+    },
+    {
+      "pos": 6,
+      "name": "FINSTER83",
+      "time": "38.07256",
+      "round": 6
+    },
+    {
+      "pos": 7,
+      "name": "[MMM]LKat",
+      "time": "38.26193",
+      "round": 6
+    },
+    {
+      "pos": 8,
+      "name": "[CSC] variableferret",
+      "time": "38.29585",
+      "round": 5
+    },
+    {
+      "pos": 9,
+      "name": "[MMM]Milk Man",
+      "time": "38.48515",
+      "round": 5
+    },
+    {
+      "pos": 10,
+      "name": "BrickEdwards",
+      "time": "38.66377",
+      "round": 4
+    },
+    {
+      "pos": 11,
+      "name": "[ZET]Sword125",
+      "time": "38.84748",
+      "round": 4
+    },
+    {
+      "pos": 12,
+      "name": "[CCC]Shinikage221",
+      "time": "39.49495",
+      "round": 3
+    },
+    {
+      "pos": 13,
+      "name": "Phoenix",
+      "time": "41.80136",
+      "round": 3
+    },
+    {
+      "pos": 14,
+      "name": "Meastroman",
+      "time": "39.21719",
+      "round": 2
+    },
+    {
+      "pos": 15,
+      "name": "[CTR]GuAlexItar",
+      "time": "39.3191",
+      "round": 2
+    },
+    {
+      "pos": 16,
+      "name": "Kilandor",
+      "time": "39.56781",
+      "round": 2
+    },
+    {
+      "pos": 17,
+      "name": "MinMag_LP",
+      "time": "39.79589",
+      "round": 2
+    },
+    {
+      "pos": 18,
+      "name": "[ZET]maskeddog",
+      "time": "40.99343",
+      "round": 1
+    },
+    {
+      "pos": 19,
+      "name": "The-D",
+      "time": "41.45475",
+      "round": 1
+    },
+    {
+      "pos": 20,
+      "name": "F1Y1NGDUTCHM8N",
+      "time": "DNF",
+      "round": 1
+    },
+    {
+      "pos": 20,
+      "name": "Luigi Vendetta",
+      "time": "DNF",
+      "round": 1
+    }
+  ]
+}
