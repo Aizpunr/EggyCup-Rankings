@@ -1,131 +1,131 @@
 {
   "cup": "Eggy 101",
   "cup_num": 101,
-  "mapper": "TBD",
+  "mapper": "Wheelie",
   "players": [
     {
       "pos": 1,
-      "name": "justMaki",
-      "time": "36.17667",
+      "name": "Minkus",
+      "time": "36.99319",
       "round": null
     },
     {
       "pos": 2,
-      "name": "[KBW] microways",
-      "time": "36.87535",
-      "round": 8
+      "name": "Jake",
+      "time": "37.09003",
+      "round": 10
     },
     {
       "pos": 3,
+      "name": "[ZET]Stick",
+      "time": "DNF",
+      "round": 9
+    },
+    {
+      "pos": 4,
+      "name": "MALIYO",
+      "time": "37.68359",
+      "round": 8
+    },
+    {
+      "pos": 5,
       "name": "[EG]Victor",
       "time": "DNF",
       "round": 7
     },
     {
-      "pos": 4,
-      "name": "[ZET]Stick",
-      "time": "47.36135",
+      "pos": 6,
+      "name": "FINSTER83",
+      "time": "38.07256",
       "round": 6
     },
     {
-      "pos": 5,
-      "name": "[ZET] Wheelie",
-      "time": "32.14457",
+      "pos": 7,
+      "name": "[MMM]LKat",
+      "time": "38.26193",
+      "round": 6
+    },
+    {
+      "pos": 8,
+      "name": "[CSC] variableferret",
+      "time": "38.29585",
       "round": 5
     },
     {
-      "pos": 6,
-      "name": "JobW",
-      "time": "54.1837",
-      "round": 4
-    },
-    {
-      "pos": 7,
-      "name": "RoundNzt",
-      "time": "54.23697",
-      "round": 4
-    },
-    {
-      "pos": 8,
-      "name": "𝒱V𝑜o𝒾i𝒹d𝒱",
-      "time": "DNF",
-      "round": 3
-    },
-    {
-      "pos": 8,
-      "name": "MALIYO",
-      "time": "DNF",
-      "round": 3
-    },
-    {
-      "pos": 8,
-      "name": "Lexer",
-      "time": "DNF",
-      "round": 3
-    },
-    {
-      "pos": 8,
-      "name": "[ZET]LILWOOLEY",
-      "time": "DNF",
-      "round": 3
-    },
-    {
-      "pos": 8,
+      "pos": 9,
       "name": "[MMM]Milk Man",
-      "time": "DNF",
+      "time": "38.48515",
+      "round": 5
+    },
+    {
+      "pos": 10,
+      "name": "BrickEdwards",
+      "time": "38.66377",
+      "round": 4
+    },
+    {
+      "pos": 11,
+      "name": "[ZET]Sword125",
+      "time": "38.84748",
+      "round": 4
+    },
+    {
+      "pos": 12,
+      "name": "[CCC]Shinikage221",
+      "time": "39.49495",
       "round": 3
     },
     {
       "pos": 13,
-      "name": "[ZET]maskeddog",
-      "time": "46.92338",
-      "round": 2
+      "name": "Phoenix",
+      "time": "41.80136",
+      "round": 3
     },
     {
       "pos": 14,
-      "name": "[CCC]Shinikage221",
-      "time": "46.94859",
+      "name": "Meastroman",
+      "time": "39.21719",
       "round": 2
     },
     {
       "pos": 15,
-      "name": "[Auz] Bjenk4",
-      "time": "DNF",
+      "name": "[CTR]GuAlexItar",
+      "time": "39.3191",
       "round": 2
     },
     {
       "pos": 16,
-      "name": "[ZET]Sword125",
-      "time": "DNF",
-      "round": 1
+      "name": "Kilandor",
+      "time": "39.56781",
+      "round": 2
     },
     {
-      "pos": 16,
-      "name": "Fly8oy",
-      "time": "DNF",
-      "round": 1
-    },
-    {
-      "pos": 16,
-      "name": "Axo",
-      "time": "DNF",
-      "round": 1
-    },
-    {
-      "pos": 16,
+      "pos": 17,
       "name": "MinMag_LP",
+      "time": "39.79589",
+      "round": 2
+    },
+    {
+      "pos": 18,
+      "name": "[ZET]maskeddog",
+      "time": "40.99343",
+      "round": 1
+    },
+    {
+      "pos": 19,
+      "name": "The-D",
+      "time": "41.45475",
+      "round": 1
+    },
+    {
+      "pos": 20,
+      "name": "F1Y1NGDUTCHM8N",
       "time": "DNF",
       "round": 1
     },
     {
-      "pos": 16,
-      "name": "[ZET]vectortrajector",
-      "time": "DNF",
-      "round": 1
-    },
-    {
-      "pos": 16,
-      "name": "Cheese",
+      "pos": 20,
+      "name": "Luigi Vendetta",
       "time": "DNF",
       "round": 1
     }

@@ -32,12 +32,17 @@ map_index = {
     'Eggy 98': {'map': '', 'mapper': 'Wheelie'},
     'Eggy 99': {'map': 'Delaminate', 'mapper': 'vectortrajector'},
     'Eggy 100': {'map': '', 'mapper': 'Wheelie & Sword125'},
-    'Eggy 101': {'map': 'Roulette (random maps)', 'mapper': 'nobody'},
-    'Eggy 102': {'map': '', 'mapper': 'Wheelie'},
+    'Eggy Roulette': {'map': 'Roulette (random maps)', 'mapper': 'nobody'},
+    'Eggy 101': {'map': '', 'mapper': 'Wheelie'},
+    'Eggy 102': {'map': '', 'mapper': 'Victor'},
+    'Eggy 103': {'map': '', 'mapper': 'Wheelie'},
 }
 
 # Cup dates — fall back to log mtime if not explicit.
-CUP_DATES = {}
+# 102/103 logs arrived together after vacation — mtimes are wrong, pin real dates.
+CUP_DATES = {'Eggy Roulette': '2026-08-15',
+             'Eggy 102': '2026-08-29',
+             'Eggy 103': '2026-09-05'}
 
 
 def cup_date(cid):
@@ -73,6 +78,8 @@ for cid in cups:
 
 
 def cup_sort_key(cid):
+    if 'Roulette' in cid:
+        return 100.5  # unnumbered special event between official cups 100 and 101
     m = re.search(r'(\d+)', cid)
     return int(m.group(1)) if m else 0
 

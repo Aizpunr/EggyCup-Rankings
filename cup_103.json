@@ -1,0 +1,91 @@
+{
+  "cup": "Eggy 103",
+  "cup_num": 103,
+  "mapper": "Wheelie",
+  "players": [
+    {
+      "pos": 1,
+      "name": "[KBW]Kernkob",
+      "time": "DNF",
+      "round": null
+    },
+    {
+      "pos": 2,
+      "name": "[EG]Victor",
+      "time": "DNF",
+      "round": 8
+    },
+    {
+      "pos": 3,
+      "name": "Jake",
+      "time": "38.08034",
+      "round": 7
+    },
+    {
+      "pos": 4,
+      "name": "Minkus",
+      "time": "38.6606",
+      "round": 6
+    },
+    {
+      "pos": 5,
+      "name": "[MMM]LKat",
+      "time": "DNF",
+      "round": 5
+    },
+    {
+      "pos": 6,
+      "name": "[ZET]maskeddog",
+      "time": "41.42181",
+      "round": 4
+    },
+    {
+      "pos": 7,
+      "name": "[ZET]Sword125",
+      "time": "41.40589",
+      "round": 3
+    },
+    {
+      "pos": 8,
+      "name": "[RABI]Yksdjcj",
+      "time": "DNF",
+      "round": 3
+    },
+    {
+      "pos": 9,
+      "name": "[KBW] microways",
+      "time": "DNF",
+      "round": 2
+    },
+    {
+      "pos": 9,
+      "name": "MinMag_LP",
+      "time": "DNF",
+      "round": 2
+    },
+    {
+      "pos": 11,
+      "name": "[ZET]Stick",
+      "time": "DNF",
+      "round": 1
+    },
+    {
+      "pos": 11,
+      "name": "[MMM]Milk Man",
+      "time": "DNF",
+      "round": 1
+    },
+    {
+      "pos": 11,
+      "name": "[NEWB]hostile",
+      "time": "DNF",
+      "round": 1
+    },
+    {
+      "pos": 11,
+      "name": "[Auz] Bjenk4",
+      "time": "DNF",
+      "round": 1
+    }
+  ]
+}

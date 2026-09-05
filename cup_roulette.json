@@ -1,0 +1,133 @@
+{
+  "cup": "Eggy Roulette",
+  "cup_num": 101,
+  "mapper": "TBD",
+  "players": [
+    {
+      "pos": 1,
+      "name": "justMaki",
+      "time": "36.17667",
+      "round": null
+    },
+    {
+      "pos": 2,
+      "name": "[KBW] microways",
+      "time": "36.87535",
+      "round": 8
+    },
+    {
+      "pos": 3,
+      "name": "[EG]Victor",
+      "time": "DNF",
+      "round": 7
+    },
+    {
+      "pos": 4,
+      "name": "[ZET]Stick",
+      "time": "47.36135",
+      "round": 6
+    },
+    {
+      "pos": 5,
+      "name": "[ZET] Wheelie",
+      "time": "32.14457",
+      "round": 5
+    },
+    {
+      "pos": 6,
+      "name": "JobW",
+      "time": "54.1837",
+      "round": 4
+    },
+    {
+      "pos": 7,
+      "name": "RoundNzt",
+      "time": "54.23697",
+      "round": 4
+    },
+    {
+      "pos": 8,
+      "name": "𝒱V𝑜o𝒾i𝒹d𝒱",
+      "time": "DNF",
+      "round": 3
+    },
+    {
+      "pos": 8,
+      "name": "MALIYO",
+      "time": "DNF",
+      "round": 3
+    },
+    {
+      "pos": 8,
+      "name": "Lexer",
+      "time": "DNF",
+      "round": 3
+    },
+    {
+      "pos": 8,
+      "name": "[ZET]LILWOOLEY",
+      "time": "DNF",
+      "round": 3
+    },
+    {
+      "pos": 8,
+      "name": "[MMM]Milk Man",
+      "time": "DNF",
+      "round": 3
+    },
+    {
+      "pos": 13,
+      "name": "[ZET]maskeddog",
+      "time": "46.92338",
+      "round": 2
+    },
+    {
+      "pos": 14,
+      "name": "[CCC]Shinikage221",
+      "time": "46.94859",
+      "round": 2
+    },
+    {
+      "pos": 15,
+      "name": "[Auz] Bjenk4",
+      "time": "DNF",
+      "round": 2
+    },
+    {
+      "pos": 16,
+      "name": "[ZET]Sword125",
+      "time": "DNF",
+      "round": 1
+    },
+    {
+      "pos": 16,
+      "name": "Fly8oy",
+      "time": "DNF",
+      "round": 1
+    },
+    {
+      "pos": 16,
+      "name": "Axo",
+      "time": "DNF",
+      "round": 1
+    },
+    {
+      "pos": 16,
+      "name": "MinMag_LP",
+      "time": "DNF",
+      "round": 1
+    },
+    {
+      "pos": 16,
+      "name": "[ZET]vectortrajector",
+      "time": "DNF",
+      "round": 1
+    },
+    {
+      "pos": 16,
+      "name": "Cheese",
+      "time": "DNF",
+      "round": 1
+    }
+  ]
+}

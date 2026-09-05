@@ -61,10 +61,15 @@ def parse_file(filepath):
     return cups
 
 
-all_cups = parse_file(_p('Eggy Cup 87-102.xlsx'))
+all_cups = parse_file(_p('Eggy Cup 87-103.xlsx'))
 
 
 def cup_num(name):
+    # Special events without an official number sort by explicit position.
+    # The roulette night (2026-08-15) sits between official cups 100 and 101 —
+    # Wheelie's numbering doesn't count it, ours matches his since 2026-09-05.
+    if 'Roulette' in name:
+        return 100.5
     m = re.search(r'(\d+)', name)
     return int(m.group(1)) if m else 0
 
