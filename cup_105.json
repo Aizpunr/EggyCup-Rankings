@@ -1,0 +1,139 @@
+{
+  "cup": "Eggy 105",
+  "cup_num": 105,
+  "mapper": "Victor, LKat & Kree",
+  "players": [
+    {
+      "pos": 1,
+      "name": "Minkus",
+      "time": "38.95358",
+      "round": null
+    },
+    {
+      "pos": 2,
+      "name": "[KBW]Kernkob",
+      "time": "DNF",
+      "round": 11
+    },
+    {
+      "pos": 2,
+      "name": "[KBW] microways",
+      "time": "DNF",
+      "round": 11
+    },
+    {
+      "pos": 4,
+      "name": "Eclipse135",
+      "time": "39.04093",
+      "round": 9
+    },
+    {
+      "pos": 5,
+      "name": "[T7]Heart-TGV",
+      "time": "39.43971",
+      "round": 8
+    },
+    {
+      "pos": 6,
+      "name": "MALIYO",
+      "time": "DNF",
+      "round": 7
+    },
+    {
+      "pos": 7,
+      "name": "M4DSCOTSM4N",
+      "time": "40.7728",
+      "round": 6
+    },
+    {
+      "pos": 8,
+      "name": "[CTR]Mortishade",
+      "time": "DNF",
+      "round": 6
+    },
+    {
+      "pos": 9,
+      "name": "Noxitu",
+      "time": "39.98579",
+      "round": 5
+    },
+    {
+      "pos": 10,
+      "name": "[ZET]Stick",
+      "time": "DNF",
+      "round": 5
+    },
+    {
+      "pos": 11,
+      "name": "[MMM]Milk Man",
+      "time": "43.68702",
+      "round": 4
+    },
+    {
+      "pos": 12,
+      "name": "[CTR]GuAlexItar",
+      "time": "DNF",
+      "round": 4
+    },
+    {
+      "pos": 13,
+      "name": "[ZET]maskeddog",
+      "time": "42.17791",
+      "round": 3
+    },
+    {
+      "pos": 14,
+      "name": "[ZET] Wheelie",
+      "time": "49.09027",
+      "round": 3
+    },
+    {
+      "pos": 15,
+      "name": "[WoF]TreeWars",
+      "time": "44.86981",
+      "round": 2
+    },
+    {
+      "pos": 16,
+      "name": "[CCC]Shinikage221",
+      "time": "46.15662",
+      "round": 2
+    },
+    {
+      "pos": 17,
+      "name": "[ZET]Sword125",
+      "time": "DNF",
+      "round": 2
+    },
+    {
+      "pos": 17,
+      "name": "[ZET]vectortrajector",
+      "time": "DNF",
+      "round": 2
+    },
+    {
+      "pos": 19,
+      "name": "BrickEdwards",
+      "time": "DNF",
+      "round": 1
+    },
+    {
+      "pos": 19,
+      "name": "[Auz] Bjenk4",
+      "time": "DNF",
+      "round": 1
+    },
+    {
+      "pos": 19,
+      "name": "KillerJu1ce",
+      "time": "DNF",
+      "round": 1
+    },
+    {
+      "pos": 19,
+      "name": "bog",
+      "time": "DNF",
+      "round": 1
+    }
+  ]
+}

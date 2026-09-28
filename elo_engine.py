@@ -61,7 +61,7 @@ def parse_file(filepath):
     return cups
 
 
-all_cups = parse_file(_p('Eggy Cup 87-103.xlsx'))
+all_cups = parse_file(_p('Eggy Cup 87-106.xlsx'))
 
 
 def cup_num(name):
@@ -226,7 +226,7 @@ CANONICAL = {
     'lucanakin': ['[DNFF]lucanakin'],
     'MarcSubstitute': ['[DHLU]MarcSubstitute', '[SLOW]MarcSubstitute'],
     'MetalCJ': ['[TTR]MetalCJ'],
-    'microways': ['[Quac] microways', '[KBW] microways'],
+    'microways': ['[Quac] microways', '[KBW] microways', '[KBW]microways'],
     'MMXD18': ['[Toob]MMXD18'],
     'Moody': ['[CTR]Moody', '[MIB]Moody'],
     'RadAbsRad': ['[Meow]RadAbsRad'],
@@ -259,7 +259,7 @@ CANONICAL = {
     'Weak_Knees': ['[COMY]Weak_Knees', 'Weak_knees', '[Burp]Weak_Knees'],
     'Wheelie': ['[ZET] Wheelie', '[ZET]Wheelie'],
     'Zachafinackus': ['[Sumo]Zachafinackus'],
-    'Heart-TGV': ['[TTR]Heart-TGV'],
+    'Heart-TGV': ['[TTR]Heart-TGV', '[T7]Heart-TGV'],
     'sailingman': ['segelnhoch3'],
     'captancraft2': ['[PINK] captancraft2'],
     # ── From Kerki canonical (Kerki/Cross-Comp regulars who also show up in Eggy) ──

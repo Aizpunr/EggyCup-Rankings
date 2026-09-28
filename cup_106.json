@@ -1,0 +1,139 @@
+{
+  "cup": "Eggy 106",
+  "cup_num": 106,
+  "mapper": "IronDragon111000",
+  "players": [
+    {
+      "pos": 1,
+      "name": "[MMM]LKat",
+      "time": "48.33717",
+      "round": null
+    },
+    {
+      "pos": 2,
+      "name": "Minkus",
+      "time": "48.36455",
+      "round": 9
+    },
+    {
+      "pos": 3,
+      "name": "Noxitu",
+      "time": "DNF",
+      "round": 8
+    },
+    {
+      "pos": 4,
+      "name": "[MMM]Victor",
+      "time": "DNF",
+      "round": 7
+    },
+    {
+      "pos": 5,
+      "name": "lerollman",
+      "time": "49.0822",
+      "round": 6
+    },
+    {
+      "pos": 6,
+      "name": "[ZET]Stick",
+      "time": "55.01288",
+      "round": 5
+    },
+    {
+      "pos": 7,
+      "name": "pannekoekbijter",
+      "time": "50.01923",
+      "round": 4
+    },
+    {
+      "pos": 8,
+      "name": "[T7]Heart-TGV",
+      "time": "DNF",
+      "round": 4
+    },
+    {
+      "pos": 9,
+      "name": "jofk2415",
+      "time": "50.16047",
+      "round": 3
+    },
+    {
+      "pos": 10,
+      "name": "Gimpel",
+      "time": "51.16304",
+      "round": 3
+    },
+    {
+      "pos": 11,
+      "name": "[KBW]microways",
+      "time": "DNF",
+      "round": 2
+    },
+    {
+      "pos": 11,
+      "name": "[WoF]TreeWars",
+      "time": "DNF",
+      "round": 2
+    },
+    {
+      "pos": 13,
+      "name": "Azalea",
+      "time": "DNF",
+      "round": 1
+    },
+    {
+      "pos": 13,
+      "name": "MALIYO",
+      "time": "DNF",
+      "round": 1
+    },
+    {
+      "pos": 13,
+      "name": "BrickEdwards",
+      "time": "DNF",
+      "round": 1
+    },
+    {
+      "pos": 13,
+      "name": "Valco",
+      "time": "DNF",
+      "round": 1
+    },
+    {
+      "pos": 13,
+      "name": "[ZET] Wheelie",
+      "time": "DNF",
+      "round": 1
+    },
+    {
+      "pos": 13,
+      "name": "[CCC]Shinikage221",
+      "time": "DNF",
+      "round": 1
+    },
+    {
+      "pos": 13,
+      "name": "MinMag_LP",
+      "time": "DNF",
+      "round": 1
+    },
+    {
+      "pos": 13,
+      "name": "[ZET]vectortrajector",
+      "time": "DNF",
+      "round": 1
+    },
+    {
+      "pos": 13,
+      "name": "hazardous",
+      "time": "DNF",
+      "round": 1
+    },
+    {
+      "pos": 13,
+      "name": "[ZET]Sword125",
+      "time": "DNF",
+      "round": 1
+    }
+  ]
+}

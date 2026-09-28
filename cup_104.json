@@ -1,0 +1,109 @@
+{
+  "cup": "Eggy 104",
+  "cup_num": 104,
+  "mapper": "vectortrajector",
+  "players": [
+    {
+      "pos": 1,
+      "name": "[MMM]LKat",
+      "time": "43.34166",
+      "round": null
+    },
+    {
+      "pos": 2,
+      "name": "[KBW] microways",
+      "time": "DNF",
+      "round": 10
+    },
+    {
+      "pos": 3,
+      "name": "[EG]Victor",
+      "time": "DNF",
+      "round": 9
+    },
+    {
+      "pos": 4,
+      "name": "agix",
+      "time": "43.80499",
+      "round": 8
+    },
+    {
+      "pos": 5,
+      "name": "Minkus",
+      "time": "44.23748",
+      "round": 7
+    },
+    {
+      "pos": 6,
+      "name": "[ZET] Wheelie",
+      "time": "DNF",
+      "round": 6
+    },
+    {
+      "pos": 7,
+      "name": "pannekoekbijter",
+      "time": "45.37037",
+      "round": 5
+    },
+    {
+      "pos": 8,
+      "name": "[ZET]Stick",
+      "time": "DNF",
+      "round": 5
+    },
+    {
+      "pos": 9,
+      "name": "SuperHeavy",
+      "time": "45.29358",
+      "round": 4
+    },
+    {
+      "pos": 10,
+      "name": "M4DSCOTSM4N",
+      "time": "52.80915",
+      "round": 4
+    },
+    {
+      "pos": 11,
+      "name": "Six",
+      "time": "46.58867",
+      "round": 3
+    },
+    {
+      "pos": 12,
+      "name": "BrickEdwards",
+      "time": "DNF",
+      "round": 3
+    },
+    {
+      "pos": 13,
+      "name": "Akane",
+      "time": "47.67566",
+      "round": 2
+    },
+    {
+      "pos": 14,
+      "name": "[ZET]maskeddog",
+      "time": "47.87424",
+      "round": 2
+    },
+    {
+      "pos": 15,
+      "name": "[CCC]Shinikage221",
+      "time": "48.3322",
+      "round": 1
+    },
+    {
+      "pos": 16,
+      "name": "[ZET]Sword125",
+      "time": "48.44439",
+      "round": 1
+    },
+    {
+      "pos": 17,
+      "name": "tbb300",
+      "time": "DNF",
+      "round": 1
+    }
+  ]
+}
