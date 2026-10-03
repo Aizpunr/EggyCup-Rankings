@@ -39,6 +39,7 @@ map_index = {
     'Eggy 104': {'map': '', 'mapper': 'vectortrajector'},
     'Eggy 105': {'map': '', 'mapper': 'Victor, LKat & Kree'},
     'Eggy 106': {'map': 'Eggy Drift', 'mapper': 'IronDragon111000'},
+    'Eggy 107': {'map': 'Moonlit Eggy', 'mapper': 'Sword125'},
 }
 
 # Cup dates — fall back to log mtime if not explicit.
@@ -49,7 +50,8 @@ CUP_DATES = {'Eggy Roulette': '2026-08-15',
              # log arrived next morning — pin the actual cup night
              'Eggy 104': '2026-09-12',
              'Eggy 105': '2026-09-19',
-             'Eggy 106': '2026-09-26'}
+             'Eggy 106': '2026-09-26',
+             'Eggy 107': '2026-10-03'}
 
 
 def cup_date(cid):
