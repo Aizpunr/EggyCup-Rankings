@@ -266,7 +266,8 @@ CANONICAL = {
     'aizpun': ['[KURK]aizpun', '[KURK] aizpun'],
     'brrryy': ['brryyy', 'brrrryy'],
     'DorthJohson': ['Dorth Johson', 'DorthJohnson'],
-    'Eclipse135': ['Eclipse125'],
+    # Renamed to Azalea at the player's own request (2026-10-04).
+    'Azalea': ['Eclipse135', 'Eclipse125'],
     'JobW': ['Job'],
     'Jinx': ['[DCS] Jinx'],
     'LArk': ['[MMM]LArk', 'Lark', '[MMM]Lark'],
