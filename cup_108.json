@@ -1,0 +1,151 @@
+{
+  "cup": "Eggy 108",
+  "cup_num": 108,
+  "mapper": "Minkus",
+  "players": [
+    {
+      "pos": 1,
+      "name": "Jake",
+      "time": "43.96538",
+      "round": null
+    },
+    {
+      "pos": 2,
+      "name": "Shattersmith",
+      "time": "DNF",
+      "round": 10
+    },
+    {
+      "pos": 3,
+      "name": "[MMM]Victor",
+      "time": "44.70281",
+      "round": 9
+    },
+    {
+      "pos": 4,
+      "name": "[KBW]microways",
+      "time": "44.41601",
+      "round": 8
+    },
+    {
+      "pos": 5,
+      "name": "Lexer",
+      "time": "44.79992",
+      "round": 7
+    },
+    {
+      "pos": 6,
+      "name": "[CTR]Mortishade",
+      "time": "45.05151",
+      "round": 6
+    },
+    {
+      "pos": 7,
+      "name": "[CTR]GuAlexItar",
+      "time": "DNF",
+      "round": 6
+    },
+    {
+      "pos": 8,
+      "name": "[T7]Heart-TGV",
+      "time": "45.63379",
+      "round": 5
+    },
+    {
+      "pos": 9,
+      "name": "[ZET]Stick",
+      "time": "DNF",
+      "round": 5
+    },
+    {
+      "pos": 10,
+      "name": "[CSC] variableferret",
+      "time": "45.17657",
+      "round": 4
+    },
+    {
+      "pos": 11,
+      "name": "[WoF]TreeWars",
+      "time": "46.5697",
+      "round": 4
+    },
+    {
+      "pos": 12,
+      "name": "Applejeice",
+      "time": "47.00953",
+      "round": 3
+    },
+    {
+      "pos": 13,
+      "name": "[CCC]Shinikage221",
+      "time": "DNF",
+      "round": 3
+    },
+    {
+      "pos": 14,
+      "name": "[ZET] Wheelie",
+      "time": "47.48178",
+      "round": 2
+    },
+    {
+      "pos": 15,
+      "name": "Noxitu",
+      "time": "DNF",
+      "round": 2
+    },
+    {
+      "pos": 15,
+      "name": "gundalf the grey",
+      "time": "DNF",
+      "round": 2
+    },
+    {
+      "pos": 15,
+      "name": "MinMag",
+      "time": "DNF",
+      "round": 2
+    },
+    {
+      "pos": 18,
+      "name": "SouthMango",
+      "time": "DNF",
+      "round": 1
+    },
+    {
+      "pos": 18,
+      "name": "BrickEdwards",
+      "time": "DNF",
+      "round": 1
+    },
+    {
+      "pos": 18,
+      "name": "[NEWB]hostile",
+      "time": "DNF",
+      "round": 1
+    },
+    {
+      "pos": 18,
+      "name": "[ZET]maskeddog",
+      "time": "DNF",
+      "round": 1
+    },
+    {
+      "pos": 18,
+      "name": "[MMM]Milk Man",
+      "time": "DNF",
+      "round": 1
+    },
+    {
+      "pos": 18,
+      "name": "SjorsTea",
+      "time": "DNF",
+      "round": 1
+    },
+    {
+      "pos": 18,
+      "name": "Dracos Vaddern",
+      "time": "DNF",
+      "round": 1
+    }
+  ]
+}
