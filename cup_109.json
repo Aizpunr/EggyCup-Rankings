@@ -1,0 +1,139 @@
+{
+  "cup": "Eggy 109",
+  "cup_num": 109,
+  "mapper": "Wheelie",
+  "players": [
+    {
+      "pos": 1,
+      "name": "[ZET]Stick",
+      "time": "25.07818",
+      "round": null
+    },
+    {
+      "pos": 2,
+      "name": "[KBW]microways",
+      "time": "25.60028",
+      "round": 11
+    },
+    {
+      "pos": 3,
+      "name": "FINSTER83",
+      "time": "25.84025",
+      "round": 10
+    },
+    {
+      "pos": 4,
+      "name": "[AC9K]agix",
+      "time": "DNF",
+      "round": 9
+    },
+    {
+      "pos": 5,
+      "name": "[CTR]GuAlexItar",
+      "time": "DNF",
+      "round": 8
+    },
+    {
+      "pos": 6,
+      "name": "Minkus",
+      "time": "25.93863",
+      "round": 7
+    },
+    {
+      "pos": 7,
+      "name": "[T7]Heart-TGV",
+      "time": "26.06502",
+      "round": 6
+    },
+    {
+      "pos": 8,
+      "name": "[CSC]OgelGames",
+      "time": "26.11811",
+      "round": 6
+    },
+    {
+      "pos": 9,
+      "name": "BrickEdwards",
+      "time": "26.14907",
+      "round": 5
+    },
+    {
+      "pos": 10,
+      "name": "[CSC]IronDragon111000",
+      "time": "DNF",
+      "round": 5
+    },
+    {
+      "pos": 11,
+      "name": "SuperHeavy",
+      "time": "26.11269",
+      "round": 4
+    },
+    {
+      "pos": 12,
+      "name": "Applejeice",
+      "time": "26.31719",
+      "round": 4
+    },
+    {
+      "pos": 13,
+      "name": "[CTR]Mortishade",
+      "time": "26.38785",
+      "round": 3
+    },
+    {
+      "pos": 14,
+      "name": "[CSC] variableferret",
+      "time": "26.41439",
+      "round": 3
+    },
+    {
+      "pos": 15,
+      "name": "Noxitu",
+      "time": "26.45651",
+      "round": 3
+    },
+    {
+      "pos": 16,
+      "name": "[ZET]vectortrajector",
+      "time": "26.61662",
+      "round": 2
+    },
+    {
+      "pos": 17,
+      "name": "[ZET]Sword125",
+      "time": "26.8742",
+      "round": 2
+    },
+    {
+      "pos": 18,
+      "name": "[ZET]maskeddog",
+      "time": "26.96146",
+      "round": 2
+    },
+    {
+      "pos": 19,
+      "name": "MinMag",
+      "time": "27.63511",
+      "round": 2
+    },
+    {
+      "pos": 20,
+      "name": "gundalf the grey",
+      "time": "27.36791",
+      "round": 1
+    },
+    {
+      "pos": 21,
+      "name": "Jopo",
+      "time": "27.46485",
+      "round": 1
+    },
+    {
+      "pos": 22,
+      "name": "b0baphettyWAP",
+      "time": "27.51562",
+      "round": 1
+    }
+  ]
+}

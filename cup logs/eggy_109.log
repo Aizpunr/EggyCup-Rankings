@@ -1,0 +1,1149 @@
+[Message:   BepInEx] BepInEx 5.4.22.0 - Zeepkist (1/15/2026 3:08:57 PM)
+[Info   :   BepInEx] Running under Unity v2021.3.10.1867021
+[Info   :   BepInEx] CLR runtime version: 4.0.30319.42000
+[Info   :   BepInEx] Supports SRE: True
+[Info   :   BepInEx] System platform: Bits64, Windows
+[Message:   BepInEx] Preloader started
+[Info   :   BepInEx] Loaded 1 patcher method from [BepInEx.Preloader 5.4.22.0]
+[Info   :   BepInEx] 1 patcher plugin loaded
+[Info   :   BepInEx] Patching [UnityEngine.CoreModule] with [BepInEx.Chainloader]
+[Message:   BepInEx] Preloader finished
+[Message:   BepInEx] Chainloader ready
+[Message:   BepInEx] Chainloader started
+[Info   :   BepInEx] 10 plugins to load
+[Info   :   BepInEx] Loading [Zeep SDK 2.6.2]
+[Info   :  Zeep SDK] Plugin ZeepSDK is loaded!
+[Info   :   BepInEx] Loading [BetterSplits 0.2.5]
+[Info   :BetterSplits] Plugin BetterSplits is loaded!
+[Info   :   BepInEx] Loading [TeamX 2.1]
+[Info   :   BepInEx] Loading [Blueprints X 3.2]
+[Info   :   BepInEx] Loading [FastStart 1.0.0]
+[Info   : FastStart] Plugin FastStart is loaded!
+[Info   :   BepInEx] Loading [Zeepkist Bingo 1.1.5]
+[Info   :Zeepkist Bingo] Zeepkist Bingo v1.1.5 is loading...
+[Info   :Zeepkist Bingo] [BINGO] Loaded 0 muted players
+[Info   :Zeepkist Bingo] [BingoTTS] Initialized. Cache: C:/Users/joshs/AppData/Local/Temp/Steelpan Interactive/Zeepkist\ZeepkistBingo_TTS
+[Info   :Zeepkist Bingo] [BingoTTS] Available voices: Microsoft David Desktop, Microsoft Zira Desktop
+[Info   :Zeepkist Bingo] [BINGO UI] Menu initialized
+[Info   :Zeepkist Bingo] [BINGO UI] Mini board initialized
+[Info   :Zeepkist Bingo] [BINGO UI] Team status initialized
+[Info   :Zeepkist Bingo] [BINGO] V2 UI components initialized
+[Info   :Zeepkist Bingo] [InstantLoader] Initialized
+[Info   :Zeepkist Bingo] Bingo commands registered
+[Info   :Zeepkist Bingo] [BINGO TEST] Test commands registered (/bt0 - /bt50)
+[Info   :Zeepkist Bingo] Event hooks registered
+[Info   :Zeepkist Bingo] [WEBSOCKET] Base URL set to: wss://zeepkist-bingo.chrisleiter.workers.dev
+[Info   :Zeepkist Bingo] Zeepkist Bingo loaded successfully!
+[Info   :   BepInEx] Loading [COTDTracker 0.11.1]
+[Info   :COTDTracker] Plugin COTDTracker is loaded!
+[Info   :   BepInEx] Loading [Level Editor Trails 4.0.3]
+[Info   :Level Editor Trails] Plugin LevelEditorTrails is loaded!
+[Info   :   BepInEx] Loading [Zeepkist GTR 1.4.0]
+[Info   :   BepInEx] Loading [Medal Times 5.3.1]
+[Info   :Medal Times] Plugin net.tnrd.zeepkist.medaltimes is loaded!
+[Message:   BepInEx] Chainloader startup complete
+[Error  :VersionChecker] Failed to calculate outdated mods! Result: IsSuccess='False', Reasons='ExceptionalError with Message='401 (Unauthorized)', Exception='System.Net.Http.HttpRequestException: 401 (Unauthorized)
+  at System.Net.Http.HttpResponseMessage.EnsureSuccessStatusCode () [0x0002a] in <1461f1930feb4705bca8b5d7908e9fa7>:0 
+  at ZeepSDK.Versioning.VersionChecker.GetData[TData] (System.String url) [0x0007a] in D:\a\ZeepSDK\ZeepSDK\ZeepSDK\Versioning\VersionChecker.cs:129 '', Value='0'
+[Info   :Zeepkist Bingo] [BINGO AUDIO] Generating custom sounds...
+[Info   :Zeepkist Bingo] [BINGO AUDIO] All custom sounds generated!
+[Info   :Zeepkist Bingo] [BINGO AUDIO] Custom FMOD audio system initialized!
+[Warning:ModSettingsTabsBuilder] Mod settings tab configuration for 'net.tnrd.zeepkist.gtr' references unknown section '2.3 - Ghosts - Offline Ghosts'. Section was skipped.
+[Fatal  :Zeepkist GTR] 18:17:10 Unable to load UI assembly
+[Info   :Zeepkist GTR] 18:17:13 Loaded 4 shaders from gtr-shaders asset bundle
+[Info   :Zeepkist GTR] 18:17:13 Patching
+[Info   :Zeepkist GTR] 18:17:13 Found 30 eager services
+[Info   :Zeepkist GTR] Plugin net.tnrd.zeepkist.gtr is loaded!
+[Info   :Zeepkist GTR] 18:17:18 Start processing HTTP request "POST" https://backend.zeepki.st/auth/login
+[Info   :Zeepkist GTR] 18:17:18 Sending HTTP request "POST" https://backend.zeepki.st/auth/login
+[Info   :Zeepkist GTR] 18:17:19 Received HTTP response headers after 1069.4769ms - 200
+[Info   :Zeepkist GTR] 18:17:19 End processing HTTP request after 1081.7527ms - 200
+[Info   :   Console] Download started for AppId: 1440670, FileId: 3821120858, Result: OK
+[Info   :Zeepkist Bingo] [BINGO] Level loaded
+[Info   :Zeepkist GTR] 18:18:08 Start processing HTTP request "POST" https://backend.zeepki.st/level/request
+[Info   :Zeepkist GTR] 18:18:08 Sending HTTP request "POST" https://backend.zeepki.st/level/request
+[Info   :BetterSplits] getting gtr splits
+[Info   :Zeepkist Bingo] [BINGO] === PLAYER SPAWNED ===
+[Info   :Zeepkist Bingo] [BINGO] IsInActiveSession: False
+[Info   :Zeepkist Bingo] [BINGO] Not in active session, skipping timer reset
+[Info   :Zeepkist GTR] 18:18:08 Stopping existing recorder if any
+[Info   :Zeepkist GTR] 18:18:08 Creating new recorder
+[Info   :Zeepkist GTR] 18:18:08 Start processing HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:18:08 Sending HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:18:08 Start processing HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:18:08 Sending HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:18:08 Received HTTP response headers after 220.0281ms - 200
+[Info   :Zeepkist GTR] 18:18:08 End processing HTTP request after 220.3422ms - 200
+[Info   :BetterSplits] got gtr splits
+[Info   :Zeepkist GTR] 18:18:09 Received HTTP response headers after 360.4341ms - 200
+[Info   :Zeepkist GTR] 18:18:09 End processing HTTP request after 360.7288ms - 200
+[Info   :Zeepkist GTR] 18:18:09 Received HTTP response headers after 400.7061ms - 200
+[Info   :Zeepkist GTR] 18:18:09 End processing HTTP request after 401.0371ms - 200
+[Info   :Zeepkist GTR] 18:18:09 Start processing HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:18:09 Sending HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:18:09 Received HTTP response headers after 233.8613ms - 200
+[Info   :Zeepkist GTR] 18:18:09 End processing HTTP request after 234.2253ms - 200
+[Info   :Zeepkist GTR] 18:18:10 Starting recorder
+[Info   :Zeepkist Bingo] [CHAT] Intercepted message: hi
+[Info   :Zeepkist Bingo] [CHAT] Not relaying - no bingo session
+[Info   :Zeepkist GTR] 18:19:15 Discarding recorder
+[Info   :RoundLeaderboardTab] Drawing leaderboard -> forwarding to Instance.DrawTabLeaderboard()
+[Info   :Zeepkist Bingo] [BINGO] Level loaded
+[Info   :Zeepkist GTR] 18:19:30 Start processing HTTP request "POST" https://backend.zeepki.st/level/request
+[Info   :Zeepkist GTR] 18:19:30 Sending HTTP request "POST" https://backend.zeepki.st/level/request
+[Info   :BetterSplits] getting gtr splits
+[Info   :Zeepkist Bingo] [BINGO] === PLAYER SPAWNED ===
+[Info   :Zeepkist Bingo] [BINGO] IsInActiveSession: False
+[Info   :Zeepkist Bingo] [BINGO] Not in active session, skipping timer reset
+[Info   :Zeepkist GTR] 18:19:30 Stopping existing recorder if any
+[Info   :Zeepkist GTR] 18:19:30 Creating new recorder
+[Info   :Zeepkist GTR] 18:19:30 Start processing HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:19:30 Sending HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:19:30 Start processing HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:19:30 Sending HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:19:30 Received HTTP response headers after 233.1822ms - 200
+[Info   :Zeepkist GTR] 18:19:30 End processing HTTP request after 233.4783ms - 200
+[Info   :BetterSplits] got gtr splits
+[Info   :Zeepkist GTR] 18:19:30 Received HTTP response headers after 245.1148ms - 200
+[Info   :Zeepkist GTR] 18:19:30 End processing HTTP request after 245.4361ms - 200
+[Info   :Zeepkist GTR] 18:19:30 Start processing HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:19:30 Sending HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:19:31 Received HTTP response headers after 539.8177ms - 200
+[Info   :Zeepkist GTR] 18:19:31 End processing HTTP request after 540.1104ms - 200
+[Info   :Zeepkist GTR] 18:19:31 Received HTTP response headers after 209.6303ms - 200
+[Info   :Zeepkist GTR] 18:19:31 End processing HTTP request after 209.8932ms - 200
+[Info   :Zeepkist GTR] 18:19:32 Starting recorder
+[Info   :Zeepkist Bingo] [BINGO] === PLAYER SPAWNED ===
+[Info   :Zeepkist Bingo] [BINGO] IsInActiveSession: False
+[Info   :Zeepkist Bingo] [BINGO] Not in active session, skipping timer reset
+[Info   :Zeepkist GTR] 18:21:41 Stopping existing recorder if any
+[Info   :Zeepkist GTR] 18:21:41 Creating new recorder
+[Info   :Zeepkist GTR] 18:21:41 Start processing HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:21:41 Sending HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:21:41 Start processing HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:21:41 Sending HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:21:42 Received HTTP response headers after 408.6613ms - 200
+[Info   :Zeepkist GTR] 18:21:42 End processing HTTP request after 408.9123ms - 200
+[Info   :Zeepkist GTR] 18:21:42 Received HTTP response headers after 443.3644ms - 200
+[Info   :Zeepkist GTR] 18:21:42 End processing HTTP request after 443.6251ms - 200
+[Info   :Zeepkist GTR] 18:21:42 Start processing HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:21:42 Sending HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:21:42 Received HTTP response headers after 213.6655ms - 200
+[Info   :Zeepkist GTR] 18:21:42 End processing HTTP request after 213.9183ms - 200
+[Info   :Zeepkist GTR] 18:21:43 Starting recorder
+[Info   :RoundLeaderboardTab] Drawing leaderboard -> forwarding to Instance.DrawTabLeaderboard()
+[Info   :Zeepkist Bingo] [BINGO] === PLAYER SPAWNED ===
+[Info   :Zeepkist Bingo] [BINGO] IsInActiveSession: False
+[Info   :Zeepkist Bingo] [BINGO] Not in active session, skipping timer reset
+[Info   :Zeepkist GTR] 18:22:29 Stopping existing recorder if any
+[Info   :Zeepkist GTR] 18:22:29 Creating new recorder
+[Info   :Zeepkist GTR] 18:22:29 Start processing HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:22:29 Sending HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:22:29 Start processing HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:22:29 Sending HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:22:29 Received HTTP response headers after 174.8447ms - 200
+[Info   :Zeepkist GTR] 18:22:29 End processing HTTP request after 175.0993ms - 200
+[Info   :Zeepkist GTR] 18:22:29 Received HTTP response headers after 249.7966ms - 200
+[Info   :Zeepkist GTR] 18:22:29 End processing HTTP request after 250.01ms - 200
+[Info   :Zeepkist GTR] 18:22:29 Start processing HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:22:29 Sending HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:22:30 Received HTTP response headers after 224.5879ms - 200
+[Info   :Zeepkist GTR] 18:22:30 End processing HTTP request after 224.8877ms - 200
+[Info   :Zeepkist GTR] 18:22:31 Starting recorder
+[Info   :Zeepkist GTR] 18:23:12 Stopping recorder
+[Info   :Zeepkist GTR] 18:23:12 Collecting extra information
+[Info   :Zeepkist GTR] 18:23:12 Resolved workshop ID "3637825821" from lobby 3637825821 and level 0
+[Info   :Zeepkist GTR] 18:23:12 Processing ghost data
+[Info   :Zeepkist GTR] 18:23:12 Creating stream
+[Info   :Zeepkist GTR] 18:23:12 Writing to stream
+[Info   :Zeepkist GTR] 18:23:13 Converting to base64
+[Info   :Zeepkist GTR] 18:23:13 Creating resource
+[Info   :Zeepkist GTR] 18:23:13 Start processing HTTP request "POST" https://backend.zeepki.st/record/submit
+[Info   :Zeepkist GTR] 18:23:13 Sending HTTP request "POST" https://backend.zeepki.st/record/submit
+[Info   :Zeepkist Bingo] [BINGO] === PLAYER SPAWNED ===
+[Info   :Zeepkist Bingo] [BINGO] IsInActiveSession: False
+[Info   :Zeepkist Bingo] [BINGO] Not in active session, skipping timer reset
+[Info   :Zeepkist GTR] 18:23:14 Stopping existing recorder if any
+[Info   :Zeepkist GTR] 18:23:14 Creating new recorder
+[Info   :Zeepkist GTR] 18:23:14 Start processing HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:23:14 Sending HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:23:14 Start processing HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:23:14 Sending HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:23:14 Received HTTP response headers after 1503.5733ms - 200
+[Info   :Zeepkist GTR] 18:23:14 End processing HTTP request after 1503.9333ms - 200
+[Info   :Zeepkist GTR] 18:23:14 Received HTTP response headers after 201.3904ms - 200
+[Info   :Zeepkist GTR] 18:23:14 End processing HTTP request after 201.6691ms - 200
+[Info   :Zeepkist GTR] 18:23:14 Received HTTP response headers after 227.6578ms - 200
+[Info   :Zeepkist GTR] 18:23:14 End processing HTTP request after 227.9806ms - 200
+[Info   :Zeepkist GTR] 18:23:14 Start processing HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:23:14 Sending HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:23:14 Received HTTP response headers after 187.5168ms - 200
+[Info   :Zeepkist GTR] 18:23:14 End processing HTTP request after 187.8721ms - 200
+[Info   :Zeepkist GTR] 18:23:16 Starting recorder
+[Info   :Zeepkist GTR] 18:23:28 Discarding recorder
+[Info   :Zeepkist Bingo] [BINGO] Level loaded
+[Info   :Zeepkist GTR] 18:23:43 Start processing HTTP request "POST" https://backend.zeepki.st/level/request
+[Info   :Zeepkist GTR] 18:23:43 Sending HTTP request "POST" https://backend.zeepki.st/level/request
+[Info   :BetterSplits] getting gtr splits
+[Info   :Zeepkist Bingo] [BINGO] === PLAYER SPAWNED ===
+[Info   :Zeepkist Bingo] [BINGO] IsInActiveSession: False
+[Info   :Zeepkist Bingo] [BINGO] Not in active session, skipping timer reset
+[Info   :Zeepkist GTR] 18:23:43 Stopping existing recorder if any
+[Info   :Zeepkist GTR] 18:23:43 Creating new recorder
+[Info   :Zeepkist GTR] 18:23:43 Start processing HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:23:43 Sending HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:23:43 Start processing HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:23:43 Sending HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:23:43 Received HTTP response headers after 217.0783ms - 200
+[Info   :Zeepkist GTR] 18:23:43 End processing HTTP request after 217.4274ms - 200
+[Info   :Zeepkist GTR] 18:23:43 Received HTTP response headers after 371.9602ms - 200
+[Info   :Zeepkist GTR] 18:23:43 End processing HTTP request after 372.2491ms - 200
+[Info   :Zeepkist GTR] 18:23:43 Received HTTP response headers after 386.7288ms - 200
+[Info   :Zeepkist GTR] 18:23:43 End processing HTTP request after 386.9666ms - 200
+[Info   :BetterSplits] got gtr splits
+[Info   :Zeepkist GTR] 18:23:43 Start processing HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:23:43 Sending HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:23:44 Received HTTP response headers after 222.3067ms - 200
+[Info   :Zeepkist GTR] 18:23:44 End processing HTTP request after 222.5829ms - 200
+[Info   :Zeepkist GTR] 18:23:45 Starting recorder
+[Info   :RoundLeaderboardTab] Drawing leaderboard -> forwarding to Instance.DrawTabLeaderboard()
+[Info   :Zeepkist GTR] 18:28:41 Discarding recorder
+[Info   :Zeepkist Bingo] [BINGO] Level loaded
+[Info   :Zeepkist GTR] 18:28:57 Start processing HTTP request "POST" https://backend.zeepki.st/level/request
+[Info   :Zeepkist GTR] 18:28:57 Sending HTTP request "POST" https://backend.zeepki.st/level/request
+[Info   :BetterSplits] getting gtr splits
+[Info   :Zeepkist Bingo] [BINGO] === PLAYER SPAWNED ===
+[Info   :Zeepkist Bingo] [BINGO] IsInActiveSession: False
+[Info   :Zeepkist Bingo] [BINGO] Not in active session, skipping timer reset
+[Info   :Zeepkist GTR] 18:28:57 Stopping existing recorder if any
+[Info   :Zeepkist GTR] 18:28:57 Creating new recorder
+[Info   :Zeepkist GTR] 18:28:57 Start processing HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:28:57 Sending HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:28:57 Start processing HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:28:57 Sending HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist Bingo] [CHAT] Intercepted message: nmext ma
+[Info   :Zeepkist Bingo] [CHAT] Not relaying - no bingo session
+[Info   :Zeepkist GTR] 18:28:57 Received HTTP response headers after 305.1869ms - 200
+[Info   :Zeepkist GTR] 18:28:57 End processing HTTP request after 305.5049ms - 200
+[Info   :Zeepkist GTR] 18:28:57 Received HTTP response headers after 308.0857ms - 200
+[Info   :Zeepkist GTR] 18:28:57 End processing HTTP request after 308.2994ms - 200
+[Info   :BetterSplits] got gtr splits
+[Info   :Zeepkist GTR] 18:28:57 Start processing HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:28:57 Sending HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:28:57 Received HTTP response headers after 651.6612ms - 200
+[Info   :Zeepkist GTR] 18:28:57 End processing HTTP request after 652.3705ms - 200
+[Info   :Zeepkist GTR] 18:28:57 Received HTTP response headers after 216.9866ms - 200
+[Info   :Zeepkist GTR] 18:28:57 End processing HTTP request after 217.3868ms - 200
+[Info   :Zeepkist GTR] 18:28:58 Starting recorder
+[Info   :Zeepkist Bingo] [BINGO] === PLAYER SPAWNED ===
+[Info   :Zeepkist Bingo] [BINGO] IsInActiveSession: False
+[Info   :Zeepkist Bingo] [BINGO] Not in active session, skipping timer reset
+[Info   :Zeepkist GTR] 18:29:03 Stopping existing recorder if any
+[Info   :Zeepkist GTR] 18:29:03 Creating new recorder
+[Info   :Zeepkist GTR] 18:29:03 Start processing HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:29:03 Sending HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:29:03 Start processing HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:29:03 Sending HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:29:03 Received HTTP response headers after 183.0765ms - 200
+[Info   :Zeepkist GTR] 18:29:03 Received HTTP response headers after 204.2084ms - 200
+[Info   :Zeepkist GTR] 18:29:03 End processing HTTP request after 218.2754ms - 200
+[Info   :Zeepkist GTR] 18:29:03 End processing HTTP request after 218.8207ms - 200
+[Info   :Zeepkist GTR] 18:29:03 Start processing HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:29:03 Sending HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:29:03 Received HTTP response headers after 189.3085ms - 200
+[Info   :Zeepkist GTR] 18:29:04 End processing HTTP request after 246.1197ms - 200
+[Info   :Zeepkist GTR] 18:29:05 Starting recorder
+[Info   :Zeepkist Bingo] [CHAT] Intercepted message: k its after this
+[Info   :Zeepkist Bingo] [CHAT] Not relaying - no bingo session
+[Info   :Zeepkist GTR] 18:31:14 Discarding recorder
+[Info   :Zeepkist Bingo] [BINGO] Level loaded
+[Info   :Zeepkist GTR] 18:31:29 Start processing HTTP request "POST" https://backend.zeepki.st/level/request
+[Info   :Zeepkist GTR] 18:31:29 Sending HTTP request "POST" https://backend.zeepki.st/level/request
+[Info   :BetterSplits] getting gtr splits
+[Info   :Zeepkist Bingo] [BINGO] === PLAYER SPAWNED ===
+[Info   :Zeepkist Bingo] [BINGO] IsInActiveSession: False
+[Info   :Zeepkist Bingo] [BINGO] Not in active session, skipping timer reset
+[Info   :Zeepkist GTR] 18:31:29 Stopping existing recorder if any
+[Info   :Zeepkist GTR] 18:31:29 Creating new recorder
+[Info   :Zeepkist GTR] 18:31:29 Start processing HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:31:29 Sending HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:31:29 Start processing HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:31:29 Sending HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:31:30 Received HTTP response headers after 339.9715ms - 200
+[Info   :Zeepkist GTR] 18:31:30 End processing HTTP request after 340.4887ms - 200
+[Info   :Zeepkist GTR] 18:31:30 Received HTTP response headers after 417.8968ms - 200
+[Info   :Zeepkist GTR] 18:31:30 End processing HTTP request after 418.2087ms - 200
+[Info   :Zeepkist GTR] 18:31:30 Received HTTP response headers after 608.4447ms - 200
+[Info   :Zeepkist GTR] 18:31:30 End processing HTTP request after 608.723ms - 200
+[Info   :BetterSplits] no record set
+[Error  :BetterSplits] error parsing gtr response: System.MissingMethodException: Method not found: void .ZeepsystemMessenger.Log(string,single)
+  at BetterSplits.Plugin.GetGtrSplitsInternal () [0x005f0] in <76d2578b548646f9b10aff6f9bb7fcfe>:0 
+[Error  :BetterSplits] the response was StatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.StreamContent, Headers:
+{
+Date: Fri, 16 Oct 2026 23:31:31 GMT
+Connection: keep-alive
+access-control-allow-credentials: true
+access-control-allow-headers: host, content-length, accept-encoding, content-type, via, cdn-loop, cf-connecting-ip, cf-ipcountry, cf-pseudo-ipv4, cf-ray, cf-visitor, x-forwarded-for, x-forwarded-host, x-forwarded-proto
+access-control-allow-methods: POST
+access-control-allow-origin: *
+access-control-expose-headers: host, content-length, accept-encoding, content-type, via, cdn-loop, cf-connecting-ip, cf-ipcountry, cf-pseudo-ipv4, cf-ray, cf-visitor, x-forwarded-for, x-forwarded-host, x-forwarded-proto
+alt-svc: h3=":443"; ma=86400
+vary: *
+x-query-cost: 74
+cf-cache-status: DYNAMIC
+x-xss-protection: 1; mode=block
+Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+x-content-type-options: nosniff
+Server-Timing: cfCacheStatus;desc="DYNAMIC", cfEdge;dur=27,cfOrigin;dur=405
+Report-To: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=qU74PNLmOTDCC%2FWXNJgmyLealInZy%2B7tRH7DNIbWbBXiiZ5FhDPQT9CoX6q4BLi7msU%2BGQZgQkOWeOnsgwqUDE7j5puRsXym4XFVPBFfnEGLsDCS7Nq589MYIG6e6zewN2xbG5OVzNhXl4h%2FVTdBKw%3D%3D"}]}
+Nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+expect-ct: max-age=86400, enforce
+referrer-policy: same-origin
+x-frame-options: SAMEORIGIN
+Server: cloudflare
+CF-RAY: a4badb84bc4beb03-ORD
+Content-Type: application/graphql-response+json; charset=utf-8
+Content-Length: 45
+}
+[Error  :BetterSplits] response body: {"data":{"personalBestGlobals":{"nodes":[]}}}
+[Info   :Zeepkist GTR] 18:31:31 Starting recorder
+[Info   :Zeepkist Bingo] [BINGO] === PLAYER SPAWNED ===
+[Info   :Zeepkist Bingo] [BINGO] IsInActiveSession: False
+[Info   :Zeepkist Bingo] [BINGO] Not in active session, skipping timer reset
+[Info   :Zeepkist GTR] 18:36:43 Stopping existing recorder if any
+[Info   :Zeepkist GTR] 18:36:43 Creating new recorder
+[Info   :Zeepkist GTR] 18:36:43 Start processing HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:36:43 Sending HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:36:43 Start processing HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:36:43 Sending HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:36:43 Received HTTP response headers after 419.6873ms - 200
+[Info   :Zeepkist GTR] 18:36:43 End processing HTTP request after 420.3869ms - 200
+[Info   :Zeepkist GTR] 18:36:43 Received HTTP response headers after 671.8779ms - 200
+[Info   :Zeepkist GTR] 18:36:43 End processing HTTP request after 672.1667ms - 200
+[Info   :Zeepkist GTR] 18:36:44 Starting recorder
+[Info   :Zeepkist Bingo] [BINGO] === PLAYER SPAWNED ===
+[Info   :Zeepkist Bingo] [BINGO] IsInActiveSession: False
+[Info   :Zeepkist Bingo] [BINGO] Not in active session, skipping timer reset
+[Info   :Zeepkist GTR] 18:36:49 Stopping existing recorder if any
+[Info   :Zeepkist GTR] 18:36:49 Creating new recorder
+[Info   :Zeepkist GTR] 18:36:49 Start processing HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:36:49 Sending HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:36:49 Start processing HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:36:49 Sending HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:36:50 Received HTTP response headers after 198.5633ms - 200
+[Info   :Zeepkist GTR] 18:36:50 Received HTTP response headers after 199.2257ms - 200
+[Info   :Zeepkist GTR] 18:36:50 End processing HTTP request after 198.9552ms - 200
+[Info   :Zeepkist GTR] 18:36:50 End processing HTTP request after 199.6209ms - 200
+[Info   :Zeepkist GTR] 18:36:51 Starting recorder
+[Info   :Zeepkist GTR] 18:37:18 Stopping recorder
+[Info   :Zeepkist GTR] 18:37:18 Collecting extra information
+[Info   :Zeepkist GTR] 18:37:18 Resolved workshop ID "3821120858" from lobby 3821120858 and level 0
+[Info   :Zeepkist GTR] 18:37:18 Processing ghost data
+[Info   :Zeepkist GTR] 18:37:18 Creating stream
+[Info   :Zeepkist GTR] 18:37:18 Writing to stream
+[Info   :Zeepkist GTR] 18:37:18 Converting to base64
+[Info   :Zeepkist GTR] 18:37:18 Creating resource
+[Info   :Zeepkist GTR] 18:37:18 Start processing HTTP request "POST" https://backend.zeepki.st/auth/refresh
+[Info   :Zeepkist GTR] 18:37:18 Sending HTTP request "POST" https://backend.zeepki.st/auth/refresh
+[Info   :Zeepkist GTR] 18:37:18 Received HTTP response headers after 632.4461ms - 200
+[Info   :Zeepkist GTR] 18:37:18 End processing HTTP request after 632.8135ms - 200
+[Info   :Zeepkist GTR] 18:37:18 Start processing HTTP request "POST" https://backend.zeepki.st/record/submit
+[Info   :Zeepkist GTR] 18:37:18 Sending HTTP request "POST" https://backend.zeepki.st/record/submit
+[Info   :Zeepkist Bingo] [BINGO] === PLAYER SPAWNED ===
+[Info   :Zeepkist Bingo] [BINGO] IsInActiveSession: False
+[Info   :Zeepkist Bingo] [BINGO] Not in active session, skipping timer reset
+[Info   :Zeepkist GTR] 18:37:19 Stopping existing recorder if any
+[Info   :Zeepkist GTR] 18:37:19 Creating new recorder
+[Info   :Zeepkist GTR] 18:37:19 Start processing HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:37:19 Sending HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:37:19 Start processing HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:37:19 Sending HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:37:19 Received HTTP response headers after 627.7251ms - 200
+[Info   :Zeepkist GTR] 18:37:19 End processing HTTP request after 628.3325ms - 200
+[Info   :Zeepkist GTR] 18:37:19 Received HTTP response headers after 205.788ms - 200
+[Info   :Zeepkist GTR] 18:37:19 End processing HTTP request after 206.1273ms - 200
+[Info   :Zeepkist GTR] 18:37:19 Received HTTP response headers after 217.4286ms - 200
+[Info   :Zeepkist GTR] 18:37:19 End processing HTTP request after 217.7331ms - 200
+[Info   :Zeepkist GTR] 18:37:19 Start processing HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:37:19 Sending HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:37:20 Received HTTP response headers after 218.9559ms - 200
+[Info   :Zeepkist GTR] 18:37:20 End processing HTTP request after 219.3835ms - 200
+[Info   :Zeepkist GTR] 18:37:21 Starting recorder
+[Info   :Zeepkist Bingo] [BINGO] === PLAYER SPAWNED ===
+[Info   :Zeepkist Bingo] [BINGO] IsInActiveSession: False
+[Info   :Zeepkist Bingo] [BINGO] Not in active session, skipping timer reset
+[Info   :Zeepkist GTR] 18:37:26 Stopping existing recorder if any
+[Info   :Zeepkist GTR] 18:37:26 Creating new recorder
+[Info   :Zeepkist GTR] 18:37:26 Start processing HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:37:26 Sending HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:37:26 Start processing HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:37:26 Sending HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:37:26 Received HTTP response headers after 189.3736ms - 200
+[Info   :Zeepkist GTR] 18:37:26 End processing HTTP request after 189.6069ms - 200
+[Info   :Zeepkist GTR] 18:37:26 Received HTTP response headers after 198.8051ms - 200
+[Info   :Zeepkist GTR] 18:37:26 End processing HTTP request after 199.1007ms - 200
+[Info   :Zeepkist GTR] 18:37:26 Start processing HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:37:26 Sending HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:37:27 Received HTTP response headers after 203.9055ms - 200
+[Info   :Zeepkist GTR] 18:37:27 End processing HTTP request after 204.1784ms - 200
+[Info   :Zeepkist GTR] 18:37:28 Starting recorder
+[Info   :Zeepkist Bingo] [BINGO] === PLAYER SPAWNED ===
+[Info   :Zeepkist Bingo] [BINGO] IsInActiveSession: False
+[Info   :Zeepkist Bingo] [BINGO] Not in active session, skipping timer reset
+[Info   :Zeepkist GTR] 18:37:43 Stopping existing recorder if any
+[Info   :Zeepkist GTR] 18:37:43 Creating new recorder
+[Info   :Zeepkist GTR] 18:37:43 Start processing HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:37:43 Sending HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:37:43 Start processing HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:37:43 Sending HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:37:43 Received HTTP response headers after 191.5673ms - 200
+[Info   :Zeepkist GTR] 18:37:43 End processing HTTP request after 191.793ms - 200
+[Info   :Zeepkist GTR] 18:37:43 Received HTTP response headers after 222.3613ms - 200
+[Info   :Zeepkist GTR] 18:37:43 End processing HTTP request after 222.597ms - 200
+[Info   :Zeepkist GTR] 18:37:43 Start processing HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:37:43 Sending HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:37:43 Received HTTP response headers after 186.6357ms - 200
+[Info   :Zeepkist GTR] 18:37:43 End processing HTTP request after 186.8875ms - 200
+[Info   :Zeepkist GTR] 18:37:44 Starting recorder
+[Info   :Zeepkist GTR] 18:38:11 Stopping recorder
+[Info   :Zeepkist GTR] 18:38:11 Collecting extra information
+[Info   :Zeepkist GTR] 18:38:11 Resolved workshop ID "3821120858" from lobby 3821120858 and level 0
+[Info   :Zeepkist GTR] 18:38:11 Processing ghost data
+[Info   :Zeepkist GTR] 18:38:11 Creating stream
+[Info   :Zeepkist GTR] 18:38:11 Writing to stream
+[Info   :Zeepkist GTR] 18:38:11 Converting to base64
+[Info   :Zeepkist GTR] 18:38:11 Creating resource
+[Info   :Zeepkist GTR] 18:38:11 Start processing HTTP request "POST" https://backend.zeepki.st/record/submit
+[Info   :Zeepkist GTR] 18:38:11 Sending HTTP request "POST" https://backend.zeepki.st/record/submit
+[Info   :Zeepkist GTR] 18:38:12 Received HTTP response headers after 470.4284ms - 200
+[Info   :Zeepkist GTR] 18:38:12 End processing HTTP request after 470.7784ms - 200
+[Info   :Zeepkist Bingo] [BINGO] === PLAYER SPAWNED ===
+[Info   :Zeepkist Bingo] [BINGO] IsInActiveSession: False
+[Info   :Zeepkist Bingo] [BINGO] Not in active session, skipping timer reset
+[Info   :Zeepkist GTR] 18:38:13 Stopping existing recorder if any
+[Info   :Zeepkist GTR] 18:38:13 Creating new recorder
+[Info   :Zeepkist GTR] 18:38:13 Start processing HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:38:13 Sending HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:38:13 Start processing HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:38:13 Sending HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:38:13 Received HTTP response headers after 198.789ms - 200
+[Info   :Zeepkist GTR] 18:38:13 End processing HTTP request after 199.0184ms - 200
+[Info   :Zeepkist GTR] 18:38:13 Received HTTP response headers after 207.2632ms - 200
+[Info   :Zeepkist GTR] 18:38:13 End processing HTTP request after 207.5276ms - 200
+[Info   :Zeepkist GTR] 18:38:13 Start processing HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:38:13 Sending HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:38:13 Received HTTP response headers after 188.4146ms - 200
+[Info   :Zeepkist GTR] 18:38:13 End processing HTTP request after 188.7099ms - 200
+[Info   :Zeepkist GTR] 18:38:14 Starting recorder
+[Info   :Zeepkist Bingo] [BINGO] === PLAYER SPAWNED ===
+[Info   :Zeepkist Bingo] [BINGO] IsInActiveSession: False
+[Info   :Zeepkist Bingo] [BINGO] Not in active session, skipping timer reset
+[Info   :Zeepkist GTR] 18:38:40 Stopping existing recorder if any
+[Info   :Zeepkist GTR] 18:38:40 Creating new recorder
+[Info   :Zeepkist GTR] 18:38:40 Start processing HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:38:40 Sending HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:38:40 Start processing HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:38:40 Sending HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:38:40 Received HTTP response headers after 202.3174ms - 200
+[Info   :Zeepkist GTR] 18:38:40 End processing HTTP request after 202.5535ms - 200
+[Info   :Zeepkist GTR] 18:38:40 Received HTTP response headers after 217.2865ms - 200
+[Info   :Zeepkist GTR] 18:38:40 End processing HTTP request after 217.5324ms - 200
+[Info   :Zeepkist GTR] 18:38:40 Start processing HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:38:40 Sending HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:38:40 Received HTTP response headers after 224.3122ms - 200
+[Info   :Zeepkist GTR] 18:38:40 End processing HTTP request after 224.5371ms - 200
+[Info   :Zeepkist GTR] 18:38:41 Starting recorder
+[Info   :Zeepkist GTR] 18:39:08 Stopping recorder
+[Info   :Zeepkist GTR] 18:39:08 Collecting extra information
+[Info   :Zeepkist GTR] 18:39:08 Resolved workshop ID "3821120858" from lobby 3821120858 and level 0
+[Info   :Zeepkist GTR] 18:39:08 Processing ghost data
+[Info   :Zeepkist GTR] 18:39:08 Creating stream
+[Info   :Zeepkist GTR] 18:39:08 Writing to stream
+[Info   :Zeepkist GTR] 18:39:08 Converting to base64
+[Info   :Zeepkist GTR] 18:39:08 Creating resource
+[Info   :Zeepkist GTR] 18:39:08 Start processing HTTP request "POST" https://backend.zeepki.st/record/submit
+[Info   :Zeepkist GTR] 18:39:08 Sending HTTP request "POST" https://backend.zeepki.st/record/submit
+[Info   :Zeepkist GTR] 18:39:09 Received HTTP response headers after 664.2122ms - 200
+[Info   :Zeepkist GTR] 18:39:09 End processing HTTP request after 664.4811ms - 200
+[Info   :Zeepkist Bingo] [BINGO] === PLAYER SPAWNED ===
+[Info   :Zeepkist Bingo] [BINGO] IsInActiveSession: False
+[Info   :Zeepkist Bingo] [BINGO] Not in active session, skipping timer reset
+[Info   :Zeepkist GTR] 18:39:10 Stopping existing recorder if any
+[Info   :Zeepkist GTR] 18:39:10 Creating new recorder
+[Info   :Zeepkist GTR] 18:39:10 Start processing HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:39:10 Sending HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:39:10 Start processing HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:39:10 Sending HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:39:10 Received HTTP response headers after 373.1325ms - 200
+[Info   :Zeepkist GTR] 18:39:10 End processing HTTP request after 373.3363ms - 200
+[Info   :Zeepkist GTR] 18:39:10 Received HTTP response headers after 569.5314ms - 200
+[Info   :Zeepkist GTR] 18:39:10 End processing HTTP request after 569.8558ms - 200
+[Info   :Zeepkist GTR] 18:39:10 Start processing HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:39:10 Sending HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:39:10 Received HTTP response headers after 194.32ms - 200
+[Info   :Zeepkist GTR] 18:39:10 End processing HTTP request after 194.6159ms - 200
+[Info   :Zeepkist GTR] 18:39:11 Starting recorder
+[Info   :Zeepkist Bingo] [BINGO] === PLAYER SPAWNED ===
+[Info   :Zeepkist Bingo] [BINGO] IsInActiveSession: False
+[Info   :Zeepkist Bingo] [BINGO] Not in active session, skipping timer reset
+[Info   :Zeepkist GTR] 18:39:17 Stopping existing recorder if any
+[Info   :Zeepkist GTR] 18:39:17 Creating new recorder
+[Info   :Zeepkist GTR] 18:39:17 Start processing HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:39:17 Sending HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:39:17 Start processing HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:39:17 Sending HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:39:17 Received HTTP response headers after 192.3254ms - 200
+[Info   :Zeepkist GTR] 18:39:17 End processing HTTP request after 192.5444ms - 200
+[Info   :Zeepkist GTR] 18:39:17 Received HTTP response headers after 225.9038ms - 200
+[Info   :Zeepkist GTR] 18:39:17 End processing HTTP request after 226.1387ms - 200
+[Info   :Zeepkist GTR] 18:39:17 Start processing HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:39:17 Sending HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:39:17 Received HTTP response headers after 176.6483ms - 200
+[Info   :Zeepkist GTR] 18:39:17 End processing HTTP request after 176.911ms - 200
+[Info   :Zeepkist GTR] 18:39:19 Starting recorder
+[Info   :Zeepkist Bingo] [BINGO] === PLAYER SPAWNED ===
+[Info   :Zeepkist Bingo] [BINGO] IsInActiveSession: False
+[Info   :Zeepkist Bingo] [BINGO] Not in active session, skipping timer reset
+[Info   :Zeepkist GTR] 18:39:46 Stopping existing recorder if any
+[Info   :Zeepkist GTR] 18:39:46 Creating new recorder
+[Info   :Zeepkist GTR] 18:39:46 Start processing HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:39:46 Sending HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:39:46 Start processing HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:39:46 Sending HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:39:46 Received HTTP response headers after 183.2631ms - 200
+[Info   :Zeepkist GTR] 18:39:46 End processing HTTP request after 183.5862ms - 200
+[Info   :Zeepkist GTR] 18:39:46 Received HTTP response headers after 190.6623ms - 200
+[Info   :Zeepkist GTR] 18:39:46 End processing HTTP request after 190.9032ms - 200
+[Info   :Zeepkist GTR] 18:39:46 Start processing HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:39:46 Sending HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:39:47 Received HTTP response headers after 203.2513ms - 200
+[Info   :Zeepkist GTR] 18:39:47 End processing HTTP request after 203.4973ms - 200
+[Info   :Zeepkist GTR] 18:39:48 Starting recorder
+[Info   :Zeepkist GTR] 18:40:14 Stopping recorder
+[Info   :Zeepkist GTR] 18:40:14 Collecting extra information
+[Info   :Zeepkist GTR] 18:40:14 Resolved workshop ID "3821120858" from lobby 3821120858 and level 0
+[Info   :Zeepkist GTR] 18:40:14 Processing ghost data
+[Info   :Zeepkist GTR] 18:40:14 Creating stream
+[Info   :Zeepkist GTR] 18:40:14 Writing to stream
+[Info   :Zeepkist GTR] 18:40:14 Converting to base64
+[Info   :Zeepkist GTR] 18:40:14 Creating resource
+[Info   :Zeepkist GTR] 18:40:14 Start processing HTTP request "POST" https://backend.zeepki.st/record/submit
+[Info   :Zeepkist GTR] 18:40:14 Sending HTTP request "POST" https://backend.zeepki.st/record/submit
+[Info   :Zeepkist GTR] 18:40:15 Received HTTP response headers after 1187.4696ms - 200
+[Info   :Zeepkist GTR] 18:40:15 End processing HTTP request after 1187.7694ms - 200
+[Info   :Zeepkist Bingo] [BINGO] === PLAYER SPAWNED ===
+[Info   :Zeepkist Bingo] [BINGO] IsInActiveSession: False
+[Info   :Zeepkist Bingo] [BINGO] Not in active session, skipping timer reset
+[Info   :Zeepkist GTR] 18:40:18 Stopping existing recorder if any
+[Info   :Zeepkist GTR] 18:40:18 Creating new recorder
+[Info   :Zeepkist GTR] 18:40:18 Start processing HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:40:18 Sending HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:40:18 Start processing HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:40:18 Sending HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:40:19 Received HTTP response headers after 176.2748ms - 200
+[Info   :Zeepkist GTR] 18:40:19 End processing HTTP request after 176.516ms - 200
+[Info   :Zeepkist GTR] 18:40:19 Received HTTP response headers after 203.5958ms - 200
+[Info   :Zeepkist GTR] 18:40:19 End processing HTTP request after 203.8664ms - 200
+[Info   :Zeepkist GTR] 18:40:19 Start processing HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:40:19 Sending HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:40:19 Received HTTP response headers after 173.7087ms - 200
+[Info   :Zeepkist GTR] 18:40:19 End processing HTTP request after 173.9876ms - 200
+[Info   :Zeepkist GTR] 18:40:20 Starting recorder
+[Info   :Zeepkist Bingo] [BINGO] === PLAYER SPAWNED ===
+[Info   :Zeepkist Bingo] [BINGO] IsInActiveSession: False
+[Info   :Zeepkist Bingo] [BINGO] Not in active session, skipping timer reset
+[Info   :Zeepkist GTR] 18:40:28 Stopping existing recorder if any
+[Info   :Zeepkist GTR] 18:40:28 Creating new recorder
+[Info   :Zeepkist GTR] 18:40:28 Start processing HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:40:28 Sending HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:40:28 Start processing HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:40:28 Sending HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:40:28 Received HTTP response headers after 194.1282ms - 200
+[Info   :Zeepkist GTR] 18:40:28 End processing HTTP request after 194.355ms - 200
+[Info   :Zeepkist GTR] 18:40:28 Received HTTP response headers after 197.6391ms - 200
+[Info   :Zeepkist GTR] 18:40:28 End processing HTTP request after 197.9123ms - 200
+[Info   :Zeepkist GTR] 18:40:28 Start processing HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:40:28 Sending HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:40:28 Received HTTP response headers after 183.1682ms - 200
+[Info   :Zeepkist GTR] 18:40:28 End processing HTTP request after 183.4679ms - 200
+[Info   :Zeepkist GTR] 18:40:29 Starting recorder
+[Info   :Zeepkist GTR] 18:40:55 Stopping recorder
+[Info   :Zeepkist GTR] 18:40:55 Collecting extra information
+[Info   :Zeepkist GTR] 18:40:55 Resolved workshop ID "3821120858" from lobby 3821120858 and level 0
+[Info   :Zeepkist GTR] 18:40:55 Processing ghost data
+[Info   :Zeepkist GTR] 18:40:55 Creating stream
+[Info   :Zeepkist GTR] 18:40:55 Writing to stream
+[Info   :Zeepkist GTR] 18:40:55 Converting to base64
+[Info   :Zeepkist GTR] 18:40:55 Creating resource
+[Info   :Zeepkist GTR] 18:40:55 Start processing HTTP request "POST" https://backend.zeepki.st/record/submit
+[Info   :Zeepkist GTR] 18:40:55 Sending HTTP request "POST" https://backend.zeepki.st/record/submit
+[Info   :Zeepkist GTR] 18:40:56 Received HTTP response headers after 487.5795ms - 200
+[Info   :Zeepkist GTR] 18:40:56 End processing HTTP request after 487.8413ms - 200
+[Info   :Zeepkist Bingo] [BINGO] === PLAYER SPAWNED ===
+[Info   :Zeepkist Bingo] [BINGO] IsInActiveSession: False
+[Info   :Zeepkist Bingo] [BINGO] Not in active session, skipping timer reset
+[Info   :Zeepkist GTR] 18:40:58 Stopping existing recorder if any
+[Info   :Zeepkist GTR] 18:40:58 Creating new recorder
+[Info   :Zeepkist GTR] 18:40:58 Start processing HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:40:58 Sending HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:40:58 Start processing HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:40:58 Sending HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:40:58 Received HTTP response headers after 203.4691ms - 200
+[Info   :Zeepkist GTR] 18:40:58 End processing HTTP request after 203.7439ms - 200
+[Info   :Zeepkist GTR] 18:40:58 Received HTTP response headers after 206.9017ms - 200
+[Info   :Zeepkist GTR] 18:40:58 End processing HTTP request after 207.1227ms - 200
+[Info   :Zeepkist GTR] 18:40:58 Start processing HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:40:58 Sending HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:40:58 Received HTTP response headers after 192.6489ms - 200
+[Info   :Zeepkist GTR] 18:40:58 End processing HTTP request after 192.9022ms - 200
+[Info   :Zeepkist GTR] 18:41:00 Starting recorder
+[Info   :Zeepkist Bingo] [CHAT] Intercepted message: !cotd startcup
+[Info   :Zeepkist Bingo] [CHAT] Not relaying - no bingo session
+[Info   :COTDTracker] Starting cup with exclude list: 
+[Info   :Zeepkist GTR] 18:41:27 Discarding recorder
+[Info   :COTDTracker] Doing eliminations with leaderboard:
+[Info   :COTDTracker] Player Minkus: Time: 25.23033
+[Info   :COTDTracker] Player [ZET]Stick: Time: 25.38198
+[Info   :COTDTracker] Player [KBW]microways: Time: 25.70465
+[Info   :COTDTracker] Player [T7]Heart-TGV: Time: 25.77937
+[Info   :COTDTracker] Player [ZET] Wheelie: Time: 25.79271
+[Info   :COTDTracker] Player [CSC]OgelGames: Time: 25.86527
+[Info   :COTDTracker] Player Noxitu: Time: 25.90474
+[Info   :COTDTracker] Player SuperHeavy: Time: 25.94992
+[Info   :COTDTracker] Player BrickEdwards: Time: 25.98691
+[Info   :COTDTracker] Player FINSTER83: Time: 26.01047
+[Info   :COTDTracker] Player [CSC] variableferret: Time: 26.08048
+[Info   :COTDTracker] Player [CTR]GuAlexItar: Time: 26.09584
+[Info   :COTDTracker] Player [CTR]Mortishade: Time: 26.1148
+[Info   :COTDTracker] Player Applejeice: Time: 26.33766
+[Info   :COTDTracker] Player [CSC]IronDragon111000: Time: 26.3583
+[Info   :COTDTracker] Player [ZET]maskeddog: Time: 26.47248
+[Info   :COTDTracker] Player [ZET]Sword125: Time: 26.70694
+[Info   :COTDTracker] Player MinMag: Time: 26.92831
+[Info   :COTDTracker] Player [ZET]vectortrajector: Time: 26.93661
+[Info   :COTDTracker] Player gundalf the grey: Time: 27.10094
+[Info   :COTDTracker] Player Jopo: Time: 27.21004
+[Info   :COTDTracker] Player b0baphettyWAP: Time: DNF
+[Info   :COTDTracker] Player [AC9K]agix: Time: DNF
+[Info   :COTDTracker] Kicking eliminated players
+[Info   :Zeepkist Bingo] [BINGO] Level loaded
+[Info   :BetterSplits] getting gtr splits
+[Info   :Zeepkist Bingo] [BINGO] === PLAYER SPAWNED ===
+[Info   :Zeepkist Bingo] [BINGO] IsInActiveSession: False
+[Info   :Zeepkist Bingo] [BINGO] Not in active session, skipping timer reset
+[Info   :Zeepkist GTR] 18:41:42 Stopping existing recorder if any
+[Info   :Zeepkist GTR] 18:41:42 Creating new recorder
+[Info   :Zeepkist GTR] 18:41:42 Start processing HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:41:42 Sending HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:41:42 Start processing HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:41:42 Sending HTTP request "POST" https://graphql.zeepki.st/
+[Info   :BetterSplits] got gtr splits
+[Info   :Zeepkist GTR] 18:41:42 Received HTTP response headers after 321.4683ms - 200
+[Info   :Zeepkist GTR] 18:41:42 End processing HTTP request after 321.7393ms - 200
+[Info   :Zeepkist GTR] 18:41:42 Received HTTP response headers after 344.9079ms - 200
+[Info   :Zeepkist GTR] 18:41:42 End processing HTTP request after 345.1942ms - 200
+[Info   :Zeepkist GTR] 18:41:42 Start processing HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:41:42 Sending HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:41:43 Received HTTP response headers after 194.1604ms - 200
+[Info   :Zeepkist GTR] 18:41:43 End processing HTTP request after 194.4855ms - 200
+[Info   :Zeepkist GTR] 18:41:44 Starting recorder
+[Info   :Zeepkist GTR] 18:43:42 Discarding recorder
+[Info   :COTDTracker] Doing eliminations with leaderboard:
+[Info   :COTDTracker] Player [ZET]Stick: Time: 25.55555
+[Info   :COTDTracker] Player [KBW]microways: Time: 25.62322
+[Info   :COTDTracker] Player [CTR]GuAlexItar: Time: 25.7317
+[Info   :COTDTracker] Player Minkus: Time: 25.89879
+[Info   :COTDTracker] Player SuperHeavy: Time: 26.01766
+[Info   :COTDTracker] Player [CSC] variableferret: Time: 26.051
+[Info   :COTDTracker] Player FINSTER83: Time: 26.05826
+[Info   :COTDTracker] Player [CSC]IronDragon111000: Time: 26.11165
+[Info   :COTDTracker] Player [CSC]OgelGames: Time: 26.12691
+[Info   :COTDTracker] Player [AC9K]agix: Time: 26.19451
+[Info   :COTDTracker] Player [CTR]Mortishade: Time: 26.20779
+[Info   :COTDTracker] Player [T7]Heart-TGV: Time: 26.21891
+[Info   :COTDTracker] Player Noxitu: Time: 26.27328
+[Info   :COTDTracker] Player BrickEdwards: Time: 26.32518
+[Info   :COTDTracker] Player Applejeice: Time: 26.75517
+[Info   :COTDTracker] Player MinMag: Time: 26.82077
+[Info   :COTDTracker] Player [ZET]Sword125: Time: 26.84475
+[Info   :COTDTracker] Player [ZET]maskeddog: Time: 26.98975
+[Info   :COTDTracker] Player [ZET]vectortrajector: Time: 27.00487
+[Info   :COTDTracker] Player gundalf the grey: Time: 27.36791
+[Info   :COTDTracker] Player Jopo: Time: 27.46485
+[Info   :COTDTracker] Player b0baphettyWAP: Time: 27.51562
+[Info   :COTDTracker] Player [ZET] Wheelie: Time: DNF
+[Info   :COTDTracker] Eliminating DNF: [ZET] Wheelie
+[Info   :COTDTracker] Eliminated 1 DNF players
+[Info   :COTDTracker] Eliminating on time: b0baphettyWAP
+[Info   :COTDTracker] Eliminating on time: Jopo
+[Info   :COTDTracker] Eliminating on time: gundalf the grey
+[Info   :COTDTracker] Eliminating 4 players: 
+[Info   :COTDTracker] [ZET] Wheelie
+[Info   :COTDTracker] b0baphettyWAP
+[Info   :COTDTracker] Jopo
+[Info   :COTDTracker] gundalf the grey
+[Info   :COTDTracker] Kicking eliminated players
+[Info   :Zeepkist Bingo] [BINGO] Level loaded
+[Info   :BetterSplits] getting gtr splits
+[Info   :Zeepkist Bingo] [BINGO] === PLAYER SPAWNED ===
+[Info   :Zeepkist Bingo] [BINGO] IsInActiveSession: False
+[Info   :Zeepkist Bingo] [BINGO] Not in active session, skipping timer reset
+[Info   :Zeepkist GTR] 18:43:57 Stopping existing recorder if any
+[Info   :Zeepkist GTR] 18:43:57 Creating new recorder
+[Info   :Zeepkist GTR] 18:43:57 Start processing HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:43:57 Sending HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:43:57 Start processing HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:43:57 Sending HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:43:57 Received HTTP response headers after 311.9589ms - 200
+[Info   :Zeepkist GTR] 18:43:57 End processing HTTP request after 312.2638ms - 200
+[Info   :Zeepkist GTR] 18:43:57 Received HTTP response headers after 352.0134ms - 200
+[Info   :Zeepkist GTR] 18:43:57 End processing HTTP request after 352.2723ms - 200
+[Info   :BetterSplits] got gtr splits
+[Info   :Zeepkist GTR] 18:43:57 Start processing HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:43:57 Sending HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:43:57 Received HTTP response headers after 198.8205ms - 200
+[Info   :Zeepkist GTR] 18:43:57 End processing HTTP request after 199.077ms - 200
+[Info   :Zeepkist Bingo] [CHAT] Intercepted message: 4 players eliminated: [ZET] Wheelie, b0baphettyWAP, Jopo, gundalf the grey
+[Info   :Zeepkist Bingo] [CHAT] Not relaying - no bingo session
+[Info   :Zeepkist GTR] 18:43:59 Starting recorder
+[Info   :COTDTracker] Running update tab leaderboard function
+[Info   :Zeepkist GTR] 18:45:55 Discarding recorder
+[Info   :COTDTracker] Running update tab leaderboard function
+[Info   :COTDTracker] Doing eliminations with leaderboard:
+[Info   :COTDTracker] Player [ZET]Stick: Time: 25.49224
+[Info   :COTDTracker] Player [KBW]microways: Time: 25.54033
+[Info   :COTDTracker] Player Minkus: Time: 25.62476
+[Info   :COTDTracker] Player [CTR]Mortishade: Time: 25.75019
+[Info   :COTDTracker] Player [CSC]OgelGames: Time: 25.75665
+[Info   :COTDTracker] Player [CTR]GuAlexItar: Time: 25.82796
+[Info   :COTDTracker] Player BrickEdwards: Time: 25.88768
+[Info   :COTDTracker] Player FINSTER83: Time: 25.9856
+[Info   :COTDTracker] Player [AC9K]agix: Time: 25.98646
+[Info   :COTDTracker] Player Applejeice: Time: 26.00361
+[Info   :COTDTracker] Player SuperHeavy: Time: 26.0368
+[Info   :COTDTracker] Player [T7]Heart-TGV: Time: 26.19048
+[Info   :COTDTracker] Player [CSC] variableferret: Time: 26.23735
+[Info   :COTDTracker] Player Noxitu: Time: 26.23995
+[Info   :COTDTracker] Player [CSC]IronDragon111000: Time: 26.25802
+[Info   :COTDTracker] Player [ZET]vectortrajector: Time: 26.61662
+[Info   :COTDTracker] Player [ZET]Sword125: Time: 26.8742
+[Info   :COTDTracker] Player [ZET]maskeddog: Time: 26.96146
+[Info   :COTDTracker] Player MinMag: Time: 27.63511
+[Info   :COTDTracker] Eliminated 0 DNF players
+[Info   :COTDTracker] Eliminating on time: MinMag
+[Info   :COTDTracker] Eliminating on time: [ZET]maskeddog
+[Info   :COTDTracker] Eliminating on time: [ZET]Sword125
+[Info   :COTDTracker] Eliminating on time: [ZET]vectortrajector
+[Info   :COTDTracker] Eliminating 4 players: 
+[Info   :COTDTracker] MinMag
+[Info   :COTDTracker] [ZET]maskeddog
+[Info   :COTDTracker] [ZET]Sword125
+[Info   :COTDTracker] [ZET]vectortrajector
+[Info   :COTDTracker] Kicking eliminated players
+[Info   :Zeepkist Bingo] [BINGO] Level loaded
+[Info   :BetterSplits] getting gtr splits
+[Info   :Zeepkist Bingo] [BINGO] === PLAYER SPAWNED ===
+[Info   :Zeepkist Bingo] [BINGO] IsInActiveSession: False
+[Info   :Zeepkist Bingo] [BINGO] Not in active session, skipping timer reset
+[Info   :Zeepkist GTR] 18:46:10 Stopping existing recorder if any
+[Info   :Zeepkist GTR] 18:46:10 Creating new recorder
+[Info   :Zeepkist GTR] 18:46:10 Start processing HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:46:10 Sending HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:46:10 Start processing HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:46:10 Sending HTTP request "POST" https://graphql.zeepki.st/
+[Info   :BetterSplits] got gtr splits
+[Info   :Zeepkist GTR] 18:46:10 Received HTTP response headers after 320.3554ms - 200
+[Info   :Zeepkist GTR] 18:46:10 End processing HTTP request after 320.5537ms - 200
+[Info   :Zeepkist GTR] 18:46:10 Received HTTP response headers after 328.8514ms - 200
+[Info   :Zeepkist GTR] 18:46:10 End processing HTTP request after 329.0597ms - 200
+[Info   :Zeepkist GTR] 18:46:10 Start processing HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:46:10 Sending HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:46:10 Received HTTP response headers after 180.5572ms - 200
+[Info   :Zeepkist GTR] 18:46:10 End processing HTTP request after 180.7922ms - 200
+[Info   :Zeepkist Bingo] [CHAT] Intercepted message: 4 players eliminated: MinMag, [ZET]maskeddog, [ZET]Sword125, [ZET]vectortrajector
+[Info   :Zeepkist Bingo] [CHAT] Not relaying - no bingo session
+[Info   :Zeepkist GTR] 18:46:11 Starting recorder
+[Info   :Zeepkist GTR] 18:48:08 Discarding recorder
+[Info   :COTDTracker] Running update tab leaderboard function
+[Info   :COTDTracker] Doing eliminations with leaderboard:
+[Info   :COTDTracker] Player [ZET]Stick: Time: 25.4839
+[Info   :COTDTracker] Player [KBW]microways: Time: 25.56707
+[Info   :COTDTracker] Player Minkus: Time: 25.77746
+[Info   :COTDTracker] Player [CSC]OgelGames: Time: 25.94832
+[Info   :COTDTracker] Player [T7]Heart-TGV: Time: 26.06133
+[Info   :COTDTracker] Player BrickEdwards: Time: 26.17811
+[Info   :COTDTracker] Player [CSC]IronDragon111000: Time: 26.18373
+[Info   :COTDTracker] Player FINSTER83: Time: 26.22754
+[Info   :COTDTracker] Player Applejeice: Time: 26.24343
+[Info   :COTDTracker] Player SuperHeavy: Time: 26.24678
+[Info   :COTDTracker] Player [CTR]GuAlexItar: Time: 26.28284
+[Info   :COTDTracker] Player [AC9K]agix: Time: 26.29208
+[Info   :COTDTracker] Player [CTR]Mortishade: Time: 26.38785
+[Info   :COTDTracker] Player [CSC] variableferret: Time: 26.41439
+[Info   :COTDTracker] Player Noxitu: Time: 26.45651
+[Info   :COTDTracker] Eliminated 0 DNF players
+[Info   :COTDTracker] Eliminating on time: Noxitu
+[Info   :COTDTracker] Eliminating on time: [CSC] variableferret
+[Info   :COTDTracker] Eliminating on time: [CTR]Mortishade
+[Info   :COTDTracker] Eliminating 3 players: 
+[Info   :COTDTracker] Noxitu
+[Info   :COTDTracker] [CSC] variableferret
+[Info   :COTDTracker] [CTR]Mortishade
+[Info   :COTDTracker] Kicking eliminated players
+[Info   :Zeepkist Bingo] [BINGO] Level loaded
+[Info   :BetterSplits] getting gtr splits
+[Info   :Zeepkist Bingo] [BINGO] === PLAYER SPAWNED ===
+[Info   :Zeepkist Bingo] [BINGO] IsInActiveSession: False
+[Info   :Zeepkist Bingo] [BINGO] Not in active session, skipping timer reset
+[Info   :Zeepkist GTR] 18:48:23 Stopping existing recorder if any
+[Info   :Zeepkist GTR] 18:48:23 Creating new recorder
+[Info   :Zeepkist GTR] 18:48:23 Start processing HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:48:23 Sending HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:48:23 Start processing HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:48:23 Sending HTTP request "POST" https://graphql.zeepki.st/
+[Info   :BetterSplits] got gtr splits
+[Info   :Zeepkist GTR] 18:48:23 Received HTTP response headers after 344.4341ms - 200
+[Info   :Zeepkist GTR] 18:48:23 End processing HTTP request after 344.6393ms - 200
+[Info   :Zeepkist GTR] 18:48:23 Received HTTP response headers after 349.1866ms - 200
+[Info   :Zeepkist GTR] 18:48:23 End processing HTTP request after 349.3729ms - 200
+[Info   :Zeepkist GTR] 18:48:23 Start processing HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:48:23 Sending HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:48:23 Received HTTP response headers after 211.204ms - 200
+[Info   :Zeepkist GTR] 18:48:23 End processing HTTP request after 211.4658ms - 200
+[Info   :Zeepkist Bingo] [CHAT] Intercepted message: 3 players eliminated: Noxitu, [CSC] variableferret, [CTR]Mortishade
+[Info   :Zeepkist Bingo] [CHAT] Not relaying - no bingo session
+[Info   :Zeepkist GTR] 18:48:25 Starting recorder
+[Info   :COTDTracker] Running update tab leaderboard function
+[Info   :COTDTracker] Running update tab leaderboard function
+[Info   :Zeepkist GTR] 18:50:21 Discarding recorder
+[Info   :COTDTracker] Doing eliminations with leaderboard:
+[Info   :COTDTracker] Player [ZET]Stick: Time: 25.19315
+[Info   :COTDTracker] Player [KBW]microways: Time: 25.58006
+[Info   :COTDTracker] Player Minkus: Time: 25.6566
+[Info   :COTDTracker] Player [CTR]GuAlexItar: Time: 25.80321
+[Info   :COTDTracker] Player [AC9K]agix: Time: 25.88223
+[Info   :COTDTracker] Player [T7]Heart-TGV: Time: 25.91622
+[Info   :COTDTracker] Player [CSC]OgelGames: Time: 25.92282
+[Info   :COTDTracker] Player FINSTER83: Time: 25.92761
+[Info   :COTDTracker] Player BrickEdwards: Time: 26.01501
+[Info   :COTDTracker] Player [CSC]IronDragon111000: Time: 26.11049
+[Info   :COTDTracker] Player SuperHeavy: Time: 26.11269
+[Info   :COTDTracker] Player Applejeice: Time: 26.31719
+[Info   :COTDTracker] Eliminated 0 DNF players
+[Info   :COTDTracker] Eliminating on time: Applejeice
+[Info   :COTDTracker] Eliminating on time: SuperHeavy
+[Info   :COTDTracker] Eliminating 2 players: 
+[Info   :COTDTracker] Applejeice
+[Info   :COTDTracker] SuperHeavy
+[Info   :COTDTracker] Kicking eliminated players
+[Info   :Zeepkist Bingo] [BINGO] Level loaded
+[Info   :BetterSplits] getting gtr splits
+[Info   :Zeepkist Bingo] [BINGO] === PLAYER SPAWNED ===
+[Info   :Zeepkist Bingo] [BINGO] IsInActiveSession: False
+[Info   :Zeepkist Bingo] [BINGO] Not in active session, skipping timer reset
+[Info   :Zeepkist GTR] 18:50:36 Stopping existing recorder if any
+[Info   :Zeepkist GTR] 18:50:36 Creating new recorder
+[Info   :Zeepkist GTR] 18:50:36 Start processing HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:50:36 Sending HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:50:36 Start processing HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:50:36 Sending HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:50:36 Received HTTP response headers after 344.6825ms - 200
+[Info   :Zeepkist GTR] 18:50:36 End processing HTTP request after 345.0406ms - 200
+[Info   :BetterSplits] got gtr splits
+[Info   :Zeepkist GTR] 18:50:36 Received HTTP response headers after 351.5772ms - 200
+[Info   :Zeepkist GTR] 18:50:36 End processing HTTP request after 351.8258ms - 200
+[Info   :Zeepkist GTR] 18:50:36 Start processing HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:50:36 Sending HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:50:36 Received HTTP response headers after 236.4848ms - 200
+[Info   :Zeepkist GTR] 18:50:36 End processing HTTP request after 236.8463ms - 200
+[Info   :Zeepkist Bingo] [CHAT] Intercepted message: 2 players eliminated: Applejeice, SuperHeavy
+[Info   :Zeepkist Bingo] [CHAT] Not relaying - no bingo session
+[Info   :Zeepkist GTR] 18:50:38 Starting recorder
+[Info   :COTDTracker] Running update tab leaderboard function
+[Info   :Zeepkist GTR] 18:52:34 Discarding recorder
+[Info   :COTDTracker] Doing eliminations with leaderboard:
+[Info   :COTDTracker] Player [ZET]Stick: Time: 25.0175
+[Info   :COTDTracker] Player [KBW]microways: Time: 25.53808
+[Info   :COTDTracker] Player [AC9K]agix: Time: 25.70248
+[Info   :COTDTracker] Player Minkus: Time: 25.72043
+[Info   :COTDTracker] Player [CSC]OgelGames: Time: 25.82302
+[Info   :COTDTracker] Player FINSTER83: Time: 25.89416
+[Info   :COTDTracker] Player [CTR]GuAlexItar: Time: 25.97286
+[Info   :COTDTracker] Player [T7]Heart-TGV: Time: 25.99529
+[Info   :COTDTracker] Player BrickEdwards: Time: 26.14907
+[Info   :COTDTracker] Player [CSC]IronDragon111000: Time: DNF
+[Info   :COTDTracker] Eliminating DNF: [CSC]IronDragon111000
+[Info   :COTDTracker] Eliminated 1 DNF players
+[Info   :COTDTracker] Eliminating on time: BrickEdwards
+[Info   :COTDTracker] Eliminating 2 players: 
+[Info   :COTDTracker] [CSC]IronDragon111000
+[Info   :COTDTracker] BrickEdwards
+[Info   :COTDTracker] Kicking eliminated players
+[Info   :Zeepkist Bingo] [BINGO] Level loaded
+[Info   :BetterSplits] getting gtr splits
+[Info   :Zeepkist Bingo] [BINGO] === PLAYER SPAWNED ===
+[Info   :Zeepkist Bingo] [BINGO] IsInActiveSession: False
+[Info   :Zeepkist Bingo] [BINGO] Not in active session, skipping timer reset
+[Info   :Zeepkist GTR] 18:52:49 Stopping existing recorder if any
+[Info   :Zeepkist GTR] 18:52:49 Creating new recorder
+[Info   :Zeepkist GTR] 18:52:49 Start processing HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:52:49 Sending HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:52:49 Start processing HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:52:49 Sending HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:52:49 Received HTTP response headers after 299.4644ms - 200
+[Info   :Zeepkist GTR] 18:52:49 End processing HTTP request after 299.6613ms - 200
+[Info   :Zeepkist GTR] 18:52:49 Received HTTP response headers after 307.9489ms - 200
+[Info   :Zeepkist GTR] 18:52:49 End processing HTTP request after 308.2439ms - 200
+[Info   :Zeepkist GTR] 18:52:49 Start processing HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:52:49 Sending HTTP request "POST" https://graphql.zeepki.st/
+[Info   :BetterSplits] got gtr splits
+[Info   :Zeepkist GTR] 18:52:49 Received HTTP response headers after 205.6873ms - 200
+[Info   :Zeepkist GTR] 18:52:49 End processing HTTP request after 206.0106ms - 200
+[Info   :Zeepkist Bingo] [CHAT] Intercepted message: 2 players eliminated: [CSC]IronDragon111000, BrickEdwards
+[Info   :Zeepkist Bingo] [CHAT] Not relaying - no bingo session
+[Info   :Zeepkist GTR] 18:52:51 Starting recorder
+[Info   :Zeepkist GTR] 18:54:47 Discarding recorder
+[Info   :COTDTracker] Doing eliminations with leaderboard:
+[Info   :COTDTracker] Player [ZET]Stick: Time: 24.99762
+[Info   :COTDTracker] Player [CTR]GuAlexItar: Time: 25.50942
+[Info   :COTDTracker] Player [KBW]microways: Time: 25.60078
+[Info   :COTDTracker] Player [AC9K]agix: Time: 25.60921
+[Info   :COTDTracker] Player Minkus: Time: 25.77165
+[Info   :COTDTracker] Player FINSTER83: Time: 25.93006
+[Info   :COTDTracker] Player [T7]Heart-TGV: Time: 26.06502
+[Info   :COTDTracker] Player [CSC]OgelGames: Time: 26.11811
+[Info   :COTDTracker] Eliminated 0 DNF players
+[Info   :COTDTracker] Eliminating on time: [CSC]OgelGames
+[Info   :COTDTracker] Eliminating on time: [T7]Heart-TGV
+[Info   :COTDTracker] Eliminating 2 players: 
+[Info   :COTDTracker] [CSC]OgelGames
+[Info   :COTDTracker] [T7]Heart-TGV
+[Info   :COTDTracker] Kicking eliminated players
+[Info   :Zeepkist Bingo] [BINGO] Level loaded
+[Info   :BetterSplits] getting gtr splits
+[Info   :Zeepkist Bingo] [BINGO] === PLAYER SPAWNED ===
+[Info   :Zeepkist Bingo] [BINGO] IsInActiveSession: False
+[Info   :Zeepkist Bingo] [BINGO] Not in active session, skipping timer reset
+[Info   :Zeepkist GTR] 18:55:02 Stopping existing recorder if any
+[Info   :Zeepkist GTR] 18:55:02 Creating new recorder
+[Info   :Zeepkist GTR] 18:55:02 Start processing HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:55:02 Sending HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:55:02 Start processing HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:55:02 Sending HTTP request "POST" https://graphql.zeepki.st/
+[Info   :BetterSplits] got gtr splits
+[Info   :Zeepkist GTR] 18:55:02 Received HTTP response headers after 353.1564ms - 200
+[Info   :Zeepkist GTR] 18:55:02 End processing HTTP request after 353.4296ms - 200
+[Info   :Zeepkist GTR] 18:55:02 Received HTTP response headers after 384.3983ms - 200
+[Info   :Zeepkist GTR] 18:55:02 End processing HTTP request after 384.6595ms - 200
+[Info   :Zeepkist GTR] 18:55:02 Start processing HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:55:02 Sending HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:55:03 Received HTTP response headers after 203.5368ms - 200
+[Info   :Zeepkist GTR] 18:55:03 End processing HTTP request after 203.8371ms - 200
+[Info   :Zeepkist Bingo] [CHAT] Intercepted message: 2 players eliminated: [CSC]OgelGames, [T7]Heart-TGV
+[Info   :Zeepkist Bingo] [CHAT] Not relaying - no bingo session
+[Info   :Zeepkist GTR] 18:55:04 Starting recorder
+[Info   :Zeepkist GTR] 18:57:00 Discarding recorder
+[Info   :COTDTracker] Doing eliminations with leaderboard:
+[Info   :COTDTracker] Player [CTR]GuAlexItar: Time: 25.31836
+[Info   :COTDTracker] Player [ZET]Stick: Time: 25.40683
+[Info   :COTDTracker] Player [KBW]microways: Time: 25.55898
+[Info   :COTDTracker] Player [AC9K]agix: Time: 25.63431
+[Info   :COTDTracker] Player FINSTER83: Time: 25.64833
+[Info   :COTDTracker] Player Minkus: Time: 25.93863
+[Info   :COTDTracker] Eliminated 0 DNF players
+[Info   :COTDTracker] Eliminating on time: Minkus
+[Info   :COTDTracker] Eliminating 1 players: 
+[Info   :COTDTracker] Minkus
+[Info   :COTDTracker] Kicking eliminated players
+[Info   :Zeepkist Bingo] [BINGO] Level loaded
+[Info   :BetterSplits] getting gtr splits
+[Info   :Zeepkist Bingo] [BINGO] === PLAYER SPAWNED ===
+[Info   :Zeepkist Bingo] [BINGO] IsInActiveSession: False
+[Info   :Zeepkist Bingo] [BINGO] Not in active session, skipping timer reset
+[Info   :Zeepkist GTR] 18:57:15 Stopping existing recorder if any
+[Info   :Zeepkist GTR] 18:57:15 Creating new recorder
+[Info   :Zeepkist GTR] 18:57:15 Start processing HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:57:15 Sending HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:57:15 Start processing HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:57:15 Sending HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:57:15 Received HTTP response headers after 364.054ms - 200
+[Info   :Zeepkist GTR] 18:57:15 End processing HTTP request after 364.5056ms - 200
+[Info   :Zeepkist GTR] 18:57:15 Received HTTP response headers after 392.3835ms - 200
+[Info   :Zeepkist GTR] 18:57:15 End processing HTTP request after 392.7501ms - 200
+[Info   :BetterSplits] got gtr splits
+[Info   :Zeepkist GTR] 18:57:15 Start processing HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:57:15 Sending HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:57:16 Received HTTP response headers after 214.8179ms - 200
+[Info   :Zeepkist GTR] 18:57:16 End processing HTTP request after 215.1092ms - 200
+[Info   :Zeepkist Bingo] [CHAT] Intercepted message: 1 player eliminated: Minkus
+[Info   :Zeepkist Bingo] [CHAT] Not relaying - no bingo session
+[Info   :Zeepkist GTR] 18:57:17 Starting recorder
+[Info   :COTDTracker] Running update tab leaderboard function
+[Info   :Zeepkist GTR] 18:59:13 Discarding recorder
+[Info   :COTDTracker] Doing eliminations with leaderboard:
+[Info   :COTDTracker] Player [ZET]Stick: Time: 25.11791
+[Info   :COTDTracker] Player [KBW]microways: Time: 25.59769
+[Info   :COTDTracker] Player [AC9K]agix: Time: 25.80711
+[Info   :COTDTracker] Player FINSTER83: Time: 25.87305
+[Info   :COTDTracker] Player [CTR]GuAlexItar: Time: DNF
+[Info   :COTDTracker] Eliminating DNF: [CTR]GuAlexItar
+[Info   :COTDTracker] Eliminated 1 DNF players
+[Info   :COTDTracker] Eliminating 1 players: 
+[Info   :COTDTracker] [CTR]GuAlexItar
+[Info   :COTDTracker] Running update tab leaderboard function
+[Info   :COTDTracker] Kicking eliminated players
+[Info   :Zeepkist Bingo] [BINGO] Level loaded
+[Info   :BetterSplits] getting gtr splits
+[Info   :Zeepkist Bingo] [BINGO] === PLAYER SPAWNED ===
+[Info   :Zeepkist Bingo] [BINGO] IsInActiveSession: False
+[Info   :Zeepkist Bingo] [BINGO] Not in active session, skipping timer reset
+[Info   :Zeepkist GTR] 18:59:28 Stopping existing recorder if any
+[Info   :Zeepkist GTR] 18:59:28 Creating new recorder
+[Info   :Zeepkist GTR] 18:59:28 Start processing HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:59:28 Sending HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:59:28 Start processing HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:59:28 Sending HTTP request "POST" https://graphql.zeepki.st/
+[Info   :BetterSplits] got gtr splits
+[Info   :Zeepkist GTR] 18:59:28 Received HTTP response headers after 307.5741ms - 200
+[Info   :Zeepkist GTR] 18:59:28 End processing HTTP request after 307.832ms - 200
+[Info   :Zeepkist GTR] 18:59:28 Received HTTP response headers after 317.0358ms - 200
+[Info   :Zeepkist GTR] 18:59:28 End processing HTTP request after 317.3154ms - 200
+[Info   :Zeepkist GTR] 18:59:28 Start processing HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:59:28 Sending HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 18:59:28 Received HTTP response headers after 212.8767ms - 200
+[Info   :Zeepkist GTR] 18:59:28 End processing HTTP request after 213.2571ms - 200
+[Info   :Zeepkist Bingo] [CHAT] Intercepted message: 1 player eliminated: [CTR]GuAlexItar
+[Info   :Zeepkist Bingo] [CHAT] Not relaying - no bingo session
+[Info   :Zeepkist GTR] 18:59:30 Starting recorder
+[Info   :COTDTracker] Running update tab leaderboard function
+[Info   :COTDTracker] Running update tab leaderboard function
+[Info   :COTDTracker] Running update tab leaderboard function
+[Info   :COTDTracker] Running update tab leaderboard function
+[Info   :COTDTracker] Running update tab leaderboard function
+[Info   :Zeepkist GTR] 19:01:26 Discarding recorder
+[Info   :COTDTracker] Doing eliminations with leaderboard:
+[Info   :COTDTracker] Player [ZET]Stick: Time: 25.29445
+[Info   :COTDTracker] Player [KBW]microways: Time: 25.55126
+[Info   :COTDTracker] Player FINSTER83: Time: 25.80113
+[Info   :COTDTracker] Player [AC9K]agix: Time: DNF
+[Info   :COTDTracker] Eliminating DNF: [AC9K]agix
+[Info   :COTDTracker] Eliminated 1 DNF players
+[Info   :COTDTracker] Eliminating 1 players: 
+[Info   :COTDTracker] [AC9K]agix
+[Info   :COTDTracker] Kicking eliminated players
+[Info   :Zeepkist Bingo] [BINGO] Level loaded
+[Info   :BetterSplits] getting gtr splits
+[Info   :Zeepkist Bingo] [BINGO] === PLAYER SPAWNED ===
+[Info   :Zeepkist Bingo] [BINGO] IsInActiveSession: False
+[Info   :Zeepkist Bingo] [BINGO] Not in active session, skipping timer reset
+[Info   :Zeepkist GTR] 19:01:41 Stopping existing recorder if any
+[Info   :Zeepkist GTR] 19:01:41 Creating new recorder
+[Info   :Zeepkist GTR] 19:01:41 Start processing HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 19:01:41 Sending HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 19:01:41 Start processing HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 19:01:41 Sending HTTP request "POST" https://graphql.zeepki.st/
+[Info   :BetterSplits] got gtr splits
+[Info   :Zeepkist GTR] 19:01:41 Received HTTP response headers after 311.1803ms - 200
+[Info   :Zeepkist GTR] 19:01:41 End processing HTTP request after 311.4797ms - 200
+[Info   :Zeepkist GTR] 19:01:41 Received HTTP response headers after 331.8862ms - 200
+[Info   :Zeepkist GTR] 19:01:41 End processing HTTP request after 332.2492ms - 200
+[Info   :Zeepkist GTR] 19:01:41 Start processing HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 19:01:41 Sending HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 19:01:41 Received HTTP response headers after 206.5332ms - 200
+[Info   :Zeepkist GTR] 19:01:41 End processing HTTP request after 206.8795ms - 200
+[Info   :Zeepkist Bingo] [CHAT] Intercepted message: 1 player eliminated: [AC9K]agix
+[Info   :Zeepkist Bingo] [CHAT] Not relaying - no bingo session
+[Info   :Zeepkist GTR] 19:01:43 Starting recorder
+[Info   :COTDTracker] Running update tab leaderboard function
+[Info   :Zeepkist GTR] 19:03:39 Discarding recorder
+[Info   :COTDTracker] Doing eliminations with leaderboard:
+[Info   :COTDTracker] Player [ZET]Stick: Time: 25.33208
+[Info   :COTDTracker] Player [KBW]microways: Time: 25.5929
+[Info   :COTDTracker] Player FINSTER83: Time: 25.84025
+[Info   :COTDTracker] Eliminated 0 DNF players
+[Info   :COTDTracker] Eliminating on time: FINSTER83
+[Info   :COTDTracker] Eliminating 1 players: 
+[Info   :COTDTracker] FINSTER83
+[Info   :COTDTracker] Kicking eliminated players
+[Info   :Zeepkist Bingo] [BINGO] Level loaded
+[Info   :BetterSplits] getting gtr splits
+[Info   :Zeepkist Bingo] [BINGO] === PLAYER SPAWNED ===
+[Info   :Zeepkist Bingo] [BINGO] IsInActiveSession: False
+[Info   :Zeepkist Bingo] [BINGO] Not in active session, skipping timer reset
+[Info   :Zeepkist GTR] 19:03:54 Stopping existing recorder if any
+[Info   :Zeepkist GTR] 19:03:54 Creating new recorder
+[Info   :Zeepkist GTR] 19:03:54 Start processing HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 19:03:54 Sending HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 19:03:54 Start processing HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 19:03:54 Sending HTTP request "POST" https://graphql.zeepki.st/
+[Info   :BetterSplits] got gtr splits
+[Info   :Zeepkist GTR] 19:03:54 Received HTTP response headers after 334.2077ms - 200
+[Info   :Zeepkist GTR] 19:03:54 End processing HTTP request after 334.5469ms - 200
+[Info   :Zeepkist GTR] 19:03:54 Received HTTP response headers after 334.9464ms - 200
+[Info   :Zeepkist GTR] 19:03:54 End processing HTTP request after 335.2282ms - 200
+[Info   :Zeepkist GTR] 19:03:54 Start processing HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 19:03:54 Sending HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 19:03:54 Received HTTP response headers after 183.0533ms - 200
+[Info   :Zeepkist GTR] 19:03:54 End processing HTTP request after 183.3478ms - 200
+[Info   :Zeepkist Bingo] [CHAT] Intercepted message: 1 player eliminated: FINSTER83
+[Info   :Zeepkist Bingo] [CHAT] Not relaying - no bingo session
+[Info   :Zeepkist GTR] 19:03:56 Starting recorder
+[Info   :COTDTracker] Running update tab leaderboard function
+[Info   :COTDTracker] Running update tab leaderboard function
+[Info   :RoundLeaderboardTab] Drawing leaderboard -> forwarding to Instance.DrawTabLeaderboard()
+[Info   :ChampionshipLeaderboardTab] Drawing leaderboard -> forwarding to Instance.DrawTabLeaderboard()
+[Info   :Zeepkist GTR] 19:04:50 Start processing HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 19:04:50 Sending HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 19:04:51 Received HTTP response headers after 194.1275ms - 200
+[Info   :Zeepkist GTR] 19:04:51 End processing HTTP request after 194.641ms - 200
+[Info   :Zeepkist GTR] 19:04:51 Start processing HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 19:04:51 Sending HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 19:04:51 Received HTTP response headers after 193.2819ms - 200
+[Info   :Zeepkist GTR] 19:04:51 End processing HTTP request after 193.7201ms - 200
+[Info   :Zeepkist GTR] 19:04:51 Start processing HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 19:04:51 Sending HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 19:04:51 Start processing HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 19:04:51 Sending HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 19:04:51 Received HTTP response headers after 195.9461ms - 200
+[Info   :Zeepkist GTR] 19:04:51 End processing HTTP request after 196.312ms - 200
+[Info   :Zeepkist GTR] 19:04:51 Received HTTP response headers after 215.1596ms - 200
+[Info   :Zeepkist GTR] 19:04:51 End processing HTTP request after 215.4811ms - 200
+[Info   :COTDTracker] Running update tab leaderboard function
+[Info   :Zeepkist GTR] 19:05:52 Discarding recorder
+[Info   :COTDTracker] Doing eliminations with leaderboard:
+[Info   :COTDTracker] Player [ZET]Stick: Time: 25.07818
+[Info   :COTDTracker] Player [KBW]microways: Time: 25.60028
+[Info   :COTDTracker] Eliminated 0 DNF players
+[Info   :COTDTracker] Eliminating on time: [KBW]microways
+[Info   :COTDTracker] Eliminating 1 players: 
+[Info   :COTDTracker] [KBW]microways
+[Info   :COTDTracker] Kicking eliminated players
+[Info   :Zeepkist Bingo] [BINGO] Level loaded
+[Info   :BetterSplits] getting gtr splits
+[Info   :Zeepkist Bingo] [BINGO] === PLAYER SPAWNED ===
+[Info   :Zeepkist Bingo] [BINGO] IsInActiveSession: False
+[Info   :Zeepkist Bingo] [BINGO] Not in active session, skipping timer reset
+[Info   :Zeepkist GTR] 19:06:07 Stopping existing recorder if any
+[Info   :Zeepkist GTR] 19:06:07 Creating new recorder
+[Info   :Zeepkist GTR] 19:06:07 Start processing HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 19:06:07 Sending HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 19:06:07 Start processing HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 19:06:07 Sending HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 19:06:07 Received HTTP response headers after 346.6966ms - 200
+[Info   :Zeepkist GTR] 19:06:07 End processing HTTP request after 346.9681ms - 200
+[Info   :Zeepkist GTR] 19:06:07 Received HTTP response headers after 386.4544ms - 200
+[Info   :Zeepkist GTR] 19:06:07 End processing HTTP request after 386.6889ms - 200
+[Info   :BetterSplits] got gtr splits
+[Info   :Zeepkist GTR] 19:06:07 Start processing HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 19:06:07 Sending HTTP request "POST" https://graphql.zeepki.st/
+[Info   :Zeepkist GTR] 19:06:08 Received HTTP response headers after 234.8801ms - 200
+[Info   :Zeepkist GTR] 19:06:08 End processing HTTP request after 235.3413ms - 200
+[Info   :Zeepkist Bingo] [CHAT] Intercepted message: 1 player eliminated: [KBW]microways
+[Info   :Zeepkist Bingo] [CHAT] Not relaying - no bingo session
+[Info   :Zeepkist GTR] 19:06:09 Starting recorder
+[Info   :Zeepkist Bingo] [CHAT] Intercepted message: !cotd endcup
+[Info   :Zeepkist Bingo] [CHAT] Not relaying - no bingo session
+[Error  :     TeamX]  [TEAMX] Operation failed: Client is already disconnected.
+[Info   :Zeepkist Bingo] [BINGO] Application quitting - force disposing WebSocket
+[Info   :Zeepkist Bingo] [WEBSOCKET] Force disposed
+[Info   :Zeepkist Bingo] [WEBSOCKET] Force disposed
