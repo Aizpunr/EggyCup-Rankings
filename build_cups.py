@@ -41,7 +41,7 @@ map_index = {
     'Eggy 106': {'map': 'Eggy Drift', 'mapper': 'IronDragon111000'},
     'Eggy 107': {'map': 'Moonlit Eggy', 'mapper': 'Sword125'},
     'Eggy 108': {'map': 'Skyweave', 'mapper': 'Minkus'},
-    'Eggy 109': {'map': 'fgwe egg', 'mapper': 'Wheelie'},
+    'Eggy 109': {'map': 'I didnt have time to make this map longer than 35 seconds', 'mapper': 'Wheelie'},
 }
 
 # Cup dates — fall back to log mtime if not explicit.
