@@ -10,6 +10,8 @@ Receives weekly Eggy Cup logs and hands them to `submissions_poll.py`. CI proces
    npx wrangler kv namespace create EGGY_SUBMISSIONS
    npx wrangler kv namespace create EGGY_SUBMISSIONS --preview
    ```
+Shortcut for steps 3 and 4: copy the Turnstile secret key, then run `python submit-worker/set_secrets.py`. It stores both secrets through stdin, writes the gitignored `submit_config.json`, checks `/pending` answers 200 and leaves the poller token on the clipboard for GitHub. It never prints a secret.
+
 3. Reuse the existing Turnstile widget, with hostnames `aizpunr.github.io`, `localhost`, and `127.0.0.1`. Put its public site key on the page. Set its secret from Python, NOT by piping in PowerShell: PowerShell 5 pipes (`Get-Clipboard | npx wrangler secret put ...`, `$x | ...`) store a trailing line break, and a token stored that way makes every poller call return 401 (seen in the TyO deploy, 2026-10-22). With the secret on the clipboard:
    ```powershell
    python -c "import subprocess as s; v=s.run(['powershell','-NoProfile','-Command','Get-Clipboard'],capture_output=True,text=True).stdout.strip(); s.run('npx wrangler secret put TURNSTILE_SECRET',input=v,text=True,shell=True,check=True)"
