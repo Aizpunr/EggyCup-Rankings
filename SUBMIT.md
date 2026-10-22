@@ -39,7 +39,7 @@ Pass the anti-bot check and press Submit. The status table on the page shows wha
 | processed | Ratings computed. Waiting for aizpun to check and publish. |
 | published | Live on the rankings. |
 | review | aizpun will look at it by hand. |
-| duplicate | That cup was already processed, or this exact file was already sent. |
+| duplicate | That cup was already processed, or this exact file was already sent. It is still kept on record and compared with the published result, so a log that tells a different story gets a look from aizpun. |
 | superseded | Someone sent a more complete log for the same cup. |
 | failed | The pipeline stopped. The note says why; ping aizpun. |
 

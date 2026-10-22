@@ -256,7 +256,7 @@
       <span class="pill processed">processed</span><span>Ratings computed. Waiting for aizpun to check and publish.</span>
       <span class="pill published">published</span><span>Live on the rankings.</span>
       <span class="pill review">review</span><span>aizpun will look at this one by hand: the result needed a ruling nobody was sure about, or the answers did not match the log.</span>
-      <span class="pill duplicate">duplicate</span><span>That cup was already processed, or this exact file was already sent.</span>
+      <span class="pill duplicate">duplicate</span><span>That cup was already processed, or this exact file was already sent. Every log is kept on record and compared with the published result; if it tells a different story, aizpun gets a look at it.</span>
       <span class="pill superseded">superseded</span><span>Someone sent a more complete log for the same cup.</span>
       <span class="pill failed">failed</span><span>The pipeline stopped. The note says why; ping aizpun.</span>
     </div>
@@ -673,7 +673,7 @@ function refreshSubmit() {
   var problems = formProblems();
   var cup = Number($('cupInput').value);
   var note = problems.length ? 'Still needed: ' + problems.join(', ') : '';
-  if (!problems.length && state.lastCup && cup <= state.lastCup) note = 'Eggy ' + cup + ' is already on the site; this will be marked duplicate.';
+  if (!problems.length && state.lastCup && cup <= state.lastCup) note = 'Eggy ' + cup + ' is already on the site. You can still send it: it is recorded as a duplicate and checked against the published result.';
   if (!CONFIGURED) note = 'Submissions are not open yet.';
   $('missing').textContent = note;
   $('submitBtn').disabled = !CONFIGURED || problems.length > 0 || state.submitting;
@@ -707,7 +707,7 @@ $('submitBtn').addEventListener('click', function () {
       if (mine.indexOf(res.id) === -1) mine.push(res.id);
       store(MINE_KEY, mine.slice(-50));
       $('submitMsg').innerHTML = res.status === 'duplicate'
-        ? msg('warn', 'This exact log was already sent (submission ' + esc(res.id) + '). Nothing new was stored.')
+        ? msg('warn', 'This exact log was already sent (submission ' + esc(res.same_file_as || '') + '). Yours is recorded as a duplicate: ' + esc(res.id) + '.')
         : res.status === 'review'
           ? msg('ok', 'Received. Thank you! aizpun will look at this one by hand. Submission ' + esc(res.id) + '.')
           : msg('ok', 'Received. Thank you! Submission ' + esc(res.id) + '. Watch its status below.');

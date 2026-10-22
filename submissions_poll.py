@@ -465,6 +465,45 @@ def check_ruling(sub, log_path):
     return None, ''
 
 
+def compare_with_published(sub, log_path, published):
+    """Parse a second log for an already processed cup with ITS submitter's
+    mapper, exclusions and ruling, and compare with the published cup_N.json.
+    Returns (agrees, note). A disagreement is how mistakes and abuse surface."""
+    import eggy_parser as P
+    if not published:
+        return False, 'published result not found to compare'
+    r = sub.get('ruling') or {}
+    if validate_ruling(r):
+        return False, 'could not compare: invalid ruling'
+    if r['outcome'] == 'review':
+        return False, 'submitter asked for a review: ' + (r.get('note') or 'no note')
+    try:
+        with open(log_path, encoding='utf-8', errors='replace') as f:
+            lines = P.filter_tracker_lines(f.readlines())
+        lobbies = P.split_lobbies(lines)
+        if r['lobby'] is not None:
+            lines = lobbies[r['lobby'] - 1]
+        elif len(lobbies) > 1:
+            return False, f'could not compare: {len(lobbies)} cup starts and no lobby picked'
+        parsed = P.parse_cup_log(lines, {sub['mapper']} | set(sub.get('exclude') or []),
+                                 manual_winner=r.get('winner'),
+                                 finish_by_times=r['outcome'] == 'finish_by_times')
+    except (OSError, IndexError, P.ParseError) as e:
+        return False, f'could not compare: {e}'
+    got = [row[0] for row in parsed.leaderboard]
+    want = [p['name'] for p in published]
+    diffs = []
+    if got[:1] != want[:1]:
+        diffs.append(f"winner {got[0]} (published {want[0]})")
+    elif got[:3] != want[:3]:
+        diffs.append(f"top 3 {', '.join(got[:3])} (published {', '.join(want[:3])})")
+    if len(got) != len(want):
+        diffs.append(f'{len(got)} players (published {len(want)})')
+    if not diffs:
+        return True, 'matches the published result'
+    return False, 'DIFFERS from the published result: ' + '; '.join(diffs)
+
+
 def new_cup_command(ctx, sub, log_path):
     r = sub['ruling']
     if r['outcome'] == 'review':
@@ -660,13 +699,16 @@ def _pass(ctx, args):
             if not os.path.exists(existing):
                 existing = os.path.join(ctx.repo, 'cup logs', f'eggy_{cup}.log')
             have = count_blocks(existing) if os.path.exists(existing) else 0
+            published = load_json(os.path.join(ctx.repo, f'cup_{cup}.json'), {}).get('players')
             for sub in subs:
                 n = blocks[sub['id']]
-                note = f'{cup_id} is already processed ({n} leaderboards in this log vs {have} in the one used)'
-                if n > have:
+                agrees, comparison = compare_with_published(sub, paths[sub['id']], published)
+                note = (f'{cup_id} is already processed ({n} leaderboards in this log vs {have} '
+                        f'in the one used); {comparison}')
+                if n > have or not agrees:
                     note = 'REVIEW: ' + note
-                    toast(ctx, f'{cup_id}: a more complete log arrived', note)
-                post_status(ctx, sub['id'], 'duplicate', note)
+                    toast(ctx, f'{cup_id}: a second log needs a look', note)
+                post_status(ctx, sub['id'], 'duplicate', note[:500])
             continue
 
         best = max(subs, key=lambda s: (blocks[s['id']], -subs.index(s)))

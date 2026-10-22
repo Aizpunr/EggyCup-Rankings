@@ -144,3 +144,28 @@ def test_mismatch_does_not_run_pipeline(tmp_path, monkeypatch):
 def test_open_pr_guard():
     with pytest.raises(RuntimeError, match='publication disabled'):
         P.open_pr(SimpleNamespace(rehearsal=True, dry_run=False), submission(), {})
+
+
+def _published(cup):
+    return json.loads((ROOT / f'cup_{cup}.json').read_text(encoding='utf-8'))['players']
+
+
+@pytest.mark.parametrize('log,cup,mapper,exclude,outcome,winner,lobby,agrees,expect', [
+    # the same cup sent again with the same reading: on record, no flag
+    ('eggy_109.log', 109, '[ZET] Wheelie', [], 'confirmed', None, None, True, 'matches the published result'),
+    # the mapper left in as a player: one extra player, flagged
+    ('eggy_109.log', 109, 'Wheelie', [], 'confirmed', None, None, False, '23 players (published 22)'),
+    # a different ruling on a double-DNF final: different winner, flagged
+    ('eggy_94_full.log', 94, '[ZET]vectortrajector', [], 'replay_winner', 'Kernkob', 1, False,
+     'winner Kernkob (published SuperHeavy)'),
+    ('eggy_94_full.log', 94, '[ZET]vectortrajector', [], 'third_wins', 'SuperHeavy', 1, True, 'matches'),
+    # someone else's cup log sent under this cup number
+    ('eggy_107.log', 109, '[ZET] Wheelie', [], 'confirmed', None, None, False, 'DIFFERS'),
+    ('eggy_101_full.log', 101, 'Wheelie', [], 'confirmed', None, None, False, '2 cup starts'),
+])
+def test_compare_with_published(log, cup, mapper, exclude, outcome, winner, lobby, agrees, expect):
+    sub = submission(outcome, winner, lobby)
+    sub.update(mapper=mapper, exclude=exclude, cup=cup)
+    ok, note = P.compare_with_published(sub, ROOT / 'cup logs' / log, _published(cup))
+    assert ok is agrees, note
+    assert expect in note, note
