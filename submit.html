@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Submit a Cup - Eggy Cup Rankings</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📤</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Space+Grotesk:wght@400;600;700;800&display=swap" rel="stylesheet">
+<script>(function(){ var t = 'dark'; try { t = localStorage.getItem('theme') || 'dark'; } catch (e) {} document.documentElement.setAttribute('data-theme', t); })();</script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --accent: #f59e0b;
+    --green: #10b981; --red: #ef4444; --blue: #3b82f6; --mono: 'JetBrains Mono', monospace;
+  }
+  [data-theme="dark"] {
+    --bg: #08080d; --surface: rgba(255,255,255,0.02); --border: rgba(255,255,255,0.06);
+    --border-bright: rgba(255,255,255,0.08); --text: #e5e7eb; --text-dim: #9ca3af;
+    --text-muted: #6b7280; --text-dark: #4b5563;
+    --surface-hover: rgba(255,255,255,0.05); --row-hover: rgba(255,255,255,0.03);
+    --btn-border: rgba(255,255,255,0.15); --btn-border-hover: rgba(255,255,255,0.3);
+    --row-border: rgba(255,255,255,0.03); --pname: #f3f4f6; --link: #ccc;
+    --scrollbar: rgba(255,255,255,0.1);
+  }
+  [data-theme="light"] {
+    --bg: #f5f5f7; --surface: rgba(0,0,0,0.02); --border: rgba(0,0,0,0.08);
+    --border-bright: rgba(0,0,0,0.12); --text: #1f2937; --text-dim: #4b5563;
+    --text-muted: #6b7280; --text-dark: #9ca3af;
+    --surface-hover: rgba(0,0,0,0.05); --row-hover: rgba(0,0,0,0.03);
+    --btn-border: rgba(0,0,0,0.15); --btn-border-hover: rgba(0,0,0,0.3);
+    --row-border: rgba(0,0,0,0.05); --pname: #111827; --link: #4b5563;
+    --scrollbar: rgba(0,0,0,0.15);
+  }
+  html { background: var(--bg); color: var(--text); }
+  body { font-family: 'Space Grotesk', system-ui, sans-serif; min-height: 100vh; padding: 20px 16px; background: var(--bg); }
+  ::selection { background: rgba(245,158,11,0.3); }
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-thumb { background: var(--scrollbar); border-radius: 3px; }
+
+  .container { max-width: 900px; margin: 0 auto; }
+  .header { text-align: center; margin-bottom: 20px; position: relative; }
+  .header h1 { font-size: 20px; font-weight: 800; letter-spacing: -0.5px; }
+  .header h1 span { color: var(--accent); }
+  .header .sub { font-family: var(--mono); font-size: 11px; color: var(--text-muted); margin-top: 4px; }
+  .back-link { font-family: var(--mono); font-size: 11px; color: var(--text-muted); text-decoration: none; transition: color 0.15s; }
+  .back-link:hover { color: var(--accent); }
+  .top-link { display: inline-block; margin-bottom: 14px; }
+  .theme-toggle {
+    position: absolute; top: 0; right: 0;
+    background: var(--surface-hover); border: 1px solid var(--border);
+    border-radius: 8px; padding: 5px 10px; cursor: pointer;
+    font-size: 16px; line-height: 1; transition: border-color 0.15s;
+  }
+  .theme-toggle:hover { border-color: var(--btn-border-hover); }
+
+  .section { margin-bottom: 22px; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 16px; }
+  .section-title { font-size: 13px; font-weight: 700; color: var(--text); margin-bottom: 12px; font-family: var(--mono); display: flex; align-items: center; gap: 8px; }
+  .step { display: inline-flex; align-items: center; justify-content: center; width: 20px; height: 20px; border-radius: 50%; background: rgba(245,158,11,0.15); color: var(--accent); font-size: 11px; }
+  .help { font-size: 13px; color: var(--text-dim); line-height: 1.55; }
+  .help code, .mono { font-family: var(--mono); font-size: 11.5px; }
+  .help code { background: var(--surface-hover); padding: 1px 5px; border-radius: 4px; word-break: break-all; }
+  .help ul { margin: 8px 0 0 18px; }
+  .help li { margin-bottom: 4px; }
+
+  .dropzone {
+    display: block; border: 2px dashed var(--border-bright); border-radius: 10px;
+    padding: 28px 16px; text-align: center; cursor: pointer; transition: border-color 0.15s, background 0.15s;
+  }
+  .dropzone:hover, .dropzone.over { border-color: var(--accent); background: rgba(245,158,11,0.05); }
+  .dropzone .big { font-size: 15px; font-weight: 700; }
+  .dropzone .small { font-family: var(--mono); font-size: 11px; color: var(--text-muted); margin-top: 6px; }
+  .dropzone input { display: none; }
+  .file-info { margin-top: 10px; font-family: var(--mono); font-size: 11.5px; color: var(--text-dim); }
+
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 16px; }
+  .field label { display: block; font-family: var(--mono); font-size: 11px; color: var(--text-muted); margin-bottom: 5px; }
+  .field .hint { font-family: var(--mono); font-size: 10.5px; color: var(--text-dark); margin-top: 4px; }
+  .input, select.input {
+    width: 100%; background: var(--surface-hover); border: 1px solid var(--border); border-radius: 8px;
+    padding: 8px 10px; color: var(--text); font-family: var(--mono); font-size: 13px; outline: none;
+    transition: border-color 0.15s; min-height: 38px;
+  }
+  select.input option { background: var(--bg); color: var(--text); }
+  .input:focus { border-color: var(--accent); }
+  .input::placeholder { color: var(--text-dark); }
+  .input.invalid { border-color: var(--red); }
+
+  .namelist { max-height: 260px; overflow-y: auto; border: 1px solid var(--border); border-radius: 8px; padding: 4px; margin-top: 8px; }
+  .namelist label { display: flex; align-items: center; gap: 8px; padding: 5px 8px; border-radius: 5px; font-family: var(--mono); font-size: 12px; cursor: pointer; }
+  .namelist label:hover { background: var(--row-hover); }
+  .namelist label.locked { color: var(--text-muted); cursor: default; }
+  .namelist .tag { font-size: 10px; color: var(--accent); margin-left: auto; }
+  .namelist input { accent-color: var(--accent); width: 15px; height: 15px; }
+
+  .kv { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin-bottom: 14px; }
+  .kv div { background: var(--surface-hover); border-radius: 8px; padding: 10px 12px; }
+  .kv .k { font-family: var(--mono); font-size: 10px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; }
+  .kv .v { font-size: 16px; font-weight: 700; margin-top: 3px; word-break: break-word; }
+  .kv .v small { font-family: var(--mono); font-size: 11px; color: var(--text-dim); font-weight: 400; }
+  .podium { list-style: none; margin-bottom: 12px; }
+  .podium li { display: flex; gap: 10px; align-items: baseline; padding: 6px 0; border-bottom: 1px solid var(--row-border); font-family: var(--mono); font-size: 13px; }
+  .podium .pos { width: 26px; color: var(--accent); font-weight: 700; }
+  .podium .nm { flex: 1; color: var(--pname); font-weight: 600; word-break: break-word; }
+  .podium .tm { color: var(--text-dim); }
+  .msg { font-family: var(--mono); font-size: 12px; line-height: 1.5; padding: 8px 12px; border-radius: 8px; margin-top: 8px; }
+  .msg.warn { background: rgba(245,158,11,0.10); color: var(--accent); }
+  .msg.err { background: rgba(239,68,68,0.10); color: var(--red); }
+  .msg.ok { background: rgba(16,185,129,0.10); color: var(--green); }
+  .msg.note { background: var(--surface-hover); color: var(--text-muted); }
+  details.full { margin-top: 12px; }
+  details.full summary { cursor: pointer; font-family: var(--mono); font-size: 12px; color: var(--text-dim); }
+  table.lb { width: 100%; border-collapse: collapse; margin-top: 8px; font-family: var(--mono); font-size: 12px; }
+  table.lb th { text-align: left; font-size: 10px; color: var(--text-muted); text-transform: uppercase; padding: 5px 6px; border-bottom: 1px solid var(--border-bright); }
+  table.lb td { padding: 5px 6px; border-bottom: 1px solid var(--row-border); word-break: break-word; }
+  table.lb td.num { text-align: right; color: var(--text-dim); white-space: nowrap; }
+
+  .submit-row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-top: 12px; }
+  .btn {
+    min-height: 40px; padding: 8px 20px; border-radius: 8px; border: 1px solid var(--accent);
+    background: rgba(245,158,11,0.15); color: var(--accent); font-family: var(--mono); font-size: 13px; font-weight: 700; cursor: pointer;
+  }
+  .btn:disabled { opacity: 0.4; cursor: not-allowed; }
+  .btn.small { min-height: 30px; padding: 4px 12px; font-size: 11px; border-color: var(--border); background: transparent; color: var(--text-muted); }
+  .missing { font-family: var(--mono); font-size: 11px; color: var(--text-muted); }
+
+  .status-table { width: 100%; border-collapse: collapse; font-family: var(--mono); font-size: 12px; }
+  .status-table th { text-align: left; font-size: 10px; color: var(--text-muted); text-transform: uppercase; padding: 6px; border-bottom: 1px solid var(--border-bright); }
+  .status-table td { padding: 7px 6px; border-bottom: 1px solid var(--row-border); vertical-align: top; word-break: break-word; }
+  .status-table tr.mine td:first-child { box-shadow: inset 3px 0 0 var(--accent); }
+  .pill { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 10.5px; font-weight: 700; white-space: nowrap; }
+  .pill.received { background: rgba(107,114,128,0.2); color: var(--text-dim); }
+  .pill.processed { background: rgba(59,130,246,0.15); color: var(--blue); }
+  .pill.published { background: rgba(16,185,129,0.15); color: var(--green); }
+  .pill.failed { background: rgba(239,68,68,0.15); color: var(--red); }
+  .pill.duplicate, .pill.superseded { background: var(--surface-hover); color: var(--text-muted); }
+  .legend { display: grid; grid-template-columns: auto 1fr; gap: 6px 10px; margin-top: 12px; font-size: 12px; color: var(--text-dim); align-items: baseline; }
+  .empty { padding: 18px; text-align: center; font-family: var(--mono); font-size: 12px; color: var(--text-dark); }
+  .footer { margin-top: 24px; text-align: center; }
+
+  @media (max-width: 640px) {
+    .grid2 { grid-template-columns: 1fr; }
+    .input, select.input { font-size: 16px; }
+    .status-table .hide-sm { display: none; }
+    .header h1 { padding: 0 44px; }
+  }
+  .choices { display: flex; flex-direction: column; gap: 8px; margin-top: 10px; }
+  .choice { display: flex; gap: 10px; align-items: flex-start; padding: 10px 12px; border: 1px solid var(--border); border-radius: 8px; cursor: pointer; font-size: 13.5px; line-height: 1.45; transition: border-color 0.15s, background 0.15s; }
+  .choice:hover { border-color: var(--btn-border-hover); }
+  .choice.on { border-color: var(--accent); background: rgba(245,158,11,0.06); }
+  .choice input { accent-color: var(--accent); margin-top: 3px; width: 15px; height: 15px; flex: none; }
+  .choice small { display: block; font-family: var(--mono); font-size: 11px; color: var(--text-muted); margin-top: 2px; }
+  .question { font-size: 14.5px; font-weight: 700; line-height: 1.45; }
+  .question-help { font-size: 13px; color: var(--text-dim); margin-top: 4px; line-height: 1.5; }
+  .pill.review { background: rgba(245,158,11,0.15); color: var(--accent); }
+  textarea.input { min-height: 60px; resize: vertical; font-family: var(--mono); }
+  #lobbyBox:not(:empty) + #questionBox:not(:empty) { margin-top: 18px; }
+</style>
+</head>
+<body>
+<div class="container">
+  <a class="back-link top-link" href="index.html">&larr; back to rankings</a>
+  <div class="header">
+    <h1>Submit <span>an Eggy Cup</span></h1>
+    <div class="sub">process a cup from your game log</div>
+    <button class="theme-toggle" id="themeToggle" title="Toggle light/dark mode"></button>
+  </div>
+
+  <div id="closedNotice" class="msg warn" style="display:none; margin-bottom:16px"></div>
+
+  <div class="section">
+    <div class="help">
+      Played the cup? Your game log has every round. Drop it below, check that the result looks right, and send it.
+      From the end of the cup until Sunday midday (Spain time) it gets processed within about 15 minutes by an automatic job, then published once aizpun has checked it. A log sent later waits until the next cup night.
+      <ul>
+        <li>The log is <code>C:\Program Files (x86)\Steam\steamapps\common\Zeepkist\BepInEx\LogOutput.log</code></li>
+        <li>The game overwrites it every time it starts, so grab it <b>before</b> relaunching Zeepkist.</li>
+        <li>Your file is read here in your browser first. Nothing is uploaded until you press Submit.</li>
+        <li>Roulette nights and other special events are added by hand. Just send the log to aizpun.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title"><span class="step">1</span> Your log</div>
+    <label class="dropzone" id="dropzone" for="fileInput">
+      <div class="big">Drop LogOutput.log here</div>
+      <div class="small">or click to pick the file</div>
+      <input type="file" id="fileInput" accept=".log,.txt,text/plain">
+    </label>
+    <div class="file-info" id="fileInfo"></div>
+    <div id="fileMsg"></div>
+  </div>
+
+  <div class="section" id="detailsSection" style="display:none">
+    <div class="section-title"><span class="step">2</span> Cup details</div>
+    <div class="grid2">
+      <div class="field">
+        <label for="cupInput">Cup number</label>
+        <input class="input" id="cupInput" type="number" min="87" max="999" inputmode="numeric">
+        <div class="hint" id="cupHint"></div>
+      </div>
+      <div class="field">
+        <label for="dateInput">Cup date</label>
+        <input class="input" id="dateInput" type="date">
+        <div class="hint">Eggy cups are dated by the Saturday in Spain (Friday night in the US).</div>
+      </div>
+      <div class="field">
+        <label for="mapInput">Map name (optional)</label>
+        <input class="input" id="mapInput" maxlength="80" placeholder="as the mapper calls it" autocomplete="off">
+      </div>
+      <div class="field">
+        <label for="submitterInput">Your name (optional)</label>
+        <input class="input" id="submitterInput" maxlength="40" placeholder="so aizpun knows who to thank" autocomplete="off">
+      </div>
+      <div class="field">
+        <label for="mapperSelect">Mapper</label>
+        <select class="input" id="mapperSelect"></select>
+        <input class="input" id="mapperInput" maxlength="40" placeholder="mapper's in-game name" autocomplete="off" style="margin-top:6px">
+        <div class="hint">If the mapper was in the lobby, pick them from the list: they never count as a player. If they were not there, type the name.</div>
+      </div>
+      <div class="field">
+        <label for="excludeFilter">Also exclude</label>
+        <input class="input" id="excludeFilter" placeholder="filter names..." autocomplete="off">
+        <div class="namelist" id="nameList"></div>
+        <div class="hint">Only people who were in the lobby but did not race: testers, a host who only hosted, or someone who left before round 1. Leave everyone else in.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" id="previewSection" style="display:none">
+    <div class="section-title"><span class="step">3</span> Check the result</div>
+    <div id="lobbyBox"></div>
+    <div id="questionBox"></div>
+    <div id="preview"></div>
+  </div>
+
+  <div class="section" id="sendSection" style="display:none">
+    <div class="section-title"><span class="step">4</span> Send it</div>
+    <div id="turnstile"></div>
+    <div class="submit-row">
+      <button class="btn" id="submitBtn" disabled>Submit cup</button>
+      <span class="missing" id="missing"></span>
+    </div>
+    <div id="submitMsg"></div>
+  </div>
+
+  <div class="section">
+    <div class="section-title" style="justify-content:space-between">
+      <span>Recent submissions</span>
+      <button class="btn small" id="refreshBtn">Refresh</button>
+    </div>
+    <div id="statusBody"><div class="empty">Loading...</div></div>
+    <div class="legend">
+      <span class="pill received">received</span><span>Waiting to be picked up (every 15 minutes from the end of the cup until Sunday midday, Spain time).</span>
+      <span class="pill processed">processed</span><span>Ratings computed. Waiting for aizpun to check and publish.</span>
+      <span class="pill published">published</span><span>Live on the rankings.</span>
+      <span class="pill review">review</span><span>aizpun will look at this one by hand: the result needed a ruling nobody was sure about, or the answers did not match the log.</span>
+      <span class="pill duplicate">duplicate</span><span>That cup was already processed, or this exact file was already sent.</span>
+      <span class="pill superseded">superseded</span><span>Someone sent a more complete log for the same cup.</span>
+      <span class="pill failed">failed</span><span>The pipeline stopped. The note says why; ping aizpun.</span>
+    </div>
+  </div>
+
+  <div class="footer">
+    <a class="back-link" href="index.html">&larr; back to rankings</a>
+  </div>
+</div>
+
+<script src="eggy_parser.js"></script>
+<script>
+// ── Config ──
+// Production Worker URL and Turnstile site key (setup steps in
+// submit-worker/README.md). Localhost always talks to `wrangler dev`
+// with Cloudflare's always-pass Turnstile test key.
+var PROD_WORKER_URL = 'REPLACE_EGGY_WORKER_URL';
+var PROD_TURNSTILE_SITE_KEY = '0x4AAAAAAFPeGhO9snC2zYTV';
+var TEST_TURNSTILE_SITE_KEY = '1x00000000000000000000AA';
+var MAX_BYTES = 5 * 1024 * 1024;
+
+var IS_LOCAL = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
+var WORKER_URL = (new URLSearchParams(location.search).get('worker')) ||
+  (IS_LOCAL ? 'http://127.0.0.1:8787' : PROD_WORKER_URL);
+WORKER_URL = WORKER_URL.replace(/\/+$/, '');
+var SITE_KEY = IS_LOCAL ? TEST_TURNSTILE_SITE_KEY : PROD_TURNSTILE_SITE_KEY;
+var CONFIGURED = WORKER_URL.indexOf('REPLACE_') === -1 && SITE_KEY.indexOf('REPLACE_') === -1;
+var MINE_KEY = 'eggy_my_submissions';
+
+var P = window.EggyParser;
+var state = {
+  file: null, trackerLines: null, lobbies: [], names: [], blocks: 0,
+  lobby: null,            // chosen cup start (1-based) when the log has several
+  outcome: null,          // detectOutcome() of the lines in use
+  outcomeKey: '',
+  answer: null,           // {outcome, winner} picked in the question box
+  parsed: null, parseError: null, excluded: new Set(),
+  token: null, submitting: false, widgetId: null,
+};
+
+// ── Helpers ──
+function $(id) { return document.getElementById(id); }
+function esc(s) { var d = document.createElement('div'); d.textContent = s == null ? '' : String(s); return d.innerHTML; }
+function fmtTime(raw) {
+  if (raw == null) return '-';
+  if (raw === 'DNF') return 'DNF';
+  var t = parseFloat(String(raw).replace(',', '.'));
+  return isNaN(t) ? String(raw) : t.toFixed(3);
+}
+function ordinal(n) { return n + (n % 10 === 1 && n % 100 !== 11 ? 'st' : n % 10 === 2 && n % 100 !== 12 ? 'nd' : n % 10 === 3 && n % 100 !== 13 ? 'rd' : 'th'); }
+function isoDay(d) {
+  var m = d.getUTCMonth() + 1, day = d.getUTCDate();
+  return d.getUTCFullYear() + '-' + (m < 10 ? '0' : '') + m + '-' + (day < 10 ? '0' : '') + day;
+}
+// Eggy runs Friday night US = early Saturday in Spain; the cup is dated that
+// Saturday. Friday evening UTC already counts as the coming Saturday.
+function cupSaturday() {
+  var d = new Date();
+  if (d.getUTCDay() === 5 && d.getUTCHours() >= 18) d.setUTCDate(d.getUTCDate() + 1);
+  else d.setUTCDate(d.getUTCDate() - ((d.getUTCDay() + 1) % 7));
+  return isoDay(d);
+}
+function ago(iso) {
+  var s = (Date.now() - Date.parse(iso)) / 1000;
+  if (!(s >= 0)) return '';
+  if (s < 90) return 'just now';
+  if (s < 3600) return Math.round(s / 60) + ' min ago';
+  if (s < 86400 * 2) return Math.round(s / 3600) + ' h ago';
+  return Math.round(s / 86400) + ' days ago';
+}
+function store(key, val) { try { localStorage.setItem(key, JSON.stringify(val)); } catch (e) {} }
+function load(key, dflt) { try { var v = localStorage.getItem(key); return v ? JSON.parse(v) : dflt; } catch (e) { return dflt; } }
+function msg(cls, html) { return '<div class="msg ' + cls + '">' + html + '</div>'; }
+function nameList(arr) {
+  var a = arr.map(function (n) { return '<b>' + esc(n) + '</b>'; });
+  return a.length <= 1 ? a.join('') : a.slice(0, -1).join(', ') + ' and ' + a[a.length - 1];
+}
+
+// ── Theme ──
+function setTheme(t) {
+  document.documentElement.setAttribute('data-theme', t);
+  try { localStorage.setItem('theme', t); } catch (e) {}
+  $('themeToggle').textContent = t === 'dark' ? '\u2600\uFE0F' : '\uD83C\uDF19';
+}
+$('themeToggle').textContent = (document.documentElement.getAttribute('data-theme') || 'dark') === 'dark' ? '\u2600\uFE0F' : '\uD83C\uDF19';
+$('themeToggle').addEventListener('click', function () {
+  setTheme(document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+});
+
+// ── Step 1: read the file ──
+var dz = $('dropzone');
+['dragenter', 'dragover'].forEach(function (ev) {
+  dz.addEventListener(ev, function (e) { e.preventDefault(); dz.classList.add('over'); });
+});
+['dragleave', 'drop'].forEach(function (ev) {
+  dz.addEventListener(ev, function (e) { e.preventDefault(); dz.classList.remove('over'); });
+});
+dz.addEventListener('drop', function (e) {
+  if (e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files[0]) readFile(e.dataTransfer.files[0]);
+});
+$('fileInput').addEventListener('change', function (e) {
+  if (e.target.files && e.target.files[0]) readFile(e.target.files[0]);
+});
+
+function readFile(file) {
+  $('fileMsg').innerHTML = '';
+  $('submitMsg').innerHTML = '';
+  $('fileInfo').textContent = file.name + ' \u00b7 ' + (file.size / 1024).toFixed(0) + ' KB';
+  if (file.size > MAX_BYTES) {
+    return fail('That file is over 5 MB. A cup log is usually well under 1 MB; make sure it is LogOutput.log.');
+  }
+  file.arrayBuffer().then(function (buf) {
+    var lines = P.splitLines(P.decodeBytes(new Uint8Array(buf)));
+    var tracker = P.filterTrackerLines(lines);
+    if (!tracker.length) {
+      return fail('No COTDTracker lines in this file. Is the cup tracker mod installed, and is this the log from the session where you played?');
+    }
+    var blocks = 0;
+    tracker.forEach(function (l) { if (l.indexOf('Doing eliminations with leaderboard') !== -1) blocks++; });
+    var lobbies = P.splitLobbies(tracker);
+    if (!blocks || !lobbies.length) return fail('The tracker is in this log but no cup rounds were played in this session.');
+    state.file = file;
+    state.trackerLines = tracker;
+    state.blocks = blocks;
+    state.lobbies = lobbies;
+    state.lobby = lobbies.length === 1 ? null : undefined;  // undefined = not chosen yet
+    state.names = P.namedPlayers(P.splitRounds(tracker));
+    state.excluded = new Set();
+    state.answer = null;
+    state.outcomeKey = '';
+    $('fileInfo').textContent += ' \u00b7 ' + blocks + ' leaderboards \u00b7 ' + state.names.length + ' players named';
+    buildMapperSelect();
+    ['detailsSection', 'previewSection', 'sendSection'].forEach(function (id) { $(id).style.display = ''; });
+    recompute();
+    renderTurnstile();
+  }, function () { fail('The file could not be read.'); });
+
+  function fail(text) {
+    state.file = null;
+    state.trackerLines = null;
+    $('fileMsg').innerHTML = msg('err', esc(text));
+    ['detailsSection', 'previewSection', 'sendSection'].forEach(function (id) { $(id).style.display = 'none'; });
+  }
+}
+
+// ── Step 2: details ──
+function buildMapperSelect() {
+  var sel = $('mapperSelect');
+  var html = '<option value="">Not in the lobby (type it below)</option>';
+  state.names.forEach(function (n) { html += '<option value="' + esc(n) + '">' + esc(n) + '</option>'; });
+  sel.innerHTML = html;
+  sel.value = '';
+  $('mapperInput').style.display = '';
+  renderNameList();
+}
+
+function mapperName() {
+  var sel = $('mapperSelect').value;
+  return sel || $('mapperInput').value.trim();
+}
+
+function renderNameList() {
+  var filter = $('excludeFilter').value.trim().toLowerCase();
+  var mapper = mapperName();
+  var html = '';
+  state.names.forEach(function (n) {
+    if (filter && n.toLowerCase().indexOf(filter) === -1 && n !== mapper) return;
+    var isMapper = n === mapper;
+    var checked = isMapper || state.excluded.has(n);
+    html += '<label class="' + (isMapper ? 'locked' : '') + '"><input type="checkbox" data-name="' + esc(n) + '"' +
+      (checked ? ' checked' : '') + (isMapper ? ' disabled' : '') + '>' + esc(n) +
+      (isMapper ? '<span class="tag">mapper</span>' : '') + '</label>';
+  });
+  $('nameList').innerHTML = html || '<div class="empty">No names match.</div>';
+  $('nameList').querySelectorAll('input[type=checkbox]').forEach(function (cb) {
+    cb.addEventListener('change', function () {
+      var n = cb.getAttribute('data-name');
+      if (cb.checked) state.excluded.add(n); else state.excluded.delete(n);
+      recompute();
+    });
+  });
+}
+
+$('mapperSelect').addEventListener('change', function () {
+  $('mapperInput').style.display = $('mapperSelect').value ? 'none' : '';
+  state.excluded.delete($('mapperSelect').value);
+  renderNameList();
+  recompute();
+});
+$('mapperInput').addEventListener('input', function () { renderNameList(); recompute(); });
+$('excludeFilter').addEventListener('input', renderNameList);
+['cupInput', 'mapInput', 'dateInput', 'submitterInput'].forEach(function (id) {
+  $(id).addEventListener('input', refreshSubmit);
+});
+
+$('dateInput').value = cupSaturday();
+
+fetch('cups.json?v=' + Date.now()).then(function (r) { return r.json(); }).then(function (cups) {
+  var max = 0;
+  (cups || []).forEach(function (c) {
+    var m = /^Eggy (\d+)$/.exec(c && c.id);
+    if (m) max = Math.max(max, parseInt(m[1], 10));
+  });
+  if (max) {
+    if (!$('cupInput').value) $('cupInput').value = max + 1;
+    $('cupHint').textContent = 'Last cup on the site is Eggy ' + max + '. Use the number Wheelie announced.';
+    state.lastCup = max;
+    refreshSubmit();
+  }
+}).catch(function () { $('cupHint').textContent = 'Could not load the cup list; type the number.'; });
+
+// ── Step 3: the result, and the one question about it ──
+function excludedSet() {
+  var s = new Set(state.excluded);
+  var m = mapperName();
+  if (m) s.add(m);
+  return s;
+}
+
+function activeLines() {
+  if (state.lobbies.length === 1) return state.lobbies[0];
+  return state.lobby ? state.lobbies[state.lobby - 1] : null;
+}
+
+function recompute() {
+  if (!state.trackerLines) return;
+  renderLobbyBox();
+  var lines = activeLines();
+  state.outcome = lines ? P.detectOutcome(lines, Array.from(excludedSet())) : null;
+  var key = JSON.stringify([state.lobby, state.outcome]);
+  if (key !== state.outcomeKey) { state.outcomeKey = key; state.answer = null; }
+  reparse();
+}
+
+function reparse() {
+  var lines = activeLines();
+  state.parsed = null;
+  state.parseError = null;
+  if (lines && state.outcome) {
+    var opts = {};
+    var a = state.answer;
+    if (a && a.winner) opts.manualWinner = a.winner;
+    if (a && a.outcome === 'finish_by_times') opts.finishByTimes = true;
+    var decided = state.outcome.kind === 'single' || state.outcome.kind === 'marker' || (a && a.outcome !== 'review');
+    if (decided) {
+      try { state.parsed = P.parseCupLog(lines, Array.from(excludedSet()), opts); }
+      catch (e) { state.parseError = e.message || String(e); }
+    }
+  }
+  renderQuestion();
+  renderPreview();
+  refreshSubmit();
+}
+
+function choiceHtml(group, value, label, small, on) {
+  return '<label class="choice' + (on ? ' on' : '') + '"><input type="radio" name="' + group + '" value="' + esc(value) + '"' +
+    (on ? ' checked' : '') + '><span>' + label + (small ? '<small>' + small + '</small>' : '') + '</span></label>';
+}
+
+function renderLobbyBox() {
+  if (state.lobbies.length <= 1) { $('lobbyBox').innerHTML = ''; return; }
+  var html = '<div class="question">This log has ' + state.lobbies.length + ' cup starts. Which one was the real cup?</div>' +
+    '<div class="question-help">This happens when a cup is restarted (a false start) or replayed. Only the real one counts.</div><div class="choices">';
+  state.lobbies.forEach(function (seg, i) {
+    var rounds = P.splitRounds(seg).filter(function (r) { return P.roundInfo(r)[1].length; });
+    var first = rounds.length ? P.roundInfo(rounds[0])[0] : new Map();
+    var size = first.size != null ? first.size : Object.keys(first).length;
+    html += choiceHtml('lobby', String(i + 1), 'Cup start ' + (i + 1) + ': ' + size + ' players, ' + rounds.length + ' elimination round' + (rounds.length === 1 ? '' : 's'),
+      i === state.lobbies.length - 1 ? 'the last one in the log' : '', state.lobby === i + 1);
+  });
+  html += choiceHtml('lobby', 'unsure', 'Not sure, let aizpun decide', '', state.lobby === 0) + '</div>';
+  $('lobbyBox').innerHTML = html;
+  $('lobbyBox').querySelectorAll('input[name=lobby]').forEach(function (r) {
+    r.addEventListener('change', function () {
+      state.lobby = r.value === 'unsure' ? 0 : parseInt(r.value, 10);
+      recompute();
+    });
+  });
+}
+
+function renderQuestion() {
+  var o = state.outcome, a = state.answer, html = '';
+  if (state.lobbies.length > 1 && state.lobby === 0) {
+    html = msg('note', 'No problem. Send it as it is and aizpun will pick the right cup start by hand.');
+  } else if (!o) {
+    html = '';
+  } else if (o.kind === 'single' || o.kind === 'marker') {
+    html = '<div class="question">Does the result below match what happened?</div><div class="choices">' +
+      choiceHtml('ans', 'confirmed', 'Yes, that is right', '', a && a.outcome === 'confirmed') +
+      choiceHtml('ans', 'review', 'No, something is off', 'aizpun will check it by hand', a && a.outcome === 'review') + '</div>';
+  } else if (o.kind === 'double_dnf_final' && o.finalists.length === 2) {
+    var f1 = o.finalists[0], f2 = o.finalists[1];
+    html = '<div class="question">' + esc(f1) + ' and ' + esc(f2) + ' both did not finish the final round. Who won the cup?</div><div class="choices">';
+    if (o.third) {
+      html += choiceHtml('ans', 'third_wins', esc(o.third) + ' won', 'house rule: when both finalists DNF, 3rd place wins. ' + esc(f1) + ' and ' + esc(f2) + ' share 2nd.',
+        a && a.outcome === 'third_wins');
+    }
+    html += choiceHtml('ans', 'replay:' + f1, esc(f1) + ' won a replay of the final', 'the replay was not tracked by the mod', a && a.outcome === 'replay_winner' && a.winner === f1) +
+      choiceHtml('ans', 'replay:' + f2, esc(f2) + ' won a replay of the final', 'the replay was not tracked by the mod', a && a.outcome === 'replay_winner' && a.winner === f2) +
+      choiceHtml('ans', 'review', 'Not sure, let aizpun decide', '', a && a.outcome === 'review') + '</div>';
+  } else if (o.kind === 'survivors_left') {
+    html = '<div class="question">The cup stopped with ' + o.ranking.length + ' players still in. Rank them by their times in the last round?</div>' +
+      '<div class="question-help">That usually means the host disconnected. Last-round times: ' +
+      o.ranking.map(function (r, i) { return ordinal(i + 1) + ' ' + esc(r[0]) + ' (' + fmtTime(r[1]) + ')'; }).join(', ') + '.</div><div class="choices">' +
+      choiceHtml('ans', 'finish_by_times', 'Yes, rank them that way', '', a && a.outcome === 'finish_by_times') +
+      choiceHtml('ans', 'review', 'No, or not sure: let aizpun decide', '', a && a.outcome === 'review') + '</div>';
+  } else {
+    var who = o.kind === 'double_dnf_final' ? ' ' + nameList(o.finalists) + ' all did not finish the last round.' : '';
+    html = '<div class="question">There is no clear winner in this log.' + who + '</div>' +
+      '<div class="question-help">If a name above only hosted or tested, tick it under "Also exclude". Otherwise send it as it is and aizpun will sort it out by hand.</div>' +
+      '<div class="choices">' + choiceHtml('ans', 'review', 'Send it to aizpun to decide', '', a && a.outcome === 'review') + '</div>';
+  }
+  if (a && a.outcome === 'review') {
+    html += '<div class="field" style="margin-top:10px"><label for="noteInput">What happened? (optional, helps aizpun)</label>' +
+      '<textarea class="input" id="noteInput" maxlength="200">' + esc(a.note || '') + '</textarea></div>';
+  }
+  $('questionBox').innerHTML = html;
+  $('questionBox').querySelectorAll('input[name=ans]').forEach(function (r) {
+    r.addEventListener('change', function () {
+      var v = r.value;
+      if (v.indexOf('replay:') === 0) state.answer = { outcome: 'replay_winner', winner: v.slice(7) };
+      else if (v === 'third_wins') state.answer = { outcome: 'third_wins', winner: state.outcome.third };
+      else state.answer = { outcome: v };
+      reparse();
+    });
+  });
+  var note = $('noteInput');
+  if (note) note.addEventListener('input', function () { state.answer.note = note.value; });
+}
+
+function elimRounds(p) {
+  var max = 0;
+  p.leaderboard.forEach(function (x) { if (x[2] && x[2] > max) max = x[2]; });
+  return max;
+}
+
+function renderPreview() {
+  var p = state.parsed, out = '';
+  if (state.parseError) {
+    $('preview').innerHTML = msg('err', 'This log could not be read as a cup: ' + esc(state.parseError));
+    return;
+  }
+  if (!p) { $('preview').innerHTML = ''; return; }
+  var lb = p.leaderboard;
+  out += '<div class="kv" style="margin-top:14px">' +
+    '<div><div class="k">Winner</div><div class="v">' + esc(p.winner) + ' <small>' + fmtTime(p.winnerTime) + '</small></div></div>' +
+    '<div><div class="k">Players</div><div class="v">' + lb.length + '</div></div>' +
+    '<div><div class="k">Elimination rounds</div><div class="v">' + elimRounds(p) + '</div></div>' +
+    '<div><div class="k">Fastest time</div><div class="v">' + (p.fastestTime != null ? p.fastestTime.toFixed(3) : '-') +
+      ' <small>' + esc(p.fastestName || '') + (p.fastestRound === 0 ? ' (warmup)' : p.fastestRound ? ' (round ' + p.fastestRound + ')' : '') + '</small></div></div>' +
+    '</div>';
+  out += '<ul class="podium">' + lb.slice(0, 3).map(function (x) {
+    return '<li><span class="pos">' + ordinal(x[3]) + '</span><span class="nm">' + esc(x[0]) + '</span><span class="tm">' +
+      fmtTime(x[1]) + (x[2] ? ' \u00b7 out R' + x[2] : '') + '</span></li>';
+  }).join('') + '</ul>';
+  out += '<details class="full"><summary>Full leaderboard (' + lb.length + ')</summary><table class="lb"><thead><tr><th>Pos</th><th>Player</th><th>Time</th><th>Out in</th></tr></thead><tbody>' +
+    lb.map(function (x) {
+      return '<tr><td class="num">' + x[3] + '</td><td>' + esc(x[0]) + '</td><td class="num">' + fmtTime(x[1]) +
+        '</td><td class="num">' + (x[2] ? 'R' + x[2] : x[3] === 1 ? 'winner' : 'still in') + '</td></tr>';
+    }).join('') + '</tbody></table></details>';
+  var mapper = mapperName();
+  if (mapper && state.names.indexOf(mapper) === -1) {
+    out += msg('note', 'The mapper ' + esc(mapper) + ' was not in this lobby. That is fine.');
+  }
+  $('preview').innerHTML = out;
+}
+
+function ruling() {
+  var lobby = state.lobbies.length > 1 ? (state.lobby || null) : null;
+  var detected = state.outcome ? state.outcome.kind : (state.lobbies.length > 1 ? 'multi_start' : null);
+  if (state.lobbies.length > 1 && state.lobby === 0) {
+    return { lobby: null, outcome: 'review', winner: null, note: 'submitter not sure which cup start is the real cup', detected: 'multi_start' };
+  }
+  var a = state.answer || {};
+  return { lobby: lobby, outcome: a.outcome || null, winner: a.winner || null,
+           note: a.outcome === 'review' ? (a.note || '').replace(/[\r\n\u0000]+/g, ' ').replace(/^-+/, '').trim().slice(0, 200) || null : null,
+           detected: detected };
+}
+
+// ── Step 4: send ──
+window.onTurnstileLoad = function () { renderTurnstile(); };
+
+function renderTurnstile() {
+  if (!CONFIGURED || state.widgetId !== null || !window.turnstile || !state.trackerLines) return;
+  state.widgetId = window.turnstile.render('#turnstile', {
+    sitekey: SITE_KEY,
+    callback: function (t) { state.token = t; refreshSubmit(); },
+    'expired-callback': function () { state.token = null; refreshSubmit(); },
+    'error-callback': function () { state.token = null; refreshSubmit(); },
+  });
+}
+
+function formProblems() {
+  var missing = [];
+  var r = ruling();
+  if (state.lobbies.length > 1 && state.lobby === undefined) missing.push('which cup start was the real cup');
+  else if (!r.outcome) missing.push('an answer to the question about the result');
+  else if (r.outcome !== 'review' && (!state.parsed || state.parseError)) missing.push('a readable result');
+  var cup = Number($('cupInput').value);
+  var cupOk = Number.isInteger(cup) && cup >= 87 && cup <= 999;
+  $('cupInput').classList.toggle('invalid', !cupOk && $('cupInput').value !== '');
+  if (!cupOk) missing.push('cup number');
+  var mapper = mapperName();
+  if (!mapper) missing.push('mapper');
+  if (!/^\d{4}-\d{2}-\d{2}$/.test($('dateInput').value)) missing.push('date');
+  var bad = [mapper].concat(Array.from(state.excluded)).filter(function (n) { return n && (n.indexOf(',') !== -1 || n.indexOf('--') === 0); });
+  if (bad.length) missing.push('names with a comma or leading "--" cannot be processed automatically: ' + bad.join(', '));
+  if (CONFIGURED && !state.token) missing.push('the anti-bot check');
+  return missing;
+}
+
+function refreshSubmit() {
+  if (!state.trackerLines) return;
+  var problems = formProblems();
+  var cup = Number($('cupInput').value);
+  var note = problems.length ? 'Still needed: ' + problems.join(', ') : '';
+  if (!problems.length && state.lastCup && cup <= state.lastCup) note = 'Eggy ' + cup + ' is already on the site; this will be marked duplicate.';
+  if (!CONFIGURED) note = 'Submissions are not open yet.';
+  $('missing').textContent = note;
+  $('submitBtn').disabled = !CONFIGURED || problems.length > 0 || state.submitting;
+}
+
+$('submitBtn').addEventListener('click', function () {
+  if ($('submitBtn').disabled) return;
+  var p = state.parsed;
+  var mapper = mapperName();
+  var exclude = Array.from(state.excluded).filter(function (n) { return n !== mapper; });
+  var fd = new FormData();
+  fd.append('file', state.file, state.file.name);
+  fd.append('cup', String(Number($('cupInput').value)));
+  fd.append('map', $('mapInput').value.trim());
+  fd.append('mapper', mapper);
+  fd.append('exclude', JSON.stringify(exclude));
+  fd.append('date', $('dateInput').value);
+  fd.append('submitter', $('submitterInput').value.trim());
+  fd.append('ruling', JSON.stringify(ruling()));
+  fd.append('preview', JSON.stringify(p ? { winner: p.winner, players: p.leaderboard.length, rounds: elimRounds(p) } : {}));
+  fd.append('cf-turnstile-response', state.token || '');
+
+  state.submitting = true;
+  refreshSubmit();
+  $('submitMsg').innerHTML = msg('note', 'Sending...');
+  fetch(WORKER_URL + '/submit', { method: 'POST', body: fd }).then(function (r) {
+    return r.json().catch(function () { return { ok: false, message: 'The submit service answered with HTTP ' + r.status + '.' }; });
+  }).then(function (res) {
+    if (res.ok) {
+      var mine = load(MINE_KEY, []);
+      if (mine.indexOf(res.id) === -1) mine.push(res.id);
+      store(MINE_KEY, mine.slice(-50));
+      $('submitMsg').innerHTML = res.status === 'duplicate'
+        ? msg('warn', 'This exact log was already sent (submission ' + esc(res.id) + '). Nothing new was stored.')
+        : res.status === 'review'
+          ? msg('ok', 'Received. Thank you! aizpun will look at this one by hand. Submission ' + esc(res.id) + '.')
+          : msg('ok', 'Received. Thank you! Submission ' + esc(res.id) + '. Watch its status below.');
+      loadStatus();
+    } else {
+      $('submitMsg').innerHTML = msg('err', esc(res.message || 'The submission was rejected.'));
+    }
+  }, function () {
+    $('submitMsg').innerHTML = msg('err', 'Could not reach the submit service. Check your connection and try again.');
+  }).then(function () {
+    state.submitting = false;
+    state.token = null;
+    if (window.turnstile && state.widgetId !== null) window.turnstile.reset(state.widgetId);
+    refreshSubmit();
+  });
+});
+
+// ── Status panel ──
+function loadStatus() {
+  if (!CONFIGURED) { $('statusBody').innerHTML = '<div class="empty">Submissions are not open yet.</div>'; return; }
+  fetch(WORKER_URL + '/status', { cache: 'no-store' }).then(function (r) { return r.json(); }).then(function (res) {
+    var rows = (res && res.submissions) || [];
+    if (!rows.length) { $('statusBody').innerHTML = '<div class="empty">No submissions yet.</div>'; return; }
+    var mine = new Set(load(MINE_KEY, []));
+    $('statusBody').innerHTML = '<table class="status-table"><thead><tr><th>Cup</th><th class="hide-sm">Map</th><th class="hide-sm">By</th><th>Sent</th><th>Status</th><th>Result</th></tr></thead><tbody>' +
+      rows.map(function (s) {
+        var result = '';
+        if ((s.status === 'processed' || s.status === 'published') && s.summary && s.summary.winner) {
+          result = esc(s.summary.winner) + ' wins' + (s.summary.players ? ', ' + s.summary.players + ' players' : '');
+        } else if (s.note) {
+          result = esc(s.note);
+        } else if (s.preview && s.preview.winner) {
+          result = '<span style="color:var(--text-muted)">preview: ' + esc(s.preview.winner) + ' wins</span>';
+        }
+        return '<tr class="' + (mine.has(s.id) ? 'mine' : '') + '"><td>Eggy ' + esc(s.cup) + '</td>' +
+          '<td class="hide-sm">' + esc(s.map || 'TBD') + '<br><span style="color:var(--text-muted)">by ' + esc(s.mapper) + '</span></td>' +
+          '<td class="hide-sm">' + esc(s.submitter || '-') + '</td>' +
+          '<td title="' + esc(s.created) + '">' + esc(ago(s.created)) + '</td>' +
+          '<td><span class="pill ' + esc(s.status) + '">' + esc(s.status) + '</span></td>' +
+          '<td>' + result + '</td></tr>';
+      }).join('') + '</tbody></table>';
+  }).catch(function () {
+    $('statusBody').innerHTML = '<div class="empty">Could not load submissions.</div>';
+  });
+}
+$('refreshBtn').addEventListener('click', loadStatus);
+setInterval(function () { if (document.visibilityState === 'visible') loadStatus(); }, 30000);
+
+if (!CONFIGURED) {
+  $('closedNotice').style.display = '';
+  $('closedNotice').textContent = 'Submissions are not open yet. You can still drop a log to preview the result.';
+}
+loadStatus();
+</script>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=onTurnstileLoad" async defer></script>
+</body>
+</html>

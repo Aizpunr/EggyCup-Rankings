@@ -1,109 +1,83 @@
 # Eggy Cup Rankings
 
-Local-only ELO + Glicko-2 rankings for **Eggy Cup**, a casual weekly Zeepkist tournament hosted by **Wheelie**.
+ELO and Glicko-2 rankings for **Eggy Cup**, a casual weekly Zeepkist tournament hosted by **Wheelie**.
 
-- Format: same elimination format as COTD (drop slowest per round)
-- Schedule: Friday evening US / Saturday 01:30 EU (cadence still uncertain — sometimes biweekly, sometimes back-to-back nights)
-- Mod log: `COTDTracker 0.11.1` (identical parser to COTD)
-- Tracking: cups **87 onward**. Cups 1–86 are unrecoverable (no logs).
+- Format: elimination, same as COTD (the slowest drop each round).
+- Schedule: Friday evening US, which is early Saturday in Spain. Cups are dated by that Saturday.
+- Mod log: `COTDTracker 0.11.1`.
+- Tracking: cups **87 onward**. Cups 1 to 86 have no logs.
 
-## Live view
+Live site: https://aizpunr.github.io/EggyCup-Rankings/ (local preview: `python -m http.server 9004`, then http://localhost:9004).
 
-This project has no GitHub Pages deployment. Serve locally:
+## Submitting a cup
 
-```powershell
-cd "C:\Users\rafa\Desktop\Claude\eggy cup"
-python -m http.server 9004
-# Open http://localhost:9004
+Anyone who played can send their game log on the [submit page](https://aizpunr.github.io/EggyCup-Rankings/submit.html). See [SUBMIT.md](SUBMIT.md) for the submitter's side.
+
+How it flows:
+
+1. `submit.html` reads `LogOutput.log` in the browser with `eggy_parser.js`, shows the result and asks the submitter one question about it (see "Abnormal endings" below). It posts the log, the cup details and the answer (`ruling`) to the `eggy-submit` Cloudflare Worker (`submit-worker/`).
+2. The GitHub Action `.github/workflows/process-submission.yml` runs every 15 minutes from Friday night to Sunday midday. It calls `submissions_poll.py --ci`, which checks the ruling against the log, runs `new_cup.py` and opens a pull request `cup-N` with the result and a "Names to check" list.
+3. Merging the PR publishes the cup. The next Action run marks the submission `published`.
+4. On the PC, `python catch_up.py` pulls, fetches the raw log from the Worker, recomputes cup strength with the local cross-comp data and runs the cross-comp refresh.
+
+Raw logs can contain chat, so they stay private (in the Worker and in the local, ignored `cup logs/`). Only the COTDTracker lines are published, in `tracker_logs/`.
+
+## Processing a cup by hand
+
+```
+python new_cup.py <N> "<RAW mapper name>" --map "Map Name" [--exclude "a,b"] [--date YYYY-MM-DD] [--log PATH | --live]
 ```
 
-## Per-cup workflow
+- The mapper is the **raw** log name, clan tag included (`"[ZET] Wheelie"`), so the exclusion matches. If the mapper was not in the lobby, type any name; nothing is excluded.
+- `--exclude` takes raw names of people who were in the lobby but did not race.
+- Log source: `--log PATH`, or `--live` (BepInEx), or the archived `cup logs/eggy_<N>.log`.
+- The script runs `snapshot.py N-1`, parses the log, appends the xlsx block, writes `cup_<N>.json`, `cup_meta.json` and `tracker_logs/eggy_<N>.log`, then runs `elo_engine.py`, `build_cups.py`, `build_fastest.py` (and `analyze_cup_livelog.py` when a livelog exists). It ends with `Eggy N COMPLETE`.
+- It refuses a cup that is already processed. `--reprocess` undoes the newest cup first (the xlsx is backed up to `backups/`).
+- After a cup: `python "C:\Users\rafa\Desktop\Claude\zeepkist holistic\refresh.py"` for the cross-comp ranking.
 
-Four steps, in order. All run from `C:\Users\rafa\Desktop\Claude\eggy cup\`:
+### Abnormal endings
 
-### 1. Snapshot pre-cup state
-Capture the current leaderboard so the next render shows week-over-week delta arrows on rank, rating, and wins.
-```
-python snapshot.py
-```
+`eggy_parser.detect_outcome()` classifies how a log ends. The submit page turns each case into a question, and the answer maps to a flag:
 
-### 2. Save logs (before relaunching Zeepkist)
-BepInEx overwrites both `LogOutput.log` and `LiveLeaderboardLogger.log` on the next launch, so do this BEFORE you restart the game.
-```
-python C:\Users\rafa\Desktop\Claude\save_log.py eggy <N>
-```
-This grabs **both**:
-- `cup logs\eggy_<N>.log` — cup tracker log (always)
-- `cup logs\eggy_<N>_liveleaderboard.log` — livelog (only if `/livelog start` was active during the cup)
+| Log shows | Flag |
+|---|---|
+| Both finalists DNF the last round, 3rd place wins (house rule) | `--winner "<3rd place>"` |
+| Both finalists DNF, the final was replayed off-tracker | `--winner "<replay winner>"` |
+| Cup stopped with several players still in (host disconnect) | `--finish-by-times` |
+| Several cup starts in one log (false start or redo) | `--lobby K` |
+| Roulette night (every round a different map) | `--no-fastest`, processed by hand |
 
-### 3. Run the update pipeline
-```
-python new_cup.py <N> [mapper] [--exclude name1,name2]
-```
-- Parses `cup logs\eggy_<N>.log` → appends to `Eggy Cup 87-NN.xlsx`
-- Writes `cup_<N>.json` backup
-- Runs `elo_engine.py`, `build_cups.py`, `build_fastest.py`
-- Runs `analyze_cup_livelog.py` if a livelog is present (LTG inference + `steam_ids.json` merge)
-- Mapper defaults to `TBD` if omitted; pass `--exclude wheelie` when he's hosting and not competing.
-
-### 4. Fill in map name + mapper
-Once you know the map name, edit `map_index` in `build_cups.py`, then rerun `python build_cups.py`.
-
-### Wheelie exclusion
-
-Per-cup decision. He raced in cup 88. When he hosts and does not compete, pass `--exclude wheelie`.
-
-## File map
+## Files
 
 | File | Role |
 |---|---|
-| `new_cup.py` | Orchestrator. Reads `cup logs\eggy_<N>.log`; pass `--live` to pull from BepInEx instead. |
-| `elo_engine.py` | Computes both rating variants. Reads the canonical xlsx, writes `elo_results.json` + `alldata.json`. |
-| `snapshot.py` | Captures pre-cup state into `snapshot.json` for week-over-week delta arrows. |
-| `build_cups.py` | Inverts `elo_results.json` into cup-centric `cups.json`. **`map_index` dict is the source of truth for map names + mappers.** |
-| `build_fastest.py` | Builds `fastest.json` from per-cup logs. |
-| `analyze_cup_livelog.py` | LTG inference (Left The Game mid-round) + `steam_ids.json` merge. Reads `cup logs\eggy_<N>_liveleaderboard.log`. |
-| `index.html` | Frontend — dark theme, port 9004, ELO / Glicko-2 variant toggle, click player for inline chart. |
+| `new_cup.py` | Orchestrator, see above. |
+| `eggy_parser.py` | Pure log parser and outcome classifier. `eggy_parser.js` is its browser port; any rule change goes in both. |
+| `eggy_files.py` | Finds the one `Eggy Cup A-B.xlsx` workbook. |
+| `elo_engine.py` | Computes ELO and Glicko-2 from the xlsx; writes `elo_results.json` and `alldata.json`. Holds the `CANONICAL` alias dictionary. |
+| `snapshot.py` | Pre-cup `snapshot.json` for the week-over-week arrows. |
+| `build_cups.py` | `cups.json` with cup strength. Map, mapper and date come from `cup_meta.json`; the dictionaries for cups 87 to 109 are frozen history. |
+| `build_fastest.py` | `fastest.json`. |
+| `analyze_cup_livelog.py` | Left-the-game inference and `steam_ids.json` merge when a LiveLeaderboardLogger log exists. |
+| `submit.html`, `submit-worker/`, `submissions_poll.py`, `catch_up.py` | The submit flow. |
+| `tests/` | `python -m pytest tests -q`. Every archived cup must replay byte for byte, and the JS parser must equal the Python one. |
 
 ## Rating variants
 
-Two ratings are computed:
+- **ELO** (weighted): `K=32` divided across the lobby, with pairwise multipliers favoring upsets near the top. Anchored at 1500. Inactivity decay after a 3-cup grace period.
+- **Glicko-2**: percentile-based single-observation update (ported from ZSL). `R0=1500, RD0=350, vol0=0.06, tau=0.8, RD floor=80`.
 
-- **ELO** (weighted): `K=32` divided across the lobby, with pairwise pct-multipliers favoring upsets near the top. Anchored at 1500. Inactivity decay after 3-cup grace.
-- **Glicko-2**: percentile-based single-observation update (ported from ZSL). `R0=1500, RD0=350, vol0=0.06, τ=0.8, RD floor=80`. No ELO-style decay — RD captures uncertainty natively.
+## Eggy-specific rules
 
-Glicko-2 swings harder than ELO with sparse data (3 cups → RDs still ~220–290). Will tighten over time.
-
-## Eggy-specific quirks
-
-### Winner-marker round
-
-The cup-tracker log terminates with a synthetic round: a single-player leaderboard, that same player "eliminated by mod". The COTD parser treats this as a regular elimination and fails to identify the winner. `new_cup.py` detects the pattern (single-player leaderboard + single elimination = same name) and treats that player as the winner. See the `winner_marker` block.
-
-### Tier scale
-
-The ELO tier bands (Legend/Pro/Master/Gold/Silver/Bronze) and colors are inherited from COTD's higher-scale palette. With only 3 cups, most players sit in Silver — bands will spread out as cups accumulate.
-
-## Bootstrap state (2026-05-23)
-
-| Cup | Map | Mapper | Winner | Players | Fastest |
-|---|---|---|---|---|---|
-| Eggy 87 | pizza track | Wheelie | Minkus | 23 | MackCheesy 35.009 |
-| Eggy 88 | TBD | void & zodiak | Stick (ZET) | 17 | microways 50.368 |
-| Eggy 89 | TBD | vectortrajector | Lexer | 27 | Lexer 31.549 |
-
-Top 5 weighted ELO after cup 89: Stick · Minkus · microways · Lexer · Shattersmith.
+- **Winner-marker round**: the tracker log can end with a one-player leaderboard where that player is "eliminated" by the mod. That player is the winner, and their time comes from the last round they actually raced.
+- **Mappers** who ride along in their own cup are excluded. A host who races counts.
+- **Exclusions match raw names exactly** (`[ZET] Wheelie`, with the space). Aliases are resolved later in `elo_engine.py`.
 
 ## Out of scope
 
-- GitHub Pages public site (this project is unannounced)
-- Cross-comp ELO integration
-- SOF mod feed (Eggy pool too thin to drive general-lobby SOF)
-- Mining cups 1–86 from VODs / Discord
-- Auto-apply LTG corrections to xlsx (currently they patch only `cup_<N>.json`)
-- Per-map mapper-exclusion semantics (Eggy may or may not have own-map rule)
-- Big 3 / consistency / alt-ranking pages — revisit at 10+ cups
+- Mining cups 1 to 86 from VODs or Discord.
+- Applying LTG corrections to the xlsx automatically (they patch only `cup_<N>.json`).
 
 ## Origin
 
-The rating engine and CANONICAL alias dictionary are inherited from the COTD project. Eggy-specific seeds (maskeddog, Shinikage221, bjenk4, …) are added at the bottom of the `CANONICAL` dict in `elo_engine.py`.
+The rating engine and the `CANONICAL` alias dictionary come from the COTD project. Eggy-specific aliases are at the bottom of `CANONICAL` in `elo_engine.py`.

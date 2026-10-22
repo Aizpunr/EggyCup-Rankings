@@ -20,3 +20,6 @@ cup logs/
 
 # new_cup.py --reprocess backups
 backups/
+
+# Submit poller config (holds the poller token)
+submit_config.json

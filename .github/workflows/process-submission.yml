@@ -1,0 +1,95 @@
+name: Process submitted cups
+
+# Polls the eggy-submit Worker for cups sent from submit.html. A processed cup
+# becomes a pull request on branch cup-<N>; merging it publishes the cup.
+# See submissions_poll.py (--ci) and submit-worker/README.md.
+
+on:
+  schedule:
+    # Eggy starts around 23:30-00:30 UTC Friday night.
+    - cron: '*/15 21-23 * * 5'
+    - cron: '*/15 * * * 6'
+    - cron: '*/30 0-11 * * 0'
+  push:
+    # A merged cup PR changes cup_meta.json: mark its submission 'published'.
+    branches: [main]
+    paths: [cup_meta.json]
+  workflow_dispatch:
+    inputs:
+      id:
+        description: 'Only this submission id (optional)'
+        required: false
+      dry_run:
+        description: 'Dry run: decide and log, change nothing'
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: submissions
+  cancel-in-progress: false
+
+jobs:
+  poll:
+    runs-on: windows-latest
+    timeout-minutes: 45
+    env:
+      PYTHONIOENCODING: utf-8
+      EGGY_WORKER_URL: ${{ secrets.EGGY_WORKER_URL }}
+      EGGY_POLLER_TOKEN: ${{ secrets.EGGY_POLLER_TOKEN }}
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Install
+        run: python -m pip install --quiet openpyxl certifi pytest
+
+      - name: Tests
+        run: python -m pytest tests -q
+
+      - name: Fetch cross-comp SOF
+        shell: pwsh
+        run: |
+          $sofDir = Join-Path $env:RUNNER_TEMP 'sof'
+          New-Item -ItemType Directory -Force -Path $sofDir | Out-Null
+          try {
+            Invoke-WebRequest 'https://raw.githubusercontent.com/Aizpunr/Zeepkist-Strength-of-Field/main/elo_pool.json' -OutFile (Join-Path $sofDir 'elo_pool.json') -TimeoutSec 30 -ErrorAction Stop
+            Invoke-WebRequest 'https://raw.githubusercontent.com/Aizpunr/Zeepkist-Strength-of-Field/main/docs/allcompdata.json' -OutFile (Join-Path $sofDir 'allcompdata.json') -TimeoutSec 30 -ErrorAction Stop
+            "EGGY_SOF_DIR=$sofDir" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
+          } catch {
+            Write-Host 'SOF download failed; continuing without EGGY_SOF_DIR, using Eggy-local SOF.'
+          }
+
+      - name: Poll and process
+        shell: bash
+        env:
+          ONLY_ID: ${{ inputs.id }}
+          DRY_RUN: ${{ inputs.dry_run }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          args=(--once --ci -v)
+          if [ -n "$ONLY_ID" ]; then args+=(--id "$ONLY_ID"); fi
+          if [ "$DRY_RUN" = "true" ]; then args+=(--dry-run); fi
+          python submissions_poll.py "${args[@]}"
+
+      # The poller's log and new_cup.py's output only. Never the submitted
+      # LogOutput.log files: artifacts of a public repo are public, and a raw
+      # log carries the submitter's Windows paths.
+      - name: Keep the run's logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: submissions-${{ github.run_id }}
+          path: |
+            cup logs/submissions/poll.log
+            cup logs/submissions/*.out
+          if-no-files-found: ignore
+          retention-days: 30

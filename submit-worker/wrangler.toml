@@ -1,0 +1,22 @@
+# Cloudflare Worker that receives Eggy Cup logs from submit.html.
+# Setup steps: see README.md. Secrets (TURNSTILE_SECRET, POLLER_TOKEN) are
+# set with `npx wrangler secret put`, never written here.
+name = "eggy-submit"
+main = "src/index.js"
+compatibility_date = "2026-09-01"
+workers_dev = true
+
+[[kv_namespaces]]
+binding = "SUBMISSIONS"
+# Replace both with the ids printed by:
+#   npx wrangler kv namespace create EGGY_SUBMISSIONS
+#   npx wrangler kv namespace create EGGY_SUBMISSIONS --preview
+id = "REPLACE_KV_ID"
+preview_id = "REPLACE_KV_PREVIEW_ID"
+
+[vars]
+ALLOWED_ORIGINS = "https://aizpunr.github.io,http://localhost:9004,http://127.0.0.1:9004"
+TURNSTILE_HOSTNAMES = "aizpunr.github.io,localhost,127.0.0.1"
+MAX_BYTES = "5242880"
+MAX_INDEX = "200"
+DAILY_SUBMIT_CAP = "20"
