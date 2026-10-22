@@ -11,8 +11,8 @@ binding = "SUBMISSIONS"
 # Replace both with the ids printed by:
 #   npx wrangler kv namespace create EGGY_SUBMISSIONS
 #   npx wrangler kv namespace create EGGY_SUBMISSIONS --preview
-id = "REPLACE_KV_ID"
-preview_id = "REPLACE_KV_PREVIEW_ID"
+id = "8f0e00403fbf4b498c56a81c1c8505d5"
+preview_id = "750ba43373ed435486c643d6347ddf9e"
 
 [vars]
 ALLOWED_ORIGINS = "https://aizpunr.github.io,http://localhost:9004,http://127.0.0.1:9004"
