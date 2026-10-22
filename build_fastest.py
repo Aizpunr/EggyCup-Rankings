@@ -45,9 +45,9 @@ def normalize_name(name):
     return stripped
 
 
-# Auto-detect xlsx files from elo_engine.py
-_elo_src = open(_p('elo_engine.py'), encoding='utf-8').read()
-FILES = re.findall(r"parse_file\(_p\('(.+?\.xlsx)'\)\)", _elo_src)
+# The one results workbook (eggy_files finds it by name pattern)
+from eggy_files import xlsx_path
+FILES = [os.path.basename(xlsx_path())]
 
 RE_FT = re.compile(
     r'Fastest Time:\s*'

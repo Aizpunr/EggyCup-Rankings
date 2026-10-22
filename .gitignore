@@ -13,3 +13,10 @@ Thumbs.db
 # Temp files
 *.tmp
 *.bak
+
+# Raw game logs can hold chat: new ones stay local (and in the submit Worker).
+# Logs committed before 2026-10-22 stay tracked. tracker_logs/ is the public copy.
+cup logs/
+
+# new_cup.py --reprocess backups
+backups/

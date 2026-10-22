@@ -1,0 +1,211 @@
+{
+ "87": {
+  "log": "eggy_87.log",
+  "expected": "cup_87.json",
+  "mapper": "TBD",
+  "exclude": [],
+  "skip": "LTG-patched by analyze_cup_livelog.py after parsing; cup json no longer equals the parse"
+ },
+ "88": {
+  "log": "eggy_88.log",
+  "expected": "cup_88.json",
+  "mapper": "TBD",
+  "exclude": []
+ },
+ "89": {
+  "log": "eggy_89.log",
+  "expected": "cup_89.json",
+  "mapper": "TBD",
+  "exclude": [],
+  "skip": "LTG-patched by analyze_cup_livelog.py after parsing; cup json no longer equals the parse"
+ },
+ "90": {
+  "log": "eggy_90.log",
+  "expected": "cup_90.json",
+  "mapper": "heyovio",
+  "exclude": [],
+  "skip": "processed before the 2026-06-19 winner-time fix; stored winner time is the solo marker lap"
+ },
+ "91": {
+  "log": "eggy_91.log",
+  "expected": "cup_91.json",
+  "mapper": "Wheelie",
+  "exclude": [
+   "[ZET] Wheelie"
+  ]
+ },
+ "92": {
+  "log": "eggy_92.log",
+  "expected": "cup_92.json",
+  "mapper": "Sword125 & void",
+  "exclude": [
+   "aizpun",
+   "𝒱V𝑜o𝒾i𝒹d𝒱"
+  ]
+ },
+ "93": {
+  "log": "eggy_93.log",
+  "expected": "cup_93.json",
+  "mapper": "Micah & vectortrajector",
+  "exclude": [
+   "[ZET] Wheelie"
+  ]
+ },
+ "94": {
+  "log": "eggy_94.log",
+  "expected": "cup_94.json",
+  "mapper": "vectortrajector",
+  "exclude": [
+   "[ZET]vectortrajector"
+  ],
+  "winner": "SuperHeavy"
+ },
+ "95": {
+  "log": "eggy_95.log",
+  "expected": "cup_95.json",
+  "mapper": "void & Wheelie",
+  "exclude": [
+   "[ZET] Wheelie",
+   "𝒱V𝑜o𝒾i𝒹d𝒱"
+  ]
+ },
+ "96": {
+  "log": "eggy_96.log",
+  "expected": "cup_96.json",
+  "mapper": "void",
+  "exclude": [
+   "Kernkob",
+   "𝒱V𝑜o𝒾i𝒹d𝒱"
+  ],
+  "finish_by_times": true
+ },
+ "97": {
+  "log": "eggy_97.log",
+  "expected": "cup_97.json",
+  "mapper": "vectortrajector & Wheelie",
+  "exclude": [
+   "[ZET] Wheelie",
+   "[ZET]vectortrajector"
+  ]
+ },
+ "98": {
+  "log": "eggy_98.log",
+  "expected": "cup_98.json",
+  "mapper": "Wheelie",
+  "exclude": [
+   "[ZET] Wheelie"
+  ]
+ },
+ "99": {
+  "log": "eggy_99.log",
+  "expected": "cup_99.json",
+  "mapper": "vectortrajector",
+  "exclude": [
+   "[ZET]vectortrajector"
+  ]
+ },
+ "100": {
+  "log": "eggy_100.log",
+  "expected": "cup_100.json",
+  "mapper": "Wheelie & Sword125",
+  "exclude": [
+   "[ZET] Wheelie",
+   "[ZET]Sword125"
+  ]
+ },
+ "101": {
+  "log": "eggy_101.log",
+  "expected": "cup_101.json",
+  "mapper": "Wheelie",
+  "exclude": []
+ },
+ "102": {
+  "log": "eggy_102.log",
+  "expected": "cup_102.json",
+  "mapper": "Victor",
+  "exclude": [
+   "[EG]Victor"
+  ]
+ },
+ "103": {
+  "log": "eggy_103.log",
+  "expected": "cup_103.json",
+  "mapper": "Wheelie",
+  "exclude": [
+   "[ZET] Wheelie"
+  ],
+  "winner": "[KBW]Kernkob"
+ },
+ "104": {
+  "log": "eggy_104.log",
+  "expected": "cup_104.json",
+  "mapper": "vectortrajector",
+  "exclude": [
+   "[ZET]vectortrajector"
+  ]
+ },
+ "105": {
+  "log": "eggy_105.log",
+  "expected": "cup_105.json",
+  "mapper": "Victor, LKat & Kree",
+  "exclude": [
+   "[EG]Victor"
+  ],
+  "winner": "Minkus"
+ },
+ "106": {
+  "log": "eggy_106.log",
+  "expected": "cup_106.json",
+  "mapper": "IronDragon111000",
+  "exclude": [
+   "[CSC]IronDragon111000"
+  ]
+ },
+ "107": {
+  "log": "eggy_107.log",
+  "expected": "cup_107.json",
+  "mapper": "Sword125",
+  "exclude": [
+   "[ZET]Sword125"
+  ]
+ },
+ "108": {
+  "log": "eggy_108.log",
+  "expected": "cup_108.json",
+  "mapper": "Minkus",
+  "exclude": [
+   "Minkus"
+  ]
+ },
+ "109": {
+  "log": "eggy_109.log",
+  "expected": "cup_109.json",
+  "mapper": "Wheelie",
+  "exclude": [
+   "[ZET] Wheelie"
+  ]
+ },
+ "roulette": {
+  "log": "eggy_roulette.log",
+  "expected": "cup_roulette.json",
+  "mapper": "TBD",
+  "exclude": []
+ },
+ "94_full": {
+  "log": "eggy_94_full.log",
+  "expected": "cup_94.json",
+  "mapper": "vectortrajector",
+  "exclude": [
+   "[ZET]vectortrajector"
+  ],
+  "winner": "SuperHeavy",
+  "lobby": 1
+ },
+ "101_full": {
+  "log": "eggy_101_full.log",
+  "expected": "cup_101.json",
+  "mapper": "Wheelie",
+  "exclude": [],
+  "lobby": 2
+ }
+}

@@ -2,19 +2,38 @@
 new_cup.py — Process an Eggy Cup from COTDTracker mod logs.
 
 Usage:
-  python new_cup.py 89                       # mapper unknown / TBD
-  python new_cup.py 89 "MapperName"          # mapper known
-  python new_cup.py 89 "MapperName" --exclude wheelie,other
-  python new_cup.py 89 --from-log eggy_89.log   # parse an archived log (default)
+  python new_cup.py 110 "[ZET] Wheelie" --map "Map Name"
+  python new_cup.py 110 "[ZET] Wheelie" --exclude "aizpun,[ZET]Sword125"
+  python new_cup.py 110 Minkus --log "C:/Users/rafa/Downloads/LogOutput.log" --date 2026-10-24
+  python new_cup.py 110 --reprocess ...     # undo the newest cup's block, then process again
 
-By default reads `cup logs/eggy_<N>.log` — already-archived. If you want to
-process a fresh log straight from BepInEx, pass `--live`.
+The mapper is the RAW log name (tag and all) so the exclusion matches; the
+display name (tag stripped) is what cup_N.json and cup_meta.json store. A
+mapper who was not in the lobby can be typed freely, nothing is excluded then.
 
-Parses log → appends to xlsx → JSON backup → runs elo_engine + build_cups +
-build_fastest + analyze_cup_livelog (when livelog is present).
+Log source, in order: --log PATH, --live (BepInEx LogOutput.log), else the
+archived `cup logs/eggy_<N>.log`. The source is copied to `cup logs/` and its
+COTDTracker lines to `tracker_logs/eggy_<N>.log` (that one is tracked in git).
+
+Abnormal endings (see eggy_parser.detect_outcome):
+  --winner RAW         both finalists DNF -> "3rd wins" rule, or a final replayed
+                       off-tracker; that player is placed 1st
+  --finish-by-times    cup cut short with survivors left: rank them by last-round time
+  --lobby K            the log holds K+ cup starts (redo / false start): use the Kth
+  --no-fastest         roulette-style nights: no fastest-lap annotation
+
+Gate: refuses a cup that is already in the xlsx or cup_meta.json unless
+--reprocess, which only works on the newest block (xlsx backed up to backups/).
+
+Steps: snapshot.py N-1 -> parse -> xlsx block -> cup_N.json -> cup_meta.json ->
+elo_engine -> build_cups -> build_fastest -> analyze_cup_livelog (if a livelog).
+Prints "Eggy N COMPLETE" on success; the submissions poller looks for that line.
 """
-import re, os, sys, json, subprocess, shutil
+import argparse, datetime, json, os, re, shutil, subprocess, sys
 import openpyxl
+
+import eggy_parser as P
+from eggy_files import xlsx_path, xlsx_range
 
 sys.stdout.reconfigure(encoding='utf-8')  # players use exotic unicode names
 
@@ -24,73 +43,147 @@ _p = lambda f: os.path.join(_dir, f)
 LIVE_LOG_PATH = r"C:\Program Files (x86)\Steam\steamapps\common\Zeepkist\BepInEx\LogOutput.log"
 LIVE_LIVELOG_PATH = r"C:\Program Files (x86)\Steam\steamapps\common\Zeepkist\BepInEx\LiveLeaderboardLogger.log"
 COLS_PER_CUP = 6
+META_PATH = _p('cup_meta.json')
 
-# ── Parse arguments ──
-if len(sys.argv) < 2:
-    print("Usage: python new_cup.py <cup_number> [mapper] [--exclude name1,name2] [--live]")
+
+def fail(msg):
+    print(f"ERROR: {msg}")
     sys.exit(1)
 
-cup_num = int(sys.argv[1])
 
-# positional mapper = first non-flag arg, skipping flag VALUES (--exclude X, --winner Y)
-mapper = "TBD"
-_flag_with_value = {'--exclude', '--winner'}
-_skip = False
-for arg in sys.argv[2:]:
-    if _skip:
-        _skip = False
-        continue
-    if arg in _flag_with_value:
-        _skip = True
-        continue
-    if not arg.startswith('--'):
-        mapper = arg
-        break
+def display_name(raw):
+    """'[ZET] Wheelie' -> 'Wheelie'."""
+    return re.sub(r'^\[[^\]]*\]\s*', '', raw).strip() or raw
 
+
+def load_meta():
+    if not os.path.exists(META_PATH):
+        return {}
+    with open(META_PATH, encoding='utf-8') as f:
+        return json.load(f)
+
+
+def save_meta(meta):
+    def key(cid):
+        m = re.search(r'\d+', cid)
+        return int(m.group()) if m else 0
+    ordered = {k: meta[k] for k in sorted(meta, key=key)}
+    with open(META_PATH, 'w', encoding='utf-8', newline='\n') as f:
+        json.dump(ordered, f, ensure_ascii=False, indent=1)
+        f.write('\n')
+
+
+def block_columns(ws):
+    """[(col_start, cup_title)] for every block in the sheet, left to right."""
+    rows = list(ws.iter_rows(min_row=1, max_row=5, values_only=True))
+    out = []
+    if len(rows) >= 5:
+        for ci, val in enumerate(rows[4]):
+            if val == 'Position':
+                out.append((ci + 1, rows[1][ci] if len(rows) > 1 else None))
+    return out
+
+
+def run(script, label, *args):
+    path = _p(script)
+    if not os.path.exists(path):
+        print(f"  SKIP: {script} not found")
+        return True
+    print("=" * 50)
+    print(f"Running {script}...")
+    print("=" * 50)
+    r = subprocess.run([sys.executable, path, *args], cwd=_dir)
+    if r.returncode != 0:
+        print(f"  WARNING: {label} failed!")
+        return False
+    return True
+
+
+# ── Parse arguments ──
+ap = argparse.ArgumentParser(allow_abbrev=False, description='Process an Eggy Cup log.')
+ap.add_argument('cup', type=int)
+ap.add_argument('mapper', nargs='?', default='TBD', help='RAW log name of the mapper')
+ap.add_argument('--exclude', default='', help='comma-separated RAW names who did not compete')
+ap.add_argument('--winner', help='RAW name placed 1st (abnormal finals)')
+ap.add_argument('--finish-by-times', action='store_true')
+ap.add_argument('--no-fastest', action='store_true')
+ap.add_argument('--lobby', type=int, help='use the Kth cup start in the log (1-based)')
+ap.add_argument('--map', default='', help='map name for cup_meta.json (blank = TBD)')
+ap.add_argument('--date', help='YYYY-MM-DD; default = the log file date')
+ap.add_argument('--log', help='parse this log instead of the archived one')
+ap.add_argument('--live', action='store_true', help='grab LogOutput.log from BepInEx')
+ap.add_argument('--reprocess', action='store_true', help='undo the newest block first')
+args = ap.parse_args()
+
+cup_num = args.cup
 cup_id = f"Eggy {cup_num}"
-
-extra_excluded = []
-if '--exclude' in sys.argv:
-    idx = sys.argv.index('--exclude')
-    if idx + 1 < len(sys.argv):
-        extra_excluded = [n.strip() for n in sys.argv[idx + 1].split(',') if n.strip()]
-
-# Manual winner override for abnormal cups the auto-detector can't resolve
-# (e.g. both finalists DNF the last round → a side rule awards it to 3rd).
-# Pass the winner's RAW log name; they're pulled out of the elimination order
-# and placed at position 1.
-manual_winner = None
-if '--winner' in sys.argv:
-    _wi = sys.argv.index('--winner')
-    if _wi + 1 < len(sys.argv):
-        manual_winner = sys.argv[_wi + 1].strip()
-
-# For cups that never reached a final (e.g. host DC killed the lobby, log
-# truncated to the last valid round): rank the remaining survivors by their
-# times in the last competitive round instead of erroring/picking arbitrarily.
-finish_by_times = '--finish-by-times' in sys.argv
-
-# For special formats where a single fastest lap is meaningless (e.g. roulette
-# nights — every round is a different map): skip the Fastest Time annotation so
-# the cup stays out of fastest.json / the Fastest tab.
-no_fastest = '--no-fastest' in sys.argv
-
-use_live = '--live' in sys.argv
-
+mapper = args.mapper
+extra_excluded = [n.strip() for n in args.exclude.split(',') if n.strip()]
 excluded = ({mapper} if mapper and mapper != "TBD" else set()) | set(extra_excluded)
+if args.date:
+    try:
+        datetime.date.fromisoformat(args.date)
+    except ValueError:
+        fail(f"--date must be YYYY-MM-DD, got {args.date!r}")
 
 print(f"Processing {cup_id}, mapper: {mapper}")
 if extra_excluded:
     print(f"Also excluding: {', '.join(extra_excluded)}")
 print()
 
-# ── 1. Locate / archive log ──
+# ── 0. Idempotency gate / reprocess ──
+xlsx_file = xlsx_path()
+meta = load_meta()
+wb = openpyxl.load_workbook(xlsx_file)
+ws = wb[wb.sheetnames[0]]
+blocks = block_columns(ws)
+in_xlsx = [c for c, title in blocks if title == cup_id]
+if (in_xlsx or cup_id in meta) and not args.reprocess:
+    fail(f"{cup_id} is already processed (found in "
+         f"{'the xlsx' if in_xlsx else ''}{' + ' if in_xlsx and cup_id in meta else ''}"
+         f"{'cup_meta.json' if cup_id in meta else ''}). Pass --reprocess to redo the newest cup.")
+if args.reprocess:
+    if in_xlsx:
+        if blocks[-1][1] != cup_id:
+            fail(f"--reprocess only undoes the newest block; the newest is {blocks[-1][1]!r}")
+        os.makedirs(_p('backups'), exist_ok=True)
+        bak = _p(os.path.join('backups', f"{os.path.basename(xlsx_file)}.pre_reprocess_{cup_num}"))
+        shutil.copy2(xlsx_file, bak)
+        ws.delete_cols(in_xlsx[0], 4)
+        wb.save(xlsx_file)
+        print(f"Reprocess: removed {cup_id} block at column {in_xlsx[0]} (backup: {bak})")
+    if cup_id in meta:
+        del meta[cup_id]
+        save_meta(meta)
+        print(f"Reprocess: dropped {cup_id} from cup_meta.json")
+    print()
+
+# ── 1. Pre-cup snapshot (explicit target = idempotent) ──
+if cup_num > 1:
+    if not run('snapshot.py', 'snapshot', str(cup_num - 1)):
+        fail("snapshot.py failed")
+    print()
+
+# ── 2. Locate / archive log ──
 log_dir = _p('cup logs')
 os.makedirs(log_dir, exist_ok=True)
 log_backup = os.path.join(log_dir, f'eggy_{cup_num}.log')
 live_log_backup = os.path.join(log_dir, f'eggy_{cup_num}_liveleaderboard.log')
 
-if use_live:
+
+def archive(src, dst):
+    if os.path.exists(dst) and os.path.samefile(src, dst):
+        return
+    shutil.copy2(src, dst)
+
+
+if args.log:
+    if not os.path.exists(args.log):
+        fail(f"{args.log} not found")
+    archive(args.log, log_backup)
+    print(f"Log {args.log} archived to {log_backup}")
+    live_log_backup = None
+elif args.live:
     shutil.copy2(LIVE_LOG_PATH, log_backup)
     print(f"Live BepInEx log archived to {log_backup}")
     if os.path.exists(LIVE_LIVELOG_PATH):
@@ -100,241 +193,66 @@ if use_live:
         live_log_backup = None
 else:
     if not os.path.exists(log_backup):
-        print(f"ERROR: {log_backup} not found. Pass --live to grab from BepInEx, or save_log first.")
-        sys.exit(1)
+        fail(f"{log_backup} not found. Pass --log PATH or --live, or save_log first.")
     print(f"Reading archived log: {log_backup}")
     if not os.path.exists(live_log_backup):
         live_log_backup = None
 
 with open(log_backup, encoding='utf-8', errors='replace') as f:
-    lines = [l for l in f.readlines() if 'COTDTracker' in l]
+    tracker_lines = P.filter_tracker_lines(f.readlines())
+if not tracker_lines:
+    fail("No COTDTracker lines found in log file.")
 
-if not lines:
-    print("ERROR: No COTDTracker lines found in log file.")
-    sys.exit(1)
-
-# ── 2. Parse rounds ──
-rounds = []
-current_round = []
-for line in lines:
-    if 'Doing eliminations with leaderboard' in line:
-        if current_round:
-            rounds.append(current_round)
-        current_round = []
-    elif 'Eliminating ' in line or 'Player ' in line:
-        current_round.append(line)
-if current_round:
-    rounds.append(current_round)
-
-if not rounds:
-    print("ERROR: No elimination rounds found in log.")
-    sys.exit(1)
-
-elim_order = []
-actual_round = 0
-winner_marker = None  # name extracted from a final single-player "elimination" round
-last_elim_times = {}  # leaderboard times of the last competitive round
-for rnd in rounds:
-    player_times = {}
-    eliminated_names = []
-    for line in rnd:
-        m = re.search(r'Player (.+?): Time: (.+)', line)
-        if m:
-            name = m.group(1).strip()
-            time_str = m.group(2).strip()
-            player_times[name] = time_str
-        m2 = re.search(r'Eliminating (?:DNF|on time): (.+)', line)
-        if m2:
-            name = m2.group(1).strip()
-            if name not in eliminated_names:
-                eliminated_names.append(name)
-    if not eliminated_names:
-        continue
-    # Eggy cup-end marker: only one player in leaderboard, that same player
-    # "eliminated" by the mod. They're the winner — don't count as elimination.
-    if len(player_times) == 1 and len(eliminated_names) == 1 \
-            and next(iter(player_times.keys())) == eliminated_names[0]:
-        winner_marker = eliminated_names[0]
-        continue
-    actual_round += 1
-    last_elim_times = player_times
-    for name in eliminated_names:
-        if name not in excluded:
-            elim_round_time = player_times.get(name, 'DNF')
-            dnf = (elim_round_time == 'DNF')
-            elim_order.append((name, elim_round_time, actual_round, dnf))
-
-# Winner — prefer the explicit marker if present, otherwise survivor (COTD style)
-all_named = set()
-for rnd in rounds:
-    for line in rnd:
-        m = re.search(r'Player (.+?): Time:', line)
-        if m:
-            all_named.add(m.group(1).strip())
-elim_set = {e[0] for e in elim_order}
-survivor_ranks = []  # extra survivors placed 2..k when --finish-by-times resolves a cut-short cup
-if manual_winner:
-    winner = manual_winner
-    elim_order = [e for e in elim_order if e[0] != winner]
-elif winner_marker and winner_marker not in excluded:
-    winner = winner_marker
+lobbies = P.split_lobbies(tracker_lines)
+if args.lobby:
+    if not 1 <= args.lobby <= len(lobbies):
+        fail(f"--lobby {args.lobby}: the log has {len(lobbies)} cup start(s) with rounds")
+    lines = lobbies[args.lobby - 1]
+    print(f"Using cup start {args.lobby} of {len(lobbies)}")
+elif len(lobbies) > 1:
+    fail(f"the log has {len(lobbies)} cup starts with rounds (redo or false start). "
+         f"Pass --lobby K to pick the official one.")
 else:
-    winners = [n for n in all_named if n not in elim_set and n not in excluded]
-    if not winners:
-        print("ERROR: Could not determine winner.")
-        sys.exit(1)
-    if len(winners) > 1:
-        if not finish_by_times:
-            print(f"ERROR: {len(winners)} survivors ({', '.join(winners)}) — cup never "
-                  f"reached a final. Pass --finish-by-times to rank them by their "
-                  f"last-round times, or --winner to pick one.")
-            sys.exit(1)
-        def _lt_key(nm):
-            t = last_elim_times.get(nm, 'DNF')
-            try:
-                return (0, float(t.replace(',', '.')))
-            except (ValueError, AttributeError):
-                return (1, 0.0)
-        winners.sort(key=_lt_key)
-        winner = winners[0]
-        survivor_ranks = winners[1:]
-        print(f"Cut-short cup: ranking {len(winners)} survivors by last-round times "
-              f"-> {', '.join(winners)}")
-    else:
-        winner = winners[0]
+    lines = tracker_lines
 
-# Winner's displayed time = their time in the last COMPETITIVE round.
-# The Eggy cup-end "winner-marker" round (only the winner left, then
-# "eliminated" by the mod as an end signal) logs a meaningless time — often
-# DNF, since the winner doesn't bother finishing a solo lap. Skip it and use
-# the last round where the winner actually raced someone.
-winner_time = None
-for rnd in reversed(rounds):
-    pt, elim = {}, []
-    for line in rnd:
-        m = re.search(r'Player (.+?): Time: (.+)', line)
-        if m:
-            pt[m.group(1).strip()] = m.group(2).strip()
-        m2 = re.search(r'Eliminating (?:DNF|on time): (.+)', line)
-        if m2:
-            elim.append(m2.group(1).strip())
-    is_marker = (len(pt) == 1 and len(elim) == 1 and next(iter(pt)) == elim[0])
-    if is_marker:
-        continue
-    if winner in pt:
-        winner_time = pt[winner]
-        break
-
-# Build leaderboard: per-round finishers ordered by time, DNFs tie at bottom of round
-elim_order.reverse()
-leaderboard = [(winner, winner_time, None, 1)]
-pos = 2
-for nm in survivor_ranks:
-    leaderboard.append((nm, last_elim_times.get(nm, 'DNF'), None, pos))
-    pos += 1
-i = 0
-while i < len(elim_order):
-    rnd = elim_order[i][2]
-    group = []
-    while i < len(elim_order) and elim_order[i][2] == rnd:
-        group.append(elim_order[i])
-        i += 1
-    finishers = []
-    dnfs = []
-    for name, display_time, r, dnf in group:
-        if dnf:
-            dnfs.append((name, display_time, r))
-        else:
-            try:
-                t = float(str(display_time).replace(',', '.'))
-                finishers.append((name, display_time, r, t))
-            except (ValueError, TypeError):
-                dnfs.append((name, display_time, r))
-    finishers.sort(key=lambda x: x[3])
-    for name, display_time, r, _ in finishers:
-        leaderboard.append((name, display_time, r, pos))
-        pos += 1
-    if dnfs:
-        dnf_pos = pos
-        for name, display_time, r in dnfs:
-            leaderboard.append((name, display_time, r, dnf_pos))
-        pos += len(dnfs)
+# ── 3. Parse ──
+named = set(P.named_players(P.split_rounds(lines)))
+for n in extra_excluded:
+    if n not in named:
+        print(f"WARNING: excluded name {n!r} is not on any leaderboard in this log")
+try:
+    parsed = P.parse_cup_log(lines, excluded, manual_winner=args.winner,
+                             finish_by_times=args.finish_by_times)
+except P.ParseError as e:
+    fail(str(e))
+if parsed.survivors:
+    print(f"Cut-short cup: ranking {len(parsed.survivors)} survivors by last-round times "
+          f"-> {', '.join(parsed.survivors)}")
+leaderboard = parsed.leaderboard
 
 print(f"Parsed {len(leaderboard)} players (excluded: {', '.join(sorted(excluded)) or 'none'})")
-print(f"Winner: {winner} ({winner_time})")
-print(f"Rounds in log: {len(rounds)}")
+print(f"Winner: {parsed.winner} ({parsed.winner_time})")
+print(f"Rounds in log: {parsed.n_rounds}")
 print()
 
-# Fastest time
-fastest_time = None
-fastest_name = None
-fastest_round = None
-actual_round = 0
-for rnd in rounds:
-    has_elim = any(re.search(r'Eliminating (?:DNF|on time):', line) for line in rnd)
-    if has_elim:
-        actual_round += 1
-    rnd_num = actual_round if has_elim else 0
-    for line in rnd:
-        m = re.search(r'Player (.+?): Time: (.+)', line)
-        if m:
-            name = m.group(1).strip()
-            time_str = m.group(2).strip()
-            if time_str != 'DNF':
-                t = float(time_str.replace(',', '.'))
-                if fastest_time is None or t < fastest_time:
-                    fastest_time = t
-                    fastest_name = name
-                    fastest_round = rnd_num
+# Tracked copy of the tracker lines only (the full log can hold chat).
+os.makedirs(_p('tracker_logs'), exist_ok=True)
+with open(_p(os.path.join('tracker_logs', f'eggy_{cup_num}.log')), 'w',
+          encoding='utf-8', newline='\n') as f:
+    f.writelines(l if l.endswith('\n') else l + '\n' for l in tracker_lines)
 
-# ── 3. Auto-detect xlsx + insert column ──
-elo_py_path = _p('elo_engine.py')
-with open(elo_py_path, encoding='utf-8') as f:
-    elo_src = f.read()
-
-xlsx_matches = re.findall(r"parse_file\(_p\('(Eggy Cup \d+-\d+\.xlsx)'\)\)", elo_src)
-if not xlsx_matches:
-    print("ERROR: Could not find Eggy Cup xlsx reference in elo_engine.py")
-    sys.exit(1)
-current_xlsx = xlsx_matches[-1]
-xlsx_path = _p(current_xlsx)
-
-print(f"Current xlsx: {current_xlsx}")
-
-if not os.path.exists(xlsx_path):
-    # First-ever cup: create empty workbook
-    wb = openpyxl.Workbook()
-    ws = wb.active
-    ws.title = "Sheet1"
-    wb.save(xlsx_path)
-    print(f"Created empty {current_xlsx}")
-    wb = openpyxl.load_workbook(xlsx_path)
-    ws = wb[wb.sheetnames[0]]
-else:
-    wb = openpyxl.load_workbook(xlsx_path)
-    ws = wb[wb.sheetnames[0]]
-
-# Find rightmost Position header to determine next column
-rows = list(ws.iter_rows(values_only=True))
-max_pos_col = 0
-if len(rows) >= 5:
-    for ci, val in enumerate(rows[4]):
-        if val == 'Position':
-            max_pos_col = ci + 1  # 1-based
-
-# First cup goes at col 1; subsequent cups go to the right
-if max_pos_col == 0:
-    col_start = 1
-else:
-    col_start = max_pos_col + COLS_PER_CUP
+# ── 4. xlsx block ──
+print(f"Current xlsx: {os.path.basename(xlsx_file)}")
+blocks = block_columns(ws)
+col_start = 1 if not blocks else blocks[-1][0] + COLS_PER_CUP
 print(f"New cup at column {col_start}")
 
-# Write cup block
 ws.cell(row=2, column=col_start, value=cup_id)
-ws.cell(row=3, column=col_start, value=f'Map: {cup_id} by {mapper}')
-if fastest_time is not None and not no_fastest:
+ws.cell(row=3, column=col_start, value=f'Map: {cup_id} by {display_name(mapper)}')
+if parsed.fastest_time is not None and not args.no_fastest:
     ws.cell(row=4, column=col_start + 2,
-            value=f'Fastest Time: {fastest_time:.3f} by {fastest_name} in Round {fastest_round}')
+            value=f'Fastest Time: {parsed.fastest_time:.3f} by {parsed.fastest_name} '
+                  f'in Round {parsed.fastest_round}')
 ws.cell(row=5, column=col_start, value='Position')
 ws.cell(row=5, column=col_start + 1, value='Name')
 ws.cell(row=5, column=col_start + 2, value='Elim Time')
@@ -344,95 +262,77 @@ for i, (name, time, rnd, position) in enumerate(leaderboard):
     row = 6 + i
     ws.cell(row=row, column=col_start, value=position)
     ws.cell(row=row, column=col_start + 1, value=name)
-    if time == 'DNF':
+    if time == 'DNF' or time is None:
         ws.cell(row=row, column=col_start + 2, value='DNF')
     else:
-        t = float(time.replace(',', '.'))
-        ws.cell(row=row, column=col_start + 2, value=round(t * 1000))
+        ws.cell(row=row, column=col_start + 2, value=round(float(time.replace(',', '.')) * 1000))
     if rnd is not None:
         ws.cell(row=row, column=col_start + 3, value=rnd)
 
-# Rename xlsx if cup_num extends the range
-m = re.match(r'Eggy Cup (\d+)-(\d+)\.xlsx', current_xlsx)
-if m:
-    start_num, end_num = int(m.group(1)), int(m.group(2))
-    if cup_num > end_num:
-        new_xlsx = f'Eggy Cup {start_num}-{cup_num}.xlsx'
-        new_path = _p(new_xlsx)
-        wb.save(new_path)
-        if new_path != xlsx_path and os.path.exists(xlsx_path):
-            os.remove(xlsx_path)
-        print(f"Saved as {new_xlsx} (renamed from {current_xlsx})")
-        new_src = elo_src.replace(f"'{current_xlsx}'", f"'{new_xlsx}'")
-        with open(elo_py_path, 'w', encoding='utf-8') as f:
-            f.write(new_src)
-        print(f"Updated elo_engine.py: {current_xlsx} -> {new_xlsx}")
-    else:
-        wb.save(xlsx_path)
-        print(f"Saved to {current_xlsx}")
-else:
-    wb.save(xlsx_path)
-    print(f"Saved to {current_xlsx}")
+# Grow the range in the filename by renaming (never deleting) the workbook.
+start_num, end_num = xlsx_range(xlsx_file)
+if cup_num > end_num:
+    new_file = _p(f'Eggy Cup {start_num}-{cup_num}.xlsx')
+    os.replace(xlsx_file, new_file)
+    print(f"Renamed {os.path.basename(xlsx_file)} -> {os.path.basename(new_file)}")
+    xlsx_file = new_file
+wb.save(xlsx_file)
+print(f"Saved to {os.path.basename(xlsx_file)}")
 
-# ── 4. JSON backup ──
-cup_json = {
-    'cup': cup_id,
-    'cup_num': cup_num,
-    'mapper': mapper,
-    'players': [
-        {'pos': position, 'name': name, 'time': time, 'round': rnd}
-        for name, time, rnd, position in leaderboard
-    ]
-}
-json_path = _p(f'cup_{cup_num}.json')
-with open(json_path, 'w', encoding='utf-8') as f:
-    json.dump(cup_json, f, ensure_ascii=False, indent=2)
+# ── 5. JSON backup + cup_meta ──
+with open(_p(f'cup_{cup_num}.json'), 'w', encoding='utf-8') as f:
+    json.dump(P.cup_json_payload(parsed, cup_num, display_name(mapper)), f,
+              ensure_ascii=False, indent=2)
 print(f"JSON backup: cup_{cup_num}.json")
+
+date = args.date or datetime.date.fromtimestamp(os.path.getmtime(log_backup)).isoformat()
+entry = {
+    'map': args.map,
+    'mapper': '' if mapper == 'TBD' else display_name(mapper),
+    'date': date,
+    'excluded': sorted(excluded),
+}
+if args.winner:
+    entry['winner'] = args.winner
+if args.finish_by_times:
+    entry['finish_by_times'] = True
+if args.lobby:
+    entry['lobby'] = args.lobby
+if args.no_fastest:
+    entry['no_fastest'] = True
+meta = load_meta()
+meta[cup_id] = entry
+save_meta(meta)
+print(f"cup_meta.json: {cup_id} = {entry['map'] or 'TBD'} by {entry['mapper'] or 'TBD'}, {date}")
 print()
 
-# ── 5. Run downstream scripts ──
-def run(script, label):
-    path = _p(script)
-    if not os.path.exists(path):
-        print(f"  SKIP: {script} not found")
-        return True
-    print("=" * 50)
-    print(f"Running {script}...")
-    print("=" * 50)
-    r = subprocess.run([sys.executable, path], cwd=_dir)
-    if r.returncode != 0:
-        print(f"  WARNING: {label} failed!")
-        return False
-    return True
+# ── 6. Downstream scripts ──
+for script, label in [('elo_engine.py', 'elo engine'), ('build_cups.py', 'cup data'),
+                      ('build_fastest.py', 'fastest times')]:
+    if not run(script, label):
+        fail(f"{script} failed")
+    print()
 
-if not run('elo_engine.py', 'elo engine'):
-    sys.exit(1)
-print()
-run('build_cups.py', 'cup data')
-print()
-run('build_fastest.py', 'fastest times')
-print()
-
-# ── 6. LTG inference if livelog exists ──
+# ── 7. LTG inference if livelog exists ──
 if live_log_backup and os.path.exists(live_log_backup):
     print("=" * 50)
     print("Running analyze_cup_livelog.py (LTG inference)...")
     print("=" * 50)
     r = subprocess.run([sys.executable, _p('analyze_cup_livelog.py'), str(cup_num)], cwd=_dir)
     if r.returncode != 0:
-        print(f"  WARNING: analyze_cup_livelog.py failed")
+        print("  WARNING: analyze_cup_livelog.py failed")
 else:
     print(f"(no livelog for Eggy {cup_num} — skipping LTG inference)")
 print()
 
-# ── 7. Summary ──
+# ── 8. Summary ──
 print("=" * 50)
 print(f"{cup_id} COMPLETE")
 print(f"  Players: {len(leaderboard)}")
-print(f"  Winner: {winner}")
-if fastest_time and not no_fastest:
-    print(f"  Fastest: {fastest_time:.3f} by {fastest_name}")
-elif no_fastest:
+print(f"  Winner: {parsed.winner}")
+if parsed.fastest_time and not args.no_fastest:
+    print(f"  Fastest: {parsed.fastest_time:.3f} by {parsed.fastest_name}")
+elif args.no_fastest:
     print("  Fastest: skipped (--no-fastest)")
 print(f"  Columns: {col_start}-{col_start+3}")
 print("=" * 50)

@@ -1,14 +1,17 @@
 """
 build_cups.py — invert elo_results.json into cup-centric cups.json.
 
-Pulls cup dates from cup log mtimes (under `cup logs/`). Map names + mappers
-are stored in the local `map_index` dict — fill them in once you know them.
+Map, mapper and date per cup come from `cup_meta.json` (written by new_cup.py
+since cup 110). `map_index` and `CUP_DATES` below are FROZEN history for cups
+87-109: never add to them, edit `cup_meta.json` instead. Dates fall back to the
+cup log mtime only for old cups with no entry anywhere.
 
 Strength of Field uses **cross-comp ELO** (not Eggy-local ratings) so SOF
 values are comparable to the cross-comp page and the SOF mod. Reads
 `../zeepkist holistic/elo_pool.json` for ratings and the dynamic FLOOR/PEAK
 anchors from `../zeepkist holistic/allcompdata.json`. Falls back to the old
-Eggy-local SOF if those files aren't available.
+Eggy-local SOF if those files aren't available. EGGY_SOF_DIR overrides that
+folder (the GitHub Action points it at copies fetched from the SOF repo).
 """
 import json, re, sys, os, datetime
 sys.stdout.reconfigure(encoding='utf-8')
@@ -16,7 +19,7 @@ sys.stdout.reconfigure(encoding='utf-8')
 base = os.path.dirname(os.path.abspath(__file__))
 def _p(f): return os.path.join(base, f)
 
-# Map + mapper per cup. Fill in as info arrives — empty strings render as "TBD".
+# FROZEN history (cups 87-109). New cups live in cup_meta.json.
 map_index = {
     'Eggy 87': {'map': 'pizza track', 'mapper': 'Wheelie'},
     'Eggy 88': {'map': '',            'mapper': 'void & zodiak'},
@@ -44,18 +47,43 @@ map_index = {
     'Eggy 109': {'map': 'I didnt have time to make this map longer than 35 seconds', 'mapper': 'Wheelie'},
 }
 
-# Cup dates — fall back to log mtime if not explicit.
-# 102/103 logs arrived together after vacation — mtimes are wrong, pin real dates.
-CUP_DATES = {'Eggy Roulette': '2026-08-15',
-             'Eggy 102': '2026-08-29',
-             'Eggy 103': '2026-09-05',
-             # log arrived next morning — pin the actual cup night
-             'Eggy 104': '2026-09-12',
-             'Eggy 105': '2026-09-19',
-             'Eggy 106': '2026-09-26',
-             'Eggy 107': '2026-10-03',
-             'Eggy 108': '2026-10-10',
-             'Eggy 109': '2026-10-17'}
+# FROZEN history: every cup through 109 pinned (log mtimes are useless in a fresh
+# checkout, e.g. the GitHub Action). New cups get their date from cup_meta.json.
+CUP_DATES = {
+    'Eggy 87': '2026-05-09',
+    'Eggy 88': '2026-05-23',
+    'Eggy 89': '2026-05-23',
+    'Eggy 90': '2026-05-30',
+    'Eggy 91': '2026-06-06',
+    'Eggy 92': '2026-06-13',
+    'Eggy 93': '2026-06-20',
+    'Eggy 94': '2026-06-27',
+    'Eggy 95': '2026-07-04',
+    'Eggy 96': '2026-07-11',
+    'Eggy 97': '2026-07-18',
+    'Eggy 98': '2026-07-25',
+    'Eggy 99': '2026-08-01',
+    'Eggy 100': '2026-08-08',
+    'Eggy Roulette': '2026-08-15',
+    'Eggy 101': '2026-08-22',
+    'Eggy 102': '2026-08-29',
+    'Eggy 103': '2026-09-05',
+    'Eggy 104': '2026-09-12',
+    'Eggy 105': '2026-09-19',
+    'Eggy 106': '2026-09-26',
+    'Eggy 107': '2026-10-03',
+    'Eggy 108': '2026-10-10',
+    'Eggy 109': '2026-10-17',
+}
+
+# cup_meta.json (new_cup.py) wins over the frozen dicts above.
+_meta_path = _p('cup_meta.json')
+if os.path.exists(_meta_path):
+    with open(_meta_path, encoding='utf-8') as f:
+        for _cid, _m in json.load(f).items():
+            map_index[_cid] = {'map': _m.get('map', ''), 'mapper': _m.get('mapper', '')}
+            if _m.get('date'):
+                CUP_DATES[_cid] = _m['date']
 
 
 def cup_date(cid):
@@ -110,7 +138,7 @@ for cid in sorted(cups.keys(), key=cup_sort_key):
     })
 
 # ── Strength of Field (cross-comp rating pool) ──
-CROSSCOMP_DIR = os.path.normpath(os.path.join(base, '..', 'zeepkist holistic'))
+CROSSCOMP_DIR = os.environ.get('EGGY_SOF_DIR') or os.path.normpath(os.path.join(base, '..', 'zeepkist holistic'))
 ELO_POOL_PATH = os.path.join(CROSSCOMP_DIR, 'elo_pool.json')
 ALLCOMP_PATH  = os.path.join(CROSSCOMP_DIR, 'allcompdata.json')
 EGGY_SIDS_PATH = _p('steam_ids.json')
