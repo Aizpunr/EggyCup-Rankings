@@ -30,6 +30,7 @@ CONFIG = os.path.join(REPO, 'submit_config.json')
 
 def put_secret(name, value):
     r = subprocess.run('npx wrangler secret put ' + name, input=value, text=True,
+                       encoding='utf-8', errors='replace',
                        shell=True, cwd=HERE, capture_output=True)
     if r.returncode != 0:
         sys.exit(f'wrangler secret put {name} failed:\n{r.stderr[-800:]}')
