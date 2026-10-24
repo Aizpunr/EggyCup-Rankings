@@ -171,7 +171,7 @@
   <div class="section">
     <div class="help">
       Played the cup? Your game log has every round. Drop it below, check that the result looks right, and send it.
-      From the end of the cup until Sunday midday (Spain time) it gets processed within about 15 minutes by an automatic job, then published once aizpun has checked it. A log sent later waits until the next cup night.
+      An automatic job picks it up every 15 minutes from 01:45 to 04:00 on cup night (Spain time), then every hour until Sunday midday. It is published once aizpun has checked it. A log sent later waits until the next cup night.
       <ul>
         <li>The log is <code>C:\Program Files (x86)\Steam\steamapps\common\Zeepkist\BepInEx\LogOutput.log</code></li>
         <li>The game overwrites it every time it starts, so grab it <b>before</b> relaunching Zeepkist.</li>
@@ -268,7 +268,7 @@
     </div>
     <div id="statusBody"><div class="empty">Loading...</div></div>
     <div class="legend">
-      <span class="pill received">received</span><span>Waiting to be picked up (every 15 minutes from the end of the cup until Sunday midday, Spain time).</span>
+      <span class="pill received">received</span><span>Waiting to be picked up (every 15 minutes from 01:45 to 04:00 on cup night, then hourly until Sunday midday, Spain time).</span>
       <span class="pill processed">processed</span><span>Ratings computed. Waiting for aizpun to check and publish.</span>
       <span class="pill published">published</span><span>Live on the rankings.</span>
       <span class="pill review">review</span><span>aizpun will look at this one by hand: the result needed a ruling nobody was sure about, or the answers did not match the log.</span>

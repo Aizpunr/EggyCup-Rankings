@@ -35,7 +35,7 @@ Pass the anti-bot check and press Submit. The status table on the page shows wha
 
 | Status | Meaning |
 |---|---|
-| received | Waiting for the automatic job (every 15 minutes from the end of the cup until Sunday midday, Spain time). |
+| received | Waiting for the automatic job (every 15 minutes from 01:45 to 04:00 on cup night, then hourly until Sunday midday, Spain time). |
 | processed | Ratings computed. Waiting for aizpun to check and publish. |
 | published | Live on the rankings. |
 | review | aizpun will look at it by hand. |

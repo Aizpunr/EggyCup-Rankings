@@ -6,10 +6,15 @@ name: Process submitted cups
 
 on:
   schedule:
-    # Eggy starts around 23:30-00:30 UTC Friday night.
-    - cron: '*/15 21-23 * * 5'
-    - cron: '*/15 * * * 6'
-    - cron: '*/30 0-11 * * 0'
+    # Eggy is Saturday 01:30 Spain time. Cron is UTC and Spain shifts between
+    # UTC+2 (summer) and UTC+1 (winter), so the windows cover both offsets.
+    # Every 15 min from 01:45 to about 04:00 Spain time (23:45 Fri - 03:00 Sat UTC):
+    - cron: '45 23 * * 5'
+    - cron: '*/15 0-2 * * 6'
+    - cron: '0 3 * * 6'
+    # Then hourly until Sunday midday, for logs that arrive later (Discord DMs):
+    - cron: '0 4-23 * * 6'
+    - cron: '0 0-11 * * 0'
   push:
     # A merged cup PR changes cup_meta.json: mark its submission 'published'.
     branches: [main]

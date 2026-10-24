@@ -16,7 +16,7 @@ Anyone who played can send their game log on the [submit page](https://aizpunr.g
 How it flows:
 
 1. `submit.html` reads `LogOutput.log` in the browser with `eggy_parser.js`, shows the result and asks the submitter one question about it (see "Abnormal endings" below). It posts the log, the cup details and the answer (`ruling`) to the `eggy-submit` Cloudflare Worker (`submit-worker/`).
-2. The GitHub Action `.github/workflows/process-submission.yml` runs every 15 minutes from Friday night to Sunday midday. It calls `submissions_poll.py --ci`, which checks the ruling against the log, runs `new_cup.py` and opens a pull request `cup-N` with the result and a "Names to check" list.
+2. The GitHub Action `.github/workflows/process-submission.yml` runs every 15 minutes from 01:45 to 04:00 Spain time on cup night, then hourly until Sunday midday (manual runs any time from the Actions tab). It calls `submissions_poll.py --ci`, which checks the ruling against the log, runs `new_cup.py` and opens a pull request `cup-N` with the result and a "Names to check" list.
 3. Merging the PR publishes the cup. The next Action run marks the submission `published`.
 4. On the PC, `python catch_up.py` pulls, fetches the raw log from the Worker, recomputes cup strength with the local cross-comp data and runs the cross-comp refresh.
 
