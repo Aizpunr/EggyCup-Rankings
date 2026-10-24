@@ -46,6 +46,12 @@
     font-size: 22px;
     letter-spacing: 0.5px;
   }
+  .submit-btn {
+    margin-left: auto; padding: 7px 14px; border-radius: 8px;
+    border: 1px solid var(--accent); background: rgba(245,158,11,0.12);
+    color: var(--accent); font-size: 13px; font-weight: 700; text-decoration: none; white-space: nowrap;
+  }
+  .submit-btn:hover { background: rgba(245,158,11,0.22); }
   header .sub {
     color: var(--muted);
     font-size: 13px;
@@ -129,6 +135,7 @@
     .panel { padding: 10px 8px; }
     header .container, nav .container { padding: 0 12px; }
     header h1 { font-size: 18px; }
+    .submit-btn { margin-left: 0; }
     th, td { padding: 6px 6px; }
     td.rank { width: 50px; }
   }
@@ -297,7 +304,7 @@
   <div class="container">
     <h1>Eggy Cup ELO Rankings</h1>
     <span class="sub" id="subtitle">loading…</span>
-    <a href="submit.html" style="color:var(--accent);font-size:12px;margin-left:12px;text-decoration:none;">Submit a cup</a>
+    <a href="submit.html" class="submit-btn">Submit a cup</a>
   </div>
 </header>
 
