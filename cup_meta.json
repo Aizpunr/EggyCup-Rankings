@@ -1,0 +1,11 @@
+{
+ "Eggy 110": {
+  "map": "",
+  "mapper": "vectortrajector",
+  "date": "2026-10-24",
+  "excluded": [
+   "[ZET] Wheelie",
+   "[ZET]vectortrajector"
+  ]
+ }
+}

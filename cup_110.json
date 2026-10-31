@@ -1,0 +1,145 @@
+{
+  "cup": "Eggy 110",
+  "cup_num": 110,
+  "mapper": "vectortrajector",
+  "players": [
+    {
+      "pos": 1,
+      "name": "[KBW]microways",
+      "time": "40.41193",
+      "round": null
+    },
+    {
+      "pos": 2,
+      "name": "Minkus",
+      "time": "40.47651",
+      "round": 11
+    },
+    {
+      "pos": 3,
+      "name": "brrryy",
+      "time": "DNF",
+      "round": 10
+    },
+    {
+      "pos": 4,
+      "name": "Orthros",
+      "time": "40.6208",
+      "round": 9
+    },
+    {
+      "pos": 5,
+      "name": "[MMM]Victor",
+      "time": "DNF",
+      "round": 8
+    },
+    {
+      "pos": 6,
+      "name": "[AC9K]agix",
+      "time": "40.73098",
+      "round": 7
+    },
+    {
+      "pos": 7,
+      "name": "[CTR]Mortishade",
+      "time": "40.88343",
+      "round": 6
+    },
+    {
+      "pos": 8,
+      "name": "[MMM]LKat",
+      "time": "DNF",
+      "round": 6
+    },
+    {
+      "pos": 9,
+      "name": "BrickEdwards",
+      "time": "41.21725",
+      "round": 5
+    },
+    {
+      "pos": 10,
+      "name": "Mr Croc",
+      "time": "DNF",
+      "round": 5
+    },
+    {
+      "pos": 11,
+      "name": "MALIYO",
+      "time": "DNF",
+      "round": 4
+    },
+    {
+      "pos": 11,
+      "name": "[ZET]Stick",
+      "time": "DNF",
+      "round": 4
+    },
+    {
+      "pos": 13,
+      "name": "[ZET][CTR] TheBamboozler",
+      "time": "41.51965",
+      "round": 3
+    },
+    {
+      "pos": 14,
+      "name": "Applejeice",
+      "time": "41.71107",
+      "round": 3
+    },
+    {
+      "pos": 15,
+      "name": "SuperHeavy",
+      "time": "42.18937",
+      "round": 3
+    },
+    {
+      "pos": 16,
+      "name": "M4DSCOTSM4N",
+      "time": "42.33796",
+      "round": 3
+    },
+    {
+      "pos": 17,
+      "name": "[PINK]incredulouspotato",
+      "time": "42.46654",
+      "round": 2
+    },
+    {
+      "pos": 18,
+      "name": "[ZET]Sword125",
+      "time": "42.81688",
+      "round": 2
+    },
+    {
+      "pos": 19,
+      "name": "[ZET]maskeddog",
+      "time": "42.92841",
+      "round": 2
+    },
+    {
+      "pos": 20,
+      "name": "[EEN] Nico",
+      "time": "43.53782",
+      "round": 2
+    },
+    {
+      "pos": 21,
+      "name": "Hoshu",
+      "time": "43.25143",
+      "round": 1
+    },
+    {
+      "pos": 22,
+      "name": "[MMM]Milk Man",
+      "time": "43.48193",
+      "round": 1
+    },
+    {
+      "pos": 23,
+      "name": "AmusedApple",
+      "time": "43.8977",
+      "round": 1
+    }
+  ]
+}
