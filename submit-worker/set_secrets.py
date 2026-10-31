@@ -14,6 +14,10 @@ Run from anywhere, with the Turnstile widget's SECRET key on the clipboard:
 
 --poller-only skips step 1 (e.g. to rotate the token).
 
+--copy-poller changes nothing: it puts the current token from submit_config.json
+on the clipboard, to repair a GitHub secret EGGY_POLLER_TOKEN that went stale
+(the Action then fails with "HTTP 401 ... wrong poller token").
+
 --dispatch instead stores GITHUB_DISPATCH_TOKEN, a fine-grained GitHub token
 (only repository Aizpunr/EggyCup-Rankings, permission Actions: read and write)
 copied to the clipboard. With it the Worker starts the Action the moment a
@@ -73,6 +77,12 @@ def dispatch():
 def main():
     if '--dispatch' in sys.argv:
         return dispatch()
+    if '--copy-poller' in sys.argv:
+        with open(CONFIG, encoding='utf-8') as f:
+            subprocess.run(['clip'], input=json.load(f)['poller_token'], text=True, check=True)
+        print('The current poller token is on your clipboard: paste it as the GitHub secret '
+              'EGGY_POLLER_TOKEN (Settings > Secrets and variables > Actions), replacing the old value.')
+        return
     if '--poller-only' not in sys.argv:
         value = clipboard()
         if not value.startswith('0x') or len(value) < 20 or any(c.isspace() for c in value):
