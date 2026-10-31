@@ -169,3 +169,35 @@ def test_compare_with_published(log, cup, mapper, exclude, outcome, winner, lobb
     ok, note = P.compare_with_published(sub, ROOT / 'cup logs' / log, _published(cup))
     assert ok is agrees, note
     assert expect in note, note
+
+
+def _git(cwd, *args):
+    subprocess.run(['git', *args], cwd=cwd, check=True, capture_output=True)
+
+
+def test_published_cups_before_first_publish(tmp_path):
+    # The state of main before the first cup is merged: pushed, but no
+    # cup_meta.json. That must read as "nothing published", not as a failure
+    # (every scheduled CI run died here, 2026-10-24 to 10-31).
+    origin, work = tmp_path / 'origin.git', tmp_path / 'work'
+    _git(tmp_path, 'init', '-q', '--bare', '-b', 'main', str(origin))
+    _git(tmp_path, 'clone', '-q', str(origin), str(work))
+    _git(work, 'config', 'user.email', 't@example.com')
+    _git(work, 'config', 'user.name', 't')
+    _git(work, 'checkout', '-q', '-b', 'main')
+    (work / 'README.md').write_text('x', encoding='utf-8')
+    _git(work, 'add', '.')
+    _git(work, 'commit', '-q', '-m', 'init')
+    _git(work, 'push', '-q', 'origin', 'main')
+    ctx = SimpleNamespace(no_git=False, remote='origin', branch='main', repo=str(work), exit_code=0)
+    assert P.published_cups(ctx) == set()
+    assert ctx.exit_code == 0
+
+    (work / 'cup_meta.json').write_text('{"Eggy 110": {}}', encoding='utf-8')
+    _git(work, 'add', '.')
+    _git(work, 'commit', '-q', '-m', 'publish')
+    _git(work, 'push', '-q', 'origin', 'main')
+    assert P.published_cups(ctx) == {'Eggy 110'}
+
+    ctx_bad = SimpleNamespace(no_git=False, remote='nowhere', branch='main', repo=str(work), exit_code=0)
+    assert P.published_cups(ctx_bad) is None

@@ -210,6 +210,12 @@ def published_cups(ctx):
     try:
         subprocess.run(['git', 'fetch', ctx.remote, '--quiet'], cwd=ctx.repo, timeout=60,
                        capture_output=True, check=True)
+        # No cup_meta.json on the branch yet = no cup published through this flow
+        # yet (the state before the first merge), not an error.
+        exists = subprocess.run(['git', 'cat-file', '-e', f'{ctx.remote}/{ctx.branch}:cup_meta.json'],
+                                cwd=ctx.repo, timeout=30, capture_output=True)
+        if exists.returncode != 0:
+            return set()
         r = subprocess.run(['git', 'show', f'{ctx.remote}/{ctx.branch}:cup_meta.json'], cwd=ctx.repo,
                            timeout=30, capture_output=True, check=True)
         return set(json.loads(r.stdout.decode('utf-8')).keys())
