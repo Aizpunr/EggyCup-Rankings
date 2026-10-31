@@ -6,7 +6,11 @@ const source = readFileSync(new URL('../../submit-worker/src/index.js', import.m
 const {default: worker} = await import('data:text/javascript;base64,' + Buffer.from(source).toString('base64'));
 if (!globalThis.crypto) globalThis.crypto = webcrypto;
 const originalFetch = globalThis.fetch;
-globalThis.fetch = async () => Response.json({success: true, hostname: 'localhost'});
+const calls = [];
+globalThis.fetch = async (url, init) => {
+  if (String(url).startsWith('https://api.github.com/')) { calls.push({url: String(url), init}); return new Response(null, {status: 204}); }
+  return Response.json({success: true, hostname: 'localhost'});
+};
 class KV {
   data = new Map();
   async get(k) { return this.data.get(k)?.value ?? null; }
@@ -57,5 +61,20 @@ try {
   assert.equal(rows.find(x => x.id === again.id).note, 'same file as ' + first.id);
   r = await worker.fetch(new Request('https://example.test/pending', {headers: {Authorization: 'Bearer test-placeholder'}}), e);
   assert.deepEqual((await r.json()).submissions.map(x => x.id), [first.id]);
+  // A new submission starts the workflow once; duplicates and reviews do not.
+  calls.length = 0;
+  e = Object.assign(env(), {GITHUB_DISPATCH_TOKEN: 'test-placeholder', GITHUB_REPO: 'Aizpunr/EggyCup-Rankings', GITHUB_WORKFLOW: 'process-submission.yml'});
+  await submit({lobby: null, outcome: 'confirmed'}, e);
+  assert.equal(calls.length, 1);
+  assert.equal(calls[0].url, 'https://api.github.com/repos/Aizpunr/EggyCup-Rankings/actions/workflows/process-submission.yml/dispatches');
+  assert.equal(calls[0].init.method, 'POST');
+  assert.equal(calls[0].init.headers.Authorization, 'Bearer test-placeholder');
+  assert.deepEqual(JSON.parse(calls[0].init.body), {ref: 'main'});
+  await submit({lobby: null, outcome: 'confirmed'}, e);            // identical file -> duplicate
+  await submit({lobby: null, outcome: 'review', note: 'x'}, e, '112'); // same file again, other cup -> duplicate
+  assert.equal(calls.length, 1);
+  calls.length = 0;
+  await submit({lobby: null, outcome: 'confirmed'}, env());          // no token configured
+  assert.equal(calls.length, 0);
   console.log('Worker submit/status/ruling tests passed');
 } finally { globalThis.fetch = originalFetch; }

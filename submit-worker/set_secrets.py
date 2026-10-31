@@ -13,6 +13,11 @@ Run from anywhere, with the Turnstile widget's SECRET key on the clipboard:
 4. Leaves the token on the clipboard for the GitHub secret EGGY_POLLER_TOKEN.
 
 --poller-only skips step 1 (e.g. to rotate the token).
+
+--dispatch instead stores GITHUB_DISPATCH_TOKEN, a fine-grained GitHub token
+(only repository Aizpunr/EggyCup-Rankings, permission Actions: read and write)
+copied to the clipboard. With it the Worker starts the Action the moment a
+log is submitted. The check starts one real run of the workflow.
 """
 import json
 import os
@@ -43,7 +48,31 @@ def clipboard():
     return r.stdout.strip()
 
 
+def dispatch():
+    value = clipboard()
+    if not value.startswith('github_pat_') or any(c.isspace() for c in value):
+        sys.exit('The clipboard does not look like a fine-grained GitHub token (github_pat_...).')
+    put_secret('GITHUB_DISPATCH_TOKEN', value)
+    req = urllib.request.Request(
+        'https://api.github.com/repos/Aizpunr/EggyCup-Rankings/actions/workflows/process-submission.yml/dispatches',
+        data=json.dumps({'ref': 'main'}).encode(), method='POST', headers={
+            'Authorization': 'Bearer ' + value, 'Accept': 'application/vnd.github+json',
+            'X-GitHub-Api-Version': '2022-11-28', 'User-Agent': 'eggy-set-secrets',
+            'Content-Type': 'application/json'})
+    try:
+        with urllib.request.urlopen(req, timeout=30) as resp:
+            print(f'Token works: GitHub answered {resp.status} and started a run of '
+                  f'"Process submitted cups".')
+    except urllib.error.HTTPError as e:
+        sys.exit(f'GitHub answered HTTP {e.code}: check the token is limited to EggyCup-Rankings '
+                 f'with Actions: read and write.')
+    subprocess.run(['clip'], input=' ', text=True, check=True)
+    print('Clipboard cleared.')
+
+
 def main():
+    if '--dispatch' in sys.argv:
+        return dispatch()
     if '--poller-only' not in sys.argv:
         value = clipboard()
         if not value.startswith('0x') or len(value) < 20 or any(c.isspace() for c in value):
