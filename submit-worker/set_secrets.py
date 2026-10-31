@@ -52,6 +52,14 @@ def clipboard():
     return r.stdout.strip()
 
 
+def ssl_context():
+    try:
+        import certifi, ssl
+        return ssl.create_default_context(cafile=certifi.where())
+    except ImportError:
+        return None
+
+
 def dispatch():
     value = clipboard()
     if not value.startswith('github_pat_') or any(c.isspace() for c in value):
@@ -64,14 +72,15 @@ def dispatch():
             'X-GitHub-Api-Version': '2022-11-28', 'User-Agent': 'eggy-set-secrets',
             'Content-Type': 'application/json'})
     try:
-        with urllib.request.urlopen(req, timeout=30) as resp:
+        with urllib.request.urlopen(req, timeout=30, context=ssl_context()) as resp:
             print(f'Token works: GitHub answered {resp.status} and started a run of '
                   f'"Process submitted cups".')
     except urllib.error.HTTPError as e:
         sys.exit(f'GitHub answered HTTP {e.code}: check the token is limited to EggyCup-Rankings '
                  f'with Actions: read and write.')
-    subprocess.run(['clip'], input=' ', text=True, check=True)
-    print('Clipboard cleared.')
+    finally:
+        subprocess.run(['clip'], input=' ', text=True, check=True)
+        print('Clipboard cleared.')
 
 
 def main():
@@ -105,12 +114,7 @@ def main():
     req = urllib.request.Request(WORKER_URL + '/pending', headers={
         'Authorization': 'Bearer ' + token, 'User-Agent': 'eggy-set-secrets'})
     try:
-        import certifi, ssl
-        ctx = ssl.create_default_context(cafile=certifi.where())
-    except ImportError:
-        ctx = None
-    try:
-        with urllib.request.urlopen(req, timeout=30, context=ctx) as resp:
+        with urllib.request.urlopen(req, timeout=30, context=ssl_context()) as resp:
             print(f'/pending with the new token: HTTP {resp.status} (good).')
     except urllib.error.HTTPError as e:
         sys.exit(f'/pending answered HTTP {e.code}. A new secret can take a few seconds to '
