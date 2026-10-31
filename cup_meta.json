@@ -7,5 +7,14 @@
    "[ZET] Wheelie",
    "[ZET]vectortrajector"
   ]
+ },
+ "Eggy 111": {
+  "map": "Eggy - Poky",
+  "mapper": "justMaki",
+  "date": "2026-10-31",
+  "excluded": [
+   "[ZET]vectortrajector",
+   "justMaki"
+  ]
  }
 }

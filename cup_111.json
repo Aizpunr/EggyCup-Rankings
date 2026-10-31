@@ -1,0 +1,169 @@
+{
+  "cup": "Eggy 111",
+  "cup_num": 111,
+  "mapper": "justMaki",
+  "players": [
+    {
+      "pos": 1,
+      "name": "[MMM]LKat",
+      "time": "42.05476",
+      "round": null
+    },
+    {
+      "pos": 2,
+      "name": "[MMM]Victor",
+      "time": "DNF",
+      "round": 11
+    },
+    {
+      "pos": 3,
+      "name": "[KBW]microways",
+      "time": "42.69476",
+      "round": 10
+    },
+    {
+      "pos": 4,
+      "name": "Minkus",
+      "time": "42.79519",
+      "round": 9
+    },
+    {
+      "pos": 5,
+      "name": "Jake",
+      "time": "DNF",
+      "round": 8
+    },
+    {
+      "pos": 6,
+      "name": "[AC9K]agix",
+      "time": "43.308",
+      "round": 7
+    },
+    {
+      "pos": 7,
+      "name": "Orthros",
+      "time": "DNF",
+      "round": 7
+    },
+    {
+      "pos": 8,
+      "name": "[CSC] redal",
+      "time": "43.06777",
+      "round": 6
+    },
+    {
+      "pos": 9,
+      "name": "[CTR]Mortishade",
+      "time": "43.42675",
+      "round": 6
+    },
+    {
+      "pos": 10,
+      "name": "[CSC]OgelGames",
+      "time": "43.79619",
+      "round": 5
+    },
+    {
+      "pos": 11,
+      "name": "ZOMAN",
+      "time": "DNF",
+      "round": 5
+    },
+    {
+      "pos": 12,
+      "name": "Noxitu",
+      "time": "43.88222",
+      "round": 4
+    },
+    {
+      "pos": 13,
+      "name": "[ZET] Wheelie",
+      "time": "DNF",
+      "round": 4
+    },
+    {
+      "pos": 14,
+      "name": "SuperHeavy",
+      "time": "44.05383",
+      "round": 3
+    },
+    {
+      "pos": 15,
+      "name": "[CSC]IronDragon111000",
+      "time": "44.54415",
+      "round": 3
+    },
+    {
+      "pos": 16,
+      "name": "[MMM]Milk Man",
+      "time": "44.97071",
+      "round": 3
+    },
+    {
+      "pos": 17,
+      "name": "M4DSCOTSM4N",
+      "time": "DNF",
+      "round": 3
+    },
+    {
+      "pos": 18,
+      "name": "BrickEdwards",
+      "time": "45.62695",
+      "round": 2
+    },
+    {
+      "pos": 19,
+      "name": "[CSC] variableferret",
+      "time": "45.67984",
+      "round": 2
+    },
+    {
+      "pos": 20,
+      "name": "[ZET]maskeddog",
+      "time": "47.70914",
+      "round": 2
+    },
+    {
+      "pos": 21,
+      "name": "CaptainD54321 (they/she)",
+      "time": "DNF",
+      "round": 2
+    },
+    {
+      "pos": 22,
+      "name": "Shinikage221",
+      "time": "DNF",
+      "round": 1
+    },
+    {
+      "pos": 22,
+      "name": "Joolson",
+      "time": "DNF",
+      "round": 1
+    },
+    {
+      "pos": 22,
+      "name": "louisbadinkus",
+      "time": "DNF",
+      "round": 1
+    },
+    {
+      "pos": 22,
+      "name": "aizpun",
+      "time": "DNF",
+      "round": 1
+    },
+    {
+      "pos": 22,
+      "name": "ExplodedWIzard6",
+      "time": "DNF",
+      "round": 1
+    },
+    {
+      "pos": 22,
+      "name": "PlaidMango",
+      "time": "DNF",
+      "round": 1
+    }
+  ]
+}
