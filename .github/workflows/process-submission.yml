@@ -80,7 +80,16 @@ jobs:
           args=(--once --ci -v)
           if [ -n "$ONLY_ID" ]; then args+=(--id "$ONLY_ID"); fi
           if [ "$DRY_RUN" = "true" ]; then args+=(--dry-run); fi
-          python submissions_poll.py "${args[@]}"
+          rc=0
+          python submissions_poll.py "${args[@]}" || rc=$?
+          # Run logs need a GitHub login to read; annotations do not. Surface
+          # the poller's warnings and errors so a failed run can be diagnosed.
+          if [ "$rc" -ne 0 ] && [ -f "cup logs/submissions/poll.log" ]; then
+            grep -E " (WARNING|ERROR) " "cup logs/submissions/poll.log" | tail -n 8 | while IFS= read -r line; do
+              echo "::error::${line}"
+            done
+          fi
+          exit "$rc"
 
       # The poller's log and new_cup.py's output only. Never the submitted
       # LogOutput.log files: artifacts of a public repo are public, and a raw
