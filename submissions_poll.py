@@ -294,7 +294,11 @@ def toast(ctx, title, body):
         log.debug('toast failed: %s', e)
 
 
-# ── CI: a branch and a pull request per cup ─────────────────────────
+# ── CI: straight to main, or a pull request when something looks off ─
+
+MIN_PLAYERS = 10
+MAPPER_TYPO_RATIO = 0.85
+
 
 def git(ctx, *a, check=True):
     r = subprocess.run(['git', *a], cwd=ctx.repo, capture_output=True, text=True,
@@ -373,8 +377,11 @@ def ruling_words(r):
     return words
 
 
-def pr_body(sub, summary, names_section='Names to check\n\n- Not checked.'):
-    lines = [f"Submitted by {sub.get('submitter') or 'someone'} (submission `{sub['id']}`).", '',
+def pr_body(sub, summary, names_section='Names to check\n\n- Not checked.', flags=()):
+    lines = []
+    if flags:
+        lines += ['Why this did not publish by itself', ''] + ['- ' + f for f in flags] + ['']
+    lines += [f"Submitted by {sub.get('submitter') or 'someone'} (submission `{sub['id']}`).", '',
              f"- Date: {sub['date']}", f"- Map: {sub.get('map') or 'TBD'}",
              f"- Mapper: {sub['mapper']}", '- Exclusions: ' + (', '.join(sub.get('exclude') or []) or 'none'),
              '- Ruling: ' + ruling_words(sub['ruling']),
@@ -390,24 +397,129 @@ def staging_paths(repo, cup):
     return ['cup_meta.json', f'cup_{cup}.json', 'tracker_logs/'] + [os.path.basename(p) for p in sorted(glob.glob(os.path.join(repo, 'Eggy Cup *.xlsx')))]
 
 
-def open_pr(ctx, sub, summary):
-    """Commit the pipeline's output on cup-<N>, push it, open the PR. Returns its URL."""
-    cup, branch = sub['cup'], cup_branch(sub['cup'])
-    title = f"Eggy {cup}: {sub.get('map') or 'TBD'} by {sub['mapper']}"
-    if ctx.rehearsal or ctx.dry_run:
-        raise RuntimeError('publication disabled in rehearsal or dry-run')
-    names_section = collect_names(ctx)
-    git(ctx, 'checkout', '-b', branch)
+def known_mappers(ctx):
+    """Every single name in the mapper column of cups.json (joint maps split)."""
+    data = load_json(os.path.join(ctx.repo, 'cups.json'), {})
+    cups = data if isinstance(data, list) else data.get('cups', [])
+    names = set()
+    for cup in cups:
+        names.update(n.strip() for n in re.split(r'&|,', cup.get('mapper') or '') if n.strip())
+    return names - {'TBD', 'nobody'}
+
+
+def resolve_mapper(ctx, sub, log_path):
+    """Fix a typed mapper name: returns (name, note). The usual spelling for a
+    case or tag difference; a typo only when it is close to one known name.
+    new_cup.py excludes the mapper from the results, so a fuzzy match onto
+    someone who raced this cup is never applied; it comes back as a note."""
+    import difflib
+    import eggy_parser as P
+    typed = sub['mapper']
+    exclude = list(sub.get('exclude') or [])
+    with open(log_path, encoding='utf-8', errors='replace') as f:
+        raced = P.named_players(P.filter_tracker_lines(f.readlines()))
+    if typed in exclude or typed in raced:
+        return typed, ''
+    candidates = exclude + sorted(known_mappers(ctx))
+    fold = fold_name(typed)
+    same = [n for n in candidates if fold_name(n) == fold]
+    if same:
+        return same[0], ''
+    close = [n for n in candidates
+             if difflib.SequenceMatcher(None, fold, fold_name(n)).ratio() >= MAPPER_TYPO_RATIO]
+    if len({fold_name(n) for n in close}) != 1:
+        return typed, ''
+    match = close[0]
+    if match in raced and match not in exclude:
+        return typed, f'mapper "{typed}" looks like {match}, who raced this cup'
+    return match, ''
+
+
+def last_published(ctx):
+    """(number, date) of the newest cup on the remote branch, before this one."""
+    meta = json.loads(git(ctx, 'show', f'{ctx.remote}/{ctx.branch}:cup_meta.json'))
+    numbers = [int(k.split()[-1]) for k in meta if k.split()[-1].isdigit()]
+    if not numbers:
+        return None, None
+    last = max(numbers)
+    return last, meta[f'Eggy {last}'].get('date')
+
+
+def publish_flags(ctx, sub, summary, names_section):
+    """Why this cup needs aizpun before it goes live. Empty = publish now."""
+    flags = list(summary.get('warnings', []))
+    if sub.get('mapper_note'):
+        flags.append(sub['mapper_note'])
+    r = sub['ruling']
+    if r['outcome'] != 'confirmed' or r.get('lobby') is not None:
+        flags.append('abnormal ending: ' + ruling_words(r))
+    last, last_date = last_published(ctx)
+    if last is not None and sub['cup'] != last + 1:
+        flags.append(f"cup number {sub['cup']} does not follow Eggy {last}")
+    try:
+        if datetime.date.fromisoformat(sub['date']).weekday() != 5:
+            flags.append(f"{sub['date']} is not a Saturday")
+    except ValueError:
+        flags.append(f"unreadable date {sub['date']}")
+    if last_date and sub['date'] <= last_date:
+        flags.append(f"date {sub['date']} is not after Eggy {last} ({last_date})")
+    if (summary.get('players') or 0) < MIN_PLAYERS:
+        flags.append(f"only {summary.get('players')} players (the smallest cup so far had 13)")
+    previous = load_json(os.path.join(ctx.repo, f'cup_{last}.json'), {}).get('players') or []
+    now = load_json(os.path.join(ctx.repo, f"cup_{sub['cup']}.json"), {}).get('players') or []
+    if previous and [p['name'] for p in previous] == [p['name'] for p in now]:
+        flags.append(f'same result as Eggy {last}: probably the old log')
+    flags += [line[2:] for line in names_section.splitlines() if 'possible alias of' in line]
+    return flags
+
+
+def cup_title(sub):
+    mapper = re.sub(r'\[[^\]]*\]\s*', '', sub['mapper'])
+    return f"Eggy {sub['cup']}: {sub.get('map') or 'TBD'} by {mapper}"
+
+
+def commit_cup(ctx, sub, summary, extra=''):
     # Exclude even accidentally tracked private raw logs from update staging.
     git(ctx, 'add', '-u', '--', '.', ':(exclude)cup logs/**')
-    git(ctx, 'add', '--', *staging_paths(ctx.repo, cup))
-    msg = (f"{title}\n\n{summary.get('winner')} wins, {summary.get('players')} players. "
+    git(ctx, 'add', '--', *staging_paths(ctx.repo, sub['cup']))
+    msg = (f"{cup_title(sub)}\n\n{summary.get('winner')} wins, {summary.get('players')} players. "
            f"Processed online from a log submitted by {sub.get('submitter') or 'someone'}.")
-    git(ctx, 'commit', '-m', msg)
+    git(ctx, 'commit', '-m', msg + extra)
+
+
+def request_pages_build(ctx):
+    """Best effort: a push made with GITHUB_TOKEN may not start a Pages build."""
+    repo = os.environ.get('GITHUB_REPOSITORY')
+    if not repo:
+        return
+    r = subprocess.run(['gh', 'api', '-X', 'POST', f'repos/{repo}/pages/builds'],
+                       cwd=ctx.repo, capture_output=True, text=True, encoding='utf-8', timeout=60)
+    log.info('pages build request: %s', 'ok' if r.returncode == 0 else r.stderr.strip()[:200])
+
+
+def publish_direct(ctx, sub, summary, names_section):
+    """A clean cup: commit straight to main, so it goes live with nobody awake."""
+    if ctx.rehearsal or ctx.dry_run:
+        raise RuntimeError('publication disabled in rehearsal or dry-run')
+    commit_cup(ctx, sub, summary, '\n\n' + names_section)
+    git(ctx, 'push', ctx.remote, f'HEAD:{ctx.branch}')
+    request_pages_build(ctx)
+
+
+def open_pr(ctx, sub, summary, names_section=None, flags=()):
+    """Commit the pipeline's output on cup-<N>, push it, open the PR. Returns its URL."""
+    cup, branch = sub['cup'], cup_branch(sub['cup'])
+    title = cup_title(sub)
+    if ctx.rehearsal or ctx.dry_run:
+        raise RuntimeError('publication disabled in rehearsal or dry-run')
+    if names_section is None:
+        names_section = collect_names(ctx)
+    git(ctx, 'checkout', '-b', branch)
+    commit_cup(ctx, sub, summary)
     git(ctx, 'push', ctx.remote, branch)
     body_path = os.path.join(ctx.subdir, sub['id'] + '.pr-body.txt')
     with open(body_path, 'w', encoding='utf-8', newline='\n') as body:
-        body.write(pr_body(sub, summary, names_section))
+        body.write(pr_body(sub, summary, names_section, flags))
     r = subprocess.run(['gh', 'pr', 'create', '--base', ctx.branch, '--head', branch,
                         '--title', title, '--body-file', body_path],
                        cwd=ctx.repo, capture_output=True, text=True, encoding='utf-8', timeout=120)
@@ -540,6 +652,10 @@ def summarize(ctx, cup, out_text):
 def run_cup(ctx, sub, log_path):
     sid, cup = sub['id'], sub['cup']
     try:
+        mapper, mapper_note = resolve_mapper(ctx, sub, log_path)
+        if mapper != sub['mapper']:
+            log.info('mapper %r read as %r', sub['mapper'], mapper)
+        sub = dict(sub, mapper=mapper, mapper_note=mapper_note)
         status, note = check_ruling(sub, log_path)
     except (OSError, ValueError) as e:
         status, note = 'failed', f'could not check ruling: {e}'
@@ -575,13 +691,22 @@ def run_cup(ctx, sub, log_path):
         summary = summarize(ctx, cup, out_text)
         if ctx.ci and not ctx.rehearsal:
             try:
-                url = open_pr(ctx, sub, summary)
-            except (RuntimeError, subprocess.SubprocessError, OSError) as e:
-                post_status(ctx, sid, 'failed', f'processed, but the pull request failed: {e}'[:500])
+                names_section = collect_names(ctx)
+                flags = publish_flags(ctx, sub, summary, names_section)
+                if flags:
+                    url = open_pr(ctx, sub, summary, names_section, flags)
+                else:
+                    publish_direct(ctx, sub, summary, names_section)
+            except (RuntimeError, subprocess.SubprocessError, OSError, ValueError) as e:
+                post_status(ctx, sid, 'failed', f'processed, but publishing failed: {e}'[:500])
                 ctx.exit_code = 1
                 return
-            post_status(ctx, sid, 'processed', f'awaiting publish: {url}', summary)
-            log.info('pull request: %s', url)
+            if flags:
+                post_status(ctx, sid, 'processed', f'awaiting publish: {url}', summary)
+                log.info('pull request: %s (%s)', url, '; '.join(flags))
+            else:
+                post_status(ctx, sid, 'published', '', summary)
+                log.info('published straight to %s', ctx.branch)
             return
         post_status(ctx, sid, 'processed', 'awaiting publish', summary)
         who = sub.get('submitter') or 'someone'
@@ -714,6 +839,9 @@ def _pass(ctx, args):
                 if n > have or not agrees:
                     note = 'REVIEW: ' + note
                     toast(ctx, f'{cup_id}: a second log needs a look', note)
+                    if ctx.ci:
+                        log.error('%s', note)
+                        ctx.exit_code = 1
                 post_status(ctx, sub['id'], 'duplicate', note[:500])
             continue
 

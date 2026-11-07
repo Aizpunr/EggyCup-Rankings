@@ -36,7 +36,7 @@ Pass the anti-bot check and press Submit. The status table on the page shows wha
 | Status | Meaning |
 |---|---|
 | received | Waiting to be processed. That starts right after you submit and takes a few minutes. |
-| processed | Ratings computed. Waiting for aizpun to check and publish. |
+| processed | Ratings computed, but something looked unusual, so it waits for aizpun to check and publish. |
 | published | Live on the rankings. |
 | review | aizpun will look at it by hand. |
 | duplicate | That cup was already processed, or this exact file was already sent. It is still kept on record and compared with the published result, so a log that tells a different story gets a look from aizpun. |

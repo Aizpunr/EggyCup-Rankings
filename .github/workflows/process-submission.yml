@@ -1,7 +1,8 @@
 name: Process submitted cups
 
 # Polls the eggy-submit Worker for cups sent from submit.html. A processed cup
-# becomes a pull request on branch cup-<N>; merging it publishes the cup.
+# goes straight to main; one that looks unusual becomes a pull request on branch
+# cup-<N>, and merging that publishes it.
 # See submissions_poll.py (--ci) and submit-worker/README.md.
 
 on:
@@ -29,6 +30,7 @@ on:
 permissions:
   contents: write
   pull-requests: write
+  pages: write
 
 concurrency:
   group: submissions

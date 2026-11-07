@@ -1,6 +1,6 @@
 # eggy-submit Worker
 
-Receives weekly Eggy Cup logs and hands them to `submissions_poll.py`. CI processes one cup per pass, pushes `cup-N`, and opens a PR. Merging publishes it. Local processing leaves publication manual. `--rehearsal` never pushes or opens PRs, including with `--ci`.
+Receives weekly Eggy Cup logs and hands them to `submissions_poll.py`. CI processes one cup per pass. A clean cup goes straight to `main`; one that looks unusual goes to branch `cup-N` as a PR, and merging that publishes it. Local processing leaves publication manual. `--rehearsal` never pushes or opens PRs, including with `--ci`.
 
 ## Go live
 

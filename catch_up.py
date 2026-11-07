@@ -1,4 +1,4 @@
-"""Catch up the PC after merging an online Eggy Cup PR. Never commits or pushes."""
+"""Catch up the PC after an online Eggy Cup went live. Never commits or pushes."""
 import argparse
 import hashlib
 import json
