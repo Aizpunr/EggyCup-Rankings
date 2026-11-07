@@ -1,6 +1,6 @@
 {
  "Eggy 110": {
-  "map": "",
+  "map": "Occasion to Fall",
   "mapper": "vectortrajector",
   "date": "2026-10-24",
   "excluded": [
@@ -19,10 +19,9 @@
  },
  "Eggy 112": {
   "map": "Pro eliminator 5000 part 3",
-  "mapper": "Vectortrojector",
+  "mapper": "vectortrajector",
   "date": "2026-11-07",
   "excluded": [
-   "Vectortrojector",
    "[ZET]vectortrajector"
   ]
  }
