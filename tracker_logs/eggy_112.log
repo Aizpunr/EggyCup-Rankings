@@ -1,0 +1,201 @@
+[Info   :   BepInEx] Loading [COTDTracker 0.11.1]
+[Info   :COTDTracker] Plugin COTDTracker is loaded!
+[Info   :COTDTracker] Starting cup with exclude list: 
+[Info   :COTDTracker] Doing eliminations with leaderboard:
+[Info   :COTDTracker] Player [ZET] Wheelie: Time: DNF
+[Info   :COTDTracker] Player [ZET]vectortrajector: Time: DNF
+[Info   :COTDTracker] Player Shinikage221: Time: DNF
+[Info   :COTDTracker] Player [Same]stindt: Time: DNF
+[Info   :COTDTracker] Player [Auz] Bjenk4: Time: DNF
+[Info   :COTDTracker] Player [ZET]maskeddog: Time: DNF
+[Info   :COTDTracker] Player [MMM]Milk Man: Time: DNF
+[Info   :COTDTracker] Player [CSC] PlusMicron: Time: DNF
+[Info   :COTDTracker] Player Noxitu: Time: DNF
+[Info   :COTDTracker] Player Gimpel: Time: DNF
+[Info   :COTDTracker] Player Korvoth: Time: DNF
+[Info   :COTDTracker] Player BrickEdwards: Time: DNF
+[Info   :COTDTracker] Player SuperHeavy: Time: DNF
+[Info   :COTDTracker] Player Orthros: Time: DNF
+[Info   :COTDTracker] Player [MMM]LKat: Time: DNF
+[Info   :COTDTracker] Player [AC9K]agix: Time: DNF
+[Info   :COTDTracker] Player Minkus: Time: DNF
+[Info   :COTDTracker] Player deadlleg: Time: DNF
+[Info   :COTDTracker] Player Applejeice: Time: DNF
+[Info   :COTDTracker] Player [KBW]microways: Time: DNF
+[Info   :COTDTracker] Player [sup]Hypoactive: Time: DNF
+[Info   :COTDTracker] Kicking eliminated players
+[Info   :COTDTracker] Doing eliminations with leaderboard:
+[Info   :COTDTracker] Player [MMM]LKat: Time: 34.98532
+[Info   :COTDTracker] Player [KBW]microways: Time: 35.04401
+[Info   :COTDTracker] Player Minkus: Time: 35.1361
+[Info   :COTDTracker] Player [AC9K]agix: Time: 35.25961
+[Info   :COTDTracker] Player SuperHeavy: Time: 35.34986
+[Info   :COTDTracker] Player BrickEdwards: Time: 35.55294
+[Info   :COTDTracker] Player Noxitu: Time: 35.5642
+[Info   :COTDTracker] Player [CSC] PlusMicron: Time: 35.6587
+[Info   :COTDTracker] Player Orthros: Time: 35.71082
+[Info   :COTDTracker] Player Applejeice: Time: 35.85416
+[Info   :COTDTracker] Player [Same]stindt: Time: 35.90308
+[Info   :COTDTracker] Player Gimpel: Time: 36.01708
+[Info   :COTDTracker] Player deadlleg: Time: 36.36822
+[Info   :COTDTracker] Player [MMM]Milk Man: Time: 36.6105
+[Info   :COTDTracker] Player [ZET] Wheelie: Time: 36.68588
+[Info   :COTDTracker] Player [ZET]maskeddog: Time: 36.75462
+[Info   :COTDTracker] Player Korvoth: Time: 37.10692
+[Info   :COTDTracker] Player [Auz] Bjenk4: Time: 38.21241
+[Info   :COTDTracker] Player Shinikage221: Time: 38.5607
+[Info   :COTDTracker] Player [ZET]vectortrajector: Time: DNF
+[Info   :COTDTracker] Player [sup]Hypoactive: Time: DNF
+[Info   :COTDTracker] Eliminating DNF: [sup]Hypoactive
+[Info   :COTDTracker] Eliminating DNF: [ZET]vectortrajector
+[Info   :COTDTracker] Eliminated 2 DNF players
+[Info   :COTDTracker] Eliminating on time: Shinikage221
+[Info   :COTDTracker] Eliminating on time: [Auz] Bjenk4
+[Info   :COTDTracker] Eliminating 4 players: 
+[Info   :COTDTracker] [sup]Hypoactive
+[Info   :COTDTracker] [ZET]vectortrajector
+[Info   :COTDTracker] Shinikage221
+[Info   :COTDTracker] [Auz] Bjenk4
+[Info   :COTDTracker] Kicking eliminated players
+[Info   :COTDTracker] Running update tab leaderboard function
+[Info   :COTDTracker] Running update tab leaderboard function
+[Info   :COTDTracker] Doing eliminations with leaderboard:
+[Info   :COTDTracker] Player [KBW]microways: Time: 34.99602
+[Info   :COTDTracker] Player Minkus: Time: 35.03518
+[Info   :COTDTracker] Player [AC9K]agix: Time: 35.10499
+[Info   :COTDTracker] Player [MMM]LKat: Time: 35.23346
+[Info   :COTDTracker] Player [CSC] PlusMicron: Time: 35.39249
+[Info   :COTDTracker] Player SuperHeavy: Time: 35.48523
+[Info   :COTDTracker] Player Noxitu: Time: 35.48673
+[Info   :COTDTracker] Player Orthros: Time: 35.63646
+[Info   :COTDTracker] Player Applejeice: Time: 35.63859
+[Info   :COTDTracker] Player [Same]stindt: Time: 35.67612
+[Info   :COTDTracker] Player Gimpel: Time: 35.7057
+[Info   :COTDTracker] Player [ZET]maskeddog: Time: 35.89987
+[Info   :COTDTracker] Player [ZET] Wheelie: Time: 36.12128
+[Info   :COTDTracker] Player [MMM]Milk Man: Time: 36.14611
+[Info   :COTDTracker] Player BrickEdwards: Time: 36.40952
+[Info   :COTDTracker] Player deadlleg: Time: 37.13744
+[Info   :COTDTracker] Player Korvoth: Time: 37.87972
+[Info   :COTDTracker] Eliminated 0 DNF players
+[Info   :COTDTracker] Eliminating on time: Korvoth
+[Info   :COTDTracker] Eliminating on time: deadlleg
+[Info   :COTDTracker] Eliminating on time: BrickEdwards
+[Info   :COTDTracker] Eliminating on time: [MMM]Milk Man
+[Info   :COTDTracker] Eliminating 4 players: 
+[Info   :COTDTracker] Korvoth
+[Info   :COTDTracker] deadlleg
+[Info   :COTDTracker] BrickEdwards
+[Info   :COTDTracker] [MMM]Milk Man
+[Info   :COTDTracker] Kicking eliminated players
+[Info   :COTDTracker] Doing eliminations with leaderboard:
+[Info   :COTDTracker] Player [KBW]microways: Time: 34.96561
+[Info   :COTDTracker] Player [MMM]LKat: Time: 35.13643
+[Info   :COTDTracker] Player Noxitu: Time: 35.23528
+[Info   :COTDTracker] Player SuperHeavy: Time: 35.24826
+[Info   :COTDTracker] Player Minkus: Time: 35.35359
+[Info   :COTDTracker] Player Orthros: Time: 35.49699
+[Info   :COTDTracker] Player [AC9K]agix: Time: 35.58675
+[Info   :COTDTracker] Player Gimpel: Time: 35.72221
+[Info   :COTDTracker] Player Applejeice: Time: 35.76939
+[Info   :COTDTracker] Player [CSC] PlusMicron: Time: 35.9196
+[Info   :COTDTracker] Player [Same]stindt: Time: 35.94035
+[Info   :COTDTracker] Player [ZET] Wheelie: Time: 35.97808
+[Info   :COTDTracker] Player [ZET]maskeddog: Time: 36.34759
+[Info   :COTDTracker] Eliminated 0 DNF players
+[Info   :COTDTracker] Eliminating on time: [ZET]maskeddog
+[Info   :COTDTracker] Eliminating on time: [ZET] Wheelie
+[Info   :COTDTracker] Eliminating 2 players: 
+[Info   :COTDTracker] [ZET]maskeddog
+[Info   :COTDTracker] [ZET] Wheelie
+[Info   :COTDTracker] Kicking eliminated players
+[Info   :COTDTracker] Doing eliminations with leaderboard:
+[Info   :COTDTracker] Player [KBW]microways: Time: 35.06514
+[Info   :COTDTracker] Player [AC9K]agix: Time: 35.11229
+[Info   :COTDTracker] Player [MMM]LKat: Time: 35.12228
+[Info   :COTDTracker] Player Minkus: Time: 35.13915
+[Info   :COTDTracker] Player Noxitu: Time: 35.17883
+[Info   :COTDTracker] Player SuperHeavy: Time: 35.21048
+[Info   :COTDTracker] Player Orthros: Time: 35.27558
+[Info   :COTDTracker] Player Gimpel: Time: 35.43059
+[Info   :COTDTracker] Player [Same]stindt: Time: 35.5377
+[Info   :COTDTracker] Player Applejeice: Time: 35.6606
+[Info   :COTDTracker] Player [CSC] PlusMicron: Time: 36.01867
+[Info   :COTDTracker] Eliminated 0 DNF players
+[Info   :COTDTracker] Eliminating on time: [CSC] PlusMicron
+[Info   :COTDTracker] Eliminating on time: Applejeice
+[Info   :COTDTracker] Eliminating 2 players: 
+[Info   :COTDTracker] [CSC] PlusMicron
+[Info   :COTDTracker] Applejeice
+[Info   :COTDTracker] Kicking eliminated players
+[Info   :COTDTracker] Doing eliminations with leaderboard:
+[Info   :COTDTracker] Player [MMM]LKat: Time: 34.88356
+[Info   :COTDTracker] Player Minkus: Time: 35.00094
+[Info   :COTDTracker] Player Gimpel: Time: 35.18726
+[Info   :COTDTracker] Player [KBW]microways: Time: 35.31186
+[Info   :COTDTracker] Player Noxitu: Time: 35.31484
+[Info   :COTDTracker] Player SuperHeavy: Time: 35.3613
+[Info   :COTDTracker] Player [AC9K]agix: Time: 35.37763
+[Info   :COTDTracker] Player [Same]stindt: Time: 35.85149
+[Info   :COTDTracker] Player Orthros: Time: DNF
+[Info   :COTDTracker] Eliminating DNF: Orthros
+[Info   :COTDTracker] Eliminated 1 DNF players
+[Info   :COTDTracker] Eliminating on time: [Same]stindt
+[Info   :COTDTracker] Eliminating 2 players: 
+[Info   :COTDTracker] Orthros
+[Info   :COTDTracker] [Same]stindt
+[Info   :COTDTracker] Kicking eliminated players
+[Info   :COTDTracker] Doing eliminations with leaderboard:
+[Info   :COTDTracker] Player [KBW]microways: Time: 34.8315
+[Info   :COTDTracker] Player Minkus: Time: 34.92178
+[Info   :COTDTracker] Player Noxitu: Time: 35.02523
+[Info   :COTDTracker] Player [AC9K]agix: Time: 35.27048
+[Info   :COTDTracker] Player [MMM]LKat: Time: 35.27604
+[Info   :COTDTracker] Player Gimpel: Time: 35.32641
+[Info   :COTDTracker] Player SuperHeavy: Time: 35.37432
+[Info   :COTDTracker] Eliminated 0 DNF players
+[Info   :COTDTracker] Eliminating on time: SuperHeavy
+[Info   :COTDTracker] Eliminating on time: Gimpel
+[Info   :COTDTracker] Eliminating 2 players: 
+[Info   :COTDTracker] SuperHeavy
+[Info   :COTDTracker] Gimpel
+[Info   :COTDTracker] Running update tab leaderboard function
+[Info   :COTDTracker] Kicking eliminated players
+[Info   :COTDTracker] Doing eliminations with leaderboard:
+[Info   :COTDTracker] Player Minkus: Time: 34.90157
+[Info   :COTDTracker] Player [KBW]microways: Time: 34.93783
+[Info   :COTDTracker] Player [MMM]LKat: Time: 34.99718
+[Info   :COTDTracker] Player [AC9K]agix: Time: 35.1308
+[Info   :COTDTracker] Player Noxitu: Time: 35.25159
+[Info   :COTDTracker] Eliminated 0 DNF players
+[Info   :COTDTracker] Eliminating on time: Noxitu
+[Info   :COTDTracker] Eliminating 1 players: 
+[Info   :COTDTracker] Noxitu
+[Info   :COTDTracker] Kicking eliminated players
+[Info   :COTDTracker] Doing eliminations with leaderboard:
+[Info   :COTDTracker] Player [MMM]LKat: Time: 34.87812
+[Info   :COTDTracker] Player Minkus: Time: 34.97276
+[Info   :COTDTracker] Player [KBW]microways: Time: 34.97467
+[Info   :COTDTracker] Player [AC9K]agix: Time: 35.30548
+[Info   :COTDTracker] Eliminated 0 DNF players
+[Info   :COTDTracker] Eliminating on time: [AC9K]agix
+[Info   :COTDTracker] Eliminating 1 players: 
+[Info   :COTDTracker] [AC9K]agix
+[Info   :COTDTracker] Kicking eliminated players
+[Info   :COTDTracker] Doing eliminations with leaderboard:
+[Info   :COTDTracker] Player Minkus: Time: 34.88007
+[Info   :COTDTracker] Player [KBW]microways: Time: 35.0312
+[Info   :COTDTracker] Player [MMM]LKat: Time: DNF
+[Info   :COTDTracker] Eliminating DNF: [MMM]LKat
+[Info   :COTDTracker] Eliminated 1 DNF players
+[Info   :COTDTracker] Eliminating 1 players: 
+[Info   :COTDTracker] [MMM]LKat
+[Info   :COTDTracker] Kicking eliminated players
+[Info   :COTDTracker] Doing eliminations with leaderboard:
+[Info   :COTDTracker] Player [KBW]microways: Time: 34.78114
+[Info   :COTDTracker] Player Minkus: Time: 34.94673
+[Info   :COTDTracker] Eliminated 0 DNF players
+[Info   :COTDTracker] Eliminating on time: Minkus
+[Info   :COTDTracker] Eliminating 1 players: 
+[Info   :COTDTracker] Minkus
+[Info   :COTDTracker] Kicking eliminated players

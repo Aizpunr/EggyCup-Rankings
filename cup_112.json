@@ -1,0 +1,127 @@
+{
+  "cup": "Eggy 112",
+  "cup_num": 112,
+  "mapper": "Vectortrojector",
+  "players": [
+    {
+      "pos": 1,
+      "name": "[KBW]microways",
+      "time": "34.78114",
+      "round": null
+    },
+    {
+      "pos": 2,
+      "name": "Minkus",
+      "time": "34.94673",
+      "round": 10
+    },
+    {
+      "pos": 3,
+      "name": "[MMM]LKat",
+      "time": "DNF",
+      "round": 9
+    },
+    {
+      "pos": 4,
+      "name": "[AC9K]agix",
+      "time": "35.30548",
+      "round": 8
+    },
+    {
+      "pos": 5,
+      "name": "Noxitu",
+      "time": "35.25159",
+      "round": 7
+    },
+    {
+      "pos": 6,
+      "name": "Gimpel",
+      "time": "35.32641",
+      "round": 6
+    },
+    {
+      "pos": 7,
+      "name": "SuperHeavy",
+      "time": "35.37432",
+      "round": 6
+    },
+    {
+      "pos": 8,
+      "name": "[Same]stindt",
+      "time": "35.85149",
+      "round": 5
+    },
+    {
+      "pos": 9,
+      "name": "Orthros",
+      "time": "DNF",
+      "round": 5
+    },
+    {
+      "pos": 10,
+      "name": "Applejeice",
+      "time": "35.6606",
+      "round": 4
+    },
+    {
+      "pos": 11,
+      "name": "[CSC] PlusMicron",
+      "time": "36.01867",
+      "round": 4
+    },
+    {
+      "pos": 12,
+      "name": "[ZET] Wheelie",
+      "time": "35.97808",
+      "round": 3
+    },
+    {
+      "pos": 13,
+      "name": "[ZET]maskeddog",
+      "time": "36.34759",
+      "round": 3
+    },
+    {
+      "pos": 14,
+      "name": "[MMM]Milk Man",
+      "time": "36.14611",
+      "round": 2
+    },
+    {
+      "pos": 15,
+      "name": "BrickEdwards",
+      "time": "36.40952",
+      "round": 2
+    },
+    {
+      "pos": 16,
+      "name": "deadlleg",
+      "time": "37.13744",
+      "round": 2
+    },
+    {
+      "pos": 17,
+      "name": "Korvoth",
+      "time": "37.87972",
+      "round": 2
+    },
+    {
+      "pos": 18,
+      "name": "[Auz] Bjenk4",
+      "time": "38.21241",
+      "round": 1
+    },
+    {
+      "pos": 19,
+      "name": "Shinikage221",
+      "time": "38.5607",
+      "round": 1
+    },
+    {
+      "pos": 20,
+      "name": "[sup]Hypoactive",
+      "time": "DNF",
+      "round": 1
+    }
+  ]
+}

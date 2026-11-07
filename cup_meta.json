@@ -16,5 +16,14 @@
    "[ZET]vectortrajector",
    "justMaki"
   ]
+ },
+ "Eggy 112": {
+  "map": "Pro eliminator 5000 part 3",
+  "mapper": "Vectortrojector",
+  "date": "2026-11-07",
+  "excluded": [
+   "Vectortrojector",
+   "[ZET]vectortrajector"
+  ]
  }
 }
