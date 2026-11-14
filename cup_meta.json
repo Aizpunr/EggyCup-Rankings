@@ -24,5 +24,13 @@
   "excluded": [
    "[ZET]vectortrajector"
   ]
+ },
+ "Eggy 113": {
+  "map": "Eggy backup map",
+  "mapper": "Wheelie",
+  "date": "2026-11-14",
+  "excluded": [
+   "[ZET] Wheelie"
+  ]
  }
 }
